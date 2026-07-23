@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import DealCard from "./components/DealCard";
 import { deals, ships } from "./data/deals";
 
@@ -29,7 +30,7 @@ export default function HomePage() {
           </div>
           <dl className="hero-stats">
             <div>
-              <dt>2</dt>
+              <dt>3</dt>
               <dd>Ships, endless island time</dd>
             </div>
             <div>
@@ -63,18 +64,29 @@ export default function HomePage() {
       <section className="section section--muted">
         <div className="container">
           <div className="section-head section-head--center">
-            <h2>Two ships, two kinds of getaway</h2>
+            <h2>Meet the Margaritaville at Sea fleet</h2>
           </div>
-          <div className="feature-grid">
+          <div className="ship-grid">
             {ships.map((ship) => (
-              <div className="feature" key={ship.id}>
-                <p className="deal-line">{ship.region}</p>
-                <h3>{ship.name}</h3>
-                <p className="deal-meta">
-                  {ship.homeport} &middot; {ship.lengths}
-                </p>
-                <p>{ship.blurb}</p>
-              </div>
+              <article className="ship-card" key={ship.id}>
+                <Image
+                  src={ship.image}
+                  alt={ship.name}
+                  width={640}
+                  height={420}
+                  className="ship-image"
+                />
+                <div className="ship-body">
+                  <p className="deal-line">{ship.region}</p>
+                  <h3>{ship.name}</h3>
+                  {ship.homeport && (
+                    <p className="deal-meta">
+                      {ship.homeport} &middot; {ship.lengths}
+                    </p>
+                  )}
+                  <p>{ship.blurb}</p>
+                </div>
+              </article>
             ))}
           </div>
         </div>

@@ -345,8 +345,46 @@ img {
 
 .deal-image {
   width: 100%;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
   display: block;
+}
+
+/* Fleet ship cards */
+.ship-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 26px;
+}
+
+.ship-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.ship-image {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+}
+
+.ship-body {
+  padding: 20px 22px 24px;
+}
+
+.ship-body h3 {
+  font-size: 1.2rem;
+  margin: 0 0 6px;
+}
+
+.ship-body p:last-child {
+  margin-bottom: 0;
 }
 
 .deal-badge {
