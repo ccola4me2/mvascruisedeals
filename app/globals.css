@@ -1137,9 +1137,6 @@ img {
 }
 
 .fdeal {
-  display: grid;
-  grid-template-columns: 44% 1fr;
-  align-items: stretch;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -1147,25 +1144,16 @@ img {
   box-shadow: var(--shadow);
 }
 
-.fdeal--flip {
-  grid-template-columns: 1fr 44%;
-}
-
-.fdeal--flip .fdeal-media {
-  order: 2;
-}
-
-.fdeal--flip .fdeal-body {
-  order: 1;
-}
-
 .fdeal-media {
   position: relative;
-  min-height: 440px;
+  width: 100%;
+  aspect-ratio: 5 / 2;
+  background: #dbe8f2;
 }
 
 .fdeal-img {
   object-fit: cover;
+  object-position: center 46%;
 }
 
 .fdeal-tag {
@@ -1404,19 +1392,11 @@ img {
 
 /* Responsive */
 @media (max-width: 900px) {
-  .fdeal,
-  .fdeal--flip {
-    grid-template-columns: 1fr;
-  }
-  .fdeal--flip .fdeal-media {
-    order: 0;
-  }
-  .fdeal--flip .fdeal-body {
-    order: 0;
-  }
   .fdeal-media {
-    min-height: 0;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 3 / 2;
+  }
+  .fdeal-body {
+    padding: 30px 26px;
   }
 }
 
