@@ -560,6 +560,20 @@ img {
   font-size: 1.4rem;
 }
 
+.cp-logo {
+  display: block;
+  height: auto;
+  width: 180px;
+  max-width: 100%;
+  margin: 0 0 16px;
+}
+
+.team-note {
+  margin: 16px 0 0;
+  font-size: 0.78rem;
+  color: var(--slate);
+}
+
 .contact-list {
   list-style: none;
   padding: 0;

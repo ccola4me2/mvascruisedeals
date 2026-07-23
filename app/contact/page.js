@@ -75,8 +75,18 @@ export default function ContactPage() {
           </form>
 
           <aside className="contact-aside">
+            <img
+              src="/cruise-planners-logo.png"
+              alt="Cruise Planners"
+              className="cp-logo"
+              width={200}
+              height={64}
+            />
             <h2>Prefer to talk?</h2>
-            <p>Your Margaritaville at Sea specialist is here to help.</p>
+            <p>
+              Brent Beasley, Cruise Planners. Your land and cruise experts, here
+              to help you lock in the perfect Margaritaville at Sea sailing.
+            </p>
             <ul className="contact-list">
               <li>
                 <span className="contact-label">Agent</span>
@@ -88,8 +98,18 @@ export default function ContactPage() {
               </li>
               <li>
                 <span className="contact-label">Email</span>
-                <a href="mailto:brent.beasley@cruiseplanners.com">
-                  brent.beasley@cruiseplanners.com
+                <a href="mailto:Brent.beasley@cruiseplanners.com">
+                  Brent.beasley@cruiseplanners.com
+                </a>
+              </li>
+              <li>
+                <span className="contact-label">Website</span>
+                <a
+                  href="https://brentbeasley.dreamingtotravel.com/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  brentbeasley.dreamingtotravel.com
                 </a>
               </li>
               <li>
@@ -97,6 +117,7 @@ export default function ContactPage() {
                 <span>Mon&ndash;Fri, 9am&ndash;7pm ET</span>
               </li>
             </ul>
+            <p className="team-note">FL Seller of Travel #TI128169</p>
           </aside>
         </div>
       </section>

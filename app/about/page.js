@@ -61,9 +61,10 @@ export default function AboutPage() {
           </p>
 
           <p className="form-note">
-            MVA Cruise Deals is an independent travel agency. We are not affiliated
-            with or endorsed by Margaritaville at Sea; all trademarks belong to
-            their respective owners.
+            MVA Cruise Deals is operated by Brent Beasley, an independent agent
+            with Cruise Planners (FL Seller of Travel #TI128169). We are not
+            affiliated with or endorsed by Margaritaville at Sea; all trademarks
+            belong to their respective owners.
           </p>
         </div>
       </section>

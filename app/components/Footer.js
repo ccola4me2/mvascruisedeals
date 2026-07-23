@@ -24,9 +24,9 @@ export default function Footer() {
       <div className="container footer-legal">
         <p>&copy; {year} MVA Cruise Deals. All rights reserved.</p>
         <p>
-          Independent travel agency. Not affiliated with or endorsed by
-          Margaritaville at Sea. Rates and itineraries are subject to change and
-          availability.
+          Brent Beasley, Cruise Planners. FL Seller of Travel #TI128169.
+          Independent agent, not affiliated with or endorsed by Margaritaville at
+          Sea. Rates and itineraries are subject to change and availability.
         </p>
       </div>
     </footer>
