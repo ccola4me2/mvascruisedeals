@@ -288,6 +288,39 @@ img {
   color: var(--sun);
 }
 
+.hero-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #f8ca5c, var(--sun));
+  color: var(--navy-deep);
+  font-weight: 700;
+  font-size: 0.98rem;
+  padding: 6px 20px 6px 6px;
+  border-radius: 999px;
+  margin: 0 0 22px;
+  box-shadow: 0 10px 26px rgba(6, 23, 44, 0.35);
+}
+
+.hero-banner-badge {
+  background: var(--navy);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 6px 13px;
+  border-radius: 999px;
+}
+
+@media (max-width: 520px) {
+  .hero-banner {
+    font-size: 0.86rem;
+    padding: 5px 15px 5px 5px;
+    gap: 9px;
+  }
+}
+
 .hero-title {
   color: #fff;
   font-size: clamp(2.4rem, 5.2vw, 4rem);
