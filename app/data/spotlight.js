@@ -16,7 +16,7 @@ export const spotlight = {
   ourPrice: "$1,818",
   priceUnit: "total for two",
   savings: "556",
-  onboardCredit: "$25 onboard credit included",
+  onboardCredit: { amount: "$25", text: "Onboard credit included" },
   includes: ["Taxes included", "Fees included", "Gratuities included"],
   addOn: "Drink & Wi-Fi bundle available at $499 per person (subject to change).",
   image: "/deals/islander.jpg",

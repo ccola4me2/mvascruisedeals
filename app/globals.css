@@ -823,34 +823,64 @@ img {
   flex-direction: column;
 }
 
-.spotlight-badge {
+.save-seal {
   position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 94px;
-  height: 94px;
-  border-radius: 50%;
-  background: var(--coral);
-  color: #fff;
+  top: 20px;
+  right: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-sm);
-  border: 3px solid rgba(255, 255, 255, 0.9);
+  gap: 2px;
+  padding: 12px 20px;
+  border-radius: 14px;
+  background: linear-gradient(160deg, #0d2f52, var(--navy-deep));
+  border: 1px solid rgba(246, 191, 69, 0.55);
+  box-shadow: 0 10px 26px rgba(6, 23, 44, 0.4);
 }
 
-.spotlight-badge span {
-  font-size: 0.72rem;
+.save-seal-label {
+  font-size: 0.64rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.78);
 }
 
-.spotlight-badge strong {
+.save-seal-amt {
+  font-family: var(--font-display-stack);
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--sun);
+}
+
+.obc-callout {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0 0;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: rgba(18, 176, 165, 0.09);
+  border: 1px solid rgba(18, 176, 165, 0.35);
+}
+
+.obc-amt {
   font-family: var(--font-display-stack);
   font-size: 1.5rem;
+  font-weight: 700;
   line-height: 1;
+  color: var(--teal);
+  padding-right: 12px;
+  border-right: 1px solid rgba(18, 176, 165, 0.3);
+}
+
+.obc-text {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .spotlight-title {
@@ -937,12 +967,6 @@ img {
   font-size: 0.8rem;
   color: var(--slate);
   margin-left: 7px;
-}
-
-.obc-line {
-  margin: 14px 0 0;
-  font-weight: 700;
-  color: var(--teal);
 }
 
 .includes-row {

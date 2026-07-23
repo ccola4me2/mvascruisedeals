@@ -70,9 +70,9 @@ export default function HomePage() {
                 className="spotlight-img"
               />
               {spotlight.savings && (
-                <div className="spotlight-badge">
-                  <span>Save</span>
-                  <strong>${spotlight.savings}</strong>
+                <div className="save-seal">
+                  <span className="save-seal-label">You Save</span>
+                  <span className="save-seal-amt">${spotlight.savings}</span>
                 </div>
               )}
             </div>
@@ -104,7 +104,10 @@ export default function HomePage() {
               </div>
 
               {spotlight.onboardCredit && (
-                <p className="obc-line">{spotlight.onboardCredit}</p>
+                <div className="obc-callout">
+                  <span className="obc-amt">{spotlight.onboardCredit.amount}</span>
+                  <span className="obc-text">{spotlight.onboardCredit.text}</span>
+                </div>
               )}
 
               <ul className="includes-row">
