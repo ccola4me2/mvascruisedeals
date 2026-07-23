@@ -13,10 +13,6 @@ const perks = [
     body: "Book enough cabins together and everyone in your group can sail for less than booking on their own.",
   },
   {
-    title: "Tour conductor credits",
-    body: "Qualifying groups can earn a free or reduced berth, a common way to offset the organizer's fare.",
-  },
-  {
     title: "Onboard perks & amenities",
     body: "Group amenity points can go toward onboard credit, a cocktail party, or other extras for your group.",
   },
