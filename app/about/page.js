@@ -1,7 +1,7 @@
 export const metadata = {
   title: "About Us",
   description:
-    "MVAS Cruise Deals is an independent travel agency specializing in Margaritaville at Sea cruises, matching travelers and groups with the best available fares.",
+    "MVAS Cruise Deals is a travel agency specializing in Margaritaville at Sea cruises, matching travelers and groups with the best available fares.",
   alternates: { canonical: "/about/" },
 };
 
@@ -13,7 +13,7 @@ export default function AboutPage() {
           <p className="eyebrow">Who we are</p>
           <h1>About MVAS Cruise Deals</h1>
           <p className="page-lede">
-            We&apos;re an independent travel agency with one focus: Margaritaville
+            We&apos;re a travel agency with one focus: Margaritaville
             at Sea. Whether it&apos;s a couple&apos;s quick getaway or a 200-guest
             group, we get you the best available rate and handle the details.
           </p>
@@ -47,7 +47,7 @@ export default function AboutPage() {
           </div>
           <div className="about-brent-body">
             <p>
-              I&apos;m an independent travel advisor with Cruise Planners, and
+              I&apos;m a travel advisor with Cruise Planners, and
               Margaritaville at Sea is my specialty. I sail these ships, I know
               their cabins and itineraries, and there&apos;s nothing I enjoy more
               than helping people trade the everyday grind for a little island
@@ -112,7 +112,7 @@ export default function AboutPage() {
           </p>
 
           <p className="form-note">
-            MVAS Cruise Deals is operated by Brent Beasley, an independent agent
+            MVAS Cruise Deals is operated by Brent Beasley, a travel advisor
             with Cruise Planners (FL Seller of Travel #TI128169). We are not
             affiliated with or endorsed by Margaritaville at Sea; all trademarks
             belong to their respective owners.
