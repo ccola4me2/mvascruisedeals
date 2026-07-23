@@ -1,0 +1,81 @@
+// Static cruise deal data used across the site.
+// Replace with a CMS or API feed when live inventory is available.
+
+export const deals = [
+  {
+    id: "caribbean-7-night",
+    title: "7-Night Eastern Caribbean",
+    cruiseLine: "Royal Caribbean",
+    ship: "Wonder of the Seas",
+    departurePort: "Miami, FL",
+    nights: 7,
+    priceFrom: 649,
+    ports: ["Nassau", "St. Thomas", "St. Maarten", "Perfect Day at CocoCay"],
+    highlight: "Kids sail free on select sailings",
+    image: "/deals/caribbean.svg",
+  },
+  {
+    id: "alaska-glacier-7-night",
+    title: "7-Night Alaska Glacier Route",
+    cruiseLine: "Princess Cruises",
+    ship: "Discovery Princess",
+    departurePort: "Seattle, WA",
+    nights: 7,
+    priceFrom: 799,
+    ports: ["Juneau", "Skagway", "Glacier Bay", "Ketchikan"],
+    highlight: "Free specialty dining + drinks package",
+    image: "/deals/alaska.svg",
+  },
+  {
+    id: "mediterranean-10-night",
+    title: "10-Night Mediterranean",
+    cruiseLine: "Norwegian Cruise Line",
+    ship: "Norwegian Epic",
+    departurePort: "Barcelona, Spain",
+    nights: 10,
+    priceFrom: 1149,
+    ports: ["Rome", "Naples", "Florence", "Cannes", "Palma"],
+    highlight: "3rd & 4th guests sail free",
+    image: "/deals/mediterranean.svg",
+  },
+  {
+    id: "bahamas-4-night",
+    title: "4-Night Bahamas Getaway",
+    cruiseLine: "Carnival Cruise Line",
+    ship: "Carnival Celebration",
+    departurePort: "Miami, FL",
+    nights: 4,
+    priceFrom: 329,
+    ports: ["Nassau", "Half Moon Cay"],
+    highlight: "Lowest deposit of the season",
+    image: "/deals/bahamas.svg",
+  },
+  {
+    id: "mexican-riviera-7-night",
+    title: "7-Night Mexican Riviera",
+    cruiseLine: "Celebrity Cruises",
+    ship: "Celebrity Solstice",
+    departurePort: "Los Angeles, CA",
+    nights: 7,
+    priceFrom: 729,
+    ports: ["Cabo San Lucas", "Mazatlán", "Puerto Vallarta"],
+    highlight: "Free upgrade to Concierge Class",
+    image: "/deals/mexico.svg",
+  },
+  {
+    id: "hawaii-15-night",
+    title: "15-Night Hawaii Round-Trip",
+    cruiseLine: "Holland America",
+    ship: "Koningsdam",
+    departurePort: "San Diego, CA",
+    nights: 15,
+    priceFrom: 1499,
+    ports: ["Honolulu", "Maui", "Kauai", "Hilo", "Ensenada"],
+    highlight: "Onboard credit up to $400",
+    image: "/deals/hawaii.svg",
+  },
+];
+
+export function getDeal(id) {
+  return deals.find((deal) => deal.id === id);
+}

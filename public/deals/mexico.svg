@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="280" viewBox="0 0 480 280" role="img" aria-label="Mexican Riviera">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0a030"/>
+      <stop offset="1" stop-color="#e06a1b"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="280" fill="url(#g)"/>
+  <g fill="#ffffff" opacity="0.9">
+    <path d="M0 210 q60 -22 120 0 t120 0 t120 0 t120 0 V280 H0 Z" opacity="0.35"/>
+    <path d="M0 230 q60 -18 120 0 t120 0 t120 0 t120 0 V280 H0 Z" opacity="0.55"/>
+  </g>
+  <g transform="translate(240 128)" fill="#ffffff">
+    <path d="M-70 8 h140 l-16 26 h-108 Z" opacity="0.95"/>
+    <rect x="-46" y="-14" width="92" height="24" rx="3" opacity="0.95"/>
+    <rect x="-30" y="-40" width="60" height="20" rx="3" opacity="0.9"/>
+    <rect x="-4" y="-70" width="8" height="30"/>
+    <path d="M4 -66 l26 10 l-26 10 Z"/>
+  </g>
+  <text x="240" y="196" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">Mexican Riviera</text>
+</svg>
