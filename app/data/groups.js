@@ -12,6 +12,7 @@ export const groups = [
     departurePort: "Round-trip from Miami",
     itinerary: "Key West, Grand Cayman, and Ocho Rios",
     priceFrom: "From $844.40 per person, double occupancy",
+    onboardCredit: "$100 onboard credit",
     blurb:
       "Sail with the Parrot Head Drifters on the biggest Parrothead cruise of the year aboard the brand-new Beachcomber. Live music, theme nights, and a whole ship full of fins-up fun, with a portion of every booking supporting charitable causes.",
     image: "/deals/beachcomber.jpg",

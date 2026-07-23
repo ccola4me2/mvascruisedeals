@@ -219,6 +219,12 @@ export default function HomePage() {
                     <span>Fares</span>
                     {flagship.priceFrom}
                   </li>
+                  {flagship.onboardCredit && (
+                    <li>
+                      <span>Bonus</span>
+                      {flagship.onboardCredit}
+                    </li>
+                  )}
                 </ul>
                 <p className="group-feature-text">{flagship.blurb}</p>
                 <div className="group-feature-actions">

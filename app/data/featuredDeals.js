@@ -56,6 +56,7 @@ export const featuredDeals = [
     logo: "/parrot-head-drifters-logo.png",
     fromPrice: "$844.40",
     fromUnit: "per person, double occupancy",
+    onboardCredit: "$100",
     blurb:
       "Sail with the Parrot Head Drifters on the biggest Parrothead cruise of the year aboard the brand-new Beachcomber. Live music, theme nights, and a whole ship full of fins-up fun.",
     cta: {
