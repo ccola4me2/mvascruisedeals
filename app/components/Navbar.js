@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <header className="site-header">
       <div className="container nav-inner">
-        <Link href="/" className="brand" aria-label="MVA Cruise Deals home">
+        <Link href="/" className="brand" aria-label="MVAS Cruise Deals home">
           <img
             src="/margaritaville-at-sea-logo.png"
             alt="Margaritaville at Sea"

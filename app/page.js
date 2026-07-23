@@ -1,37 +1,49 @@
 import Link from "next/link";
 import Image from "next/image";
-import DealCard from "./components/DealCard";
-import { deals, ships } from "./data/deals";
+import { ships } from "./data/deals";
+import { spotlight } from "./data/spotlight";
+import { groups } from "./data/groups";
 
 export default function HomePage() {
-  const featured = deals.slice(0, 3);
+  const flagship = groups.find((g) => g.featured) || groups[0];
 
   return (
     <>
+      {/* Hero */}
       <section className="hero">
+        <div className="hero-bg">
+          <Image
+            src="/deals/islander.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="hero-img"
+          />
+        </div>
+        <div className="hero-overlay" />
         <div className="container hero-inner">
-          <p className="eyebrow">It&apos;s always island time</p>
+          <p className="eyebrow eyebrow--light">Margaritaville at Sea specialists</p>
           <h1 className="hero-title">
-            Margaritaville at Sea cruise deals and group rates.
+            Your Margaritaville at Sea <em>cruise deals</em> and group experts.
           </h1>
           <p className="hero-subtitle">
-            We specialize in one thing: getting you the best fares and group
-            rates on Margaritaville at Sea. From 2-night Bahamas escapes to
-            week-long Caribbean sailings, tell us your dates and we&apos;ll do the
-            rest.
+            From quick Bahamas escapes to week-long Caribbean sailings, we find
+            the best fares and group rates across all three ships, then handle
+            every detail from quote to gangway.
           </p>
           <div className="hero-actions">
             <Link href="/deals" className="btn btn-primary btn-lg">
               See Cruise Deals
             </Link>
-            <Link href="/group-rates" className="btn btn-ghost btn-lg">
-              Book a Group
+            <Link href="/group-rates" className="btn btn-glass btn-lg">
+              Group Rates
             </Link>
           </div>
           <dl className="hero-stats">
             <div>
               <dt>3</dt>
-              <dd>Ships, endless island time</dd>
+              <dd>Ships in the fleet</dd>
             </div>
             <div>
               <dt>3</dt>
@@ -45,25 +57,48 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Weekly Cruise Spotlight */}
       <section className="section">
         <div className="container">
-          <div className="section-head">
-            <h2>Popular Margaritaville at Sea sailings</h2>
-            <Link href="/deals" className="section-link">
-              View all deals &rarr;
-            </Link>
-          </div>
-          <div className="deal-grid">
-            {featured.map((deal) => (
-              <DealCard key={deal.id} deal={deal} />
-            ))}
+          <div className="spotlight">
+            <div className="spotlight-media">
+              <Image
+                src={spotlight.image}
+                alt={spotlight.ship}
+                fill
+                sizes="(max-width: 860px) 100vw, 55vw"
+                className="spotlight-img"
+              />
+            </div>
+            <div className="spotlight-body">
+              <p className="eyebrow">{spotlight.eyebrow}</p>
+              <h2 className="spotlight-title">{spotlight.title}</h2>
+              <p className="spotlight-ship">
+                {spotlight.ship} &middot; {spotlight.region}
+              </p>
+              <p className="spotlight-when">{spotlight.when}</p>
+              <ul className="chip-row">
+                {spotlight.ports.map((p) => (
+                  <li key={p}>{p}</li>
+                ))}
+              </ul>
+              <p className="spotlight-text">{spotlight.blurb}</p>
+              <div className="spotlight-foot">
+                <span className="price-note">{spotlight.priceNote}</span>
+                <Link href="/contact" className="btn btn-primary">
+                  Get This Deal
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Fleet */}
       <section className="section section--muted">
         <div className="container">
           <div className="section-head section-head--center">
+            <p className="eyebrow">Three ships, endless island time</p>
             <h2>Meet the Margaritaville at Sea fleet</h2>
           </div>
           <div className="ship-grid">
@@ -95,10 +130,97 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Current Group Cruises */}
       <section className="section">
         <div className="container">
           <div className="section-head section-head--center">
-            <h2>Why book with MVA Cruise Deals</h2>
+            <p className="eyebrow">Sail with a crew</p>
+            <h2>Current group cruises</h2>
+          </div>
+
+          {flagship && (
+            <article className="group-feature">
+              <div className="group-feature-media">
+                <Image
+                  src={flagship.image}
+                  alt={flagship.name}
+                  fill
+                  sizes="(max-width: 860px) 100vw, 50vw"
+                  className="group-feature-img"
+                />
+              </div>
+              <div className="group-feature-body">
+                <img
+                  src={flagship.logo}
+                  alt="Parrot Head Drifters"
+                  className="group-logo"
+                  width={150}
+                  height={128}
+                />
+                <h3 className="group-feature-title">{flagship.name}</h3>
+                <p className="group-feature-tag">{flagship.tagline}</p>
+                <ul className="group-facts">
+                  <li>
+                    <span>When</span>
+                    {flagship.when}
+                  </li>
+                  <li>
+                    <span>Ship</span>
+                    {flagship.ship}
+                  </li>
+                  <li>
+                    <span>Sailing</span>
+                    {flagship.departurePort}
+                  </li>
+                  <li>
+                    <span>Ports</span>
+                    {flagship.itinerary}
+                  </li>
+                  <li>
+                    <span>Fares</span>
+                    {flagship.priceFrom}
+                  </li>
+                </ul>
+                <p className="group-feature-text">{flagship.blurb}</p>
+                <div className="group-feature-actions">
+                  <a
+                    href={flagship.href}
+                    target="_blank"
+                    rel="noopener"
+                    className="btn btn-primary"
+                  >
+                    {flagship.ctaLabel}
+                  </a>
+                  <Link href="/contact" className="btn btn-outline">
+                    Ask About This Group
+                  </Link>
+                </div>
+              </div>
+            </article>
+          )}
+
+          <div className="group-cta-card">
+            <div>
+              <h3>Running your own group?</h3>
+              <p>
+                Reunions, birthdays, clubs, corporate trips: bring 8 cabins or
+                more and unlock group pricing, perks, and a dedicated agent who
+                handles the whole block.
+              </p>
+            </div>
+            <Link href="/group-rates" className="btn btn-primary">
+              Start a Group
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Why book */}
+      <section className="section section--muted">
+        <div className="container">
+          <div className="section-head section-head--center">
+            <p className="eyebrow">Why book with us</p>
+            <h2>One line, done right</h2>
           </div>
           <div className="feature-grid">
             <div className="feature">
@@ -133,6 +255,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="cta">
         <div className="container cta-inner">
           <h2>Ready to set sail?</h2>

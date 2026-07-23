@@ -26,7 +26,7 @@ export default function Footer() {
         </nav>
       </div>
       <div className="container footer-legal">
-        <p>&copy; {year} MVA Cruise Deals. All rights reserved.</p>
+        <p>&copy; {year} MVAS Cruise Deals. All rights reserved.</p>
         <p>
           Brent Beasley, Cruise Planners. FL Seller of Travel #TI128169.
           Independent agent, not affiliated with or endorsed by Margaritaville at

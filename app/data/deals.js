@@ -1,4 +1,4 @@
-// Margaritaville at Sea content for MVA Cruise Deals.
+// Margaritaville at Sea content for MVAS Cruise Deals.
 //
 // Ship facts below are sourced from the official Margaritaville at Sea ship
 // reference guides (homeports, destinations, launch timing, tonnage). Sailing

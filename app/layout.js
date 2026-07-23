@@ -1,23 +1,39 @@
+import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./globals.css";
 
+const display = Fraunces({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const body = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-body",
+  display: "swap",
+});
+
 export const metadata = {
   metadataBase: new URL("https://mvascruisedeals.com"),
   title: {
-    default: "MVA Cruise Deals: Margaritaville at Sea Deals & Group Rates",
-    template: "%s | MVA Cruise Deals",
+    default: "MVAS Cruise Deals: Margaritaville at Sea Deals & Group Rates",
+    template: "%s | MVAS Cruise Deals",
   },
   description:
-    "MVA Cruise Deals finds the best fares and group rates on Margaritaville at Sea cruises, from 2-night Bahamas getaways to week-long Caribbean sailings. Get a free quote.",
+    "MVAS Cruise Deals finds the best fares and group rates on Margaritaville at Sea cruises, from Bahamas getaways to week-long Caribbean sailings. Get a free quote.",
   keywords: [
     "Margaritaville at Sea deals",
     "Margaritaville at Sea group rates",
     "Margaritaville cruise deals",
     "Bahamas cruise from Palm Beach",
     "Tampa Caribbean cruise",
-    "cruise group rates",
-    "MVA Cruise Deals",
+    "International Parrot Head Day Cruise",
+    "MVAS Cruise Deals",
   ],
   alternates: {
     canonical: "/",
@@ -26,7 +42,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
         <a className="skip-link" href="#main">
           Skip to content

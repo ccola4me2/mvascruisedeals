@@ -4,7 +4,7 @@ import { deals } from "../data/deals";
 export const metadata = {
   title: "Margaritaville at Sea Cruise Deals",
   description:
-    "Browse Margaritaville at Sea sailings from MVA Cruise Deals: Bahamas, Key West, and Cozumel from Palm Beach, Western Caribbean from Tampa, and new Eastern Caribbean sailings from Miami. Request current rates.",
+    "Browse Margaritaville at Sea sailings from MVAS Cruise Deals: Bahamas, Key West, and Cozumel from Palm Beach, Western Caribbean from Tampa, and new Eastern Caribbean sailings from Miami. Request current rates.",
   alternates: { canonical: "/deals/" },
 };
 

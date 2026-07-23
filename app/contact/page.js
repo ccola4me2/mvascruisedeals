@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Contact & Free Quote",
   description:
-    "Request a free quote or group rate on a Margaritaville at Sea cruise. Tell us your ship, dates, and party size and an MVA Cruise Deals specialist will reply within one business day.",
+    "Request a free quote or group rate on a Margaritaville at Sea cruise. Tell us your ship, dates, and party size and an MVAS Cruise Deals specialist will reply within one business day.",
   alternates: { canonical: "/contact/" },
 };
 
