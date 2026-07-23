@@ -6,12 +6,16 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-inner">
         <div>
-          <div className="brand brand--footer">
-            <span className="brand-mark">MVA</span>
-            <span className="brand-text">Cruise Deals</span>
-          </div>
+          <span className="footer-logo">
+            <img
+              src="/margaritaville-at-sea-logo.png"
+              alt="Margaritaville at Sea"
+              width={150}
+              height={44}
+            />
+          </span>
           <p className="footer-tagline">
-            Deals and group rates on Margaritaville at Sea cruises.
+            Cruise deals and group rates on Margaritaville at Sea.
           </p>
         </div>
         <nav className="footer-nav" aria-label="Footer">

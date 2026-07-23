@@ -5,8 +5,14 @@ export default function Navbar() {
     <header className="site-header">
       <div className="container nav-inner">
         <Link href="/" className="brand" aria-label="MVA Cruise Deals home">
-          <span className="brand-mark">MVA</span>
-          <span className="brand-text">Cruise Deals</span>
+          <img
+            src="/margaritaville-at-sea-logo.png"
+            alt="Margaritaville at Sea"
+            className="brand-logo"
+            width={137}
+            height={40}
+          />
+          <span className="brand-tag">Cruise Deals &amp; Group Rates</span>
         </Link>
         <nav className="nav-links" aria-label="Primary">
           <Link href="/deals">Cruise Deals</Link>
