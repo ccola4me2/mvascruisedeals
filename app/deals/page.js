@@ -15,7 +15,7 @@ export default function DealsPage() {
     <>
       <section className="page-head">
         <div className="container">
-          <div className="hero-banner">
+          <div className="hero-banner hero-banner--center">
             Up to $100 onboard credit on every sailing
           </div>
           <p className="eyebrow">Current sailings</p>
