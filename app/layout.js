@@ -17,10 +17,6 @@ export const metadata = {
     "cruise vacation",
     "MVA Cruise Deals",
   ],
-  // Invisible deploy marker used to verify the GitHub -> Cloudflare pipeline.
-  other: {
-    "deploy-check": "deploy-20260723T195425Z",
-  },
 };
 
 export default function RootLayout({ children }) {
