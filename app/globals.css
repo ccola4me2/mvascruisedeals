@@ -660,6 +660,19 @@ img {
   box-shadow: var(--shadow);
 }
 
+.form-embed {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.form-embed iframe {
+  display: block;
+  width: 100%;
+}
+
 .field {
   margin-bottom: 18px;
   display: flex;

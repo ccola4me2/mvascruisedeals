@@ -1,3 +1,5 @@
+import Script from "next/script";
+
 export const metadata = {
   title: "Contact & Free Quote",
   description:
@@ -22,57 +24,29 @@ export default function ContactPage() {
 
       <section className="section">
         <div className="container contact-grid">
-          <form className="contact-form" action="#" method="post">
-            <div className="field">
-              <label htmlFor="name">Full name</label>
-              <input id="name" name="name" type="text" autoComplete="name" required />
-            </div>
-            <div className="field">
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-              />
-            </div>
-            <div className="field">
-              <label htmlFor="phone">Phone (optional)</label>
-              <input id="phone" name="phone" type="tel" autoComplete="tel" />
-            </div>
-            <div className="field">
-              <label htmlFor="ship">Which ship?</label>
-              <select id="ship" name="ship" defaultValue="">
-                <option value="" disabled>
-                  Choose a ship
-                </option>
-                <option>Margaritaville at Sea Paradise (Bahamas)</option>
-                <option>Margaritaville at Sea Islander (Caribbean)</option>
-                <option>Not sure yet</option>
-              </select>
-            </div>
-            <div className="field">
-              <label htmlFor="party">Party size</label>
-              <input id="party" name="party" type="number" min="1" step="1" />
-            </div>
-            <div className="field">
-              <label htmlFor="message">Tell us more</label>
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                placeholder="Preferred dates, cabin type, group details, questions..."
-              />
-            </div>
-            <button type="submit" className="btn btn-primary btn-lg">
-              Send My Request
-            </button>
-            <p className="form-note">
-              This form is not yet connected to a backend. Wire it to your email
-              service or CRM before going live.
-            </p>
-          </form>
+          <div className="form-embed">
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/form/CohcX6UGsr"
+              style={{ width: "100%", height: "820px", border: "none" }}
+              id="inline-CohcX6UGsr"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="MVAS Cruise Deals Request"
+              data-height="820"
+              data-layout-iframe-id="inline-CohcX6UGsr"
+              data-form-id="CohcX6UGsr"
+              title="Request a quote"
+            />
+            <Script
+              src="https://link.msgsndr.com/js/form_embed.js"
+              strategy="afterInteractive"
+            />
+          </div>
 
           <aside className="contact-aside">
             <img
