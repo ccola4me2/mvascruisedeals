@@ -103,12 +103,13 @@ export default function GroupRatesPage() {
                 pricing and a set of held cabins with a group deposit.
               </li>
               <li>
-                <strong>Guests book individually.</strong> Everyone reserves their
-                own cabin from your block and pays on their own schedule.
+                <strong>We handle the bookings and payments.</strong> Your guests
+                book and pay through us, so you never have to collect money or
+                chase anyone down.
               </li>
               <li>
-                <strong>We manage the details.</strong> Payments, changes, and
-                perks are handled all the way to sail day.
+                <strong>We manage every detail.</strong> Changes, perks, and final
+                documents are handled all the way to sail day.
               </li>
             </ol>
           </div>
