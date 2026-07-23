@@ -40,7 +40,7 @@ export default function AboutPage() {
               height={64}
             />
             <p className="about-credentials">
-              Independent advisor, Cruise Planners
+              Travel advisor, Cruise Planners
               <br />
               FL Seller of Travel #TI128169
             </p>
