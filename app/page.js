@@ -34,8 +34,8 @@ export default function HomePage() {
               <dd>Ships, endless island time</dd>
             </div>
             <div>
-              <dt>2&ndash;7</dt>
-              <dd>Night sailings</dd>
+              <dt>3</dt>
+              <dd>Florida homeports</dd>
             </div>
             <div>
               <dt>$0</dt>
@@ -69,20 +69,23 @@ export default function HomePage() {
           <div className="ship-grid">
             {ships.map((ship) => (
               <article className="ship-card" key={ship.id}>
-                <Image
-                  src={ship.image}
-                  alt={ship.name}
-                  width={640}
-                  height={420}
-                  className="ship-image"
-                />
+                <div className="ship-media">
+                  <Image
+                    src={ship.image}
+                    alt={ship.name}
+                    width={640}
+                    height={420}
+                    className="ship-image"
+                  />
+                  {ship.status && (
+                    <span className="ship-status">{ship.status}</span>
+                  )}
+                </div>
                 <div className="ship-body">
                   <p className="deal-line">{ship.region}</p>
                   <h3>{ship.name}</h3>
                   {ship.homeport && (
-                    <p className="deal-meta">
-                      {ship.homeport} &middot; {ship.lengths}
-                    </p>
+                    <p className="deal-meta">Sails from {ship.homeport}</p>
                   )}
                   <p>{ship.blurb}</p>
                 </div>

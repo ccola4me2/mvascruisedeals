@@ -11,7 +11,7 @@ export default function DealCard({ deal }) {
           height={280}
           className="deal-image"
         />
-        <span className="deal-badge">{deal.nights} nights</span>
+        <span className="deal-badge">{deal.badge}</span>
       </div>
       <div className="deal-body">
         <p className="deal-line">{deal.ship}</p>

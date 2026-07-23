@@ -4,7 +4,7 @@ import { deals } from "../data/deals";
 export const metadata = {
   title: "Margaritaville at Sea Cruise Deals",
   description:
-    "Browse Margaritaville at Sea sailings from MVA Cruise Deals: 2 and 3-night Bahamas getaways from Palm Beach and 4 to 7-night Western Caribbean cruises from Tampa. Request current rates.",
+    "Browse Margaritaville at Sea sailings from MVA Cruise Deals: Bahamas, Key West, and Cozumel from Palm Beach, Western Caribbean from Tampa, and new Eastern Caribbean sailings from Miami. Request current rates.",
   alternates: { canonical: "/deals/" },
 };
 
@@ -16,10 +16,10 @@ export default function DealsPage() {
           <p className="eyebrow">Current sailings</p>
           <h1>Margaritaville at Sea Cruise Deals</h1>
           <p className="page-lede">
-            Every Margaritaville at Sea itinerary, from quick Bahamas getaways to
-            week-long Caribbean sailings. Fares change often and cabins sell out,
-            so request a current quote and we&apos;ll send the best available rate
-            for your dates.
+            Sailings across all three Margaritaville at Sea ships, from quick
+            Bahamas and Key West getaways to week-long Caribbean escapes. Fares
+            change often and cabins sell out, so request a current quote and
+            we&apos;ll send the best available rate for your dates.
           </p>
         </div>
       </section>
