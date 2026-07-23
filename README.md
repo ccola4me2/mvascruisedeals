@@ -44,7 +44,29 @@ app/
 public/              Static assets (logo, favicon)
 ```
 
-## Deployment
+## Deployment (Cloudflare Workers)
 
-The site can be deployed to any Node host or to [Vercel](https://vercel.com/) with zero
-configuration.
+This project is configured as a **static export** (`next.config.mjs` → `output: "export"`)
+served by a Cloudflare Workers static-assets deployment (`wrangler.jsonc`).
+
+- **Build command:** `npm run build` (emits the static site into `./out`)
+- **Deploy command:** `npx wrangler deploy` (serves `./out` via `wrangler.jsonc`)
+
+### Continuous deployment from GitHub
+
+In the Cloudflare dashboard: **Workers &amp; Pages → Create → Workers → Connect to Git**,
+authorize the repo, then set:
+
+| Setting        | Value           |
+| -------------- | --------------- |
+| Build command  | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+
+Every push to `main` then builds and deploys automatically.
+
+### Manual deploy from your machine
+
+```bash
+npm install
+npm run deploy
+```

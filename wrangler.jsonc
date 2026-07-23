@@ -1,0 +1,14 @@
+{
+  // Cloudflare Workers static-assets deployment for the exported Next.js site.
+  // `npm run build` emits ./out (next output: "export"), which is served here.
+  "name": "mvascruisedeals",
+  "compatibility_date": "2026-07-23",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "./out",
+    // Serve Next's generated 404 page for unmatched paths.
+    "not_found_handling": "404-page"
+  }
+}
