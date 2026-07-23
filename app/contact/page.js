@@ -1,5 +1,3 @@
-import Script from "next/script";
-
 export const metadata = {
   title: "Contact & Free Quote",
   description:
@@ -24,28 +22,31 @@ export default function ContactPage() {
 
       <section className="section">
         <div className="container contact-grid">
-          <div className="form-embed">
-            <iframe
-              src="https://brentbeasley.dreamingtotravel.com/form/CohcX6UGsr"
-              style={{ width: "100%", height: "820px", border: "none" }}
-              id="inline-CohcX6UGsr"
-              data-layout="{'id':'INLINE'}"
-              data-trigger-type="alwaysShow"
-              data-trigger-value=""
-              data-activation-type="alwaysActivated"
-              data-activation-value=""
-              data-deactivation-type="neverDeactivate"
-              data-deactivation-value=""
-              data-form-name="MVAS Cruise Deals Request"
-              data-height="820"
-              data-layout-iframe-id="inline-CohcX6UGsr"
-              data-form-id="CohcX6UGsr"
-              title="Request a quote"
-            />
-            <Script
-              src="https://link.msgsndr.com/js/form_embed.js"
-              strategy="afterInteractive"
-            />
+          <div className="request-panel">
+            <h2>Start your free quote</h2>
+            <p>
+              Tell us your preferred ship, dates, and party size on our quick
+              request form, and we&apos;ll reply with the best available fare or
+              group rate, usually within one business day. No fees, no
+              obligation.
+            </p>
+            <ul className="request-list">
+              <li>Best available fares and group rates</li>
+              <li>$0 booking fees</li>
+              <li>A real person from quote to gangway</li>
+            </ul>
+            <a
+              href="https://brentbeasley.dreamingtotravel.com/form/CohcX6UGsr"
+              target="_blank"
+              rel="noopener"
+              className="btn btn-primary btn-lg"
+            >
+              Open the Request Form
+            </a>
+            <p className="form-note">
+              Opens our secure request form in a new tab. Prefer to talk? Call or
+              text (561) 777-9911.
+            </p>
           </div>
 
           <aside className="contact-aside">

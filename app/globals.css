@@ -700,17 +700,45 @@ img {
   box-shadow: var(--shadow);
 }
 
-.form-embed {
+.request-panel {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  overflow: hidden;
+  padding: 40px 42px;
 }
 
-.form-embed iframe {
-  display: block;
-  width: 100%;
+.request-panel h2 {
+  font-size: 1.6rem;
+  margin: 0 0 12px;
+}
+
+.request-panel > p {
+  color: var(--slate);
+  margin: 0 0 22px;
+}
+
+.request-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: grid;
+  gap: 10px;
+}
+
+.request-list li {
+  position: relative;
+  padding-left: 26px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.request-list li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 800;
 }
 
 .field {
