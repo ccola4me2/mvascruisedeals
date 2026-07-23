@@ -24,8 +24,7 @@ export default function HomePage() {
         <div className="hero-overlay" />
         <div className="container hero-inner">
           <div className="hero-banner">
-            <span className="hero-banner-badge">Bonus</span>
-            <span>Up to $100 onboard credit on every sailing</span>
+            Up to $100 onboard credit on every sailing
           </div>
           <p className="eyebrow eyebrow--light">Margaritaville at Sea specialists</p>
           <h1 className="hero-title">
