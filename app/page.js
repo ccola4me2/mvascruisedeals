@@ -176,7 +176,7 @@ export default function HomePage() {
       <section className="section">
         <div className="container">
           <div className="section-head section-head--center">
-            <p className="eyebrow">Sail with a crew</p>
+            <p className="eyebrow">Sail with the PHlock</p>
             <h2>Current group cruises</h2>
           </div>
 
