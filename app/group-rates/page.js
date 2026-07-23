@@ -43,7 +43,7 @@ export default function GroupRatesPage() {
           <p className="eyebrow">Sail together, save together</p>
           <h1>Margaritaville at Sea Group Rates</h1>
           <p className="page-lede">
-            Bringing a crew? Groups typically start at 8 cabins (16 guests) and
+            Bringing a crew? Groups typically start at 5 cabins (10 guests) and
             unlock pricing and perks you can&apos;t get on your own. We handle the
             block, the paperwork, and every guest, so you just enjoy the trip.
           </p>
