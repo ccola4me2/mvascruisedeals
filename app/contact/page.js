@@ -26,7 +26,7 @@ export default function ContactPage() {
         <div className="container contact-grid">
           <div className="form-embed">
             <iframe
-              src="https://api.leadconnectorhq.com/widget/form/CohcX6UGsr"
+              src="https://brentbeasley.dreamingtotravel.com/form/CohcX6UGsr"
               style={{ width: "100%", height: "820px", border: "none" }}
               id="inline-CohcX6UGsr"
               data-layout="{'id':'INLINE'}"
