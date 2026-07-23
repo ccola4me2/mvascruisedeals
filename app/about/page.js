@@ -20,14 +20,58 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="section section--muted">
+        <div className="container about-brent">
+          <div className="about-brent-head">
+            <img
+              src="/cruise-planners-logo.png"
+              alt="Cruise Planners"
+              className="about-cp-logo"
+              width={200}
+              height={64}
+            />
+            <p className="eyebrow">Meet your advisor</p>
+            <h2>Hi, I&apos;m Brent Beasley</h2>
+            <p className="about-credentials">
+              Independent advisor, Cruise Planners
+              <br />
+              FL Seller of Travel #TI128169
+            </p>
+          </div>
+          <div className="about-brent-body">
+            <p>
+              I&apos;m an independent travel advisor with Cruise Planners, and
+              Margaritaville at Sea is my specialty. I sail these ships, I know
+              their cabins and itineraries, and there&apos;s nothing I enjoy more
+              than helping people trade the everyday grind for a little island
+              time.
+            </p>
+            <p>
+              I&apos;m also part of the Parrothead community and help lead the
+              International Parrot Head Day Cruise, so I&apos;ve seen firsthand how
+              a Margaritaville at Sea sailing brings people together, whether
+              it&apos;s two travelers or a whole crew of friends.
+            </p>
+            <p>
+              <strong>My mission is simple:</strong> get you the best value on
+              the right sailing, with no booking fees and a real person in your
+              corner from your first question to the moment you step off the
+              ship. When you book with me, your trip gets the same care I would
+              give my own.
+            </p>
+            <p className="about-signature">Brent Beasley</p>
+          </div>
+        </div>
+      </section>
+
       <section className="section">
         <div className="container prose">
           <h2>Margaritaville at Sea is all we do</h2>
           <p>
-            Because we book one cruise line, we know it inside out: both ships,
-            every cabin category, the itineraries, and the sailings that deliver
-            the most island time for your money. When there&apos;s a fare drop or a
-            promotion worth grabbing, we spot it and pass it along.
+            Because we book one cruise line, we know it inside out: all three
+            ships, every cabin category, the itineraries, and the sailings that
+            deliver the most island time for your money. When there&apos;s a fare
+            drop or a promotion worth grabbing, we spot it and pass it along.
           </p>
 
           <h2>Individuals and groups</h2>
