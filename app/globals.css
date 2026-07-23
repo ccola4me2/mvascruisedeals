@@ -1407,11 +1407,21 @@ img {
   margin: 0 0 14px;
 }
 
+.about-photo {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  margin: 0 0 24px;
+}
+
 .about-cp-logo {
   display: block;
-  width: 180px;
+  width: 150px;
   height: auto;
-  margin: 0 0 22px;
+  margin: 20px 0 12px;
 }
 
 .about-credentials {

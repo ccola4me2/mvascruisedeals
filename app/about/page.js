@@ -24,14 +24,21 @@ export default function AboutPage() {
         <div className="container about-brent">
           <div className="about-brent-head">
             <img
+              src="/brent-beasley.jpg"
+              alt="Brent Beasley"
+              className="about-photo"
+              width={308}
+              height={398}
+            />
+            <p className="eyebrow">Meet your advisor</p>
+            <h2>Hi, I&apos;m Brent Beasley</h2>
+            <img
               src="/cruise-planners-logo.png"
               alt="Cruise Planners"
               className="about-cp-logo"
               width={200}
               height={64}
             />
-            <p className="eyebrow">Meet your advisor</p>
-            <h2>Hi, I&apos;m Brent Beasley</h2>
             <p className="about-credentials">
               Independent advisor, Cruise Planners
               <br />
