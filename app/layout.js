@@ -3,20 +3,25 @@ import Footer from "./components/Footer";
 import "./globals.css";
 
 export const metadata = {
+  metadataBase: new URL("https://mvascruisedeals.com"),
   title: {
-    default: "MVA Cruise Deals — Find & Book the Best Cruise Vacations",
+    default: "MVA Cruise Deals: Margaritaville at Sea Deals & Group Rates",
     template: "%s | MVA Cruise Deals",
   },
   description:
-    "MVA Cruise Deals helps you find and book the best cruise vacations to the Caribbean, Alaska, the Mediterranean, and beyond. Compare deals and save.",
+    "MVA Cruise Deals finds the best fares and group rates on Margaritaville at Sea cruises, from 2-night Bahamas getaways to week-long Caribbean sailings. Get a free quote.",
   keywords: [
-    "cruise deals",
-    "cheap cruises",
-    "Caribbean cruise",
-    "Alaska cruise",
-    "cruise vacation",
+    "Margaritaville at Sea deals",
+    "Margaritaville at Sea group rates",
+    "Margaritaville cruise deals",
+    "Bahamas cruise from Palm Beach",
+    "Tampa Caribbean cruise",
+    "cruise group rates",
     "MVA Cruise Deals",
   ],
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({ children }) {

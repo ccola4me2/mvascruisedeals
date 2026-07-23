@@ -1,7 +1,8 @@
 export const metadata = {
   title: "About Us",
   description:
-    "MVA Cruise Deals is a full-service cruise agency dedicated to matching travelers with the perfect sailing at the best possible price.",
+    "MVA Cruise Deals is an independent travel agency specializing in Margaritaville at Sea cruises, matching travelers and groups with the best available fares.",
+  alternates: { canonical: "/about/" },
 };
 
 export default function AboutPage() {
@@ -12,44 +13,57 @@ export default function AboutPage() {
           <p className="eyebrow">Who we are</p>
           <h1>About MVA Cruise Deals</h1>
           <p className="page-lede">
-            We&apos;re a team of cruise-obsessed travel advisors on a simple mission:
-            get you on the right ship, to the right places, for the right price.
+            We&apos;re an independent travel agency with one focus: Margaritaville
+            at Sea. Whether it&apos;s a couple&apos;s quick getaway or a 200-guest
+            group, we get you the best available rate and handle the details.
           </p>
         </div>
       </section>
 
       <section className="section">
         <div className="container prose">
-          <h2>Cruising is all we do</h2>
+          <h2>Margaritaville at Sea is all we do</h2>
           <p>
-            Unlike general travel sites, MVA Cruise Deals focuses on one thing:
-            cruises. That specialization means we know the ships, the itineraries,
-            and the promotions inside and out. When a cruise line drops a limited
-            fare or adds onboard perks, we spot it first and pass the savings on to
-            you.
+            Because we book one cruise line, we know it inside out: both ships,
+            every cabin category, the itineraries, and the sailings that deliver
+            the most island time for your money. When there&apos;s a fare drop or a
+            promotion worth grabbing, we spot it and pass it along.
+          </p>
+
+          <h2>Individuals and groups</h2>
+          <p>
+            Booking for two? We&apos;ll find your best fare and cabin. Booking for
+            a crowd? Group rates on Margaritaville at Sea can unlock reduced
+            pricing, perks, and amenities you can&apos;t get on your own, and we
+            manage the whole block so every guest is taken care of.
           </p>
 
           <h2>How we work</h2>
           <ol>
             <li>
-              <strong>Tell us your dream trip.</strong> Destination, dates, budget,
-              and who&apos;s coming along.
+              <strong>Tell us your trip.</strong> Ship, dates, party size, and any
+              must-haves.
             </li>
             <li>
-              <strong>We do the digging.</strong> We compare every relevant sailing
-              across 25+ cruise lines to find your best options.
+              <strong>We find your rate.</strong> We check every matching sailing
+              and, for groups, secure group pricing and a cabin block.
             </li>
             <li>
-              <strong>You choose and sail.</strong> We handle the booking, apply
-              every perk you qualify for, and support you all the way to the port.
+              <strong>You sail.</strong> We book it, apply every perk you qualify
+              for, and support you all the way to the port.
             </li>
           </ol>
 
           <h2>Our promise</h2>
           <p>
-            No booking fees, no pressure, and a lowest-fare guarantee. If you find a
-            better price on the same sailing, we&apos;ll match it. That&apos;s how we&apos;ve
-            earned the trust of thousands of happy cruisers.
+            No booking fees and no pressure, just honest advice from people who
+            love Margaritaville at Sea as much as you do.
+          </p>
+
+          <p className="form-note">
+            MVA Cruise Deals is an independent travel agency. We are not affiliated
+            with or endorsed by Margaritaville at Sea; all trademarks belong to
+            their respective owners.
           </p>
         </div>
       </section>

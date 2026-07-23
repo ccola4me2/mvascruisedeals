@@ -11,18 +11,23 @@ export default function Footer() {
             <span className="brand-text">Cruise Deals</span>
           </div>
           <p className="footer-tagline">
-            Your trusted partner for unforgettable cruise vacations.
+            Deals and group rates on Margaritaville at Sea cruises.
           </p>
         </div>
         <nav className="footer-nav" aria-label="Footer">
-          <Link href="/deals">Deals</Link>
+          <Link href="/deals">Cruise Deals</Link>
+          <Link href="/group-rates">Group Rates</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
         </nav>
       </div>
       <div className="container footer-legal">
         <p>&copy; {year} MVA Cruise Deals. All rights reserved.</p>
-        <p>Prices are per person, based on double occupancy, and subject to change.</p>
+        <p>
+          Independent travel agency. Not affiliated with or endorsed by
+          Margaritaville at Sea. Rates and itineraries are subject to change and
+          availability.
+        </p>
       </div>
     </footer>
   );

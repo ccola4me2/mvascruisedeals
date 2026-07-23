@@ -14,10 +14,10 @@ export default function DealCard({ deal }) {
         <span className="deal-badge">{deal.nights} nights</span>
       </div>
       <div className="deal-body">
-        <p className="deal-line">{deal.cruiseLine}</p>
+        <p className="deal-line">{deal.ship}</p>
         <h3 className="deal-title">{deal.title}</h3>
         <p className="deal-meta">
-          Departs {deal.departurePort} &middot; {deal.ship}
+          Departs {deal.departurePort} &middot; {deal.region}
         </p>
         <ul className="deal-ports">
           {deal.ports.map((port) => (
@@ -27,11 +27,9 @@ export default function DealCard({ deal }) {
         <p className="deal-highlight">{deal.highlight}</p>
         <div className="deal-footer">
           <p className="deal-price">
-            <span className="deal-price-label">From</span>
-            <span className="deal-price-value">${deal.priceFrom}</span>
-            <span className="deal-price-unit">/ person</span>
+            <span className="deal-price-value">{deal.priceNote}</span>
           </p>
-          <a href="/contact" className="btn btn-outline">
+          <a href="/contact/" className="btn btn-outline">
             Get Quote
           </a>
         </div>

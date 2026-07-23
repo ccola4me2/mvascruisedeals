@@ -1,7 +1,8 @@
 # MVA Cruise Deals
 
-A Next.js (App Router) marketing site for **MVA Cruise Deals** — browse featured cruise
-offers, learn about the agency, and get in touch to book.
+A Next.js (App Router) marketing site for **MVA Cruise Deals**, an independent travel
+agency specializing in **Margaritaville at Sea** cruise deals and group rates. Visitors
+browse sailings, learn about group booking, and request a free quote.
 
 ## Tech stack
 

@@ -9,12 +9,13 @@ export default function Navbar() {
           <span className="brand-text">Cruise Deals</span>
         </Link>
         <nav className="nav-links" aria-label="Primary">
-          <Link href="/deals">Deals</Link>
+          <Link href="/deals">Cruise Deals</Link>
+          <Link href="/group-rates">Group Rates</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
         </nav>
         <Link href="/contact" className="btn btn-primary nav-cta">
-          Book Now
+          Get a Quote
         </Link>
       </div>
     </header>
