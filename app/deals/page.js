@@ -1,10 +1,12 @@
 import DealCard from "../components/DealCard";
+import FeaturedDeal from "../components/FeaturedDeal";
 import { deals } from "../data/deals";
+import { featuredDeals } from "../data/featuredDeals";
 
 export const metadata = {
   title: "Margaritaville at Sea Cruise Deals",
   description:
-    "Browse Margaritaville at Sea sailings from MVAS Cruise Deals: Bahamas, Key West, and Cozumel from Palm Beach, Western Caribbean from Tampa, and new Eastern Caribbean sailings from Miami. Request current rates.",
+    "Featured Margaritaville at Sea deals and every sailing from MVAS Cruise Deals: the New Year's cruise, an 8-night Southern Caribbean, the Parrot Head Day Cruise, and more. Request current rates.",
   alternates: { canonical: "/deals/" },
 };
 
@@ -26,6 +28,24 @@ export default function DealsPage() {
 
       <section className="section">
         <div className="container">
+          <div className="section-head section-head--center">
+            <p className="eyebrow">Hand-picked offers</p>
+            <h2>Featured deals</h2>
+          </div>
+          <div className="fdeal-list">
+            {featuredDeals.map((deal, i) => (
+              <FeaturedDeal key={deal.id} deal={deal} flip={i % 2 === 1} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--muted">
+        <div className="container">
+          <div className="section-head section-head--center">
+            <p className="eyebrow">Every itinerary</p>
+            <h2>All Margaritaville at Sea sailings</h2>
+          </div>
           <div className="deal-grid">
             {deals.map((deal) => (
               <DealCard key={deal.id} deal={deal} />
