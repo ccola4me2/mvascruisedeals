@@ -1,17 +1,23 @@
-// Weekly Cruise Spotlight.
-// Update this object each week to feature a new sailing. Keep it accurate:
-// use a real ship, itinerary, and (optionally) a from-price. Leave the price
-// as a quote note if you do not want a fixed number published.
+// Weekly Cruise Spotlight ("Deal of the Week").
+// Update this object each week to feature a new sailing. Keep pricing accurate
+// and current; leave priced fields blank ("") to hide them.
 
 export const spotlight = {
-  eyebrow: "This week's cruise spotlight",
-  ship: "Margaritaville at Sea Paradise",
-  title: "Cozumel Escape from Palm Beach",
-  region: "Cozumel, Mexico",
-  when: "New sailings starting Summer 2026",
-  ports: ["Port of Palm Beach", "Cozumel"],
-  blurb:
-    "Paradise's brand-new Mexico route trades the everyday for turquoise water, colorful reefs, and island charm, all from a quick, easy departure out of the Port of Palm Beach.",
-  priceNote: "Ask for this week's best rate",
-  image: "/deals/paradise.jpg",
+  eyebrow: "Deal of the week",
+  title: "New Year's at Sea",
+  subtitle: "Ring in 2027 the Margaritaville way",
+  ship: "Margaritaville at Sea Islander",
+  facts: [
+    { label: "Departs", value: "Tampa, Dec 28, 2026" },
+    { label: "Length", value: "5-Night Mexico Duo" },
+    { label: "Cabin", value: "Balcony for two" },
+  ],
+  theirPrice: "$2,374",
+  ourPrice: "$1,818",
+  priceUnit: "total for two",
+  savings: "556",
+  onboardCredit: "$25 onboard credit included",
+  includes: ["Taxes included", "Fees included", "Gratuities included"],
+  addOn: "Drink & Wi-Fi bundle available at $499 per person (subject to change).",
+  image: "/deals/islander.jpg",
 };

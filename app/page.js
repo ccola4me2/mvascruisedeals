@@ -69,25 +69,61 @@ export default function HomePage() {
                 sizes="(max-width: 860px) 100vw, 55vw"
                 className="spotlight-img"
               />
+              {spotlight.savings && (
+                <div className="spotlight-badge">
+                  <span>Save</span>
+                  <strong>${spotlight.savings}</strong>
+                </div>
+              )}
             </div>
             <div className="spotlight-body">
               <p className="eyebrow">{spotlight.eyebrow}</p>
               <h2 className="spotlight-title">{spotlight.title}</h2>
-              <p className="spotlight-ship">
-                {spotlight.ship} &middot; {spotlight.region}
-              </p>
-              <p className="spotlight-when">{spotlight.when}</p>
-              <ul className="chip-row">
-                {spotlight.ports.map((p) => (
-                  <li key={p}>{p}</li>
+              <p className="spotlight-subtitle">{spotlight.subtitle}</p>
+              <p className="spotlight-ship">{spotlight.ship}</p>
+
+              <dl className="spotlight-facts">
+                {spotlight.facts.map((f) => (
+                  <div key={f.label}>
+                    <dt>{f.label}</dt>
+                    <dd>{f.value}</dd>
+                  </div>
+                ))}
+              </dl>
+
+              <div className="price-block">
+                <div className="price-was">
+                  <span>Their price</span>
+                  <s>{spotlight.theirPrice}</s>
+                </div>
+                <div className="price-now">
+                  <span>Our price</span>
+                  <strong>{spotlight.ourPrice}</strong>
+                  <em>{spotlight.priceUnit}</em>
+                </div>
+              </div>
+
+              {spotlight.onboardCredit && (
+                <p className="obc-line">{spotlight.onboardCredit}</p>
+              )}
+
+              <ul className="includes-row">
+                {spotlight.includes.map((inc) => (
+                  <li key={inc}>{inc}</li>
                 ))}
               </ul>
-              <p className="spotlight-text">{spotlight.blurb}</p>
+
+              {spotlight.addOn && (
+                <p className="spotlight-addon">{spotlight.addOn}</p>
+              )}
+
               <div className="spotlight-foot">
-                <span className="price-note">{spotlight.priceNote}</span>
                 <Link href="/contact" className="btn btn-primary">
                   Get This Deal
                 </Link>
+                <a href="tel:+15617779911" className="spotlight-call">
+                  Call or text Brent: (561) 777-9911
+                </a>
               </div>
             </div>
           </div>
