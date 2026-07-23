@@ -1,7 +1,8 @@
 export const metadata = {
   title: "Contact & Free Quote",
   description:
-    "Get a free cruise quote from MVA Cruise Deals. Tell us your destination and budget and a cruise specialist will reply within one business day.",
+    "Request a free quote or group rate on a Margaritaville at Sea cruise. Tell us your ship, dates, and party size and an MVA Cruise Deals specialist will reply within one business day.",
+  alternates: { canonical: "/contact/" },
 };
 
 export default function ContactPage() {
@@ -12,8 +13,9 @@ export default function ContactPage() {
           <p className="eyebrow">Get in touch</p>
           <h1>Request a free quote</h1>
           <p className="page-lede">
-            Share a few details about your ideal cruise and a specialist will get
-            back to you within one business day. No fees, no obligation.
+            Share a few details about your Margaritaville at Sea cruise and a
+            specialist will get back to you within one business day. No fees, no
+            obligation.
           </p>
         </div>
       </section>
@@ -36,23 +38,23 @@ export default function ContactPage() {
               />
             </div>
             <div className="field">
-              <label htmlFor="destination">Preferred destination</label>
-              <select id="destination" name="destination" defaultValue="">
+              <label htmlFor="phone">Phone (optional)</label>
+              <input id="phone" name="phone" type="tel" autoComplete="tel" />
+            </div>
+            <div className="field">
+              <label htmlFor="ship">Which ship?</label>
+              <select id="ship" name="ship" defaultValue="">
                 <option value="" disabled>
-                  Choose a region
+                  Choose a ship
                 </option>
-                <option>Caribbean</option>
-                <option>Alaska</option>
-                <option>Mediterranean</option>
-                <option>Bahamas</option>
-                <option>Mexican Riviera</option>
-                <option>Hawaii</option>
-                <option>Somewhere else</option>
+                <option>Margaritaville at Sea Paradise (Bahamas)</option>
+                <option>Margaritaville at Sea Islander (Caribbean)</option>
+                <option>Not sure yet</option>
               </select>
             </div>
             <div className="field">
-              <label htmlFor="budget">Budget per person (USD)</label>
-              <input id="budget" name="budget" type="number" min="0" step="50" />
+              <label htmlFor="party">Party size</label>
+              <input id="party" name="party" type="number" min="1" step="1" />
             </div>
             <div className="field">
               <label htmlFor="message">Tell us more</label>
@@ -60,21 +62,21 @@ export default function ContactPage() {
                 id="message"
                 name="message"
                 rows={4}
-                placeholder="Travel dates, number of guests, must-see ports…"
+                placeholder="Preferred dates, cabin type, group details, questions..."
               />
             </div>
             <button type="submit" className="btn btn-primary btn-lg">
               Send My Request
             </button>
             <p className="form-note">
-              This demo form is not yet wired to a backend. Connect it to your CRM or
-              email service before going live.
+              This form is not yet connected to a backend. Wire it to your email
+              service or CRM before going live.
             </p>
           </form>
 
           <aside className="contact-aside">
             <h2>Prefer to talk?</h2>
-            <p>Our cruise specialists are here to help.</p>
+            <p>Our Margaritaville at Sea specialists are here to help.</p>
             <ul className="contact-list">
               <li>
                 <span className="contact-label">Phone</span>
@@ -82,11 +84,11 @@ export default function ContactPage() {
               </li>
               <li>
                 <span className="contact-label">Email</span>
-                <a href="mailto:hello@mvacruisedeals.com">hello@mvacruisedeals.com</a>
+                <a href="mailto:hello@mvascruisedeals.com">hello@mvascruisedeals.com</a>
               </li>
               <li>
                 <span className="contact-label">Hours</span>
-                <span>Mon–Fri, 9am–7pm ET</span>
+                <span>Mon&ndash;Fri, 9am&ndash;7pm ET</span>
               </li>
             </ul>
           </aside>
