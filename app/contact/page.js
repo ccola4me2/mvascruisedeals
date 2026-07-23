@@ -76,15 +76,21 @@ export default function ContactPage() {
 
           <aside className="contact-aside">
             <h2>Prefer to talk?</h2>
-            <p>Our Margaritaville at Sea specialists are here to help.</p>
+            <p>Your Margaritaville at Sea specialist is here to help.</p>
             <ul className="contact-list">
               <li>
+                <span className="contact-label">Agent</span>
+                <span>Brent Beasley</span>
+              </li>
+              <li>
                 <span className="contact-label">Phone</span>
-                <a href="tel:+18005550123">(800) 555-0123</a>
+                <a href="tel:+15617779911">(561) 777-9911</a>
               </li>
               <li>
                 <span className="contact-label">Email</span>
-                <a href="mailto:hello@mvascruisedeals.com">hello@mvascruisedeals.com</a>
+                <a href="mailto:brent.beasley@cruiseplanners.com">
+                  brent.beasley@cruiseplanners.com
+                </a>
               </li>
               <li>
                 <span className="contact-label">Hours</span>
