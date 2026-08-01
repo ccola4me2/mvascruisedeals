@@ -62,6 +62,27 @@ export default function FeaturedDeal({ deal, flip }) {
           </div>
         )}
 
+        {deal.cabins && (
+          <div className="cabin-list">
+            {deal.cabins.map((c) => (
+              <div
+                className={`cabin-row${c.tag ? " cabin-row--featured" : ""}`}
+                key={c.name}
+              >
+                <div className="cabin-info">
+                  <span className="cabin-type">
+                    {c.type}
+                    {c.tag ? ` · ${c.tag}` : ""}
+                  </span>
+                  <span className="cabin-name">{c.name}</span>
+                </div>
+                <span className="cabin-price">{c.price}</span>
+              </div>
+            ))}
+            {deal.priceBasis && <p className="cabin-basis">{deal.priceBasis}</p>}
+          </div>
+        )}
+
         {deal.fromPrice && (
           <div className="fdeal-from">
             <span>From</span>

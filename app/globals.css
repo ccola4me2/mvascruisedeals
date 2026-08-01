@@ -1368,6 +1368,78 @@ img {
   color: var(--slate);
 }
 
+/* Cabin pricing list */
+.cabin-list {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 0 0 22px;
+}
+
+.cabin-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 18px;
+}
+
+.cabin-row + .cabin-row {
+  border-top: 1px solid var(--line);
+}
+
+.cabin-row--featured {
+  background: var(--navy);
+}
+
+.cabin-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cabin-type {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--ocean);
+}
+
+.cabin-row--featured .cabin-type {
+  color: var(--sun);
+}
+
+.cabin-name {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.cabin-row--featured .cabin-name {
+  color: #fff;
+}
+
+.cabin-price {
+  font-family: var(--font-display-stack);
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--navy);
+  white-space: nowrap;
+}
+
+.cabin-row--featured .cabin-price {
+  color: #fff;
+}
+
+.cabin-basis {
+  margin: 0;
+  padding: 10px 18px;
+  border-top: 1px solid var(--line);
+  background: var(--sand);
+  font-size: 0.76rem;
+  color: var(--slate);
+}
+
 .fdeal-from {
   display: flex;
   align-items: baseline;
