@@ -1,11 +1,36 @@
 // Featured / promoted cruise deals for the Cruise Deals page.
 // These are specific, dated offers with real pricing from the current flyers.
 // Keep pricing accurate and current; when a sailing closes, remove its object.
+// The first entry is the current "Deal of the week."
 
 export const featuredDeals = [
   {
-    id: "new-years-islander-2026",
+    id: "beachcomber-5night-bahamas-eastern-2027",
     tag: "Deal of the week",
+    title: "5-Night Bahamas & Eastern Caribbean",
+    ship: "Margaritaville at Sea Beachcomber",
+    when: "March 15 to 20, 2027",
+    nights: "5 nights",
+    itinerary: "Round-trip Miami: Nassau and Puerto Plata",
+    image: "/deals/beachcomber.jpg",
+    cabins: [
+      { type: "Interior", name: "Cozy Interior", price: "$521.22" },
+      { type: "Oceanview", name: "Picturesque Oceanview", price: "$632.82" },
+      {
+        type: "Balcony",
+        name: "Breezy Balcony",
+        price: "$837.42",
+        tag: "Most booked",
+      },
+    ],
+    priceBasis: "Per guest, double occupancy",
+    onboardCredit: "$75",
+    includes: ["Taxes", "Fees", "Gratuities"],
+    cta: { label: "Get This Deal", href: "/contact" },
+  },
+  {
+    id: "new-years-islander-2026",
+    tag: "Holiday sailing",
     title: "New Year's at Sea",
     ship: "Margaritaville at Sea Islander",
     when: "Departs Tampa, Dec 28, 2026",
@@ -40,30 +65,6 @@ export const featuredDeals = [
     },
     savings: "Up to $1,168",
     savingsNote: "on a balcony cabin",
-    onboardCredit: "$75",
-    includes: ["Taxes", "Fees", "Gratuities"],
-    cta: { label: "Get This Deal", href: "/contact" },
-  },
-  {
-    id: "beachcomber-5night-bahamas-eastern-2027",
-    tag: "New deal alert",
-    title: "5-Night Bahamas & Eastern Caribbean",
-    ship: "Margaritaville at Sea Beachcomber",
-    when: "March 15 to 20, 2027",
-    nights: "5 nights",
-    itinerary: "Round-trip Miami: Nassau and Puerto Plata",
-    image: "/deals/beachcomber.jpg",
-    cabins: [
-      { type: "Interior", name: "Cozy Interior", price: "$521.22" },
-      { type: "Oceanview", name: "Picturesque Oceanview", price: "$632.82" },
-      {
-        type: "Balcony",
-        name: "Breezy Balcony",
-        price: "$837.42",
-        tag: "Most booked",
-      },
-    ],
-    priceBasis: "Per guest, double occupancy",
     onboardCredit: "$75",
     includes: ["Taxes", "Fees", "Gratuities"],
     cta: { label: "Get This Deal", href: "/contact" },
