@@ -1,23 +1,21 @@
-// Weekly Cruise Spotlight ("Deal of the Week").
-// Update this object each week to feature a new sailing. Keep pricing accurate
-// and current; leave priced fields blank ("") to hide them.
+// Weekly Cruise Spotlight ("Deal of the week") on the home page.
+// Update this object each week to feature a new sailing. Keep pricing accurate.
+// Use either a their-vs-our comparison (theirPrice/ourPrice/savings) OR a
+// from-price (fromPrice/fromUnit); leave the unused fields off.
 
 export const spotlight = {
   eyebrow: "Deal of the week",
-  title: "New Year's at Sea",
-  subtitle: "Ring in 2027 the Margaritaville way",
-  ship: "Margaritaville at Sea Islander",
+  title: "5-Night Bahamas & Eastern Caribbean",
+  subtitle: "Sail the Beachcomber from Miami",
+  ship: "Margaritaville at Sea Beachcomber",
   facts: [
-    { label: "Departs", value: "Tampa, Dec 28, 2026" },
-    { label: "Length", value: "5-Night Mexico Duo" },
-    { label: "Cabin", value: "Balcony for two" },
+    { label: "Departs", value: "Miami, Mar 15, 2027" },
+    { label: "Length", value: "5 nights" },
+    { label: "Ports", value: "Nassau & Puerto Plata" },
   ],
-  theirPrice: "$2,374",
-  ourPrice: "$1,818",
-  priceUnit: "total for two",
-  savings: "556",
-  onboardCredit: { amount: "$25", text: "Onboard credit included" },
+  fromPrice: "$521.22",
+  fromUnit: "per guest, double occupancy",
+  onboardCredit: { amount: "$75", text: "Onboard credit per cabin" },
   includes: ["Taxes included", "Fees included", "Gratuities included"],
-  addOn: "Drink & Wi-Fi bundle available at $499 per person (subject to change).",
-  image: "/deals/islander.jpg",
+  image: "/deals/beachcomber.jpg",
 };

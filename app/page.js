@@ -94,17 +94,27 @@ export default function HomePage() {
                 ))}
               </dl>
 
-              <div className="price-block">
-                <div className="price-was">
-                  <span>Their price</span>
-                  <s>{spotlight.theirPrice}</s>
+              {spotlight.theirPrice ? (
+                <div className="price-block">
+                  <div className="price-was">
+                    <span>Their price</span>
+                    <s>{spotlight.theirPrice}</s>
+                  </div>
+                  <div className="price-now">
+                    <span>Our price</span>
+                    <strong>{spotlight.ourPrice}</strong>
+                    <em>{spotlight.priceUnit}</em>
+                  </div>
                 </div>
-                <div className="price-now">
-                  <span>Our price</span>
-                  <strong>{spotlight.ourPrice}</strong>
-                  <em>{spotlight.priceUnit}</em>
+              ) : spotlight.fromPrice ? (
+                <div className="price-block">
+                  <div className="price-now">
+                    <span>Fares from</span>
+                    <strong>{spotlight.fromPrice}</strong>
+                    <em>{spotlight.fromUnit}</em>
+                  </div>
                 </div>
-              </div>
+              ) : null}
 
               {spotlight.onboardCredit && (
                 <div className="obc-callout">
