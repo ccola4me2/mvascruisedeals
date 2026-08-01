@@ -16,7 +16,7 @@ export default function DealsPage() {
       <section className="page-head">
         <div className="container">
           <div className="hero-banner hero-banner--center">
-            Up to $100 onboard credit on every sailing
+            Up to $100 onboard credit on most sailings
           </div>
           <p className="eyebrow">Current sailings</p>
           <h1>Margaritaville at Sea Cruise Deals</h1>
