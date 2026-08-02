@@ -62,12 +62,12 @@ export const featuredDeals = [
     compare: {
       basis: "Same ship, same sailing, same cabin",
       rows: [
-        { cabin: "Interior", direct: "$1,850", ours: "$1,617.90" },
-        { cabin: "Oceanview", direct: "$2,270", ours: "$2,073.90" },
-        { cabin: "Balcony", direct: "$3,550", ours: "$2,381.70" },
+        { cabin: "Interior", direct: "$1,854", ours: "$1,617.90" },
+        { cabin: "Oceanview", direct: "$2,274", ours: "$2,073.90" },
+        { cabin: "Balcony", direct: "$3,750", ours: "$2,381.70" },
       ],
     },
-    savings: "Up to $1,168",
+    savings: "Up to $1,368",
     savingsNote: "on a balcony cabin",
     onboardCredit: "$75",
     includes: ["Taxes", "Fees", "Gratuities"],
