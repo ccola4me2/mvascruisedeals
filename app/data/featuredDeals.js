@@ -25,7 +25,7 @@ export const featuredDeals = [
     ship: "Margaritaville at Sea Islander",
     when: "November 30, 2026",
     nights: "5 nights",
-    itinerary: "Round-trip Tampa: two Mexico ports",
+    itinerary: "Round-trip Tampa: Progreso and Cozumel",
     image: "/deals/islander.jpg",
     cabins: [{ type: "Balcony", name: "Breezy Balcony", price: "$633.55" }],
     priceBasis: "Per person, taxes included",
