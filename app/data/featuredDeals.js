@@ -83,18 +83,18 @@ export const featuredDeals = [
     itinerary: "Round-trip Miami: Nassau and Puerto Plata",
     image: "/deals/beachcomber.jpg",
     cabins: [
-      { type: "Interior", name: "Cozy Interior", price: "$521.22" },
-      { type: "Oceanview", name: "Picturesque Oceanview", price: "$632.82" },
+      { type: "Interior", name: "Cozy Interior", price: "$411.22" },
+      { type: "Oceanview", name: "Picturesque Oceanview", price: "$522.82" },
       {
         type: "Balcony",
         name: "Breezy Balcony",
-        price: "$837.42",
+        price: "$727.42",
         tag: "Most booked",
       },
     ],
-    priceBasis: "Per guest, double occupancy",
+    priceBasis: "Per guest, double occupancy. Gratuities additional.",
     onboardCredit: "$75",
-    includes: ["Taxes", "Fees", "Gratuities"],
+    includes: ["Taxes", "Fees"],
     cta: { label: "Get This Deal", href: "/contact" },
   },
   {

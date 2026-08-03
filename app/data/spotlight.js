@@ -13,9 +13,10 @@ export const spotlight = {
     { label: "Length", value: "5 nights" },
     { label: "Ports", value: "Nassau & Puerto Plata" },
   ],
-  fromPrice: "$521.22",
+  fromPrice: "$411.22",
   fromUnit: "per guest, double occupancy",
   onboardCredit: { amount: "$75", text: "Onboard credit per cabin" },
-  includes: ["Taxes included", "Fees included", "Gratuities included"],
+  includes: ["Taxes included", "Fees included"],
+  addOn: "Gratuities additional.",
   image: "/deals/beachcomber.jpg",
 };
