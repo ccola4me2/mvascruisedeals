@@ -66,7 +66,9 @@ export default function HomePage() {
           <div className="spotlight">
             {spotlight.banner && (
               <div className="spotlight-banner">
-                <span aria-hidden="true">&#9752;</span> {spotlight.banner}
+                <span className="shamrock" aria-hidden="true">&#9752;</span>
+                {spotlight.banner}
+                <span className="shamrock" aria-hidden="true">&#9752;</span>
               </div>
             )}
             <div className="spotlight-media">

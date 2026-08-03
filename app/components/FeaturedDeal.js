@@ -20,7 +20,9 @@ export default function FeaturedDeal({ deal, flip }) {
 
       {deal.banner && (
         <div className="fdeal-banner">
-          <span aria-hidden="true">&#9752;</span> {deal.banner}
+          <span className="shamrock" aria-hidden="true">&#9752;</span>
+          {deal.banner}
+          <span className="shamrock" aria-hidden="true">&#9752;</span>
         </div>
       )}
 

@@ -898,19 +898,44 @@ img {
 
 .spotlight-banner {
   grid-column: 1 / -1;
-  background: linear-gradient(135deg, #2aa15a, #14833f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: linear-gradient(135deg, #34c46e 0%, #17a04e 52%, #0f7d3c 100%);
   color: #fff;
-  font-size: 0.95rem;
+  font-size: 1.12rem;
   font-weight: 800;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   text-align: center;
-  padding: 12px 18px;
+  padding: 16px 18px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+  border-bottom: 3px solid #f6bf45;
 }
 
-.spotlight-banner span {
-  font-size: 1.08rem;
-  vertical-align: -1px;
+.shamrock {
+  display: inline-block;
+  color: #ffd84d;
+  font-size: 1.5rem;
+  line-height: 1;
+  animation: shamrockPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes shamrockPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.28);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shamrock {
+    animation: none;
+  }
 }
 
 .spotlight-media {
@@ -1277,19 +1302,20 @@ img {
 }
 
 .fdeal-banner {
-  background: linear-gradient(135deg, #2aa15a, #14833f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #34c46e 0%, #17a04e 52%, #0f7d3c 100%);
   color: #fff;
-  font-size: 0.92rem;
+  font-size: 1.02rem;
   font-weight: 800;
-  letter-spacing: 1px;
+  letter-spacing: 1.3px;
   text-transform: uppercase;
   text-align: center;
-  padding: 12px 18px;
-}
-
-.fdeal-banner span {
-  font-size: 1.05rem;
-  vertical-align: -1px;
+  padding: 15px 18px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  border-bottom: 3px solid #f6bf45;
 }
 
 .fdeal-body {
