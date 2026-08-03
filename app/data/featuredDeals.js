@@ -76,6 +76,7 @@ export const featuredDeals = [
   {
     id: "beachcomber-5night-bahamas-eastern-2027",
     tag: "New deal alert",
+    banner: "St. Patrick's Day Sailing",
     title: "5-Night Bahamas & Eastern Caribbean",
     ship: "Margaritaville at Sea Beachcomber",
     when: "March 15 to 20, 2027",

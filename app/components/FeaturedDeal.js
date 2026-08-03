@@ -18,6 +18,12 @@ export default function FeaturedDeal({ deal, flip }) {
         {deal.tag && <span className="fdeal-tag">{deal.tag}</span>}
       </div>
 
+      {deal.banner && (
+        <div className="fdeal-banner">
+          <span aria-hidden="true">&#9752;</span> {deal.banner}
+        </div>
+      )}
+
       <div className="fdeal-body">
         {deal.logo && (
           <img src={deal.logo} alt="" className="fdeal-logo" width={112} height={95} />
