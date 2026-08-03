@@ -64,6 +64,11 @@ export default function HomePage() {
       <section className="section">
         <div className="container">
           <div className="spotlight">
+            {spotlight.banner && (
+              <div className="spotlight-banner">
+                <span aria-hidden="true">&#9752;</span> {spotlight.banner}
+              </div>
+            )}
             <div className="spotlight-media">
               <Image
                 src={spotlight.image}

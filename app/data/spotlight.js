@@ -5,6 +5,7 @@
 
 export const spotlight = {
   eyebrow: "Deal of the week",
+  banner: "St. Patrick's Day Sailing",
   title: "5-Night Bahamas & Eastern Caribbean",
   subtitle: "Sail the Beachcomber from Miami",
   ship: "Margaritaville at Sea Beachcomber",

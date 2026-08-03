@@ -896,6 +896,23 @@ img {
   box-shadow: var(--shadow);
 }
 
+.spotlight-banner {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #2aa15a, #14833f);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 12px 18px;
+}
+
+.spotlight-banner span {
+  font-size: 1.08rem;
+  vertical-align: -1px;
+}
+
 .spotlight-media {
   position: relative;
   min-height: 360px;
