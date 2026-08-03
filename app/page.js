@@ -268,7 +268,7 @@ export default function HomePage() {
             <div>
               <h3>Running your own group?</h3>
               <p>
-                Reunions, birthdays, clubs, corporate trips: bring 5 cabins or
+                Reunions, birthdays, clubs, corporate trips: bring 6 cabins or
                 more and unlock group pricing, perks, and a dedicated agent who
                 handles the whole block.
               </p>
@@ -298,7 +298,7 @@ export default function HomePage() {
             <div className="feature">
               <h3>Group rate experts</h3>
               <p>
-                Sailing with 5 cabins or more? We unlock group pricing, perks,
+                Sailing with 6 cabins or more? We unlock group pricing, perks,
                 and amenities you can&apos;t get booking on your own.
               </p>
             </div>
