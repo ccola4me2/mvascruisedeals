@@ -32,7 +32,7 @@ export const metadata = {
     "Margaritaville cruise deals",
     "Bahamas cruise from Palm Beach",
     "Tampa Caribbean cruise",
-    "International Parrot Head Day Cruise",
+    "International Parrothead Day Cruise",
     "MVAS Cruise Deals",
   ],
   alternates: {

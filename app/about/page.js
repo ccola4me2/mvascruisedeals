@@ -55,7 +55,7 @@ export default function AboutPage() {
             </p>
             <p>
               I&apos;m also part of the Parrothead community and help lead the
-              International Parrot Head Day Cruise, so I&apos;ve seen firsthand how
+              International Parrothead Day Cruise, so I&apos;ve seen firsthand how
               a Margaritaville at Sea sailing brings people together, whether
               it&apos;s two travelers or a whole crew of friends.
             </p>

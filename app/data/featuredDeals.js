@@ -101,7 +101,7 @@ export const featuredDeals = [
   {
     id: "parrot-head-day-cruise-2027",
     tag: "Group cruise",
-    title: "International Parrot Head Day Cruise 2027",
+    title: "International Parrothead Day Cruise 2027",
     ship: "Margaritaville at Sea Beachcomber",
     when: "June 26 to July 3, 2027",
     nights: "7 nights",
@@ -112,7 +112,7 @@ export const featuredDeals = [
     fromUnit: "per person, double occupancy",
     onboardCredit: "$100",
     blurb:
-      "Sail with the Parrot Head Drifters on the biggest Parrothead cruise of the year aboard the brand-new Beachcomber. Live music, theme nights, and a whole ship full of fins-up fun.",
+      "Sail with the Parrothead Drifters on the biggest Parrothead cruise of the year aboard the brand-new Beachcomber. Live music, theme nights, and a whole ship full of fins-up fun.",
     cta: {
       label: "Visit parrotheadscruise.com",
       href: "https://www.parrotheadscruise.com",

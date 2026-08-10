@@ -211,7 +211,7 @@ export default function HomePage() {
               <div className="group-feature-body">
                 <img
                   src={flagship.logo}
-                  alt="Parrot Head Drifters"
+                  alt="Parrothead Drifters"
                   className="group-logo"
                   width={150}
                   height={128}
