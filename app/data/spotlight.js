@@ -5,7 +5,8 @@
 
 export const spotlight = {
   eyebrow: "Deal of the week",
-  banner: "St. Patrick's Day Sailing",
+  // Optional seasonal promo banner: set a string to show the green banner,
+  // remove or leave off to hide it.
   title: "5-Night Bahamas & Eastern Caribbean",
   subtitle: "Sail the Beachcomber from Miami",
   ship: "Margaritaville at Sea Beachcomber",

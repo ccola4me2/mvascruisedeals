@@ -76,7 +76,8 @@ export const featuredDeals = [
   {
     id: "beachcomber-5night-bahamas-eastern-2027",
     tag: "New deal alert",
-    banner: "St. Patrick's Day Sailing",
+    // Optional seasonal promo banner. Set a string to show a green banner on the
+    // card (e.g. "St. Patrick's Day Sailing"); remove or leave off to hide it.
     title: "5-Night Bahamas & Eastern Caribbean",
     ship: "Margaritaville at Sea Beachcomber",
     when: "March 15 to 20, 2027",
