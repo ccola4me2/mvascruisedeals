@@ -16,6 +16,7 @@ export default function Navbar() {
         </Link>
         <nav className="nav-links" aria-label="Primary">
           <Link href="/deals">Cruise Deals</Link>
+          <Link href="/sailings">All Sailings</Link>
           <Link href="/group-rates">Group Rates</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
