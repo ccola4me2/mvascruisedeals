@@ -20,6 +20,7 @@ export default function Footer() {
         </div>
         <nav className="footer-nav" aria-label="Footer">
           <Link href="/deals">Cruise Deals</Link>
+          <Link href="/sailings">All Sailings</Link>
           <Link href="/group-rates">Group Rates</Link>
           <Link href="/palm-beach-cruises">Palm Beach Cruises</Link>
           <Link href="/tampa-cruises">Tampa Cruises</Link>
