@@ -139,11 +139,10 @@ export const sailings = [
     nights: 2,
     route: "Bahamas Getaway",
     ports_of_call: ["Nassau"],
-    typical_days: "[PLACEHOLDER: confirm departure days]",
+    typical_days: "",
     description:
       "The quick escape: island time before you've even unpacked. Perfect first cruise.",
     image: "/deals/paradise.jpg",
-    note: "[PLACEHOLDER: confirm nights]",
   },
   {
     id: "paradise-bahamas-keywest",
@@ -156,7 +155,6 @@ export const sailings = [
     description:
       "Nassau's beaches plus a Key West afternoon: two islands, one easy sailing from Palm Beach.",
     image: "/deals/paradise.jpg",
-    note: "[PLACEHOLDER: confirm nights]",
   },
   {
     id: "paradise-cozumel",
@@ -199,6 +197,6 @@ export const sailings = [
     description:
       "A shorter taste of the Eastern Caribbean from Miami: San Juan's history and the beaches of the Dominican Republic.",
     image: "/deals/beachcomber.jpg",
-    note: "Sailing early 2027 · [PLACEHOLDER: confirm]",
+    note: "Sailing early 2027",
   },
 ];
