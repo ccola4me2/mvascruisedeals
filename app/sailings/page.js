@@ -15,11 +15,11 @@ export default function SailingsPage() {
           <p className="eyebrow">Every itinerary, one place</p>
           <h1>Find your perfect voyage</h1>
           <p className="page-lede">
-            Browse every Margaritaville at Sea sailing and filter by ship,
-            homeport, length, or destination. Found one you love? Hit Get a Quote
-            and we&apos;ll send the best available fare and group rate. Dates and
-            exact ports vary by sailing, so we&apos;ll confirm the specifics when
-            you reach out.
+            Browse every Margaritaville at Sea itinerary and its upcoming
+            departure dates, then filter by ship, homeport, month, length, or
+            destination. Found one you love? Hit Get a Quote and we&apos;ll send
+            the best available fare and group rate. Exact ports can vary slightly
+            by date, so we&apos;ll confirm the specifics when you reach out.
           </p>
         </div>
       </section>

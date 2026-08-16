@@ -2027,6 +2027,52 @@ img {
   margin: 0 0 14px;
 }
 
+/* Sailings: departure dates */
+.sailing-dates {
+  margin: 0 0 16px;
+  border-top: 1px solid rgba(10, 36, 64, 0.08);
+}
+
+.sailing-dates-head {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin: 12px 0 9px;
+}
+
+.date-chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+
+.date-chip {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--sand);
+  border: 1px solid rgba(10, 36, 64, 0.08);
+  border-radius: 999px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+.date-chip-yr {
+  color: var(--slate);
+  font-weight: 500;
+}
+
+.date-chip-more {
+  background: transparent;
+  border-style: dashed;
+  color: var(--slate);
+}
+
 /* About: Meet Brent */
 .about-brent {
   display: grid;

@@ -6,12 +6,30 @@ import Link from "next/link";
 import { sailings } from "../data/sailings";
 
 const uniq = (arr) => [...new Set(arr)];
+const MONTHS = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+
+// "2026-09-05" -> "Sep 5"
+function shortDate(iso) {
+  const [y, m, d] = iso.split("-");
+  return `${MONTHS[Number(m) - 1]} ${Number(d)}`;
+}
+// "2026-09" -> "Sep 2026"
+function monthLabel(key) {
+  const [y, m] = key.split("-");
+  return `${MONTHS[Number(m) - 1]} ${y}`;
+}
+
+const MAX_CHIPS = 8;
 
 export default function SailingsExplorer() {
   const [ship, setShip] = useState("All");
   const [port, setPort] = useState("All");
   const [nights, setNights] = useState("All");
   const [dest, setDest] = useState("All");
+  const [month, setMonth] = useState("All");
 
   const ships = useMemo(() => uniq(sailings.map((s) => s.ship)).sort(), []);
   const ports = useMemo(
@@ -26,22 +44,33 @@ export default function SailingsExplorer() {
     () => uniq(sailings.flatMap((s) => s.ports_of_call)).sort(),
     []
   );
+  const months = useMemo(
+    () =>
+      uniq(sailings.flatMap((s) => s.departures.map((d) => d.slice(0, 7)))).sort(),
+    []
+  );
 
   const filtered = sailings.filter(
     (s) =>
       (ship === "All" || s.ship === ship) &&
       (port === "All" || s.departure_port === port) &&
       (nights === "All" || String(s.nights) === nights) &&
-      (dest === "All" || s.ports_of_call.includes(dest))
+      (dest === "All" || s.ports_of_call.includes(dest)) &&
+      (month === "All" || s.departures.some((d) => d.startsWith(month)))
   );
 
   const active =
-    ship !== "All" || port !== "All" || nights !== "All" || dest !== "All";
+    ship !== "All" ||
+    port !== "All" ||
+    nights !== "All" ||
+    dest !== "All" ||
+    month !== "All";
   const reset = () => {
     setShip("All");
     setPort("All");
     setNights("All");
     setDest("All");
+    setMonth("All");
   };
 
   return (
@@ -62,6 +91,21 @@ export default function SailingsExplorer() {
             <option>All</option>
             {ports.map((p) => (
               <option key={p}>{p}</option>
+            ))}
+          </select>
+        </div>
+        <div className="filter">
+          <label htmlFor="f-month">Departure month</label>
+          <select
+            id="f-month"
+            value={month}
+            onChange={(e) => setMonth(e.target.value)}
+          >
+            <option value="All">All</option>
+            {months.map((m) => (
+              <option key={m} value={m}>
+                {monthLabel(m)}
+              </option>
             ))}
           </select>
         </div>
@@ -97,7 +141,7 @@ export default function SailingsExplorer() {
       </div>
 
       <p className="sailings-count">
-        Showing {filtered.length} of {sailings.length} sailings
+        Showing {filtered.length} of {sailings.length} itineraries
       </p>
 
       {filtered.length === 0 ? (
@@ -109,39 +153,68 @@ export default function SailingsExplorer() {
         </p>
       ) : (
         <div className="deal-grid">
-          {filtered.map((s) => (
-            <article className="deal-card" key={s.id}>
-              <div className="deal-media">
-                <Image
-                  src={s.image}
-                  alt={`Margaritaville at Sea ${s.ship}`}
-                  width={480}
-                  height={280}
-                  className="deal-image"
-                />
-                <span className="deal-badge">{s.nights} nights</span>
-              </div>
-              <div className="deal-body">
-                <p className="deal-line">Margaritaville at Sea {s.ship}</p>
-                <h3 className="deal-title">
-                  {s.nights}-Night {s.route}
-                </h3>
-                <p className="deal-meta">Departs {s.departure_port}</p>
-                <ul className="deal-ports">
-                  {s.ports_of_call.map((p) => (
-                    <li key={p}>{p}</li>
-                  ))}
-                </ul>
-                <p className="sailing-desc">{s.description}</p>
-                {s.note && <p className="sailing-note">{s.note}</p>}
-                <div className="deal-footer">
-                  <Link href="/contact" className="btn btn-outline">
-                    Get a Quote
-                  </Link>
+          {filtered.map((s) => {
+            const shown =
+              month === "All"
+                ? s.departures
+                : s.departures.filter((d) => d.startsWith(month));
+            const chips = shown.slice(0, MAX_CHIPS);
+            const extra = shown.length - chips.length;
+            return (
+              <article className="deal-card" key={s.id}>
+                <div className="deal-media">
+                  <Image
+                    src={s.image}
+                    alt={`Margaritaville at Sea ${s.ship}`}
+                    width={480}
+                    height={280}
+                    className="deal-image"
+                  />
+                  <span className="deal-badge">{s.nights} nights</span>
                 </div>
-              </div>
-            </article>
-          ))}
+                <div className="deal-body">
+                  <p className="deal-line">Margaritaville at Sea {s.ship}</p>
+                  <h3 className="deal-title">
+                    {s.nights}-Night {s.route}
+                  </h3>
+                  <p className="deal-meta">Departs {s.departure_port}</p>
+                  <ul className="deal-ports">
+                    {s.ports_of_call.map((p) => (
+                      <li key={p}>{p}</li>
+                    ))}
+                  </ul>
+                  {s.note && <p className="sailing-note">{s.note}</p>}
+                  <div className="sailing-dates">
+                    <p className="sailing-dates-head">
+                      {shown.length} departure{shown.length === 1 ? "" : "s"}
+                      {month === "All" ? "" : ` in ${monthLabel(month)}`}
+                    </p>
+                    <ul className="date-chips">
+                      {chips.map((d) => (
+                        <li key={d} className="date-chip">
+                          {shortDate(d)}
+                          <span className="date-chip-yr">
+                            {" "}
+                            {d.slice(0, 4)}
+                          </span>
+                        </li>
+                      ))}
+                      {extra > 0 && (
+                        <li className="date-chip date-chip-more">
+                          +{extra} more
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+                  <div className="deal-footer">
+                    <Link href="/contact" className="btn btn-outline">
+                      Get a Quote
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       )}
     </>
