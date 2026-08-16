@@ -1,8 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ships } from "./data/deals";
-import { spotlight } from "./data/spotlight";
 import { groups } from "./data/groups";
+import { weeklyDeals } from "./data/weeklyDeals";
+import WeeklyDealCard from "./components/WeeklyDealCard";
+import Testimonials from "./components/Testimonials";
+import CommunityGroups from "./components/CommunityGroups";
 
 export default function HomePage() {
   const flagship = groups.find((g) => g.featured) || groups[0];
@@ -60,101 +63,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Weekly Cruise Spotlight */}
+      {/* Deals of the Week */}
       <section className="section">
         <div className="container">
-          <div className="spotlight">
-            {spotlight.banner && (
-              <div className="spotlight-banner">
-                <span className="shamrock" aria-hidden="true">&#9752;</span>
-                {spotlight.banner}
-                <span className="shamrock" aria-hidden="true">&#9752;</span>
-              </div>
-            )}
-            <div className="spotlight-media">
-              <Image
-                src={spotlight.image}
-                alt={spotlight.ship}
-                fill
-                sizes="(max-width: 860px) 100vw, 55vw"
-                className="spotlight-img"
-              />
-              {spotlight.savings && (
-                <div className="save-seal">
-                  <span className="save-seal-label">You Save</span>
-                  <span className="save-seal-amt">${spotlight.savings}</span>
-                </div>
-              )}
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">This week&apos;s best fares</p>
+              <h2>Deals of the week</h2>
             </div>
-            <div className="spotlight-body">
-              <p className="eyebrow">{spotlight.eyebrow}</p>
-              <h2 className="spotlight-title">{spotlight.title}</h2>
-              <p className="spotlight-subtitle">{spotlight.subtitle}</p>
-              <p className="spotlight-ship">{spotlight.ship}</p>
-
-              <dl className="spotlight-facts">
-                {spotlight.facts.map((f) => (
-                  <div key={f.label}>
-                    <dt>{f.label}</dt>
-                    <dd>{f.value}</dd>
-                  </div>
-                ))}
-              </dl>
-
-              {spotlight.theirPrice ? (
-                <div className="price-block">
-                  <div className="price-was">
-                    <span>Their price</span>
-                    <s>{spotlight.theirPrice}</s>
-                  </div>
-                  <div className="price-now">
-                    <span>Our price</span>
-                    <strong>{spotlight.ourPrice}</strong>
-                    <em>{spotlight.priceUnit}</em>
-                  </div>
-                </div>
-              ) : spotlight.fromPrice ? (
-                <div className="price-block">
-                  <div className="price-now">
-                    <span>Fares from</span>
-                    <strong>{spotlight.fromPrice}</strong>
-                    <em>{spotlight.fromUnit}</em>
-                  </div>
-                </div>
-              ) : null}
-
-              {spotlight.onboardCredit && (
-                <div className="obc-callout">
-                  <span className="obc-amt">{spotlight.onboardCredit.amount}</span>
-                  <span className="obc-text">{spotlight.onboardCredit.text}</span>
-                </div>
-              )}
-
-              <ul className="includes-row">
-                {spotlight.includes.map((inc) => (
-                  <li key={inc}>{inc}</li>
-                ))}
-              </ul>
-
-              {spotlight.addOn && (
-                <p className="spotlight-addon">{spotlight.addOn}</p>
-              )}
-
-              <div className="spotlight-foot">
-                <Link href="/contact" className="btn btn-primary">
-                  Get This Deal
-                </Link>
-                <a href="tel:+15617779911" className="spotlight-call">
-                  Call or text Brent: (561) 777-9911
-                </a>
-              </div>
-            </div>
+            <Link href="/deals" className="section-link">
+              View all deals &rarr;
+            </Link>
+          </div>
+          <div className="wdeal-grid">
+            {weeklyDeals.map((deal) => (
+              <WeeklyDealCard key={deal.id} deal={deal} />
+            ))}
           </div>
         </div>
       </section>
 
       {/* Fleet */}
-      <section className="section section--muted">
+      <section id="fleet" className="section section--muted">
         <div className="container">
           <div className="section-head section-head--center">
             <p className="eyebrow">Three ships, endless island time</p>
@@ -280,8 +210,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Join Our Community */}
+      <CommunityGroups />
+
       {/* Why book */}
-      <section className="section section--muted">
+      <section className="section">
         <div className="container">
           <div className="section-head section-head--center">
             <p className="eyebrow">Why book with us</p>
@@ -319,6 +252,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <Testimonials />
 
       {/* CTA */}
       <section className="cta">
