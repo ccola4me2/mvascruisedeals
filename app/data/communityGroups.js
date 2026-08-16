@@ -1,18 +1,17 @@
 // Facebook communities shown in the "Join Our Community" home page section.
 // Add more objects to list more groups. Each: name, description, href.
-// Replace the [PLACEHOLDER] names/descriptions with the real ones.
 
 export const communityGroups = [
   {
-    name: "[PLACEHOLDER: Group name , likely Beachcomber Tips]",
+    name: "Margaritaville at Sea Beachcomber Tips, Tricks and Deals",
     description:
-      "[PLACEHOLDER: one-line description , tips, tricks, and news for Beachcomber sailors]",
+      "Insider tips, tricks, and the latest deals for sailing the brand-new Beachcomber. Come hang with fellow Parrotheads.",
     href: "https://www.facebook.com/groups/1370185967960809",
   },
   {
-    name: "[PLACEHOLDER: Group name]",
+    name: "Margaritaville at Sea Tips, Special Offers and Deals",
     description:
-      "[PLACEHOLDER: one-line description , what this crew is about]",
+      "Fleet-wide tips, special offers, and deals for every Margaritaville at Sea sailing. It's always 5 o'clock in here.",
     href: "https://www.facebook.com/groups/1939961203430465",
   },
 ];
