@@ -21,6 +21,8 @@ export default function Footer() {
         <nav className="footer-nav" aria-label="Footer">
           <Link href="/deals">Cruise Deals</Link>
           <Link href="/group-rates">Group Rates</Link>
+          <Link href="/palm-beach-cruises">Palm Beach Cruises</Link>
+          <Link href="/tampa-cruises">Tampa Cruises</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
         </nav>
