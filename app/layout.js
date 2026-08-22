@@ -41,10 +41,36 @@ export const metadata = {
   },
 };
 
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "@id": "https://mvascruisedeals.com/#agency",
+  name: "MVAS Cruise Deals",
+  description:
+    "Margaritaville at Sea cruise deals and group rates. Best available fares, $0 booking fees, and a dedicated agent from quote to gangway.",
+  url: "https://mvascruisedeals.com",
+  telephone: "+1-561-777-9911",
+  email: "Brent.beasley@cruiseplanners.com",
+  image: "https://mvascruisedeals.com/margaritaville-at-sea-logo.png",
+  areaServed: "US",
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    addressRegion: "FL",
+    addressCountry: "US",
+  },
+  founder: { "@type": "Person", name: "Brent Beasley" },
+  sameAs: ["https://brentbeasley.dreamingtotravel.com/"],
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
         <a className="skip-link" href="#main">
           Skip to content
         </a>
