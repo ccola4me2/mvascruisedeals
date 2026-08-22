@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { sailings } from "../data/sailings";
+import { quoteHref } from "../lib/quote";
 
 const uniq = (arr) => [...new Set(arr)];
 const MONTHS = [
@@ -207,7 +208,16 @@ export default function SailingsExplorer() {
                     </ul>
                   </div>
                   <div className="deal-footer">
-                    <Link href="/contact" className="btn btn-outline">
+                    <Link
+                      href={quoteHref({
+                        ship: s.ship,
+                        cruise: `${s.nights}-Night ${s.route}`,
+                        when: shown[0]
+                          ? `${shortDate(shown[0])}, ${shown[0].slice(0, 4)}`
+                          : undefined,
+                      })}
+                      className="btn btn-outline"
+                    >
                       Get a Quote
                     </Link>
                   </div>

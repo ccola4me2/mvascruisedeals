@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { quoteHref } from "../lib/quote";
 
 export default function FeaturedDeal({ deal, flip }) {
   const external = deal.cta && deal.cta.external;
@@ -138,7 +139,14 @@ export default function FeaturedDeal({ deal, flip }) {
               {deal.cta.label}
             </a>
           ) : (
-            <Link href={deal.cta.href} className="btn btn-primary">
+            <Link
+              href={quoteHref({
+                ship: deal.ship,
+                cruise: deal.title,
+                when: deal.when,
+              })}
+              className="btn btn-primary"
+            >
               {deal.cta.label}
             </Link>
           )}

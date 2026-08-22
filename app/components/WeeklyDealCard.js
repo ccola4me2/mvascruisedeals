@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { quoteHref } from "../lib/quote";
 
 export default function WeeklyDealCard({ deal }) {
   return (
@@ -48,7 +49,14 @@ export default function WeeklyDealCard({ deal }) {
         {deal.urgency && <p className="wdeal-urgency">{deal.urgency}</p>}
 
         <div className="wdeal-actions">
-          <Link href={deal.cta.href} className="btn btn-primary">
+          <Link
+            href={quoteHref({
+              ship: deal.ship,
+              cruise: deal.title,
+              when: deal.when,
+            })}
+            className="btn btn-primary"
+          >
             {deal.cta.label}
           </Link>
           <a href="tel:+15617779911" className="wdeal-call">

@@ -325,6 +325,144 @@ img {
   }
 }
 
+/* Header click-to-call */
+.nav-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.nav-phone:hover {
+  color: var(--ocean);
+  text-decoration: none;
+}
+.nav-links + .nav-phone {
+  margin-left: 24px;
+}
+.nav-cta {
+  margin-left: 16px;
+}
+
+.mobile-menu-phone {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.mobile-menu-phone:hover {
+  text-decoration: none;
+  color: var(--ocean);
+}
+
+@media (max-width: 820px) {
+  .nav-phone {
+    display: none;
+  }
+}
+
+/* Sticky mobile action bar */
+.sticky-cta {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  .sticky-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.4fr;
+    gap: 8px;
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: saturate(180%) blur(8px);
+    border-top: 1px solid var(--line);
+  }
+  .sticky-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--navy);
+    background: var(--sand);
+    border: 1px solid rgba(10, 36, 64, 0.1);
+  }
+  .sticky-cta-btn:hover {
+    text-decoration: none;
+  }
+  .sticky-cta-btn--primary {
+    color: #fff;
+    background: var(--ocean);
+    border-color: var(--ocean);
+  }
+  body {
+    padding-bottom: 64px;
+  }
+}
+
+/* Contact: selected-cruise prefill panel */
+.quote-context {
+  background: var(--navy);
+  color: #fff;
+  border-radius: 16px;
+  padding: 22px 24px;
+  margin: 0 0 28px;
+}
+.quote-context-label {
+  margin: 0 0 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sun);
+}
+.quote-context-cruise {
+  margin: 0;
+  font-family: var(--font-display-stack);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.quote-context-meta {
+  margin: 4px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
+}
+.quote-context-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 10px;
+}
+.quote-context-actions .btn-outline {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.quote-context-actions .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+.quote-context-note {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+.quote-context-note a {
+  color: #fff;
+  font-weight: 700;
+}
+
 /* Hero */
 .hero {
   position: relative;

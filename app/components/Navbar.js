@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { CONTACT } from "../lib/quote";
 
 const NAV = [
   { href: "/deals", label: "Cruise Deals" },
@@ -42,6 +43,14 @@ export default function Navbar() {
           ))}
         </nav>
 
+        <a
+          href={`tel:${CONTACT.phone}`}
+          className="nav-phone"
+          aria-label={`Call or text ${CONTACT.phoneDisplay}`}
+        >
+          <span aria-hidden="true">📞</span> {CONTACT.phoneDisplay}
+        </a>
+
         <Link href="/contact" className="btn btn-primary nav-cta">
           Get a Quote
         </Link>
@@ -80,6 +89,13 @@ export default function Navbar() {
           >
             Get a Quote
           </Link>
+          <a
+            href={`tel:${CONTACT.phone}`}
+            className="mobile-menu-phone"
+            onClick={close}
+          >
+            <span aria-hidden="true">📞</span> Call or text {CONTACT.phoneDisplay}
+          </a>
         </nav>
       </div>
     </header>

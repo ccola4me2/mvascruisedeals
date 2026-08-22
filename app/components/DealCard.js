@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { quoteHref } from "../lib/quote";
 
 export default function DealCard({ deal }) {
   return (
@@ -29,7 +30,10 @@ export default function DealCard({ deal }) {
           <p className="deal-price">
             <span className="deal-price-value">{deal.priceNote}</span>
           </p>
-          <a href="/contact/" className="btn btn-outline">
+          <a
+            href={quoteHref({ ship: deal.ship, cruise: deal.title })}
+            className="btn btn-outline"
+          >
             Get Quote
           </a>
         </div>

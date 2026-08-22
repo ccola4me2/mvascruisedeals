@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SailingsExplorer from "../components/SailingsExplorer";
 
 export const metadata = {
@@ -27,6 +28,20 @@ export default function SailingsPage() {
       <section className="section">
         <div className="container">
           <SailingsExplorer />
+        </div>
+      </section>
+
+      <section className="cta">
+        <div className="container cta-inner">
+          <h2>See one you like?</h2>
+          <p>
+            Send us the sailing and your party size and we&apos;ll reply with the
+            best available fare or group rate, usually within one business day.
+            No fees, no obligation.
+          </p>
+          <Link href="/contact/" className="btn btn-primary btn-lg">
+            Get My Free Quote
+          </Link>
         </div>
       </section>
     </>

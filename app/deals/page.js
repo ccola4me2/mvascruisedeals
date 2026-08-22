@@ -1,3 +1,4 @@
+import Link from "next/link";
 import DealCard from "../components/DealCard";
 import FeaturedDeal from "../components/FeaturedDeal";
 import { deals } from "../data/deals";
@@ -54,6 +55,20 @@ export default function DealsPage() {
               <DealCard key={deal.id} deal={deal} />
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="cta">
+        <div className="container cta-inner">
+          <h2>Ready to book your deal?</h2>
+          <p>
+            Tell us which sailing caught your eye and your party size. We&apos;ll
+            send the best available fare or group rate, usually within one
+            business day. No fees, no obligation.
+          </p>
+          <Link href="/contact/" className="btn btn-primary btn-lg">
+            Get My Free Quote
+          </Link>
         </div>
       </section>
     </>

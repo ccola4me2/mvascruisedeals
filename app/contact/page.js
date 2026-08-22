@@ -1,3 +1,6 @@
+import { Suspense } from "react";
+import QuoteContext from "../components/QuoteContext";
+
 export const metadata = {
   title: "Contact & Free Quote",
   description:
@@ -23,6 +26,9 @@ export default function ContactPage() {
       <section className="section">
         <div className="container contact-grid">
           <div className="request-panel">
+            <Suspense fallback={null}>
+              <QuoteContext />
+            </Suspense>
             <h2>Start your free quote</h2>
             <p>
               Tell us your preferred ship, dates, and party size on our quick
