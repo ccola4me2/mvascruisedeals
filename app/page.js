@@ -6,6 +6,8 @@ import { weeklyDeals } from "./data/weeklyDeals";
 import WeeklyDealCard from "./components/WeeklyDealCard";
 import Testimonials from "./components/Testimonials";
 import CommunityGroups from "./components/CommunityGroups";
+import TrustStrip from "./components/TrustStrip";
+import DealAlerts from "./components/DealAlerts";
 
 export default function HomePage() {
   const flagship = groups.find((g) => g.featured) || groups[0];
@@ -62,6 +64,9 @@ export default function HomePage() {
           </dl>
         </div>
       </section>
+
+      {/* Trust strip */}
+      <TrustStrip />
 
       {/* Deals of the Week */}
       <section className="section">
@@ -255,6 +260,9 @@ export default function HomePage() {
 
       {/* Testimonials */}
       <Testimonials />
+
+      {/* Deal alerts email capture */}
+      <DealAlerts />
 
       {/* CTA */}
       <section className="cta">

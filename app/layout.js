@@ -2,6 +2,8 @@ import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import StickyCTA from "./components/StickyCTA";
+import Reveal from "./components/Reveal";
+import Analytics from "./components/Analytics";
 import "./globals.css";
 
 const display = Fraunces({
@@ -78,6 +80,8 @@ export default function RootLayout({ children }) {
         <main id="main">{children}</main>
         <Footer />
         <StickyCTA />
+        <Reveal />
+        <Analytics />
       </body>
     </html>
   );

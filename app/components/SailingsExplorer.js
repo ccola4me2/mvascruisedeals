@@ -31,6 +31,7 @@ export default function SailingsExplorer() {
   const [nights, setNights] = useState("All");
   const [dest, setDest] = useState("All");
   const [month, setMonth] = useState("All");
+  const [sort, setSort] = useState("soonest");
 
   const ships = useMemo(() => uniq(sailings.map((s) => s.ship)).sort(), []);
   const ports = useMemo(
@@ -59,6 +60,15 @@ export default function SailingsExplorer() {
       (dest === "All" || s.ports_of_call.includes(dest)) &&
       (month === "All" || s.departures.some((d) => d.startsWith(month)))
   );
+
+  const soonest = (s) => s.departures[0] || "9999-99-99";
+  const sorted = [...filtered].sort((a, b) => {
+    if (sort === "shortest")
+      return a.nights - b.nights || soonest(a).localeCompare(soonest(b));
+    if (sort === "longest")
+      return b.nights - a.nights || soonest(a).localeCompare(soonest(b));
+    return soonest(a).localeCompare(soonest(b)); // soonest departure
+  });
 
   const active =
     ship !== "All" ||
@@ -134,6 +144,14 @@ export default function SailingsExplorer() {
             ))}
           </select>
         </div>
+        <div className="filter">
+          <label htmlFor="f-sort">Sort by</label>
+          <select id="f-sort" value={sort} onChange={(e) => setSort(e.target.value)}>
+            <option value="soonest">Soonest departure</option>
+            <option value="shortest">Length: short to long</option>
+            <option value="longest">Length: long to short</option>
+          </select>
+        </div>
         {active && (
           <button type="button" className="filter-reset" onClick={reset}>
             Reset filters
@@ -154,7 +172,7 @@ export default function SailingsExplorer() {
         </p>
       ) : (
         <div className="deal-grid">
-          {filtered.map((s) => {
+          {sorted.map((s) => {
             const shown =
               month === "All"
                 ? s.departures
