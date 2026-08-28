@@ -5,20 +5,6 @@
 
 export const featuredDeals = [
   {
-    id: "islander-6night-belize-progreso-nov2026",
-    tag: "Deal of the week",
-    title: "6-Night Belize & Progreso",
-    ship: "Margaritaville at Sea Islander",
-    when: "November 14, 2026",
-    nights: "6 nights",
-    itinerary: "Round-trip Tampa: Belize and Progreso",
-    image: "/deals/islander.jpg",
-    cabins: [{ type: "Balcony", name: "Breezy Balcony", price: "$464.71" }],
-    priceBasis: "Per person, taxes included",
-    onboardCredit: "$75",
-    cta: { label: "Get This Deal", href: "/contact" },
-  },
-  {
     id: "islander-5night-mexico-duo-nov2026",
     tag: "Special rate",
     title: "5-Night Mexico Duo",
