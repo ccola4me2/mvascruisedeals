@@ -9,20 +9,6 @@
 
 export const weeklyDeals = [
   {
-    id: "islander-5night-mexico-duo-nov2026",
-    tag: "Special rate",
-    title: "5-Night Mexico Duo",
-    ship: "Margaritaville at Sea Islander",
-    when: "November 30, 2026",
-    ports: "Round-trip Tampa · Progreso · Cozumel",
-    image: "/deals/islander.jpg",
-    fare: "$633.55",
-    fareUnit: "per person, balcony",
-    onboardCredit: "$50",
-    urgency: "Limited cabins at this rate",
-    cta: { label: "Get This Deal", href: "/contact" },
-  },
-  {
     id: "beachcomber-5night-bahamas-eastern-2027",
     tag: "New deal alert",
     title: "5-Night Bahamas & Eastern Caribbean",

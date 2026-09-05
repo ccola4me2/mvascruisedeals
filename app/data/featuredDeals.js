@@ -5,20 +5,6 @@
 
 export const featuredDeals = [
   {
-    id: "islander-5night-mexico-duo-nov2026",
-    tag: "Special rate",
-    title: "5-Night Mexico Duo",
-    ship: "Margaritaville at Sea Islander",
-    when: "November 30, 2026",
-    nights: "5 nights",
-    itinerary: "Round-trip Tampa: Progreso and Cozumel",
-    image: "/deals/islander.jpg",
-    cabins: [{ type: "Balcony", name: "Breezy Balcony", price: "$633.55" }],
-    priceBasis: "Per person, taxes included",
-    onboardCredit: "$50",
-    cta: { label: "Get This Deal", href: "/contact" },
-  },
-  {
     id: "new-years-islander-2026",
     tag: "Holiday sailing",
     title: "New Year's at Sea",
