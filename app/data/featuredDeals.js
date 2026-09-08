@@ -15,9 +15,9 @@ export const featuredDeals = [
     image: "/deals/islander.jpg",
     compare: {
       basis: "Balcony cabin, total for two",
-      rows: [{ cabin: "Balcony for two", direct: "$2,374", ours: "$1,818" }],
+      rows: [{ cabin: "Balcony for two", direct: "$2,818", ours: "$1,818" }],
     },
-    savings: "$556",
+    savings: "$1,000",
     onboardCredit: "$25",
     includes: ["Taxes", "Fees", "Gratuities"],
     cta: { label: "Get This Deal", href: "/contact" },
