@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     q: "Which ships and homeports does Margaritaville at Sea sail?",
-    a: "Three ships: Paradise from the Port of Palm Beach (Bahamas, Key West, and new Cozumel sailings), Islander from Port Tampa Bay (4 to 10-night Western and Southern Caribbean), and Beachcomber from PortMiami (Eastern and Southern Caribbean, now sailing its inaugural season).",
+    a: "Three ships across four U.S. homeports: Paradise from the Port of Palm Beach (Bahamas, Key West, and new Cozumel sailings), Islander from Port Tampa Bay (4 to 10-night Western and Southern Caribbean), and Beachcomber from PortMiami (Eastern and Southern Caribbean). Starting October 2027, Beachcomber also sails from the Port of Galveston, Texas, on 7-night Mexico itineraries.",
   },
   {
     q: "What's included in the cruise fare?",

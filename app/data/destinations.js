@@ -20,7 +20,7 @@ export const destinations = [
     name: "Key West",
     region: "Florida Keys",
     intro:
-      "Conch Republic sunsets, Duval Street, and the southernmost point in the continental U.S. Key West is a favorite stop on Margaritaville at Sea sailings from all three homeports.",
+      "Conch Republic sunsets, Duval Street, and the southernmost point in the continental U.S. Key West is a favorite stop on Margaritaville at Sea sailings from the Florida homeports.",
   },
   {
     slug: "nassau",

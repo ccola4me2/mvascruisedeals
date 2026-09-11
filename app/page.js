@@ -54,8 +54,8 @@ export default function HomePage() {
               <dd>Ships in the fleet</dd>
             </div>
             <div>
-              <dt>3</dt>
-              <dd>Florida homeports</dd>
+              <dt>4</dt>
+              <dd>U.S. homeports</dd>
             </div>
             <div>
               <dt>$0</dt>
