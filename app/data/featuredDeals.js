@@ -54,10 +54,10 @@ export const featuredDeals = [
       basis: "Same sailing, same cabin, total for two. Every fare adds a $75 onboard credit.",
       rows: [
         { cabin: "Interior", direct: "$1,850", ours: "$1,617.90" },
-        { cabin: "Balcony", direct: "$4,150", ours: "$2,381.70" },
+        { cabin: "Balcony", direct: "$4,750", ours: "$2,381.70" },
       ],
     },
-    savings: "Up to $1,768",
+    savings: "Up to $2,368",
     savingsNote: "on a balcony cabin",
     onboardCredit: "$75",
     includes: ["Taxes", "Fees", "Gratuities"],
