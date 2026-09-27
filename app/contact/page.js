@@ -78,7 +78,17 @@ export default function ContactPage() {
               </li>
               <li>
                 <span className="contact-label">Website</span>
-                <a href="https://mvascruisedeals.com/">mvascruisedeals.com</a>
+                <span>
+                  <a href="https://mvascruisedeals.com/">mvascruisedeals.com</a>
+                  <br />
+                  <a
+                    href="https://cruisestoursandtravel.com/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    cruisestoursandtravel.com
+                  </a>
+                </span>
               </li>
               <li>
                 <span className="contact-label">Hours</span>
