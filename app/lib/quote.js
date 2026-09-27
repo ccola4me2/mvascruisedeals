@@ -7,7 +7,7 @@ export const CONTACT = {
   phone: "+15617779911",
   phoneDisplay: "(561) 777-9911",
   email: "Brent.beasley@cruiseplanners.com",
-  form: "https://brentbeasley.dreamingtotravel.com/form/CohcX6UGsr",
+  form: "https://cttagents.com/f/wwwmvascruisedealscom",
 };
 
 // Short ship name from either "Islander" or "Margaritaville at Sea Islander".

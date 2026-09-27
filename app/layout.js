@@ -62,7 +62,6 @@ const orgSchema = {
     addressCountry: "US",
   },
   founder: { "@type": "Person", name: "Brent Beasley" },
-  sameAs: ["https://brentbeasley.dreamingtotravel.com/"],
 };
 
 export default function RootLayout({ children }) {

@@ -42,7 +42,7 @@ export default function ContactPage() {
               <li>A real person from quote to gangway</li>
             </ul>
             <a
-              href="https://brentbeasley.dreamingtotravel.com/form/CohcX6UGsr"
+              href="https://cttagents.com/f/wwwmvascruisedealscom"
               target="_blank"
               rel="noopener"
               className="btn btn-primary btn-lg"
@@ -56,17 +56,10 @@ export default function ContactPage() {
           </div>
 
           <aside className="contact-aside">
-            <img
-              src="/cruise-planners-logo.png"
-              alt="Cruise Planners"
-              className="cp-logo"
-              width={200}
-              height={64}
-            />
             <h2>Prefer to talk?</h2>
             <p>
-              Brent Beasley, Cruise Planners. Your land and cruise experts, here
-              to help you lock in the perfect Margaritaville at Sea sailing.
+              Brent Beasley, your independent Margaritaville at Sea specialist,
+              here to help you lock in the perfect sailing.
             </p>
             <ul className="contact-list">
               <li>
@@ -85,13 +78,7 @@ export default function ContactPage() {
               </li>
               <li>
                 <span className="contact-label">Website</span>
-                <a
-                  href="https://brentbeasley.dreamingtotravel.com/"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  brentbeasley.dreamingtotravel.com
-                </a>
+                <a href="https://mvascruisedeals.com/">mvascruisedeals.com</a>
               </li>
               <li>
                 <span className="contact-label">Hours</span>

@@ -32,22 +32,15 @@ export default function AboutPage() {
             />
             <p className="eyebrow">Meet your advisor</p>
             <h2>Hi, I&apos;m Brent Beasley</h2>
-            <img
-              src="/cruise-planners-logo.png"
-              alt="Cruise Planners"
-              className="about-cp-logo"
-              width={200}
-              height={64}
-            />
             <p className="about-credentials">
-              Travel advisor, Cruise Planners
+              Independent travel advisor
               <br />
               FL Seller of Travel #TI128169
             </p>
           </div>
           <div className="about-brent-body">
             <p>
-              I&apos;m a travel advisor with Cruise Planners, and
+              I&apos;m an independent travel advisor, and
               Margaritaville at Sea is my specialty. I sail these ships, I know
               their cabins and itineraries, and there&apos;s nothing I enjoy more
               than helping people trade the everyday grind for a little island
@@ -112,8 +105,8 @@ export default function AboutPage() {
           </p>
 
           <p className="form-note">
-            MVAS Cruise Deals is operated by Brent Beasley, a travel advisor
-            with Cruise Planners (FL Seller of Travel #TI128169). We are not
+            MVAS Cruise Deals is operated by Brent Beasley, an independent
+            travel advisor (FL Seller of Travel #TI128169). We are not
             affiliated with or endorsed by Margaritaville at Sea; all trademarks
             belong to their respective owners.
           </p>

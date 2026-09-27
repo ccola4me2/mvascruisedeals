@@ -34,8 +34,8 @@ export default function Footer() {
       <div className="container footer-legal">
         <p>&copy; {year} MVAS Cruise Deals. All rights reserved.</p>
         <p>
-          Brent Beasley, Cruise Planners. FL Seller of Travel #TI128169. Not
-          affiliated with or endorsed by Margaritaville at Sea. Rates and
+          Brent Beasley, independent travel advisor. FL Seller of Travel
+          #TI128169. Not affiliated with or endorsed by Margaritaville at Sea. Rates and
           itineraries are subject to change and availability. GOVX program rates
           do not qualify for advertised deals or onboard credit.
         </p>
