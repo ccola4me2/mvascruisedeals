@@ -52,7 +52,7 @@ const orgSchema = {
     "Margaritaville at Sea cruise deals and group rates. Best available fares, $0 booking fees, and a dedicated agent from quote to gangway.",
   url: "https://mvascruisedeals.com",
   telephone: "+1-561-777-9911",
-  email: "Brent.beasley@cruiseplanners.com",
+  email: "brentb@cruisestoursandtravel.com",
   image: "https://mvascruisedeals.com/margaritaville-at-sea-logo.png",
   areaServed: "US",
   priceRange: "$$",

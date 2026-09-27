@@ -6,7 +6,7 @@
 export const CONTACT = {
   phone: "+15617779911",
   phoneDisplay: "(561) 777-9911",
-  email: "Brent.beasley@cruiseplanners.com",
+  email: "brentb@cruisestoursandtravel.com",
   form: "https://cttagents.com/f/wwwmvascruisedealscom",
 };
 

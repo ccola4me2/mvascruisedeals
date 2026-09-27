@@ -72,8 +72,8 @@ export default function ContactPage() {
               </li>
               <li>
                 <span className="contact-label">Email</span>
-                <a href="mailto:Brent.beasley@cruiseplanners.com">
-                  Brent.beasley@cruiseplanners.com
+                <a href="mailto:brentb@cruisestoursandtravel.com">
+                  brentb@cruisestoursandtravel.com
                 </a>
               </li>
               <li>
