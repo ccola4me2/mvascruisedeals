@@ -651,13 +651,13 @@ img {
 .hero-palm {
   position: absolute;
   top: -6px;
-  width: min(34vw, 340px);
+  width: min(42vw, 420px);
   height: auto;
-  color: #05131f;
-  opacity: 0.4;
+  color: #04231a;
+  opacity: 0.68;
   z-index: 1;
   pointer-events: none;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.3));
 }
 .hero-palm-l {
   left: -22px;
