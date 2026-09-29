@@ -11,7 +11,6 @@ import DealAlerts from "./components/DealAlerts";
 import HeroTagline from "./components/HeroTagline";
 import HeroPalms from "./components/HeroPalms";
 import EscapeFinder from "./components/EscapeFinder";
-import Signpost from "./components/Signpost";
 
 export default function HomePage() {
   const flagship = groups.find((g) => g.featured) || groups[0];
@@ -136,16 +135,15 @@ export default function HomePage() {
               Explore destinations
             </Link>
           </div>
-          <Signpost
-            signs={[
-              "Cozumel",
-              "Key West",
-              "Nassau",
-              "Grand Cayman",
-              "Aruba",
-              "Puerto Plata",
-            ]}
-          />
+          <div className="signpost-photo">
+            <Image
+              src="/signpost.jpg"
+              alt="Weathered wooden beach signpost pointing toward island destinations"
+              width={900}
+              height={1350}
+              className="signpost-photo-img"
+            />
+          </div>
         </div>
       </section>
 
