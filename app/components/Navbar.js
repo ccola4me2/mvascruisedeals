@@ -7,9 +7,24 @@ import { CONTACT } from "../lib/quote";
 const NAV = [
   { href: "/deals", label: "Cruise Deals" },
   { href: "/sailings", label: "All Sailings" },
+  {
+    label: "Cruises From",
+    children: [
+      { href: "/palm-beach-cruises", label: "Palm Beach" },
+      { href: "/tampa-cruises", label: "Tampa" },
+      { href: "/miami-cruises", label: "Miami" },
+    ],
+  },
+  { href: "/cruises", label: "Destinations" },
   { href: "/group-rates", label: "Group Rates" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  {
+    label: "About",
+    children: [
+      { href: "/about", label: "About Us" },
+      { href: "/faq", label: "FAQ" },
+      { href: "/contact", label: "Contact" },
+    ],
+  },
 ];
 
 export default function Navbar() {
@@ -36,11 +51,33 @@ export default function Navbar() {
         </Link>
 
         <nav className="nav-links" aria-label="Primary">
-          {NAV.map((item) => (
-            <Link key={item.href} href={item.href}>
-              {item.label}
-            </Link>
-          ))}
+          {NAV.map((item) =>
+            item.children ? (
+              <div className="nav-item" key={item.label}>
+                <button
+                  type="button"
+                  className="nav-trigger"
+                  aria-haspopup="true"
+                >
+                  {item.label}
+                  <span className="nav-caret" aria-hidden="true">
+                    ▾
+                  </span>
+                </button>
+                <div className="nav-menu">
+                  {item.children.map((c) => (
+                    <Link key={c.href} href={c.href}>
+                      {c.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <Link key={item.href} href={item.href}>
+                {item.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <a
@@ -77,11 +114,27 @@ export default function Navbar() {
         hidden={!open}
       >
         <nav className="mobile-menu-inner" aria-label="Mobile">
-          {NAV.map((item) => (
-            <Link key={item.href} href={item.href} onClick={close}>
-              {item.label}
-            </Link>
-          ))}
+          {NAV.map((item) =>
+            item.children ? (
+              <div className="mobile-group" key={item.label}>
+                <p className="mobile-group-label">{item.label}</p>
+                {item.children.map((c) => (
+                  <Link
+                    key={c.href}
+                    href={c.href}
+                    className="mobile-sub"
+                    onClick={close}
+                  >
+                    {c.label}
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <Link key={item.href} href={item.href} onClick={close}>
+                {item.label}
+              </Link>
+            )
+          )}
           <Link
             href="/contact"
             className="btn btn-primary mobile-menu-cta"

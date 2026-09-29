@@ -219,17 +219,93 @@ img {
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 22px;
   margin-left: auto;
 }
 
-.nav-links a {
+.nav-links > a {
   color: var(--slate);
   font-weight: 600;
 }
 
-.nav-links a:hover {
+.nav-links > a:hover {
   color: var(--navy);
+  text-decoration: none;
+}
+
+/* Header dropdowns */
+.nav-item {
+  position: relative;
+}
+.nav-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  color: var(--slate);
+  font-weight: 600;
+}
+.nav-item:hover .nav-trigger,
+.nav-item:focus-within .nav-trigger {
+  color: var(--navy);
+}
+.nav-caret {
+  font-size: 0.65em;
+  transition: transform 0.15s ease;
+}
+.nav-item:hover .nav-caret,
+.nav-item:focus-within .nav-caret {
+  transform: rotate(180deg);
+}
+.nav-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  margin-top: 12px;
+  min-width: 190px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 60;
+}
+/* invisible bridge so hover survives the gap to the menu */
+.nav-menu::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
+.nav-item:hover .nav-menu,
+.nav-item:focus-within .nav-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.nav-menu a {
+  padding: 9px 12px;
+  border-radius: 9px;
+  color: var(--navy);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.nav-menu a:hover {
+  background: var(--sand);
   text-decoration: none;
 }
 
@@ -310,6 +386,22 @@ img {
 
 .mobile-menu-inner a:hover {
   text-decoration: none;
+}
+
+.mobile-group {
+  display: flex;
+  flex-direction: column;
+}
+.mobile-group-label {
+  margin: 14px 2px 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ocean);
+}
+.mobile-menu-inner a.mobile-sub {
+  padding-left: 14px;
 }
 
 .mobile-menu-cta {
