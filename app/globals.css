@@ -3103,3 +3103,41 @@ img {
   justify-content: center;
   margin: 30px 0 0;
 }
+
+/* Cohesion pass: carry the hero's gold + interactivity through the page */
+.section-head--center h2 {
+  position: relative;
+}
+.section-head--center h2::after {
+  content: "";
+  display: block;
+  width: 62px;
+  height: 4px;
+  margin: 16px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f8ca5c, var(--sun));
+}
+
+.deal-card,
+.ship-card,
+.wdeal-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.deal-card:hover,
+.ship-card:hover,
+.wdeal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 56px rgba(10, 36, 64, 0.2);
+}
+@media (prefers-reduced-motion: reduce) {
+  .deal-card,
+  .ship-card,
+  .wdeal-card {
+    transition: none;
+  }
+  .deal-card:hover,
+  .ship-card:hover,
+  .wdeal-card:hover {
+    transform: none;
+  }
+}
