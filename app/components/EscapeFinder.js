@@ -55,6 +55,7 @@ const PORTS = [
   { id: "Palm Beach, FL", label: "Palm Beach", sub: "aboard Paradise" },
   { id: "Tampa, FL", label: "Tampa", sub: "aboard Islander" },
   { id: "Miami, FL", label: "Miami", sub: "aboard Beachcomber" },
+  { id: "Galveston, TX", label: "Galveston", sub: "aboard Beachcomber" },
   { id: "any", label: "Surprise me", sub: "any homeport" },
 ];
 

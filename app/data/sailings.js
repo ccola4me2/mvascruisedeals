@@ -599,4 +599,18 @@ export const sailings = [
     description: "Round-trip from Miami. Ports of call: Aruba, Bonaire, and Puerto Plata.",
     image: "/deals/beachcomber.jpg",
   },
+
+  // ---- Beachcomber , Port of Galveston, Texas (new homeport, sailing 2027) --
+  {
+    id: "beachcomber-7-mexico-trio",
+    ship: "Beachcomber",
+    departure_port: "Galveston, TX",
+    nights: 7,
+    route: "Mexico Trio",
+    ports_of_call: ["Cozumel", "Progreso", "Veracruz"],
+    departures: ["2028-01-14"],
+    description: "Round-trip from Galveston. Ports of call: Cozumel, Progreso, and Veracruz.",
+    image: "/deals/beachcomber.jpg",
+    note: "New from Galveston",
+  },
 ];
