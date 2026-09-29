@@ -10,6 +10,7 @@ import TrustStrip from "./components/TrustStrip";
 import DealAlerts from "./components/DealAlerts";
 import HeroTagline from "./components/HeroTagline";
 import HeroPalms from "./components/HeroPalms";
+import EscapeFinder from "./components/EscapeFinder";
 
 export default function HomePage() {
   const flagship = groups.find((g) => g.featured) || groups[0];
@@ -101,6 +102,21 @@ export default function HomePage() {
               <WeeklyDealCard key={deal.id} deal={deal} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Find your escape */}
+      <section className="section" id="finder">
+        <div className="container">
+          <div className="section-head section-head--center">
+            <p className="eyebrow">Not sure where to start?</p>
+            <h2>Find your escape</h2>
+            <p className="section-lede">
+              Three quick taps and we&apos;ll match you to a Margaritaville at Sea
+              sailing that fits, then send a free quote.
+            </p>
+          </div>
+          <EscapeFinder />
         </div>
       </section>
 
