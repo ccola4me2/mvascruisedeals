@@ -90,10 +90,6 @@ export default function ContactPage() {
                   </a>
                 </span>
               </li>
-              <li>
-                <span className="contact-label">Hours</span>
-                <span>Mon to Fri, 9am to 7pm ET</span>
-              </li>
             </ul>
             <p className="team-note">FL Seller of Travel #TI128169</p>
           </aside>
