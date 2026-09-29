@@ -50,6 +50,17 @@ export default function Signpost({ signs = [] }) {
         <filter id="signShadow" x="-20%" y="-20%" width="140%" height="150%">
           <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#1c1206" floodOpacity="0.32" />
         </filter>
+        <filter id="woodgrain" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.022 0.085" numOctaves="4" seed="9" result="n" />
+          <feColorMatrix
+            in="n"
+            type="matrix"
+            values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.7 0 0 0 -0.62"
+          />
+        </filter>
+        <pattern id="grain" patternUnits="userSpaceOnUse" width="160" height="60">
+          <rect width="160" height="60" filter="url(#woodgrain)" />
+        </pattern>
       </defs>
 
       {/* sand mound */}
@@ -85,10 +96,10 @@ export default function Signpost({ signs = [] }) {
             filter="url(#signShadow)"
           >
             <path d={path} fill={`url(#plank-${tone.id})`} stroke={tone.edge} strokeWidth="1.5" />
-            {/* top highlight + grain streaks */}
+            {/* wood grain */}
+            <path d={path} fill="url(#grain)" opacity="0.28" />
+            {/* top highlight */}
             <path d={path} fill="none" stroke="#ffffff" strokeOpacity="0.18" strokeWidth="1" transform="translate(0 1.5)" />
-            <line x1={left ? NOTCH : 6} y1={cy - 7} x2={left ? W - 6 : W - NOTCH} y2={cy - 7} stroke="#000" strokeOpacity="0.07" strokeWidth="1.5" />
-            <line x1={left ? NOTCH : 6} y1={cy + 8} x2={left ? W - 6 : W - NOTCH} y2={cy + 8} stroke="#000" strokeOpacity="0.09" strokeWidth="1.5" />
             {/* screws at the post end */}
             {[cy - 10, cy + 10].map((sy) => (
               <g key={sy}>
