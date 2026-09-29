@@ -8,6 +8,8 @@ import Testimonials from "./components/Testimonials";
 import CommunityGroups from "./components/CommunityGroups";
 import TrustStrip from "./components/TrustStrip";
 import DealAlerts from "./components/DealAlerts";
+import HeroTagline from "./components/HeroTagline";
+import HeroPalms from "./components/HeroPalms";
 
 export default function HomePage() {
   const flagship = groups.find((g) => g.featured) || groups[0];
@@ -27,6 +29,8 @@ export default function HomePage() {
           />
         </div>
         <div className="hero-overlay" />
+        <div className="hero-sun" />
+        <HeroPalms />
         <div className="container hero-inner">
           <div className="hero-banner">
             Up to $100 onboard credit on most sailings
@@ -35,6 +39,7 @@ export default function HomePage() {
           <h1 className="hero-title">
             Your Margaritaville at Sea <em>cruise deals</em> and group experts.
           </h1>
+          <HeroTagline />
           <p className="hero-subtitle">
             From quick Bahamas escapes to week-long Caribbean sailings, we find
             the best fares and group rates across all three ships, then handle
@@ -63,6 +68,17 @@ export default function HomePage() {
             </div>
           </dl>
         </div>
+        <svg
+          className="hero-wave"
+          viewBox="0 0 1440 90"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            fill="currentColor"
+            d="M0,44 C220,92 430,4 720,44 C1010,84 1230,12 1440,46 L1440,92 L0,92 Z"
+          />
+        </svg>
       </section>
 
       {/* Trust strip */}
