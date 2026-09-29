@@ -3141,3 +3141,164 @@ img {
     transform: none;
   }
 }
+
+/* ---- Signpost motif (hand-painted wooden directional signs) ---- */
+.signpost-section {
+  background: linear-gradient(180deg, #e9f3fb 0%, #f1ecdd 76%, var(--sand) 100%);
+}
+.signpost-band {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 44px;
+  align-items: center;
+}
+.signpost-copy .eyebrow {
+  margin-bottom: 6px;
+}
+.signpost-copy h2 {
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  margin: 0 0 14px;
+}
+.signpost-copy p {
+  color: var(--slate);
+  font-size: 1.08rem;
+  line-height: 1.6;
+  max-width: 46ch;
+  margin: 0 0 24px;
+}
+
+.signpost {
+  position: relative;
+  width: min(360px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6px;
+}
+.signpost::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 14px;
+  bottom: 18px;
+  width: 30px;
+  border-radius: 5px;
+  background: repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.1) 0 2px,
+      transparent 2px 6px
+    ),
+    linear-gradient(
+      90deg,
+      #4f3520 0%,
+      #7a5233 30%,
+      #8a6038 52%,
+      #6a4526 74%,
+      #4a3220 100%
+    );
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15), 0 8px 18px rgba(0, 0, 0, 0.18);
+  z-index: 0;
+}
+.signpost-cap {
+  width: 44px;
+  height: 18px;
+  border-radius: 7px 7px 4px 4px;
+  background: linear-gradient(90deg, #4f3520, #7a5233 50%, #4a3220);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.12), 0 3px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-bottom: -3px;
+}
+.signpost-signs {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 0;
+}
+.sign {
+  width: 212px;
+  padding: 11px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  filter: drop-shadow(0 5px 7px rgba(0, 0, 0, 0.26));
+}
+.sign::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05) 0 1px,
+      transparent 1px 5px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.05) 0 1px,
+      transparent 1px 9px
+    );
+  pointer-events: none;
+}
+.sign-text {
+  position: relative;
+  font-family: var(--font-hand), "Comic Sans MS", cursive;
+  font-size: 1.16rem;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #fbf5e6;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.28);
+  white-space: nowrap;
+  line-height: 1;
+}
+.sign--left {
+  align-self: flex-start;
+  transform: rotate(-1.8deg);
+  clip-path: polygon(24px 0, 100% 0, 100% 100%, 24px 100%, 0 50%);
+  padding-left: 30px;
+}
+.sign--right {
+  align-self: flex-end;
+  transform: rotate(1.8deg);
+  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 50%, calc(100% - 24px) 100%, 0 100%);
+  padding-right: 30px;
+}
+.sign--w0 {
+  background: linear-gradient(180deg, #34988e, #237a72);
+}
+.sign--w1 {
+  background: linear-gradient(180deg, #c49a63, #a97e46);
+}
+.sign--w2 {
+  background: linear-gradient(180deg, #3f86ab, #2f6f93);
+}
+.signpost-base {
+  width: 140px;
+  height: 24px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 38%,
+    #e7d6ad,
+    #d8c397 68%,
+    transparent 72%
+  );
+  z-index: 0;
+}
+
+@media (max-width: 720px) {
+  .signpost-band {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: center;
+  }
+  .signpost-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

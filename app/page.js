@@ -11,6 +11,7 @@ import DealAlerts from "./components/DealAlerts";
 import HeroTagline from "./components/HeroTagline";
 import HeroPalms from "./components/HeroPalms";
 import EscapeFinder from "./components/EscapeFinder";
+import Signpost from "./components/Signpost";
 
 export default function HomePage() {
   const flagship = groups.find((g) => g.featured) || groups[0];
@@ -117,6 +118,34 @@ export default function HomePage() {
             </p>
           </div>
           <EscapeFinder />
+        </div>
+      </section>
+
+      {/* Signpost: where do you want to wake up */}
+      <section className="section signpost-section">
+        <div className="container signpost-band">
+          <div className="signpost-copy">
+            <p className="eyebrow">Pick your paradise</p>
+            <h2>Where do you want to wake up?</h2>
+            <p>
+              From Bahamas beaches to Western Caribbean adventures, point yourself
+              at the island that&apos;s calling. Tell me where, and I&apos;ll match
+              you to the sailing that gets you there.
+            </p>
+            <Link href="/cruises/" className="btn btn-primary btn-lg">
+              Explore destinations
+            </Link>
+          </div>
+          <Signpost
+            signs={[
+              "Cozumel",
+              "Key West",
+              "Nassau",
+              "Grand Cayman",
+              "Aruba",
+              "Puerto Plata",
+            ]}
+          />
         </div>
       </section>
 

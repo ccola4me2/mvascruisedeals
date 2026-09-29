@@ -1,4 +1,4 @@
-import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
+import { Fraunces, Plus_Jakarta_Sans, Patrick_Hand } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import StickyCTA from "./components/StickyCTA";
@@ -18,6 +18,13 @@ const body = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-body",
+  display: "swap",
+});
+
+const hand = Patrick_Hand({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-hand",
   display: "swap",
 });
 
@@ -66,7 +73,10 @@ const orgSchema = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} ${hand.variable}`}
+    >
       <body>
         <script
           type="application/ld+json"
