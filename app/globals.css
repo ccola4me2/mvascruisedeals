@@ -673,16 +673,17 @@ img {
 
 /* Rotating tagline */
 .hero-rotator {
-  height: 1.7em;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  line-height: 1.5;
+  min-height: 1.9em;
   margin: 16px 0 2px;
-  overflow: hidden;
 }
 .hero-rot {
   display: inline-block;
   font-family: var(--font-display-stack);
   font-style: italic;
   font-weight: 500;
-  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  line-height: 1.5;
   color: #eaf4ff;
   will-change: transform, opacity;
 }
