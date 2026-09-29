@@ -36,9 +36,9 @@ export default function HomePage() {
           <div className="hero-banner">
             Up to $100 onboard credit on most sailings
           </div>
-          <p className="eyebrow eyebrow--light">Margaritaville at Sea specialists</p>
+          <p className="eyebrow eyebrow--light">Margaritaville at Sea specialist</p>
           <h1 className="hero-title">
-            Your Margaritaville at Sea <em>cruise deals</em> and group experts.
+            Your Margaritaville at Sea <em>cruise deals</em> and group expert.
           </h1>
           <HeroTagline />
           <p className="hero-subtitle">
@@ -259,14 +259,14 @@ export default function HomePage() {
           </div>
           <div className="feature-grid">
             <div className="feature">
-              <h3>Margaritaville specialists</h3>
+              <h3>Margaritaville specialist</h3>
               <p>
                 We book Margaritaville at Sea every day, so we know the ships,
                 the cabins, and the sailings that deliver the best value.
               </p>
             </div>
             <div className="feature">
-              <h3>Group rate experts</h3>
+              <h3>Group rate expert</h3>
               <p>
                 Sailing with 6 cabins or more? We unlock group pricing, perks,
                 and amenities you can&apos;t get booking on your own.
