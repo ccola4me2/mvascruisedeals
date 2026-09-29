@@ -441,6 +441,33 @@ img {
   margin-left: 16px;
 }
 
+/* Header quote button: softer rectangle, navy with a sliding gold arrow */
+.site-header .nav-cta {
+  background: var(--navy);
+  color: #fff;
+  border-radius: 12px;
+  padding: 12px 20px;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(10, 36, 64, 0.26);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.site-header .nav-cta::after {
+  content: "\2192";
+  color: var(--sun);
+  font-weight: 800;
+  margin-left: 9px;
+  display: inline-block;
+  transition: transform 0.16s ease;
+}
+.site-header .nav-cta:hover {
+  background: var(--navy-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(10, 36, 64, 0.32);
+}
+.site-header .nav-cta:hover::after {
+  transform: translateX(4px);
+}
+
 .mobile-menu-phone {
   margin-top: 14px;
   display: inline-flex;
