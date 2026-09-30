@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import StickyCTA from "./components/StickyCTA";
 import Reveal from "./components/Reveal";
 import Analytics from "./components/Analytics";
+import AnalyticsEvents from "./components/AnalyticsEvents";
 import "./globals.css";
 
 const display = Fraunces({
@@ -89,6 +90,7 @@ export default function RootLayout({ children }) {
         <StickyCTA />
         <Reveal />
         <Analytics />
+        <AnalyticsEvents />
       </body>
     </html>
   );

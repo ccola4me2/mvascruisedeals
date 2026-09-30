@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { track } from "../lib/track";
 
 // Inline quote form. Posts to the site's own /api/quote Worker endpoint, which
 // files the lead into the CTT portal and emails a copy. Prefills the cruise,
@@ -32,6 +33,12 @@ export default function QuoteForm() {
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.ok) {
+        track("generate_lead", {
+          method: "quote_form",
+          form_location:
+            typeof window !== "undefined" ? window.location.pathname : undefined,
+          filed: Boolean(data.filed),
+        });
         setStatus("done");
         form.reset();
       } else {
