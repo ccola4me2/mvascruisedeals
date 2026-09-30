@@ -329,6 +329,326 @@ export const destinations = [
       },
     ],
   },
+  {
+    slug: "san-juan",
+    port: "San Juan",
+    name: "San Juan, Puerto Rico",
+    region: "Eastern Caribbean",
+    intro:
+      "Blue-cobblestone streets, seaside forts, and Puerto Rican rhythm. San Juan headlines the new Beachcomber Eastern Caribbean sailings from Miami.",
+    highlights: [
+      {
+        title: "Old San Juan and El Morro",
+        text: "Wander 500-year-old streets and the clifftop Castillo San Felipe del Morro fortress overlooking the sea.",
+      },
+      {
+        title: "Beaches and El Yunque",
+        text: "Condado beach sits minutes away, and El Yunque is the only tropical rainforest in the U.S. forest system.",
+      },
+      {
+        title: "Food, rum, and salsa",
+        text: "Mofongo, local rum, and live music in the plazas of the old city.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Which ship visits San Juan?",
+        a: "Beachcomber from Miami, on 7-night Eastern Caribbean itineraries alongside St. Thomas, St. Maarten, and Puerto Plata.",
+      },
+      {
+        q: "Do I need a passport for San Juan?",
+        a: "San Juan is in Puerto Rico, a U.S. territory, but these sailings also visit foreign ports, so a passport is recommended. We'll confirm the documents for your exact itinerary.",
+      },
+    ],
+  },
+  {
+    slug: "st-thomas",
+    port: "St. Thomas",
+    name: "St. Thomas, USVI",
+    region: "Eastern Caribbean",
+    intro:
+      "Duty-free shopping, Magens Bay, and hilltop harbor views. St. Thomas is a signature stop on Beachcomber's Eastern Caribbean sailings from Miami.",
+    highlights: [
+      {
+        title: "Magens Bay Beach",
+        text: "A calm, heart-shaped bay of soft sand consistently ranked among the world's most beautiful beaches.",
+      },
+      {
+        title: "Skyride and Charlotte Amalie",
+        text: "Ride to Paradise Point for sweeping harbor views, then shop duty-free in town.",
+      },
+      {
+        title: "Snorkel and sail",
+        text: "Clear water, Coral World, and easy day sails make St. Thomas a snorkeler's favorite.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Which ship visits St. Thomas?",
+        a: "Beachcomber from Miami, on 7-night Eastern Caribbean itineraries.",
+      },
+      {
+        q: "Is St. Thomas good for beaches?",
+        a: "Yes. Magens Bay and Sapphire Beach are among the Caribbean's best, a short ride from the pier.",
+      },
+    ],
+  },
+  {
+    slug: "st-maarten",
+    port: "St. Maarten",
+    name: "St. Maarten",
+    region: "Eastern Caribbean",
+    intro:
+      "Two nations on one island, French cuisine and Dutch buzz, and the famous Maho Beach. St. Maarten anchors Beachcomber's longer Eastern Caribbean sailings from Miami.",
+    highlights: [
+      {
+        title: "Maho Beach",
+        text: "Watch jets skim the sand on their approach to the runway at this one-of-a-kind beach.",
+      },
+      {
+        title: "Philipsburg and Orient Bay",
+        text: "Boardwalk shopping on the Dutch side, French cafes and beaches on the other.",
+      },
+      {
+        title: "Coves and day sails",
+        text: "Calm snorkeling coves and short sails to nearby islets.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Which ship visits St. Maarten?",
+        a: "Beachcomber from Miami, on select 7-night Eastern Caribbean itineraries.",
+      },
+      {
+        q: "What is St. Maarten known for?",
+        a: "A split French and Dutch island famous for its beaches, dining, and the plane-spotting at Maho Beach.",
+      },
+    ],
+  },
+  {
+    slug: "aruba",
+    port: "Aruba",
+    name: "Aruba",
+    region: "Southern Caribbean",
+    intro:
+      "Constant trade winds, white-sand beaches, and desert-island landscapes. Aruba features on the Southern Caribbean and ABC Islands sailings from Tampa and Miami.",
+    highlights: [
+      {
+        title: "Eagle and Palm Beach",
+        text: "Wide, calm, powder-soft beaches lined with the island's iconic divi-divi trees.",
+      },
+      {
+        title: "Arikok National Park",
+        text: "Rugged desert, natural pools, and windswept coast cover nearly a fifth of the island.",
+      },
+      {
+        title: "Oranjestad",
+        text: "Pastel Dutch-colonial streets, shopping, and casinos near the pier.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Which ships visit Aruba?",
+        a: "Islander from Tampa and Beachcomber from Miami, on 8 to 10-night Southern Caribbean itineraries.",
+      },
+      {
+        q: "When is the best time to cruise to Aruba?",
+        a: "Aruba sits below the hurricane belt and stays dry and breezy year-round, so any season works.",
+      },
+    ],
+  },
+  {
+    slug: "bonaire",
+    port: "Bonaire",
+    name: "Bonaire",
+    region: "Southern Caribbean",
+    intro:
+      "A diver's and snorkeler's dream ringed by protected reef. Bonaire joins the ABC Islands Southern Caribbean sailings on Beachcomber from Miami.",
+    highlights: [
+      {
+        title: "Shore diving and snorkeling",
+        text: "The entire coast is a marine park, with vivid reef reachable straight from the shore.",
+      },
+      {
+        title: "Flamingos and salt flats",
+        text: "Pink flamingos, historic salt pans, and Washington Slagbaai National Park.",
+      },
+      {
+        title: "Kralendijk",
+        text: "A tiny, colorful Dutch capital and a laid-back waterfront.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Which ship visits Bonaire?",
+        a: "Beachcomber from Miami, on 8-night ABC Islands Southern Caribbean itineraries.",
+      },
+      {
+        q: "Is Bonaire good for snorkeling?",
+        a: "It is among the best in the Caribbean. The whole coastline is a protected marine park with easy reef access.",
+      },
+    ],
+  },
+  {
+    slug: "curacao",
+    port: "Curacao",
+    name: "Curacao",
+    region: "Southern Caribbean",
+    intro:
+      "Dutch-colonial color, hidden coves, and reef right off the beach. Curacao rounds out the Southern Caribbean and ABC Islands sailings from Tampa and Miami.",
+    highlights: [
+      {
+        title: "Willemstad",
+        text: "The UNESCO-listed pastel waterfront of Handelskade and the floating Queen Emma Bridge.",
+      },
+      {
+        title: "Hidden cove beaches",
+        text: "Clear, calm coves like Cas Abao and Playa Kenepa dot the coast.",
+      },
+      {
+        title: "Snorkel and the Blue Room",
+        text: "Easy reef access and the famous Blue Room sea cave.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Which ships visit Curacao?",
+        a: "Islander from Tampa and Beachcomber from Miami, on 8 to 10-night Southern Caribbean itineraries.",
+      },
+      {
+        q: "What is Curacao known for?",
+        a: "Its colorful Dutch capital Willemstad, quiet cove beaches, and excellent snorkeling.",
+      },
+    ],
+  },
+  {
+    slug: "bimini",
+    port: "Bimini",
+    name: "Bimini, Bahamas",
+    region: "The Bahamas",
+    intro:
+      "The closest Bahamian island to Florida, with gin-clear water and Hemingway history. Bimini appears on short Paradise and Beachcomber Bahamas sailings.",
+    highlights: [
+      {
+        title: "Radio Beach and clear water",
+        text: "Soft sand near the pier and some of the clearest water in the Bahamas.",
+      },
+      {
+        title: "Big-game fishing",
+        text: "The sportfishing capital that once drew Ernest Hemingway.",
+      },
+      {
+        title: "Snorkel and swim",
+        text: "Reefs, wrecks, and wild dolphin encounters just offshore.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Which ships visit Bimini?",
+        a: "Paradise from Palm Beach and Beachcomber from Miami, on short Bahamas getaways.",
+      },
+      {
+        q: "What's the shortest cruise to Bimini?",
+        a: "A 3 or 4-night Bahamas itinerary that pairs Bimini with Nassau or Grand Bahama.",
+      },
+    ],
+  },
+  {
+    slug: "montego-bay",
+    port: "Montego Bay",
+    name: "Montego Bay, Jamaica",
+    region: "Jamaica",
+    intro:
+      "Jamaica's beach-resort heart, with Doctor's Cave Beach and reggae warmth. Montego Bay features on the Western Caribbean and Jamaica sailings from Tampa and Miami.",
+    highlights: [
+      {
+        title: "Doctor's Cave Beach",
+        text: "The famous crescent of white sand and clear water at the heart of the Hip Strip.",
+      },
+      {
+        title: "Raft the Great River",
+        text: "Bamboo rafting and river tubing through lush countryside.",
+      },
+      {
+        title: "Jerk and reggae",
+        text: "Authentic jerk, rum, and live island music.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Which ships visit Montego Bay?",
+        a: "Islander from Tampa and Beachcomber from Miami, on 7 to 10-night Western and Southern Caribbean itineraries.",
+      },
+      {
+        q: "Is Montego Bay the same as Ocho Rios?",
+        a: "Both are Jamaican ports. Some itineraries call on one, some the other, and we'll tell you which your sailing visits.",
+      },
+    ],
+  },
+  {
+    slug: "grand-turk",
+    port: "Grand Turk",
+    name: "Grand Turk",
+    region: "Turks & Caicos",
+    intro:
+      "A tiny island with a giant reef wall just offshore and powder beaches by the pier. Grand Turk features on select Paradise Bahamas sailings from Palm Beach.",
+    highlights: [
+      {
+        title: "Beach by the pier",
+        text: "Soft sand and calm, clear water just steps from the ship.",
+      },
+      {
+        title: "Wall diving and snorkeling",
+        text: "A dramatic reef wall drops off close to shore, world-class for divers.",
+      },
+      {
+        title: "History and Gibbs Cay",
+        text: "Historic salt ponds ashore and stingray sandbars on nearby Gibbs Cay.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Which ship visits Grand Turk?",
+        a: "Paradise from Palm Beach, on a 5-night Grand Turk & Bahamas itinerary.",
+      },
+      {
+        q: "Is Grand Turk good for first-time snorkelers?",
+        a: "Yes. Calm, shallow water sits right by the pier, with the famous wall nearby for experienced divers.",
+      },
+    ],
+  },
+  {
+    slug: "veracruz",
+    port: "Veracruz",
+    name: "Veracruz, Mexico",
+    region: "Mexico",
+    intro:
+      "Historic Gulf-coast Mexico with marimba plazas and Spanish-colonial history. Veracruz is a highlight of the new Beachcomber Mexico sailings from Galveston, Texas.",
+    highlights: [
+      {
+        title: "Historic center and malecon",
+        text: "The lively zocalo, marimba music, and a breezy seaside malecon.",
+      },
+      {
+        title: "San Juan de Ulua",
+        text: "A centuries-old fortress guarding the historic harbor.",
+      },
+      {
+        title: "Aquarium and seafood",
+        text: "One of Latin America's top aquariums and a famous Gulf seafood scene.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Which ship visits Veracruz?",
+        a: "Beachcomber from the Port of Galveston, Texas, on a 7-night Mexico Trio with Cozumel and Progreso, starting January 2028.",
+      },
+      {
+        q: "Where does the Veracruz cruise leave from?",
+        a: "The new Beachcomber sailings depart round-trip from Galveston, Texas.",
+      },
+    ],
+  },
 ];
 
 export function getDestination(slug) {
