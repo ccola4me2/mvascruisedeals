@@ -3267,3 +3267,134 @@ img {
   border-color: var(--ocean);
   color: var(--ocean);
 }
+
+/* Inline quote form */
+.quote-section {
+  background: linear-gradient(180deg, var(--sand) 0%, #eef4fb 100%);
+}
+.quote-shell {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 24px 50px rgba(10, 36, 64, 0.1);
+}
+.quote-form {
+  display: block;
+}
+.qf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.qf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.qf-field--full {
+  margin-top: 16px;
+}
+.qf-field > span {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+.qf-field input,
+.qf-field select,
+.qf-field textarea {
+  font: inherit;
+  color: var(--navy);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 11px 13px;
+  width: 100%;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.qf-field textarea {
+  resize: vertical;
+  min-height: 84px;
+}
+.qf-field input:focus,
+.qf-field select:focus,
+.qf-field textarea:focus {
+  outline: none;
+  border-color: var(--ocean);
+  box-shadow: 0 0 0 3px rgba(15, 111, 191, 0.15);
+}
+.qf-field input::placeholder,
+.qf-field textarea::placeholder {
+  color: #9aa7b3;
+}
+/* Honeypot: kept in the DOM, out of sight and off the tab order. */
+.qf-hp {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.quote-form .btn {
+  margin-top: 20px;
+  width: 100%;
+}
+.qf-note {
+  margin: 12px 0 0;
+  font-size: 0.85rem;
+  color: var(--slate);
+  text-align: center;
+}
+.qf-note a {
+  color: var(--ocean);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.qf-error {
+  margin: 16px 0 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #fdecea;
+  border: 1px solid #f4c7c1;
+  color: #a3271b;
+  font-size: 0.9rem;
+}
+.quote-form--done {
+  text-align: center;
+  padding: 12px 0;
+}
+.quote-form--done h3 {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  margin: 0 0 10px;
+}
+.quote-form--done p {
+  color: var(--slate);
+  max-width: 46ch;
+  margin: 0 auto;
+}
+.qf-check {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+  font-size: 1.7rem;
+  line-height: 56px;
+}
+/* Contact page: the form sits inside the request panel, no extra card. */
+.request-panel .quote-form .btn {
+  width: 100%;
+}
+
+@media (max-width: 620px) {
+  .qf-grid {
+    grid-template-columns: 1fr;
+  }
+  .quote-shell {
+    padding: 22px;
+  }
+}

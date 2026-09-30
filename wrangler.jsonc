@@ -1,14 +1,24 @@
 {
   // Cloudflare Workers static-assets deployment for the exported Next.js site.
   // `npm run build` emits ./out (next output: "export"), which is served here.
+  // A small Worker (src/worker.js) adds the POST /api/quote endpoint; every
+  // other request falls through to the static assets via the ASSETS binding.
   "name": "mvascruisedeals",
+  "main": "src/worker.js",
   "compatibility_date": "2026-07-23",
   "observability": {
     "enabled": true
   },
   "assets": {
     "directory": "./out",
+    // Let the Worker read/serve static assets (and delegate unmatched paths).
+    "binding": "ASSETS",
     // Serve Next's generated 404 page for unmatched paths.
     "not_found_handling": "404-page"
+  },
+  "vars": {
+    "QUOTE_NOTIFY_TO": "brentb@cruisestoursandtravel.com",
+    "QUOTE_FROM": "MVAS Cruise Deals <noreply@cttagents.com>"
   }
+  // RESEND_API_KEY is a secret, set with: wrangler secret put RESEND_API_KEY
 }

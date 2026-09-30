@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import QuoteContext from "../components/QuoteContext";
+import QuoteForm from "../components/QuoteForm";
 
 export const metadata = {
   title: "Contact & Free Quote",
@@ -26,33 +26,15 @@ export default function ContactPage() {
       <section className="section">
         <div className="container contact-grid">
           <div className="request-panel">
-            <Suspense fallback={null}>
-              <QuoteContext />
-            </Suspense>
             <h2>Start your free quote</h2>
             <p>
-              Tell us your preferred ship, dates, and party size on our quick
-              request form, and we&apos;ll reply with the best available fare or
-              group rate, usually within one business day. No fees, no
-              obligation.
+              Tell me your preferred ship, dates, and party size and I&apos;ll
+              reply with the best available fare or group rate, usually within
+              one business day. No fees, no obligation.
             </p>
-            <ul className="request-list">
-              <li>Best available fares and group rates</li>
-              <li>$0 booking fees</li>
-              <li>A real person from quote to gangway</li>
-            </ul>
-            <a
-              href="https://cttagents.com/f/wwwmvascruisedealscom"
-              target="_blank"
-              rel="noopener"
-              className="btn btn-primary btn-lg"
-            >
-              Open the Request Form
-            </a>
-            <p className="form-note">
-              Opens our secure request form in a new tab. Prefer to talk? Call or
-              text (561) 777-9911.
-            </p>
+            <Suspense fallback={<div className="quote-form" />}>
+              <QuoteForm />
+            </Suspense>
           </div>
 
           <aside className="contact-aside">

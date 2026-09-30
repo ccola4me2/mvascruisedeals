@@ -11,6 +11,7 @@ import DealAlerts from "./components/DealAlerts";
 import HeroTagline from "./components/HeroTagline";
 import HeroPalms from "./components/HeroPalms";
 import EscapeFinder from "./components/EscapeFinder";
+import QuoteSection from "./components/QuoteSection";
 
 export default function HomePage() {
   const flagship = groups.find((g) => g.featured) || groups[0];
@@ -327,20 +328,12 @@ export default function HomePage() {
       {/* Deal alerts email capture */}
       <DealAlerts />
 
-      {/* CTA */}
-      <section className="cta">
-        <div className="container cta-inner">
-          <h2>Ready to set sail?</h2>
-          <p>
-            Send us your preferred ship, dates, and party size. We&apos;ll reply
-            with the best available fare or group rate, usually within one
-            business day.
-          </p>
-          <Link href="/contact" className="btn btn-primary btn-lg">
-            Get My Free Quote
-          </Link>
-        </div>
-      </section>
+      {/* Inline quote form */}
+      <QuoteSection
+        eyebrow="Ready to set sail?"
+        title="Get your free quote"
+        lede="Send your preferred ship, dates, and party size and I'll reply with the best available fare or group rate, usually within one business day. No fees, no obligation."
+      />
     </>
   );
 }
