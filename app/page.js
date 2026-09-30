@@ -20,12 +20,16 @@ export default function HomePage() {
       {/* Hero */}
       <section className="hero">
         <div className="hero-bg">
-          <Image
+          {/* Plain responsive img: static export has no optimizer, so serve
+              hand-made sizes and let phones pull the small file. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/deals/islander.jpg"
-            alt=""
-            fill
-            priority
+            srcSet="/deals/islander-mobile.jpg 800w, /deals/islander-1200.jpg 1200w, /deals/islander.jpg 1600w"
             sizes="100vw"
+            alt=""
+            fetchPriority="high"
+            decoding="async"
             className="hero-img"
           />
         </div>
