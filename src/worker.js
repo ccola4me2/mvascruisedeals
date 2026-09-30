@@ -14,7 +14,7 @@ const CTT_ENDPOINT =
   "https://cttagents.com/api/public/forms/wwwmvascruisedealscom";
 
 // Bumped on deploys so a poll of the endpoint can confirm the new Worker is live.
-const VERSION = "3";
+const VERSION = "4";
 
 export default {
   async fetch(request, env) {
@@ -128,9 +128,11 @@ async function handleQuote(request, env) {
     cttOk = false;
   }
 
-  // Best-effort email notification via Resend.
+  // Backstop email via Resend, only when the CTT filing did not confirm. On a
+  // normal submission CTT sends its own lead notice, so emailing here too
+  // would just duplicate it; this is the safety net for when CTT is unreachable.
   let mailOk = false;
-  if (env.RESEND_API_KEY) {
+  if (!cttOk && env.RESEND_API_KEY) {
     try {
       const rr = await fetch("https://api.resend.com/emails", {
         method: "POST",
