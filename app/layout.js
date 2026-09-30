@@ -62,6 +62,11 @@ const orgSchema = {
     addressCountry: "US",
   },
   founder: { "@type": "Person", name: "Brent Beasley" },
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "FL Seller of Travel",
+    value: "TI128169",
+  },
 };
 
 export default function RootLayout({ children }) {
