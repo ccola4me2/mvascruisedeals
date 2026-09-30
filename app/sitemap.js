@@ -12,6 +12,7 @@ export default function sitemap() {
     { path: "/palm-beach-cruises/", priority: 0.7 },
     { path: "/tampa-cruises/", priority: 0.7 },
     { path: "/miami-cruises/", priority: 0.7 },
+    { path: "/galveston-cruises/", priority: 0.7 },
     { path: "/faq/", priority: 0.6 },
     { path: "/about/", priority: 0.5 },
     { path: "/contact/", priority: 0.6 },

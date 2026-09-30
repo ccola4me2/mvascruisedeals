@@ -13,6 +13,7 @@ const NAV = [
       { href: "/palm-beach-cruises", label: "Palm Beach" },
       { href: "/tampa-cruises", label: "Tampa" },
       { href: "/miami-cruises", label: "Miami" },
+      { href: "/galveston-cruises", label: "Galveston" },
     ],
   },
   { href: "/cruises", label: "Destinations" },
