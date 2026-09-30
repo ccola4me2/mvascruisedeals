@@ -1,5 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
+import HomeportFaqs from "../components/HomeportFaqs";
+
+const faqs = [
+  {
+    q: "Which ship sails from Galveston?",
+    a: "Margaritaville at Sea Beachcomber, on a 7-night Mexico Trio round-trip from the Port of Galveston, Texas.",
+  },
+  {
+    q: "Where does the Galveston cruise go?",
+    a: "Cozumel, Progreso, and Veracruz, Mexico, a mix of reef beaches, the Yucatan, and historic Gulf-coast Mexico.",
+  },
+  {
+    q: "When do the Galveston sailings start?",
+    a: "January 2028. It's a brand-new homeport, so the earliest cabins are the ones to grab.",
+  },
+];
 
 export const metadata = {
   title: "Mexico Cruises from Galveston, Texas",
@@ -78,6 +94,8 @@ export default function GalvestonCruisesPage() {
           </div>
         </div>
       </section>
+
+      <HomeportFaqs port="Galveston" faqs={faqs} />
 
       <section className="cta">
         <div className="container cta-inner">

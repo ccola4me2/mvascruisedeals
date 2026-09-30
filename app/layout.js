@@ -42,6 +42,29 @@ export const metadata = {
   alternates: {
     canonical: "/",
   },
+  openGraph: {
+    type: "website",
+    siteName: "MVAS Cruise Deals",
+    url: "/",
+    title: "MVAS Cruise Deals: Margaritaville at Sea Deals & Group Rates",
+    description:
+      "Best fares and group rates on Margaritaville at Sea cruises, with $0 booking fees and a dedicated advisor from quote to gangway.",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MVAS Cruise Deals: Margaritaville at Sea deals and group rates",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MVAS Cruise Deals: Margaritaville at Sea Deals & Group Rates",
+    description:
+      "Best fares and group rates on Margaritaville at Sea cruises, with $0 booking fees and a dedicated advisor from quote to gangway.",
+    images: ["/og.jpg"],
+  },
 };
 
 const orgSchema = {
@@ -54,7 +77,8 @@ const orgSchema = {
   url: "https://mvascruisedeals.com",
   telephone: "+1-561-777-9911",
   email: "brentb@cruisestoursandtravel.com",
-  image: "https://mvascruisedeals.com/margaritaville-at-sea-logo.png",
+  image: "https://mvascruisedeals.com/og.jpg",
+  logo: "https://mvascruisedeals.com/margaritaville-at-sea-logo.png",
   areaServed: "US",
   priceRange: "$$",
   address: {

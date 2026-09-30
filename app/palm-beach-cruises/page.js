@@ -1,5 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
+import HomeportFaqs from "../components/HomeportFaqs";
+
+const faqs = [
+  {
+    q: "Which ship sails from Palm Beach?",
+    a: "Margaritaville at Sea Paradise, on 2 to 5-night getaways from the Port of Palm Beach to the Bahamas, Key West, the Dominican Republic, and Grand Turk.",
+  },
+  {
+    q: "What's the shortest cruise from Palm Beach?",
+    a: "A 2-night Grand Bahama or Nassau getaway aboard Paradise, one of the easiest and most affordable ways to try cruising.",
+  },
+  {
+    q: "Where does Paradise sail?",
+    a: "Nassau, Grand Bahama, and Bimini on the short sailings, plus Key West, Puerto Plata, Amber Cove, and Grand Turk on the 4 and 5-night itineraries.",
+  },
+];
 
 export const metadata = {
   title: "Bahamas Cruises from Palm Beach",
@@ -76,6 +92,8 @@ export default function PalmBeachCruisesPage() {
           </div>
         </div>
       </section>
+
+      <HomeportFaqs port="Palm Beach" faqs={faqs} />
 
       <section className="cta">
         <div className="container cta-inner">

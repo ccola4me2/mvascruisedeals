@@ -1,5 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
+import HomeportFaqs from "../components/HomeportFaqs";
+
+const faqs = [
+  {
+    q: "Which ship sails from Miami?",
+    a: "Margaritaville at Sea Beachcomber, the largest ship in the fleet, on 4 to 8-night Eastern and Southern Caribbean itineraries from PortMiami.",
+  },
+  {
+    q: "Where does Beachcomber sail from Miami?",
+    a: "St. Thomas, San Juan, St. Maarten, Puerto Plata, Grand Cayman, Ocho Rios, Nassau, and Key West, plus Aruba, Bonaire, and Curacao on the Southern Caribbean sailings.",
+  },
+  {
+    q: "When does Beachcomber start sailing from Miami?",
+    a: "Early 2027, and inaugural-season cabins are booking now. Sailing the first season usually means the best cabin choice and pricing.",
+  },
+];
 
 export const metadata = {
   title: "Eastern Caribbean Cruises from Miami",
@@ -79,6 +95,8 @@ export default function MiamiCruisesPage() {
           </div>
         </div>
       </section>
+
+      <HomeportFaqs port="Miami" faqs={faqs} />
 
       <section className="cta">
         <div className="container cta-inner">

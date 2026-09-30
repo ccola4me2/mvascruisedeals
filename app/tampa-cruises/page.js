@@ -1,5 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
+import HomeportFaqs from "../components/HomeportFaqs";
+
+const faqs = [
+  {
+    q: "Which ship sails from Tampa?",
+    a: "Margaritaville at Sea Islander, on 4 to 10-night Western and Southern Caribbean and Mexico itineraries from Port Tampa Bay.",
+  },
+  {
+    q: "Where does Islander sail from Tampa?",
+    a: "Cozumel, Progreso, Key West, Grand Cayman, Belize, Roatan, and Jamaica (Ocho Rios and Montego Bay), plus Aruba and Curacao on the longer Southern Caribbean sailings.",
+  },
+  {
+    q: "What's the shortest cruise from Tampa?",
+    a: "A 4-night Cozumel Express aboard Islander, with 5 to 10-night options when you want more time and more ports.",
+  },
+];
 
 export const metadata = {
   title: "Caribbean Cruises from Tampa",
@@ -77,6 +93,8 @@ export default function TampaCruisesPage() {
           </div>
         </div>
       </section>
+
+      <HomeportFaqs port="Tampa" faqs={faqs} />
 
       <section className="cta">
         <div className="container cta-inner">

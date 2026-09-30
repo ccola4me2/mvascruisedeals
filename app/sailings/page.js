@@ -1,12 +1,23 @@
 import Link from "next/link";
 import SailingsExplorer from "../components/SailingsExplorer";
+import { SAILINGS_UPDATED } from "../data/sailings";
 
 export const metadata = {
   title: "All Margaritaville at Sea Sailings",
   description:
-    "Browse and filter every Margaritaville at Sea itinerary by ship, departure port, length, and destination. Bahamas, Western and Southern Caribbean, and Eastern Caribbean sailings from Palm Beach, Tampa, and Miami.",
+    "Browse and filter every Margaritaville at Sea itinerary by ship, departure port, length, and destination. Bahamas, Western and Southern Caribbean, and Eastern Caribbean sailings from Palm Beach, Tampa, Miami, and Galveston.",
   alternates: { canonical: "/sailings/" },
 };
+
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+function updatedLabel(iso) {
+  const [y, m] = (iso || "").split("-");
+  const name = MONTHS[Number(m) - 1];
+  return name ? `${name} ${y}` : null;
+}
 
 export default function SailingsPage() {
   return (
@@ -22,6 +33,12 @@ export default function SailingsPage() {
             the best available fare and group rate. Exact ports can vary slightly
             by date, so we&apos;ll confirm the specifics when you reach out.
           </p>
+          {updatedLabel(SAILINGS_UPDATED) && (
+            <p className="freshness">
+              <span className="freshness-dot" aria-hidden="true" />
+              Schedule updated {updatedLabel(SAILINGS_UPDATED)}
+            </p>
+          )}
         </div>
       </section>
 

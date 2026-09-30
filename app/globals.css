@@ -3268,6 +3268,25 @@ img {
   color: var(--ocean);
 }
 
+/* Freshness cue */
+.freshness {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--slate);
+}
+.freshness-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 0 4px rgba(18, 176, 165, 0.16);
+  flex: none;
+}
+
 /* Inline quote form */
 .quote-section {
   background: linear-gradient(180deg, var(--sand) 0%, #eef4fb 100%);
