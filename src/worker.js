@@ -103,6 +103,9 @@ async function handleQuote(request, env) {
     travel_type: "A cruise",
     heard_about: "A web search",
     travellers__count: String(party),
+    // The CTT "who is travelling" block is required and needs at least one
+    // named person, not just a count. The lead is traveller 1.
+    travellers__1__name: name,
     notes,
     company_website: "",
   };
