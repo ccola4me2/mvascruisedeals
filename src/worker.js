@@ -13,6 +13,9 @@
 const CTT_ENDPOINT =
   "https://cttagents.com/api/public/forms/wwwmvascruisedealscom";
 
+// Bumped on deploys so a poll of the endpoint can confirm the new Worker is live.
+const VERSION = "3";
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -32,6 +35,7 @@ function corsHeaders() {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
+    "X-Quote-Version": VERSION,
   };
 }
 function json(obj, status = 200) {
@@ -164,7 +168,7 @@ async function handleQuote(request, env) {
   }
 
   if (cttOk || mailOk) {
-    return json({ ok: true });
+    return json({ ok: true, filed: cttOk, emailed: mailOk });
   }
   return json(
     {
