@@ -138,9 +138,9 @@ export default function HomePage() {
           <div className="signpost-photo">
             <Image
               src="/signpost.jpg"
-              alt="Colorful beach signpost with painted signs pointing to Key West, the Bahamas, Maui, Santorini and other seaside destinations"
+              alt="Key West mile-marker signpost on the beach with painted signs pointing to Nassau, Miami, Cancun, Havana and the Dry Tortugas over turquoise water"
               width={900}
-              height={1350}
+              height={1394}
               className="signpost-photo-img"
             />
           </div>
