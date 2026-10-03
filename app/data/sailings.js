@@ -256,6 +256,17 @@ export const sailings = [
     image: "/deals/islander.jpg",
   },
   {
+    id: "islander-8-grand-cayman-central-america",
+    ship: "Islander",
+    departure_port: "Tampa, FL",
+    nights: 8,
+    route: "Grand Cayman & Central America",
+    ports_of_call: ["Limon", "Colon", "Grand Cayman"],
+    departures: ["2028-09-09", "2028-10-07"],
+    description: "Round-trip from Tampa. Ports of call: Limon, Colon, and Grand Cayman.",
+    image: "/deals/islander.jpg",
+  },
+  {
     id: "islander-10-aruba-curacao-caribbean",
     ship: "Islander",
     departure_port: "Tampa, FL",
@@ -601,6 +612,18 @@ export const sailings = [
   },
 
   // ---- Beachcomber , Port of Galveston, Texas (new homeport, sailing 2027) --
+  {
+    id: "beachcomber-7-belize-mexico-galveston",
+    ship: "Beachcomber",
+    departure_port: "Galveston, TX",
+    nights: 7,
+    route: "Belize & Mexico",
+    ports_of_call: ["Cozumel", "Belize", "Progreso"],
+    departures: ["2027-10-22"],
+    description: "Round-trip from Galveston. Ports of call: Cozumel, Belize, and Progreso.",
+    image: "/deals/beachcomber.jpg",
+    note: "New from Galveston",
+  },
   {
     id: "beachcomber-7-mexico-trio",
     ship: "Beachcomber",

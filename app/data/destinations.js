@@ -15,7 +15,7 @@ export const destinations = [
     name: "Cozumel",
     region: "Mexico",
     intro:
-      "Crystal water, world-class reefs, and beach clubs a short ride from the pier. Margaritaville at Sea calls on Cozumel from both Tampa and Palm Beach on a range of itineraries.",
+      "Crystal water, world-class reefs, and beach clubs a short ride from the pier. Margaritaville at Sea calls on Cozumel from Tampa, Palm Beach, and Galveston on a range of itineraries.",
     highlights: [
       {
         title: "Snorkel or dive the reef",
@@ -33,7 +33,7 @@ export const destinations = [
     faqs: [
       {
         q: "Which Margaritaville at Sea ship visits Cozumel?",
-        a: "Islander sails to Cozumel round-trip from Tampa, and Paradise reaches it on select Key West & Mexico sailings from Palm Beach. Itineraries run from a 4-night Cozumel Express up to week-long Western Caribbean loops.",
+        a: "Islander sails to Cozumel round-trip from Tampa, Paradise reaches it on select Key West & Mexico sailings from Palm Beach, and Beachcomber sails there from Galveston. Itineraries run from a 4-night Cozumel Express up to week-long Western Caribbean loops.",
       },
       {
         q: "How long is the cruise to Cozumel?",
@@ -175,7 +175,7 @@ export const destinations = [
     name: "Progreso",
     region: "Mexico",
     intro:
-      "Gateway to the Yucatan and the Mayan ruins, with a laid-back Gulf-coast beach town at the pier. Progreso pairs with Cozumel on several Margaritaville at Sea Mexico sailings from Tampa.",
+      "Gateway to the Yucatan and the Mayan ruins, with a laid-back Gulf-coast beach town at the pier. Progreso pairs with Cozumel on several Margaritaville at Sea Mexico sailings from Tampa and Galveston.",
     highlights: [
       {
         title: "Mayan ruins at Uxmal and Dzibilchaltun",
@@ -193,7 +193,7 @@ export const destinations = [
     faqs: [
       {
         q: "Which ship visits Progreso?",
-        a: "Islander from Tampa, usually paired with Cozumel or Key West on 5 to 8-night Mexico itineraries.",
+        a: "Islander from Tampa, usually paired with Cozumel or Key West on 5 to 8-night Mexico itineraries, and Beachcomber from Galveston on 7-night Mexico sailings.",
       },
       {
         q: "What is there to do in Progreso?",
@@ -239,7 +239,7 @@ export const destinations = [
     name: "Belize City, Belize",
     region: "Western Caribbean",
     intro:
-      "Barrier-reef snorkeling, jungle rivers, and Mayan history. Belize appears on the longer Islander Western Caribbean sailings from Tampa.",
+      "Barrier-reef snorkeling, jungle rivers, and Mayan history. Belize appears on Islander Western Caribbean sailings from Tampa and on Beachcomber's 7-night Belize & Mexico cruises from Galveston.",
     highlights: [
       {
         title: "Snorkel the Belize Barrier Reef",
@@ -257,7 +257,7 @@ export const destinations = [
     faqs: [
       {
         q: "Which ship visits Belize?",
-        a: "Islander from Tampa, on 6 to 8-night Western Caribbean and Mexico itineraries with stops like Cozumel, Roatan, and Grand Cayman.",
+        a: "Islander from Tampa, on 6 to 8-night Western Caribbean and Mexico itineraries with stops like Cozumel, Roatan, and Grand Cayman, and Beachcomber from Galveston on the 7-night Belize & Mexico sailings starting October 2027.",
       },
       {
         q: "Is Belize a tender port?",
@@ -646,6 +646,70 @@ export const destinations = [
       {
         q: "Where does the Veracruz cruise leave from?",
         a: "The new Beachcomber sailings depart round-trip from Galveston, Texas.",
+      },
+    ],
+  },
+  {
+    slug: "limon",
+    port: "Limon",
+    name: "Limon, Costa Rica",
+    region: "Central America",
+    intro:
+      "Rainforest canals, sloth sanctuaries, and Costa Rica's Caribbean coast. Limon is a new stop on Islander's 8-night Grand Cayman & Central America sailings from Tampa.",
+    highlights: [
+      {
+        title: "Tortuguero canals",
+        text: "Glide through jungle waterways in a national park known for monkeys, birds, and nesting sea turtles.",
+      },
+      {
+        title: "Cahuita National Park",
+        text: "Coastal rainforest trails that open onto white-sand beaches and coral reef.",
+      },
+      {
+        title: "Sloths and rainforest wildlife",
+        text: "Meet sloths and other native animals at a sanctuary, or ride a canopy tram over the treetops.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Which ship visits Limon?",
+        a: "Islander from Tampa, on the 8-night Grand Cayman & Central America itinerary with Colon, Panama and George Town, Grand Cayman.",
+      },
+      {
+        q: "When do the Central America sailings go?",
+        a: "The 8-night Grand Cayman & Central America itinerary sails in 2028, including September and October departures round-trip from Tampa.",
+      },
+    ],
+  },
+  {
+    slug: "colon",
+    port: "Colon",
+    name: "Colon, Panama",
+    region: "Central America",
+    intro:
+      "The Caribbean doorway to the Panama Canal, with Spanish colonial forts and rainforest close by. Colon is a new stop on Islander's 8-night Grand Cayman & Central America sailings from Tampa.",
+    highlights: [
+      {
+        title: "Panama Canal locks",
+        text: "Watch ships pass through the Gatun Locks, one of the great engineering feats of the world.",
+      },
+      {
+        title: "Portobelo and San Lorenzo forts",
+        text: "UNESCO-listed Spanish colonial fortresses on the Caribbean coast, a short ride from the port.",
+      },
+      {
+        title: "Rainforest and Panama City",
+        text: "Visit an indigenous Embera village in the rainforest, or take a longer excursion to Panama City.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Which ship visits Colon?",
+        a: "Islander from Tampa, on the 8-night Grand Cayman & Central America itinerary with Limon, Costa Rica and George Town, Grand Cayman.",
+      },
+      {
+        q: "Do you see the Panama Canal from Colon?",
+        a: "Colon sits at the Caribbean entrance to the Panama Canal, and shore excursions visit the canal locks. We'll confirm the excursion options for your sailing.",
       },
     ],
   },

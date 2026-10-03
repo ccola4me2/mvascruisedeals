@@ -5,22 +5,22 @@ import HomeportFaqs from "../components/HomeportFaqs";
 const faqs = [
   {
     q: "Which ship sails from Galveston?",
-    a: "Margaritaville at Sea Beachcomber, on a 7-night Mexico Trio round-trip from the Port of Galveston, Texas.",
+    a: "Margaritaville at Sea Beachcomber, on 7-night Mexico round-trips from the Port of Galveston, Texas: a Belize & Mexico itinerary and a Mexico Trio.",
   },
   {
-    q: "Where does the Galveston cruise go?",
-    a: "Cozumel, Progreso, and Veracruz, Mexico, a mix of reef beaches, the Yucatan, and historic Gulf-coast Mexico.",
+    q: "Where do the Galveston cruises go?",
+    a: "Cozumel and Progreso, Mexico, plus Belize City on the Belize & Mexico sailings and Veracruz on the Mexico Trio: reef beaches, the Yucatan, and historic Gulf-coast Mexico.",
   },
   {
     q: "When do the Galveston sailings start?",
-    a: "January 2028. It's a brand-new homeport, so the earliest cabins are the ones to grab.",
+    a: "October 2027. It's a brand-new homeport, so the earliest cabins are the ones to grab.",
   },
 ];
 
 export const metadata = {
   title: "Mexico Cruises from Galveston, Texas",
   description:
-    "Margaritaville at Sea sails from the Port of Galveston, Texas, starting January 2028: a 7-night Mexico Trio aboard Beachcomber to Cozumel, Progreso, and Veracruz. Lock in your fare with MVAS Cruise Deals.",
+    "Margaritaville at Sea sails from the Port of Galveston, Texas, starting October 2027: 7-night Belize & Mexico and Mexico Trio cruises aboard Beachcomber to Cozumel, Progreso, Belize City, and Veracruz. Lock in your fare with MVAS Cruise Deals.",
   alternates: { canonical: "/galveston-cruises/" },
 };
 
@@ -32,11 +32,11 @@ export default function GalvestonCruisesPage() {
           <p className="eyebrow">Port of Galveston, TX</p>
           <h1>Mexico Cruises from Galveston, Texas</h1>
           <p className="page-lede">
-            Margaritaville at Sea comes to Texas. Starting January 2028,
-            Beachcomber sails a 7-night Mexico Trio round-trip from the Port of
-            Galveston to Cozumel, Progreso, and Veracruz. It&apos;s a brand-new
-            homeport, and early cabins are the ones to grab. We lock in your best
-            fare and handle every detail.
+            Margaritaville at Sea comes to Texas. Starting October 2027,
+            Beachcomber sails 7-night Mexico round-trips from the Port of
+            Galveston to Cozumel, Progreso, Belize City, and Veracruz. It&apos;s
+            a brand-new homeport, and early cabins are the ones to grab. We lock
+            in your best fare and handle every detail.
           </p>
           <div className="hero-actions">
             <Link href="/contact" className="btn btn-primary btn-lg">
@@ -67,8 +67,9 @@ export default function GalvestonCruisesPage() {
               <p>
                 The largest ship in the fleet brings a full week of island time
                 to the Gulf. From the Port of Galveston, Beachcomber sails a
-                7-night Mexico Trio to the reefs of Cozumel, the Yucatan gateway
-                of Progreso, and the historic Gulf-coast city of Veracruz, with
+                7-night Belize &amp; Mexico itinerary and a 7-night Mexico Trio,
+                reaching the reefs of Cozumel, the Yucatan gateway of Progreso,
+                Belize City, and the historic Gulf-coast city of Veracruz, with
                 more than 15 venues on board.
               </p>
               <ul className="citypage-facts">
@@ -76,10 +77,10 @@ export default function GalvestonCruisesPage() {
                   <span>Homeport</span>Port of Galveston, TX
                 </li>
                 <li>
-                  <span>Ports</span>Cozumel, Progreso, Veracruz
+                  <span>Ports</span>Cozumel, Progreso, Belize City, Veracruz
                 </li>
                 <li>
-                  <span>Sailing</span>7 nights &middot; from January 2028
+                  <span>Sailing</span>7 nights &middot; from October 2027
                 </li>
               </ul>
               <div className="group-feature-actions">
