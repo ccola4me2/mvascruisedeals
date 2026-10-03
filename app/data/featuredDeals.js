@@ -5,24 +5,6 @@
 
 export const featuredDeals = [
   {
-    id: "new-years-islander-2026",
-    tag: "Holiday sailing",
-    title: "New Year's at Sea",
-    ship: "Margaritaville at Sea Islander",
-    when: "Departs Tampa, Dec 28, 2026",
-    nights: "5 nights",
-    itinerary: "5-Night Mexico Duo",
-    image: "/deals/islander.jpg",
-    compare: {
-      basis: "Balcony cabin, total for two",
-      rows: [{ cabin: "Balcony for two", direct: "$2,818", ours: "$1,818" }],
-    },
-    savings: "$1,000",
-    onboardCredit: "$25",
-    includes: ["Taxes", "Fees", "Gratuities"],
-    cta: { label: "Get This Deal", href: "/contact" },
-  },
-  {
     id: "beachcomber-7night-belize-mexico-galveston-2027",
     tag: "New from Galveston",
     title: "7-Night Belize & Mexico",

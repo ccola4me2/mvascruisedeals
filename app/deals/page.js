@@ -7,7 +7,7 @@ import { featuredDeals } from "../data/featuredDeals";
 export const metadata = {
   title: "Margaritaville at Sea Cruise Deals",
   description:
-    "Featured Margaritaville at Sea deals and every sailing from MVAS Cruise Deals: the New Year's cruise, an 8-night Southern Caribbean, the Parrothead Day Cruise, and more. Request current rates.",
+    "Featured Margaritaville at Sea deals and every sailing from MVAS Cruise Deals: new Galveston sailings, an 8-night Southern Caribbean, the Parrothead Day Cruise, and more. Request current rates.",
   alternates: { canonical: "/deals/" },
 };
 
