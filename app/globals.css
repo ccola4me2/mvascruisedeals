@@ -3268,6 +3268,28 @@ img {
   color: var(--ocean);
 }
 
+/* Limited-inventory note on group-block deals */
+.fdeal-limited {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #fdf0ec;
+  border: 1px solid #f6d3c8;
+  color: #b4472b;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.fdeal-limited-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--coral);
+  flex: none;
+}
+
 /* Freshness cue */
 .freshness {
   display: inline-flex;

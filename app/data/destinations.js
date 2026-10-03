@@ -65,7 +65,7 @@ export const destinations = [
     faqs: [
       {
         q: "Which ships stop in Key West?",
-        a: "All three ships call on Key West: Paradise from Palm Beach, Islander from Tampa, and Beachcomber from Miami, on a range of 4 to 7-night itineraries.",
+        a: "All three ships call on Key West: Paradise from Palm Beach, Islander from Tampa, and Beachcomber from Miami and Galveston, on a range of 4 to 8-night itineraries.",
       },
       {
         q: "Do I need a passport for a Key West cruise?",
@@ -97,7 +97,7 @@ export const destinations = [
     faqs: [
       {
         q: "Which ships sail to Nassau?",
-        a: "Paradise from Palm Beach on 2 to 5-night Bahamas itineraries, plus Beachcomber from Miami on Bahamas and Eastern Caribbean sailings.",
+        a: "Paradise from Palm Beach on 2 to 5-night Bahamas itineraries, plus Beachcomber from Miami and Galveston on Bahamas, Eastern Caribbean, and Key West & Bahamas sailings.",
       },
       {
         q: "What's the shortest cruise to Nassau?",
@@ -161,7 +161,7 @@ export const destinations = [
     faqs: [
       {
         q: "Which ships reach Grand Cayman?",
-        a: "Islander from Tampa and Beachcomber from Miami, on 5 to 10-night Western and Southern Caribbean itineraries.",
+        a: "Islander from Tampa and Beachcomber from Miami and Galveston, on 5 to 10-night Western and Southern Caribbean itineraries.",
       },
       {
         q: "Is Grand Cayman a tender port?",
@@ -289,7 +289,7 @@ export const destinations = [
     faqs: [
       {
         q: "Which ship visits Roatan?",
-        a: "Islander from Tampa, on 6 to 8-night Western Caribbean itineraries usually paired with Cozumel, Belize, and Grand Cayman.",
+        a: "Islander from Tampa, on 6 to 8-night Western Caribbean itineraries usually paired with Cozumel, Belize, and Grand Cayman, and Beachcomber from Galveston on 7-night Mexico & Western Caribbean sailings.",
       },
       {
         q: "Is Roatan good for snorkeling?",
@@ -545,7 +545,7 @@ export const destinations = [
     faqs: [
       {
         q: "Which ships visit Bimini?",
-        a: "Paradise from Palm Beach and Beachcomber from Miami, on short Bahamas getaways.",
+        a: "Paradise from Palm Beach on short Bahamas getaways, and Beachcomber from Miami and Galveston.",
       },
       {
         q: "What's the shortest cruise to Bimini?",
@@ -577,7 +577,7 @@ export const destinations = [
     faqs: [
       {
         q: "Which ships visit Montego Bay?",
-        a: "Islander from Tampa and Beachcomber from Miami, on 7 to 10-night Western and Southern Caribbean itineraries.",
+        a: "Islander from Tampa and Beachcomber from Miami and Galveston, on 7 to 10-night Western and Southern Caribbean itineraries.",
       },
       {
         q: "Is Montego Bay the same as Ocho Rios?",

@@ -13,6 +13,7 @@ export const featuredDeals = [
     nights: "7 nights",
     itinerary: "Round-trip Galveston: Cozumel, Belize City, Progreso",
     image: "/deals/beachcomber.jpg",
+    limited: "Limited cabins available at this group rate",
     cabins: [
       { type: "Interior", name: "Cozy Interior", price: "$695.98" },
       { type: "Oceanview", name: "Picturesque Oceanview", price: "$807.58" },
@@ -33,6 +34,7 @@ export const featuredDeals = [
     nights: "7 nights",
     itinerary: "Round-trip Galveston: Cozumel, Progreso, Veracruz",
     image: "/deals/beachcomber.jpg",
+    limited: "Limited cabins available at this group rate",
     cabins: [
       { type: "Interior", name: "Cozy Interior", price: "$742.41" },
       { type: "Oceanview", name: "Picturesque Oceanview", price: "$854.01" },
@@ -52,6 +54,7 @@ export const featuredDeals = [
     nights: "8 nights",
     itinerary: "Round-trip Tampa: Limon, Colon, Grand Cayman",
     image: "/deals/islander.jpg",
+    limited: "Limited cabins available at this group rate",
     cabins: [
       { type: "Interior", name: "Cozy Interior", price: "$881.85" },
       { type: "Oceanview", name: "Picturesque Oceanview", price: "$967.35" },

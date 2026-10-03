@@ -33,6 +33,12 @@ export default function FeaturedDeal({ deal, flip }) {
         )}
         <h3 className="fdeal-title">{deal.title}</h3>
         <p className="fdeal-ship">{deal.ship}</p>
+        {deal.limited && (
+          <p className="fdeal-limited">
+            <span className="fdeal-limited-dot" aria-hidden="true" />
+            {deal.limited}
+          </p>
+        )}
 
         <dl className="fdeal-facts">
           <div>
