@@ -1,3 +1,5 @@
+import Testimonials from "../components/Testimonials";
+
 export const metadata = {
   title: "About Us",
   description:
@@ -112,6 +114,8 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
+
+      <Testimonials />
     </>
   );
 }

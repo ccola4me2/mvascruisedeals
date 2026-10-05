@@ -19,7 +19,11 @@ export default function Testimonials() {
           <p className="eyebrow">Fins up, five stars</p>
           <h2>What our travelers say</h2>
         </div>
-        <div className="testimonial-grid">
+        <div
+          className={`testimonial-grid${
+            testimonials.length <= 2 ? " testimonial-grid--few" : ""
+          }`}
+        >
           {testimonials.map((t, i) => (
             <figure className="testimonial" key={i}>
               <Stars count={t.rating} />

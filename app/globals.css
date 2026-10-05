@@ -2328,6 +2328,12 @@ img {
   gap: 24px;
 }
 
+/* One or two testimonials: keep them readable instead of stretched wide. */
+.testimonial-grid--few {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
 .testimonial {
   background: #fff;
   border: 1px solid var(--line);
