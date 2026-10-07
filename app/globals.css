@@ -4398,3 +4398,243 @@ img {
     font-size: 1.5rem;
   }
 }
+
+/* ===================================================================
+   Cookie banner, settings panel, and legal pages
+   =================================================================== */
+.cc-banner {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 90;
+  max-width: 460px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.cc-banner p {
+  margin: 0 0 14px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.cc-banner a {
+  color: var(--ocean);
+  font-weight: 600;
+}
+.cc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.cc-actions--end {
+  justify-content: flex-end;
+  margin-top: 18px;
+}
+.cc-btn {
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--navy);
+  cursor: pointer;
+}
+.cc-btn--primary {
+  background: var(--navy);
+  color: #fff;
+}
+.cc-btn--ghost {
+  background: #fff;
+  color: var(--navy);
+}
+.cc-btn:hover {
+  filter: brightness(1.08);
+}
+.cc-link {
+  margin-right: auto;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ocean);
+}
+.cc-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(6, 23, 44, 0.55);
+}
+.cc-panel {
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow: auto;
+  padding: 26px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+.cc-panel h2 {
+  margin: 0 0 16px;
+  font-size: 1.4rem;
+}
+.cc-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+.cc-row strong {
+  color: var(--navy);
+}
+.cc-row p {
+  margin: 4px 0 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--slate);
+}
+.cc-pill {
+  flex: none;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #e3f0ef;
+  color: #1c7c8c;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.cc-pill--off {
+  background: #eef1f4;
+  color: var(--slate);
+}
+.cc-switch {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--navy);
+  cursor: pointer;
+}
+.cc-switch input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--ocean);
+}
+.cc-note {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--sand);
+  font-size: 0.85rem;
+  color: var(--slate);
+}
+@media (max-width: 720px) {
+  .cc-banner {
+    left: 12px;
+    right: 12px;
+    bottom: 84px;
+    max-width: none;
+  }
+}
+
+.footer-policy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+}
+.footer-policy a,
+.footer-policy-btn {
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0.9;
+}
+.footer-policy a:hover,
+.footer-policy-btn:hover {
+  opacity: 1;
+}
+
+.legal-updated {
+  margin: 14px 0 0;
+  font-size: 0.88rem;
+  color: var(--slate);
+}
+.legal h2 {
+  margin-top: 40px;
+}
+.legal h3 {
+  margin-top: 26px;
+  font-size: 1.1rem;
+}
+.legal ul {
+  display: grid;
+  gap: 8px;
+  padding-left: 22px;
+}
+.legal-btn {
+  font: inherit;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--navy);
+  background: #fff;
+  color: var(--navy);
+  cursor: pointer;
+}
+.legal-btn:hover {
+  background: var(--navy);
+  color: #fff;
+}
+.legal-table-wrap {
+  overflow-x: auto;
+  margin: 8px 0 14px;
+}
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.legal-table th,
+.legal-table td {
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+.legal-table th {
+  background: var(--sand);
+  color: var(--navy);
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.form-privacy {
+  margin: 10px 0 0;
+  font-size: 0.8rem;
+  color: var(--slate);
+  text-align: center;
+}
+.form-privacy a {
+  color: var(--ocean);
+  font-weight: 600;
+}
+.alerts-privacy {
+  grid-column: 1 / -1;
+  margin-top: 4px;
+  text-align: left;
+  opacity: 0.9;
+}

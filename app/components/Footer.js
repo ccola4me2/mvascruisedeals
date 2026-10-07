@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CookieSettingsButton from "./CookieSettingsButton";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -29,6 +30,11 @@ export default function Footer() {
       </div>
       <div className="container footer-legal">
         <p>&copy; {year} MVAS Cruise Deals. All rights reserved.</p>
+        <p className="footer-policy">
+          <Link href="/privacy/">Privacy Policy</Link>
+          <Link href="/cookies/">Cookie Policy</Link>
+          <CookieSettingsButton className="footer-policy-btn" />
+        </p>
         <p>
           Brent Beasley, independent travel advisor. FL Seller of Travel
           #TI128169. Not affiliated with or endorsed by Margaritaville at Sea. Rates and

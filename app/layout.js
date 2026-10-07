@@ -5,6 +5,7 @@ import StickyCTA from "./components/StickyCTA";
 import Reveal from "./components/Reveal";
 import Analytics from "./components/Analytics";
 import AnalyticsEvents from "./components/AnalyticsEvents";
+import CookieConsent from "./components/CookieConsent";
 import "./globals.css";
 
 const display = Fraunces({
@@ -115,6 +116,7 @@ export default function RootLayout({ children }) {
         <Reveal />
         <Analytics />
         <AnalyticsEvents />
+        <CookieConsent />
       </body>
     </html>
   );

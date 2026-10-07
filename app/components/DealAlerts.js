@@ -67,6 +67,12 @@ export default function DealAlerts() {
             </button>
           </form>
         )}
+        {!done && (
+          <p className="form-privacy alerts-privacy">
+            Opens an email to me with your address. See my{" "}
+            <a href="/privacy/">Privacy Policy</a>.
+          </p>
+        )}
       </div>
     </section>
   );

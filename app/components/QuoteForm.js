@@ -165,6 +165,10 @@ export default function QuoteForm({ prefill }) {
         No fees, no obligation. Prefer to talk? Call or text{" "}
         <a href="tel:+15617779911">(561) 777-9911</a>.
       </p>
+      <p className="form-privacy">
+        I use your details only to answer your request. See my{" "}
+        <a href="/privacy/">Privacy Policy</a>.
+      </p>
     </form>
   );
 }

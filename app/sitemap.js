@@ -17,6 +17,8 @@ export default function sitemap() {
     { path: "/faq/", priority: 0.6 },
     { path: "/about/", priority: 0.5 },
     { path: "/contact/", priority: 0.6 },
+    { path: "/privacy/", priority: 0.3 },
+    { path: "/cookies/", priority: 0.3 },
   ];
 
   const dest = destinations.map((d) => ({
