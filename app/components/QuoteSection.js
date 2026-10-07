@@ -14,6 +14,7 @@ export default function QuoteSection({
   title = "Get your free quote",
   lede = "Tell me a few details and I'll reply with the best available fare or group rate, usually within one business day.",
   id = "quote",
+  prefill,
 }) {
   return (
     <section className="section quote-section" id={id}>
@@ -37,7 +38,7 @@ export default function QuoteSection({
 
         <div className="quote-shell">
           <Suspense fallback={<div className="quote-form" />}>
-            <QuoteForm />
+            <QuoteForm prefill={prefill} />
           </Suspense>
         </div>
 

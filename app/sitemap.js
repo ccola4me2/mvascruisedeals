@@ -1,4 +1,5 @@
 import { destinations } from "./data/destinations";
+import { featuredDeals } from "./data/featuredDeals";
 
 const BASE = "https://mvascruisedeals.com";
 
@@ -23,7 +24,11 @@ export default function sitemap() {
     priority: 0.6,
   }));
 
-  return [...staticPaths, ...dest].map(({ path, priority }) => ({
+  const dealPages = featuredDeals
+    .filter((d) => d.landing)
+    .map((d) => ({ path: `/deals/${d.landing.slug}/`, priority: 0.8 }));
+
+  return [...staticPaths, ...dealPages, ...dest].map(({ path, priority }) => ({
     url: `${BASE}${path}`,
     changeFrequency: "weekly",
     priority,

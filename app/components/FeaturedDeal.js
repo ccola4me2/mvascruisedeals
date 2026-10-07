@@ -156,6 +156,14 @@ export default function FeaturedDeal({ deal, flip }) {
               {deal.cta.label}
             </Link>
           )}
+          {deal.landing && (
+            <Link
+              href={`/deals/${deal.landing.slug}/`}
+              className="btn btn-outline"
+            >
+              View details
+            </Link>
+          )}
           <a href="tel:+15617779911" className="fdeal-call">
             Call or text Brent: (561) 777-9911
           </a>

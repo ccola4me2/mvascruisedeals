@@ -7,11 +7,13 @@ import { track } from "../lib/track";
 // Inline quote form. Posts to the site's own /api/quote Worker endpoint, which
 // files the lead into the CTT portal and emails a copy. Prefills the cruise,
 // ship, and timing from the URL when a deal's "Get a Quote" link carries them.
-export default function QuoteForm() {
+// A page can also pass `prefill` directly (a deal landing page does), and that
+// wins over the URL.
+export default function QuoteForm({ prefill }) {
   const params = useSearchParams();
-  const preCruise = params.get("cruise") || "";
-  const preShip = params.get("ship") || "";
-  const preWhen = params.get("when") || "";
+  const preCruise = (prefill && prefill.cruise) || params.get("cruise") || "";
+  const preShip = (prefill && prefill.ship) || params.get("ship") || "";
+  const preWhen = (prefill && prefill.when) || params.get("when") || "";
 
   const [status, setStatus] = useState("idle"); // idle | sending | done | error
   const [errMsg, setErrMsg] = useState("");

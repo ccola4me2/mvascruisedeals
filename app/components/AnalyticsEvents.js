@@ -12,6 +12,9 @@ export default function AnalyticsEvents() {
     const onClick = (e) => {
       const a = e.target.closest && e.target.closest("a[href]");
       if (!a) return;
+      // Share links also use sms: and mailto:, but they are not contact
+      // conversions, so they opt out with data-no-track.
+      if (a.hasAttribute("data-no-track")) return;
       const href = a.getAttribute("href") || "";
       if (href.startsWith("tel:")) {
         track("contact_call", { link_url: href });
