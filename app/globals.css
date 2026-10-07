@@ -3509,7 +3509,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 52%;
+  object-position: center 44%;
 }
 .dl-hero-overlay {
   position: absolute;
@@ -3586,7 +3586,7 @@ img {
   color: var(--sun);
 }
 .dl-hero-lede {
-  max-width: 58ch;
+  max-width: 50ch;
   margin: 0 0 30px;
   font-size: 1.14rem;
   line-height: 1.6;
@@ -4360,5 +4360,41 @@ img {
   .dl-steps,
   .dl-ship {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Phones: the text covers the whole photo, so darken it evenly, trim the hero,
+   and put the cabin cards two across instead of a long single column. */
+@media (max-width: 640px) {
+  .dl-hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(6, 23, 44, 0.66) 0%,
+      rgba(6, 23, 44, 0.6) 55%,
+      rgba(6, 23, 44, 0.82) 100%
+    );
+  }
+  .dl-crumbs {
+    display: none;
+  }
+  .dl-hero {
+    padding-top: 30px;
+  }
+  .dl-hero h1 {
+    font-size: 2.2rem;
+  }
+  .dl-hero-lede {
+    font-size: 1.02rem;
+    margin-bottom: 24px;
+  }
+  .dl-cabins {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .dl-cabin {
+    padding: 22px 16px 16px;
+  }
+  .dl-cabin-price {
+    font-size: 1.5rem;
   }
 }
