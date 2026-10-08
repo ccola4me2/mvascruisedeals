@@ -61,16 +61,16 @@ export default function GuideViewer() {
         for (const date of picks) {
           if (stop) return;
           setView({ it, date, today });
-          await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
-          await new Promise((r) => setTimeout(r, 40));
+          await new Promise((r) => setTimeout(r, 70));
           document.querySelectorAll(".gd-page").forEach((p, i) => {
             const over = p.scrollHeight - p.clientHeight;
             if (over > 1) issues.push(it.id + " " + date + " page " + (i + 1) + " over by " + over + "px");
           });
           checked += 1;
+          setDebug({ checked, issues, done: false });
         }
       }
-      setDebug({ checked, issues });
+      setDebug({ checked, issues, done: true });
     })();
     return () => {
       stop = true;
