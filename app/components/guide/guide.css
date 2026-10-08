@@ -960,9 +960,20 @@
   font-size: 13px;
   line-height: 1.45;
 }
+.gd-next-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.gd-next-link--alt {
+  background: transparent;
+  border: 1.5px solid var(--g-navy);
+  color: var(--g-navy);
+}
 .gd-next-link {
   align-self: flex-start;
-  margin-top: 12px;
+  margin-top: 0;
   padding: 8px 16px;
   border-radius: 999px;
   background: var(--g-navy);

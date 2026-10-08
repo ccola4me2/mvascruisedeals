@@ -325,6 +325,9 @@ export function Page6({ g }) {
   const when = g.depLong.replace(/^\w+, /, "");
   const quoteUrl =
     "https://" + BRENT.site + quoteHref({ ship: g.ship, cruise: g.fullTitle, when });
+  const textUrl =
+    "sms:" + BRENT.phoneHref.replace("tel:", "") + "?&body=" +
+    encodeURIComponent("Hi Brent, I'd like to book the " + g.fullTitle + " on " + when + ".");
   return (
     <section className="gd-page gd-book" data-page="6">
       <PageHead eyebrow="READY TO BOOK?" title="Let's get you on board." />
@@ -351,9 +354,14 @@ export function Page6({ g }) {
               Tell me you want the <b>{g.fullTitle}</b> on <b>{when}</b> and how many
               are traveling. I will hold your cabin and send your quote.
             </p>
-            <a className="gd-next-link" href={quoteUrl}>
-              Or request your quote online
-            </a>
+            <div className="gd-next-btns">
+              <a className="gd-next-link" href={textUrl}>
+                Text me to book
+              </a>
+              <a className="gd-next-link gd-next-link--alt" href={quoteUrl}>
+                Quote online
+              </a>
+            </div>
             <span className="gd-next-mail">{BRENT.email}</span>
           </div>
         </div>

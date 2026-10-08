@@ -34,7 +34,7 @@ export function buildPlanEmail({ name, g, url, alerts, quoteUrl }) {
     "Life onboard: dining, bars, pools and shows",
     "What your fare covers, and what costs extra",
     "A dated countdown to sailing day",
-    "How to book",
+    "How to book with me",
   ];
 
   const text = [

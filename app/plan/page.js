@@ -24,7 +24,7 @@ const INSIDE = [
   ["Life onboard", "Dining, bars, pools, and shows."],
   ["What your fare covers", "What's included, what costs extra, and the fees."],
   ["Getting ready", "A countdown with your real dates, and what to bring."],
-  ["How to book", "Two easy ways, with no booking fees."],
+  ["How to book", "Call, text, or request a quote. I do the booking, with no booking fees."],
 ];
 
 export default function PlanPage() {
