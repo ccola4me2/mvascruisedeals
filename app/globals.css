@@ -4943,3 +4943,26 @@ img {
     padding: 28px 22px;
   }
 }
+
+/* Header: the logo must never be squeezed by a long menu. */
+.brand {
+  flex: none;
+}
+.brand-logo {
+  flex: none;
+  max-width: none;
+}
+@media (min-width: 961px) and (max-width: 1239px) {
+  .nav-links {
+    gap: 12px;
+    margin-left: 4px;
+  }
+  .nav-links > a,
+  .nav-trigger {
+    font-size: 0.9rem;
+  }
+  .site-header .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
