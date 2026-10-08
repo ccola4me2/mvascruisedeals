@@ -18,6 +18,7 @@ const NAV = [
   },
   { href: "/cruises", label: "Destinations" },
   { href: "/group-rates", label: "Group Rates" },
+  { href: "/plan", label: "Free Guide" },
   {
     label: "About",
     children: [
