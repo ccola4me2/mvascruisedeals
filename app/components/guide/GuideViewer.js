@@ -214,14 +214,14 @@ export default function GuideViewer() {
             {copied ? "Link copied" : "Copy link"}
           </button>
           <Link
-            className="gd-tb-btn"
+            className="gd-tb-btn gd-tb-btn--gold"
             href={quoteHref({
               ship: g.ship,
               cruise: g.fullTitle,
               when: longDate(view.date, { year: true }),
             })}
           >
-            Get a quote
+            Book with Brent
           </Link>
         </div>
       </div>

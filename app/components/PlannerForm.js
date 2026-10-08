@@ -284,23 +284,24 @@ export default function PlannerForm() {
               ? "I also emailed a copy to " + email + ". Check your spam folder if it does not show up."
               : "Open it now, and bookmark the page to come back to it."}
           </p>
-          <p>
+          <p className="pl-done-btns">
             <a className="btn btn-primary btn-lg" href={guideHref}>
               Open my guide
             </a>
-          </p>
-          <p className="pl-done-next">
-            Want to hold a cabin?{" "}
             <Link
+              className="btn btn-gold btn-lg"
               href={quoteHref({
                 ship: rec.ship,
                 cruise: rec.nights + "-Night " + rec.name,
                 when: longDate(date, { year: true }),
               })}
             >
-              Get a free quote
-            </Link>{" "}
-            or call or text <a href="tel:+15617779911">(561) 777-9911</a>.
+              Hold my cabin
+            </Link>
+          </p>
+          <p className="pl-done-next">
+            No booking fees, and I'll check availability for you. Or call or text{" "}
+            <a href="tel:+15617779911">(561) 777-9911</a>.
           </p>
         </div>
       )}

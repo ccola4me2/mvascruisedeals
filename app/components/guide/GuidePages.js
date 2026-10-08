@@ -1,4 +1,5 @@
 import { BRENT } from "../../data/guideContent.js";
+import { quoteHref } from "../../lib/quote";
 
 // The six Letter-size pages of a guide. Pure presentation: every string comes
 // from buildGuide() in app/lib/guide.js.
@@ -306,43 +307,39 @@ export function Page5({ g }) {
 }
 
 export function Page6({ g }) {
+  const when = g.depLong.replace(/^\w+, /, "");
+  const quoteUrl =
+    "https://" + BRENT.site + quoteHref({ ship: g.ship, cruise: g.fullTitle, when });
   return (
     <section className="gd-page gd-book" data-page="6">
-      <PageHead eyebrow="READY TO BOOK?" title="Two ways to plan it." />
+      <PageHead eyebrow="READY TO BOOK?" title="Let's get you on board." />
       <div className="gd-body">
-        <div className="gd-two gd-two--cards">
-          <div className="gd-card">
-            <div className="gd-label">Do it yourself</div>
-            <h3>Cruise Control</h3>
-            <p>
-              The cruise line's online guest portal, on web and mobile. Log in with
-              your booking ID and the primary guest's last name.
-            </p>
-            <ul className="gd-ticks">
-              <li>Review your itinerary and add packages and enhancements.</li>
-              <li>
-                Find your arrival window and boarding pass about 21 days out, and
-                luggage tags about 7 days out.
-              </li>
-              <li>
-                For changes like dates, guests or cancellations, call Customer Care
-                at 800.814.7100, or call me.
-              </li>
-            </ul>
-          </div>
-          <div className="gd-card gd-card--hot">
-            <div className="gd-label gd-label--warm">Or let me handle it all</div>
-            <h3>Book with Brent</h3>
-            <p>
-              $0 booking fees. Same cruise, with a real person on your side from
-              quote to gangway.
-            </p>
-            <ul className="gd-ticks">
+        <div className="gd-bookhero">
+          <div className="gd-bookhero-main">
+            <div className="gd-label gd-label--gold">Book with Brent</div>
+            <h3>The same cruise, with a real person on your side.</h3>
+            <ul className="gd-ticks gd-ticks--light">
+              <li>$0 booking fees, from first question to gangway.</li>
               <li>Onboard credit on most sailings, up to $100.</li>
               <li>I watch fares and flag price drops and new promos for you.</li>
-              <li>I track the deadlines, from deposits to final payment to documents.</li>
-              <li>You still get Cruise Control. I handle the changes that need a phone call.</li>
+              <li>I track every deadline, from deposits to final payment to documents.</li>
+              <li>I handle the changes that need a phone call, so you never wait on hold.</li>
             </ul>
+          </div>
+          <div className="gd-bookhero-next">
+            <div className="gd-label">Your next step</div>
+            <a className="gd-bigphone" href={BRENT.phoneHref}>
+              {BRENT.phone}
+            </a>
+            <p className="gd-next-sub">Call or text any time.</p>
+            <p className="gd-next-ask">
+              Tell me you want the <b>{g.fullTitle}</b> on <b>{when}</b> and how many
+              are traveling. I will hold your cabin and send your quote.
+            </p>
+            <a className="gd-next-link" href={quoteUrl}>
+              Or request your quote online
+            </a>
+            <span className="gd-next-mail">{BRENT.email}</span>
           </div>
         </div>
         <div className="gd-callout gd-callout--teal">
@@ -371,22 +368,15 @@ export function Page6({ g }) {
             </p>
           </div>
         </div>
-        <div className="gd-contact">
-          <div>
-            <b>{BRENT.name}</b>
-            <span>Margaritaville at Sea specialist</span>
-          </div>
-          <div>
-            <span>Call or text {BRENT.phone}</span>
-            <span>{BRENT.email}</span>
-            <span>{BRENT.site}</span>
-          </div>
-        </div>
+        <p className="gd-small gd-small--center">
+          After you book, you also get the cruise line's Cruise Control portal to review
+          your itinerary and add packages. I handle anything that needs a phone call.
+        </p>
         <p className="gd-fine">
           Ship and port details as published by Margaritaville at Sea; itineraries,
-          pricing and policies are subject to change. Prepared for the{" "}
-          {g.depLong} sailing. Independent travel advisor, not affiliated with or
-          endorsed by Margaritaville at Sea. {BRENT.cred}.
+          pricing and policies are subject to change. Prepared for the {g.depLong}{" "}
+          sailing. Independent travel advisor, not affiliated with or endorsed by
+          Margaritaville at Sea. {BRENT.cred}.
         </p>
       </div>
       <Foot n={6} />

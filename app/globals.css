@@ -4966,3 +4966,37 @@ img {
     padding-right: 24px;
   }
 }
+
+/* A gold button for "book with me" actions. */
+.btn-gold {
+  background: var(--sun);
+  border-color: var(--sun);
+  color: var(--navy);
+}
+.btn-gold:hover {
+  filter: brightness(1.06);
+}
+.pl-done-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Narrowest desktop widths: keep the whole header inside the screen. */
+@media (min-width: 961px) and (max-width: 1079px) {
+  .nav-links {
+    gap: 9px;
+  }
+  .nav-links > a,
+  .nav-trigger {
+    font-size: 0.86rem;
+  }
+  .site-header .nav-cta {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .site-header .nav-cta::after {
+    display: none;
+  }
+}

@@ -73,6 +73,11 @@
   background: var(--navy);
   color: #fff;
 }
+.gd-tb-btn--gold {
+  background: var(--g-gold);
+  border-color: var(--g-gold);
+  color: var(--g-navy);
+}
 .gd-tb-btn:hover {
   filter: brightness(1.1);
 }
@@ -857,4 +862,79 @@
     padding: 0 !important;
     margin: 0 !important;
   }
+}
+
+/* Page 6: booking with Brent is the main event. */
+.gd-label--gold {
+  color: var(--g-gold);
+}
+.gd-bookhero {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(14, 59, 83, 0.18);
+}
+.gd-bookhero-main {
+  padding: 22px 24px;
+  background: var(--g-navy);
+  color: #fff;
+}
+.gd-bookhero-main h3 {
+  margin: 2px 0 12px;
+  color: #fff;
+  font-size: 25px;
+  line-height: 1.15;
+}
+.gd-ticks--light li::before {
+  color: var(--g-gold);
+}
+.gd-ticks--light {
+  font-size: 12.5px;
+}
+.gd-bookhero-next {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 24px;
+  background: var(--g-gold);
+  color: var(--g-navy);
+}
+.gd-bookhero-next .gd-label {
+  color: var(--g-navy);
+}
+.gd-bigphone {
+  font-family: var(--font-display-stack), Georgia, serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  color: var(--g-navy);
+  text-decoration: none;
+}
+.gd-next-sub {
+  margin: 3px 0 12px;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+.gd-next-ask {
+  font-size: 13px;
+  line-height: 1.45;
+}
+.gd-next-link {
+  align-self: flex-start;
+  margin-top: 12px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--g-navy);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.gd-next-mail {
+  margin-top: auto;
+  padding-top: 12px;
+  font-size: 12px;
+  font-weight: 600;
 }

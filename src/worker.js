@@ -325,7 +325,14 @@ async function handlePlan(request, env) {
   // 2. Email the guest their guide (skipped for a repeat request within 10 min).
   let emailed = false;
   if (!dupe) {
-    const mail = buildPlanEmail({ name, g, url, alerts });
+    const quoteUrl =
+      SITE + "/contact/?" +
+      new URLSearchParams({
+        cruise: g.fullTitle,
+        ship: g.ship,
+        when: g.depLong.replace(/^\w+, /, ""),
+      }).toString();
+    const mail = buildPlanEmail({ name, g, url, alerts, quoteUrl });
     emailed = await sendResend(env, {
       from: env.QUOTE_FROM || "MVAS Cruise Deals <noreply@cttagents.com>",
       to: [email],

@@ -19,7 +19,7 @@ const INK = "#1d2a33";
 const firstName = (name) => String(name).trim().split(/\s+/)[0] || "there";
 
 // The message a guest gets when they build a guide.
-export function buildPlanEmail({ name, g, url, alerts }) {
+export function buildPlanEmail({ name, g, url, alerts, quoteUrl }) {
   const first = firstName(name);
   const subject = "Your " + g.fullTitle + " guide, " + g.depLong.replace(/^\w+, /, "");
   const places = g.ports.map((p) => p.name);
@@ -50,7 +50,7 @@ export function buildPlanEmail({ name, g, url, alerts }) {
     "",
     "Inside: " + inside.join("; ") + ".",
     "",
-    "Ready to hold a cabin, or want help choosing one? Just reply to this email or call or text me at " + BRENT.phone + ".",
+    "Ready to hold a cabin? I'll check availability and send your quote, with no booking fees. Reply to this email or call or text me at " + BRENT.phone + "." + (quoteUrl ? " Or request your quote here: " + quoteUrl : ""),
     "",
     BRENT.name,
     "Independent travel advisor, " + BRENT.cred,
@@ -91,7 +91,8 @@ export function buildPlanEmail({ name, g, url, alerts }) {
 ${inside.map((t) => `<div style="padding:2px 0;">&#10003;&nbsp; ${esc(t)}</div>`).join("")}
 </td></tr>
 <tr><td style="padding:20px 32px 28px;font-size:15px;line-height:1.6;">
-<p style="margin:0 0 14px;">Ready to hold a cabin, or want help choosing one? Just reply to this email or call or text me at <a href="tel:+15617779911" style="color:${NAVY};font-weight:700;">${esc(BRENT.phone)}</a>.</p>
+<p style="margin:0 0 14px;"><b>Ready to hold a cabin?</b> I'll check availability and send your quote, with no booking fees. Reply to this email or call or text me at <a href="tel:+15617779911" style="color:${NAVY};font-weight:700;">${esc(BRENT.phone)}</a>.</p>
+${quoteUrl ? `<table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 16px;"><tr><td style="background:${GOLD};border-radius:999px;"><a href="${esc(quoteUrl)}" style="display:inline-block;padding:13px 28px;color:${NAVY};font-weight:700;font-size:15px;text-decoration:none;">Get my free quote</a></td></tr></table>` : ""}
 <p style="margin:0;"><b>${esc(BRENT.name)}</b><br><span style="font-size:13px;color:#4a5a66;">Independent travel advisor &middot; ${esc(BRENT.cred)}</span></p>
 </td></tr>
 <tr><td style="border-top:1px solid #e5ded1;padding:16px 32px;font-size:12px;line-height:1.5;color:#5a6a76;">
