@@ -12,6 +12,8 @@ import HeroTagline from "./components/HeroTagline";
 import HeroPalms from "./components/HeroPalms";
 import EscapeFinder from "./components/EscapeFinder";
 import QuoteSection from "./components/QuoteSection";
+import PostCard from "./components/PostCard";
+import { sortedPosts } from "./data/posts";
 
 export default function HomePage() {
   const flagship = groups.find((g) => g.featured) || groups[0];
@@ -147,6 +149,28 @@ export default function HomePage() {
             height={608}
             className="plan-band-img"
           />
+        </div>
+      </section>
+
+      {/* From the blog */}
+      <section className="section section--muted">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">The MVAS Insider</p>
+              <h2>Planning tips and ship guides</h2>
+            </div>
+            <Link href="/blog/" className="section-link">
+              All articles &rarr;
+            </Link>
+          </div>
+          <div className="blog-grid">
+            {sortedPosts()
+              .slice(0, 3)
+              .map((p) => (
+                <PostCard key={p.slug} p={p} compact />
+              ))}
+          </div>
         </div>
       </section>
 

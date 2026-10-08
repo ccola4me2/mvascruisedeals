@@ -23,6 +23,7 @@ const NAV = [
     label: "About",
     children: [
       { href: "/about", label: "About Us" },
+      { href: "/blog", label: "The MVAS Insider" },
       { href: "/faq", label: "FAQ" },
       { href: "/contact", label: "Contact" },
     ],

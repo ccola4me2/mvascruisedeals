@@ -1,5 +1,6 @@
 import { destinations } from "./data/destinations";
 import { featuredDeals } from "./data/featuredDeals";
+import { posts } from "./data/posts";
 
 const BASE = "https://mvascruisedeals.com";
 
@@ -18,6 +19,7 @@ export default function sitemap() {
     { path: "/about/", priority: 0.5 },
     { path: "/contact/", priority: 0.6 },
     { path: "/plan/", priority: 0.8 },
+    { path: "/blog/", priority: 0.7 },
     { path: "/privacy/", priority: 0.3 },
     { path: "/cookies/", priority: 0.3 },
   ];
@@ -31,7 +33,9 @@ export default function sitemap() {
     .filter((d) => d.landing)
     .map((d) => ({ path: `/deals/${d.landing.slug}/`, priority: 0.8 }));
 
-  return [...staticPaths, ...dealPages, ...dest].map(({ path, priority }) => ({
+  const blogPosts = posts.map((p) => ({ path: `/blog/${p.slug}/`, priority: 0.6 }));
+
+  return [...staticPaths, ...dealPages, ...dest, ...blogPosts].map(({ path, priority }) => ({
     url: `${BASE}${path}`,
     changeFrequency: "weekly",
     priority,
