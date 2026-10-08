@@ -176,6 +176,14 @@ export default function PrivacyPage() {
             groups. They have their own privacy practices, and I am not responsible
             for them.
           </p>
+          <p>
+            Shore excursion links in the cruise guide go to Shore Excursions
+            Group, a separate company. Those links carry my advisor code so that
+            a booking is credited to me, and I may earn a commission at no extra
+            cost to you. The code identifies me, not you: I do not add your name
+            or email to the link. Once you are on their site, their privacy
+            policy applies.
+          </p>
 
           <h2>11. Changes to this policy</h2>
           <p>

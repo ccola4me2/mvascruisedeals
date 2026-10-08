@@ -443,6 +443,45 @@
   font-weight: 600;
   color: var(--g-teal);
 }
+.gd-seg-btn {
+  margin-left: auto;
+  align-self: center;
+  flex: none;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: var(--g-gold);
+  color: var(--g-navy);
+  font-size: 11.5px;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.gd-seg-note {
+  margin: 0;
+  font-size: 10.5px;
+  line-height: 1.4;
+  color: #5a6670;
+}
+.gd-seg-note a {
+  color: var(--g-navy);
+  font-weight: 700;
+  text-decoration: underline;
+}
+.gd-ports--tight .gd-seg-btn {
+  padding: 3px 9px;
+  font-size: 10.5px;
+}
+.gd-ports--tight .gd-seg-note {
+  font-size: 9.8px;
+  line-height: 1.3;
+}
+.gd-ports--spare .gd-seg-btn {
+  padding: 6px 14px;
+  font-size: 13px;
+}
+.gd-ports--spare .gd-seg-note {
+  font-size: 12px;
+}
 .gd-port-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;

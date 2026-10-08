@@ -1,5 +1,6 @@
 import { BRENT } from "../../data/guideContent.js";
 import { quoteHref } from "../../lib/quote";
+import { excursionUrl, portExcursionUrl, EXCURSION_DISCLOSURE } from "../../lib/excursions";
 
 // The six Letter-size pages of a guide. Pure presentation: every string comes
 // from buildGuide() in app/lib/guide.js.
@@ -108,6 +109,14 @@ export function Page2({ g }) {
                 {p.mood}
                 {p.overnight ? " (overnight)" : ""}
               </span>
+              <a
+                className="gd-seg-btn"
+                href={portExcursionUrl(p.key)}
+                target="_blank"
+                rel="noopener"
+              >
+                Book excursions &rarr;
+              </a>
             </div>
             <div className="gd-port-grid">
               <ul>
@@ -133,6 +142,12 @@ export function Page2({ g }) {
             <p>{g.passport.t}</p>
           </div>
         </div>
+        <p className="gd-seg-note">
+          <a href={excursionUrl("/")} target="_blank" rel="noopener">
+            Browse every shore excursion
+          </a>{" "}
+          for your ports. {EXCURSION_DISCLOSURE}
+        </p>
       </div>
       {g.density === "spare" && (
         <div className="gd-photo gd-photo--ports">
