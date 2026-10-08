@@ -40,8 +40,8 @@ export default function Footer() {
         <p>
           Brent Beasley, independent travel advisor. FL Seller of Travel
           #TI128169. Not affiliated with or endorsed by Margaritaville at Sea. Rates and
-          itineraries are subject to change and availability. GOVX program rates
-          do not qualify for advertised deals or onboard credit.
+          itineraries are subject to change and availability. GOVX program or Casino
+          rates do not qualify for advertised deals or onboard credit.
         </p>
       </div>
     </footer>

@@ -390,7 +390,8 @@ export function Page6({ g }) {
           Ship and port details as published by Margaritaville at Sea; itineraries,
           pricing and policies are subject to change. Prepared for the {g.depLong}{" "}
           sailing. Independent travel advisor, not affiliated with or endorsed by
-          Margaritaville at Sea. {BRENT.cred}.
+          Margaritaville at Sea. {BRENT.cred}. GOVX program or Casino rates do not qualify
+          for advertised deals or onboard credit.
         </p>
       </div>
       <Foot n={6} />
