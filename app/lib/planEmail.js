@@ -2,6 +2,7 @@
 // the exact wording and layout can be tested and previewed offline.
 
 import { BRENT } from "../data/guideContent.js";
+import { portExcursionUrl, excursionUrl, EXCURSION_DISCLOSURE } from "./excursions.js";
 
 export const esc = (s) =>
   String(s)
@@ -22,7 +23,6 @@ const firstName = (name) => String(name).trim().split(/\s+/)[0] || "there";
 export function buildPlanEmail({ name, g, url, alerts, quoteUrl }) {
   const first = firstName(name);
   const subject = "Your " + g.fullTitle + " guide, " + g.depLong.replace(/^\w+, /, "");
-  const places = g.ports.map((p) => p.name);
   const intro =
     "Here is your personalized guide for the " + g.fullTitle + " cruise on Margaritaville at Sea " +
     g.ship + (g.oneWay ? ", sailing from " + g.hp.city + " to " + g.arriveHp.city : ", sailing round-trip from " + g.hp.city) +
@@ -46,7 +46,10 @@ export function buildPlanEmail({ name, g, url, alerts, quoteUrl }) {
     "",
     "On a computer, choose Save as PDF at the top of the guide to keep a six-page copy.",
     "",
-    "Ports: " + places.join(", "),
+    "Your ports, with a link to book excursions for each:",
+    ...g.ports.map((p) => "- " + p.name + ": " + portExcursionUrl(p.key)),
+    "More shore excursions: " + excursionUrl("/"),
+    EXCURSION_DISCLOSURE,
     "",
     "Inside: " + inside.join("; ") + ".",
     "",
@@ -82,8 +85,15 @@ export function buildPlanEmail({ name, g, url, alerts, quoteUrl }) {
 </td></tr>
 <tr><td style="padding:18px 32px 4px;">
 <div style="background:${CREAM};border-radius:12px;padding:16px 18px;">
-<div style="font-size:11px;font-weight:800;letter-spacing:1.6px;color:${TEAL};text-transform:uppercase;margin-bottom:8px;">Your ports</div>
-<div style="font-size:14px;line-height:1.6;">${places.map(esc).join("<br>")}</div>
+<div style="font-size:11px;font-weight:800;letter-spacing:1.6px;color:${TEAL};text-transform:uppercase;margin-bottom:8px;">Your ports and excursions</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size:14px;line-height:1.5;">
+${g.ports
+  .map(
+    (p) => `<tr><td style="padding:5px 0;border-top:1px solid #eadfca;">${esc(p.name)}</td><td align="right" style="padding:5px 0;border-top:1px solid #eadfca;white-space:nowrap;"><a href="${esc(portExcursionUrl(p.key))}" style="color:${NAVY};font-weight:700;font-size:13px;text-decoration:underline;">Book excursions &rarr;</a></td></tr>`
+  )
+  .join("")}
+</table>
+<div style="font-size:12px;line-height:1.5;color:#5a6a76;margin-top:10px;"><a href="${esc(excursionUrl("/"))}" style="color:${NAVY};font-weight:700;">Browse every shore excursion</a>. ${esc(EXCURSION_DISCLOSURE)}</div>
 </div>
 </td></tr>
 <tr><td style="padding:18px 32px 4px;font-size:14px;line-height:1.6;">
