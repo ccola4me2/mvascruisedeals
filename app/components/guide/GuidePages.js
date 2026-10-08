@@ -133,6 +133,12 @@ export function Page2({ g }) {
           </div>
         </div>
       </div>
+      {g.density === "spare" && (
+        <div className="gd-photo gd-photo--ports">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={"/deals/" + g.ship.toLowerCase() + ".jpg"} alt="" />
+        </div>
+      )}
       <Foot n={2} />
     </section>
   );

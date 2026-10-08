@@ -786,3 +786,47 @@
   font-size: 11.4px;
   line-height: 1.35;
 }
+
+/* One or two ports: bigger type, and the ship photo fills the page. */
+.gd-ports--spare .gd-body {
+  gap: 16px;
+}
+.gd-ports--spare .gd-port {
+  padding: 18px 22px;
+}
+.gd-ports--spare .gd-port-top {
+  margin-bottom: 12px;
+}
+.gd-ports--spare .gd-port-top h3 {
+  font-size: 28px;
+}
+.gd-ports--spare .gd-port-top span {
+  font-size: 14px;
+}
+.gd-ports--spare .gd-port-grid ul {
+  gap: 7px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.gd-ports--spare .gd-tip {
+  padding: 13px 16px;
+  font-size: 13.5px;
+}
+.gd-ports--spare .gd-callout {
+  padding: 15px 18px;
+  font-size: 13.5px;
+}
+.gd-ports--spare .gd-callout b {
+  font-size: 15px;
+}
+.gd-photo--ports {
+  margin-top: 16px;
+}
+.gd-photo--ports img {
+  object-position: center 55%;
+}
+/* Four and five ports get slightly larger type now that all bullets show. */
+.gd-ports--tight .gd-port-grid ul,
+.gd-ports--tight .gd-tip {
+  font-size: 11.6px;
+}
