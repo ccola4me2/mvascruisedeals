@@ -751,3 +751,38 @@
     print-color-adjust: exact;
   }
 }
+
+/* Page 5 carries the most content (a seven-step countdown plus six tips), so it
+   runs a little tighter than the others. */
+.gd-ready .gd-hero--page {
+  padding: 28px 56px 20px;
+}
+.gd-ready .gd-hero--page h1 {
+  font-size: 46px;
+}
+.gd-ready .gd-body {
+  padding-top: 18px;
+}
+.gd-ready .gd-count {
+  gap: 8px;
+}
+.gd-ready .gd-count li div p {
+  font-size: 11.6px;
+  line-height: 1.35;
+}
+.gd-ready .gd-tips {
+  padding-top: 14px;
+}
+.gd-ready .gd-tips h2 {
+  margin-bottom: 9px;
+}
+.gd-ready .gd-tips-grid > div {
+  padding: 9px 12px;
+}
+.gd-ready .gd-tips-grid .gd-dot {
+  margin-bottom: 4px;
+}
+.gd-ready .gd-tips-grid p {
+  font-size: 11.4px;
+  line-height: 1.35;
+}

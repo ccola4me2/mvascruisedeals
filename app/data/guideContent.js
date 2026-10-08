@@ -32,7 +32,7 @@ export const HOMEPORTS = {
     port: "Port of Galveston",
     stat: { big: "Galveston", small: "Port of Galveston" },
     since: "2027-10-04",
-    terminalLine: "the Port of Galveston. Terminal and check-in details come with your booking once the cruise line publishes them",
+    terminalLine: "the Port of Galveston (terminal details come with your booking)",
     hoursLine: null,
     airportLine: "Come in the night before. Houston's airports are an hour or more from the Port of Galveston.",
     parking: "Parking details come with your booking once the cruise line publishes them.",

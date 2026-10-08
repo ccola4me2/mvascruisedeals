@@ -32,7 +32,7 @@ export default function GuideViewer() {
   // Read ?s= (itinerary) and ?d= (sailing date) once, in the browser.
   useEffect(() => {
     const q = new URLSearchParams(window.location.search);
-    setQuery({ s: q.get("s"), d: q.get("d"), debug: q.get("debug") });
+    setQuery({ s: q.get("s"), d: q.get("d"), debug: q.get("debug"), pick: q.get("pick") });
   }, []);
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export default function GuideViewer() {
       if (document.fonts && document.fonts.ready) await document.fonts.ready;
       for (const it of itineraries) {
         const ds = futureDates(it, today);
-        const picks = ds.filter((d, i) => i === 0 || i === ds.length - 1);
+        const picks = query.pick === "both" ? ds.filter((d, i) => i === 0 || i === ds.length - 1) : ds.slice(0, 1);
         for (const date of picks) {
           if (stop) return;
           setView({ it, date, today });
