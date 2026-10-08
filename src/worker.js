@@ -194,9 +194,8 @@ async function handleQuote(request, env) {
 // POST /api/plan: a visitor picked a cruise and asked for their guide.
 //
 // Delivery, best effort at each step so one failure never loses the request:
-//   1. File the lead in the CTT portal. This needs a CTT form whose fields are
-//      full_name, email, and notes; set its slug in the PLAN_FORM_SLUG variable.
-//      Until that is set, step 1 is skipped.
+//   1. File the lead in the CTT portal, on the "Free Guide" form (fields
+//      first_name, last_name, email, and notes if the form has that question).
 //   2. Email the guest their guide link (Resend).
 //   3. Email Brent a heads-up, but only if step 1 did not file the lead, so it
 //      is never both unfiled and unannounced (CTT sends its own notice).
@@ -269,7 +268,7 @@ async function handlePlan(request, env) {
   const email = clean(body.email, 160).toLowerCase();
   const alerts = body.alerts === true;
   const missing = [];
-  if (!name) missing.push("your name");
+  if (!name || name.split(/\s+/).length < 2) missing.push("your first and last name");
   if (!email || !isEmail(email)) missing.push("a valid email");
   if (missing.length) {
     return json({ error: "Please add " + missing.join(" and ") + "." }, 400);
@@ -298,8 +297,14 @@ async function handlePlan(request, env) {
 
   // 1. File the lead in CTT (needs PLAN_FORM_SLUG).
   let filed = false;
-  if (env.PLAN_FORM_SLUG) {
+  // The CTT form "Free Guide" (first_name, last_name, email, notes). The slug is
+  // not a secret; the PLAN_FORM_SLUG variable overrides it if the form moves.
+  const formSlug = env.PLAN_FORM_SLUG || "httpsmvascruisedealscomplan";
+  if (formSlug) {
     try {
+      const parts = name.split(/\s+/);
+      const firstName = parts[0];
+      const lastName = parts.slice(1).join(" ");
       const notes = [
         "Cruise guide request: " + g.fullTitle + " aboard Margaritaville at Sea " + g.ship + " from " + g.hp.city,
         "Sailing date: " + g.depLong,
@@ -308,11 +313,17 @@ async function handlePlan(request, env) {
         "Sent from the mvascruisedeals.com guide builder.",
       ].join("\n");
       const r = await fetch(
-        "https://cttagents.com/api/public/forms/" + encodeURIComponent(env.PLAN_FORM_SLUG),
+        "https://cttagents.com/api/public/forms/" + encodeURIComponent(formSlug),
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ full_name: name, email, notes, company_website: "" }),
+          body: JSON.stringify({
+            first_name: firstName,
+            last_name: lastName,
+            email,
+            notes,
+            company_website: "",
+          }),
         }
       );
       const data = await r.json().catch(() => ({}));

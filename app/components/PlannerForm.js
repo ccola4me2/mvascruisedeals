@@ -69,6 +69,11 @@ export default function PlannerForm() {
   async function onSubmit(e) {
     e.preventDefault();
     if (status === "sending" || !rec) return;
+    if (name.trim().split(/\s+/).length < 2) {
+      setErr("Please add your first and last name.");
+      setStatus("error");
+      return;
+    }
     const form = e.currentTarget;
     const hp2 = form.elements.company_website ? form.elements.company_website.value : "";
     setStatus("sending");
@@ -222,7 +227,7 @@ export default function PlannerForm() {
           </h2>
           <div className="qf-grid">
             <label className="qf-field">
-              <span>Your name *</span>
+              <span>First and last name *</span>
               <input
                 name="name"
                 type="text"
