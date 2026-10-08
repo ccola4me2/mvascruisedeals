@@ -1,8 +1,9 @@
 // Cloudflare Worker for mvascruisedeals.
 //
 // The site is a static Next.js export served from ./out via the ASSETS binding.
-// This Worker adds one dynamic endpoint, POST /api/quote, which takes an inline
-// quote-form submission and:
+// This Worker adds two dynamic endpoints. POST /api/plan builds a cruise guide
+// request (see handlePlan below). POST /api/quote takes an inline quote-form
+// submission and:
 //   1. Files it into the CTT portal by posting to the same public form endpoint
 //      the hosted CTT form uses, so the lead lands on the advisor's book and
 //      lead board exactly like a native submission.
@@ -10,17 +11,24 @@
 //      heads-up and a backstop if the portal filing ever fails.
 // Everything else falls through to the static assets (and the 404 page).
 
+import { findItinerary, buildGuide, futureDates } from "../app/lib/guide.js";
+import { buildPlanEmail, buildPlanNotice } from "../app/lib/planEmail.js";
+
 const CTT_ENDPOINT =
   "https://cttagents.com/api/public/forms/wwwmvascruisedealscom";
+const SITE = "https://mvascruisedeals.com";
 
 // Bumped on deploys so a poll of the endpoint can confirm the new Worker is live.
-const VERSION = "4";
+const VERSION = "5";
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname === "/api/quote") {
       return handleQuote(request, env);
+    }
+    if (url.pathname === "/api/plan") {
+      return handlePlan(request, env);
     }
     return env.ASSETS.fetch(request);
   },
@@ -176,6 +184,178 @@ async function handleQuote(request, env) {
     {
       error:
         "Something went wrong sending your request. Please call or text (561) 777-9911.",
+    },
+    502
+  );
+}
+
+
+// ---------------------------------------------------------------------------
+// POST /api/plan: a visitor picked a cruise and asked for their guide.
+//
+// Delivery, best effort at each step so one failure never loses the request:
+//   1. File the lead in the CTT portal. This needs a CTT form whose fields are
+//      full_name, email, and notes; set its slug in the PLAN_FORM_SLUG variable.
+//      Until that is set, step 1 is skipped.
+//   2. Email the guest their guide link (Resend).
+//   3. Email Brent a heads-up, but only if step 1 did not file the lead, so it
+//      is never both unfiled and unannounced (CTT sends its own notice).
+// The guide is a public link, so even if every step fails the visitor can open
+// it straight away; the response always carries the URL.
+// ---------------------------------------------------------------------------
+
+// Best-effort throttle with the edge cache: one request per IP every 20s and one
+// guide email per address every 10 minutes, so the endpoint cannot be used to
+// spam strangers.
+async function throttled(key, seconds) {
+  try {
+    const cache = caches.default;
+    const req = new Request("https://throttle.internal/" + key);
+    if (await cache.match(req)) return true;
+    await cache.put(
+      req,
+      new Response("1", { headers: { "Cache-Control": "max-age=" + seconds } })
+    );
+  } catch {
+    /* no cache available: do not block */
+  }
+  return false;
+}
+
+async function shortHash(text) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return [...new Uint8Array(buf)]
+    .slice(0, 8)
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+async function sendResend(env, payload) {
+  if (!env.RESEND_API_KEY) return false;
+  try {
+    const r = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + env.RESEND_API_KEY,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    return r.ok;
+  } catch {
+    return false;
+  }
+}
+
+async function handlePlan(request, env) {
+  if (request.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers: corsHeaders() });
+  }
+  if (request.method !== "POST") {
+    return json({ error: "Method not allowed" }, 405);
+  }
+
+  let body = {};
+  try {
+    body = await request.json();
+  } catch {
+    body = {};
+  }
+
+  // Honeypot: a bot filled the hidden field. Answer as if it worked and stop.
+  if (clean(body.company_website, 200)) return json({ ok: true });
+
+  const name = clean(body.name, 120);
+  const email = clean(body.email, 160).toLowerCase();
+  const alerts = body.alerts === true;
+  const missing = [];
+  if (!name) missing.push("your name");
+  if (!email || !isEmail(email)) missing.push("a valid email");
+  if (missing.length) {
+    return json({ error: "Please add " + missing.join(" and ") + "." }, 400);
+  }
+
+  const it = findItinerary(clean(body.sailing, 200));
+  if (!it) {
+    return json({ error: "Please pick a cruise from the list." }, 400);
+  }
+  const today = new Date().toISOString().slice(0, 10);
+  const dates = futureDates(it, today);
+  if (!dates.length) {
+    return json({ error: "That cruise has no upcoming dates. Please pick another." }, 400);
+  }
+  const wanted = clean(body.date, 12);
+  const date = dates.indexOf(wanted) !== -1 ? wanted : dates[0];
+
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  if (await throttled("plan-ip-" + ip, 20)) {
+    return json({ error: "Please wait a moment and try again." }, 429);
+  }
+  const dupe = await throttled("plan-email-" + (await shortHash(email)), 600);
+
+  const g = buildGuide(it, date, today);
+  const url = SITE + "/guide/?s=" + encodeURIComponent(it.id) + "&d=" + date;
+
+  // 1. File the lead in CTT (needs PLAN_FORM_SLUG).
+  let filed = false;
+  if (env.PLAN_FORM_SLUG) {
+    try {
+      const notes = [
+        "Cruise guide request: " + g.fullTitle + " aboard Margaritaville at Sea " + g.ship + " from " + g.hp.city,
+        "Sailing date: " + g.depLong,
+        "Deal alerts for this sailing: " + (alerts ? "yes" : "no"),
+        "Guide: " + url,
+        "Sent from the mvascruisedeals.com guide builder.",
+      ].join("\n");
+      const r = await fetch(
+        "https://cttagents.com/api/public/forms/" + encodeURIComponent(env.PLAN_FORM_SLUG),
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ full_name: name, email, notes, company_website: "" }),
+        }
+      );
+      const data = await r.json().catch(() => ({}));
+      filed = r.ok && data && data.ok !== false && !data.error;
+    } catch {
+      filed = false;
+    }
+  }
+
+  // 2. Email the guest their guide (skipped for a repeat request within 10 min).
+  let emailed = false;
+  if (!dupe) {
+    const mail = buildPlanEmail({ name, g, url, alerts });
+    emailed = await sendResend(env, {
+      from: env.QUOTE_FROM || "MVAS Cruise Deals <noreply@cttagents.com>",
+      to: [email],
+      reply_to: env.QUOTE_NOTIFY_TO || "brentb@cruisestoursandtravel.com",
+      subject: mail.subject,
+      html: mail.html,
+      text: mail.text,
+    });
+  }
+
+  // 3. Tell Brent, only when CTT did not file the lead.
+  let notified = false;
+  if (!filed && !dupe) {
+    const note = buildPlanNotice({ name, email, g, url, alerts, filed });
+    notified = await sendResend(env, {
+      from: env.QUOTE_FROM || "MVAS Cruise Deals <noreply@cttagents.com>",
+      to: [env.QUOTE_NOTIFY_TO || "brentb@cruisestoursandtravel.com"],
+      reply_to: email,
+      subject: note.subject,
+      text: note.text,
+    });
+  }
+
+  if (filed || emailed || notified || dupe) {
+    return json({ ok: true, url, filed, emailed, notified, repeat: Boolean(dupe) });
+  }
+  return json(
+    {
+      error: "Something went wrong sending your guide, but you can still open it now.",
+      url,
     },
     502
   );

@@ -23,6 +23,7 @@ export default function Footer() {
           <Link href="/deals">Cruise Deals</Link>
           <Link href="/sailings">All Sailings</Link>
           <Link href="/cruises">Destinations</Link>
+          <Link href="/plan">Free Cruise Guide</Link>
           <Link href="/group-rates">Group Rates</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>

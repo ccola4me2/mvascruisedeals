@@ -830,3 +830,13 @@
 .gd-ports--tight .gd-tip {
   font-size: 11.6px;
 }
+
+/* A printed Letter page is only 816px wide, so the site's mobile rules (such as
+   the spacer under the sticky Call/Text bar) would apply and push the stack onto
+   a blank seventh page. Print gets no extra body spacing. */
+@media print {
+  body:has(.gd-root) {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}

@@ -125,6 +125,31 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Free cruise guide builder */}
+      <section className="section">
+        <div className="container plan-band">
+          <div>
+            <p className="eyebrow eyebrow--light">Free for every cruise</p>
+            <h2>Get a personal guide to your cruise.</h2>
+            <p>
+              Pick any sailing and I&apos;ll build you a six-page guide: ports and
+              what to do ashore, life onboard, what your fare covers, and a
+              countdown with your real dates.
+            </p>
+            <Link href="/plan/" className="btn btn-primary btn-lg">
+              Build my free guide
+            </Link>
+          </div>
+          <Image
+            src="/guide-preview.jpg"
+            alt="Two pages from a sample cruise guide"
+            width={656}
+            height={608}
+            className="plan-band-img"
+          />
+        </div>
+      </section>
+
       {/* Signpost: where do you want to wake up */}
       <section className="section signpost-section">
         <div className="container signpost-band">
