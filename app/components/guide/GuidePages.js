@@ -365,15 +365,6 @@ export function Page6({ g }) {
             <span className="gd-next-mail">{BRENT.email}</span>
           </div>
         </div>
-        <div className="gd-callout gd-callout--teal">
-          <b>Already booked?</b>
-          <p>
-            Booked directly with the cruise line? Send me your booking. I may still be
-            able to save you money or add onboard credit. This applies to direct
-            bookings only, not GOVX, casino offers, or bookings made through another
-            travel advisor.
-          </p>
-        </div>
         <h2>Ways to sail for less, and with more friends</h2>
         <div className="gd-two gd-two--cards">
           <div className="gd-card">
