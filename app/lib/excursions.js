@@ -52,6 +52,7 @@ export function portExcursionUrl(portKey) {
   return excursionUrl(PORT_PATHS[portKey] || "/");
 }
 
-// Printed under the links. Plain on purpose: who the tours are booked with.
+// Printed under the links: the friendly credit line, then who the tours are
+// booked with. Keep both, the first is what makes the link relationship plain.
 export const EXCURSION_DISCLOSURE =
-  "Excursions are booked directly with Shore Excursions Group, a separate company.";
+  "Booking through my link supports this site at no extra cost to you. Excursions are booked directly with Shore Excursions Group, a separate company.";
