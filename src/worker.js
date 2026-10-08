@@ -30,6 +30,15 @@ export default {
     if (url.pathname === "/api/plan") {
       return handlePlan(request, env);
     }
+    // Google Search Console ownership file. The static asset layer redirects a
+    // ".html" path to its extensionless twin, and Google wants this exact URL
+    // with a plain 200, so the Worker answers it directly. Keep it as long as
+    // the site stays verified.
+    if (url.pathname === "/google705e17e34b2526c5.html") {
+      return new Response("google-site-verification: google705e17e34b2526c5.html", {
+        headers: { "Content-Type": "text/html; charset=utf-8" },
+      });
+    }
     return env.ASSETS.fetch(request);
   },
 };
