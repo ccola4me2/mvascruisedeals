@@ -199,7 +199,7 @@ img {
   max-width: 8.5em;
 }
 /* Hide the tagline until the bar has room for it (avoids crowding the nav) */
-@media (max-width: 1179px) {
+@media (max-width: 1359px) {
   .brand-tag {
     display: none;
   }

@@ -24,7 +24,8 @@ const TOTAL_H = PAGE_H * 6 + GAP * 5;
 export default function GuideViewer() {
   const [query, setQuery] = useState(null);
   const [view, setView] = useState(null); // { it, date, today } | { missing } | { past }
-  const [scale, setScale] = useState(1);
+  const [fit, setFit] = useState(1);
+  const [zoomed, setZoomed] = useState(false);
   const [copied, setCopied] = useState(false);
   const [debug, setDebug] = useState(null);
   const wrapRef = useRef(null);
@@ -90,9 +91,9 @@ export default function GuideViewer() {
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return undefined;
-    const fit = () => setScale(Math.min(1, el.clientWidth / PAGE_W));
-    fit();
-    const ro = new ResizeObserver(fit);
+    const measure = () => setFit(Math.min(1, el.clientWidth / PAGE_W));
+    measure();
+    const ro = new ResizeObserver(measure);
     ro.observe(el);
     return () => ro.disconnect();
   }, [guide]);
@@ -170,6 +171,10 @@ export default function GuideViewer() {
   }
 
   const g = guide;
+  const small = fit < 0.8;
+  // On phones the page stack fits the width by default; "Zoom" switches to a
+  // readable size you scroll sideways.
+  const scale = zoomed && small ? Math.max(fit, 0.9) : fit;
   return (
     <div className="gd-root">
       <div className="gd-toolbar gd-noprint">
@@ -200,6 +205,11 @@ export default function GuideViewer() {
           >
             Save as PDF
           </button>
+          {small && (
+            <button type="button" className="gd-tb-btn" onClick={() => setZoomed((z) => !z)}>
+              {zoomed ? "Fit to screen" : "Zoom in"}
+            </button>
+          )}
           <button type="button" className="gd-tb-btn" onClick={copyLink}>
             {copied ? "Link copied" : "Copy link"}
           </button>
@@ -217,9 +227,14 @@ export default function GuideViewer() {
       </div>
 
       <div className="gd-viewport">
-        <div className="gd-outer" ref={wrapRef} style={{ height: TOTAL_H * scale }}>
-          <div className="gd-sheet" style={{ transform: "scale(" + scale + ")" }}>
-            <GuidePages g={g} />
+        <div className="gd-outer" ref={wrapRef}>
+          <div
+            className="gd-frame"
+            style={{ width: PAGE_W * scale, height: TOTAL_H * scale }}
+          >
+            <div className="gd-sheet" style={{ transform: "scale(" + scale + ")" }}>
+              <GuidePages g={g} />
+            </div>
           </div>
         </div>
       </div>
