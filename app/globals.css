@@ -5000,3 +5000,40 @@ img {
     display: none;
   }
 }
+
+/* Destination pages: book-your-own-excursion panel */
+.dest-excursions {
+  margin-top: 36px;
+  padding: 34px 40px;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, var(--navy) 0%, #124b6e 100%);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+.dest-excursions h3 {
+  margin: 6px 0 10px;
+  color: #fff;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+.dest-excursions p {
+  max-width: 60ch;
+  margin: 0 auto 20px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+.dest-excursions p a {
+  color: var(--sun);
+  font-weight: 700;
+}
+.dest-excursions .dest-excursions-note {
+  margin: 16px auto 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+}
+@media (max-width: 600px) {
+  .dest-excursions {
+    padding: 26px 20px;
+  }
+}

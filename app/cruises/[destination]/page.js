@@ -3,7 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { destinations, getDestination } from "../../data/destinations";
 import { sailings } from "../../data/sailings";
-import { quoteHref } from "../../lib/quote";
+import { quoteHref, CONTACT } from "../../lib/quote";
+import { portExcursionUrl, EXCURSION_DISCLOSURE } from "../../lib/excursions";
 
 const MONTHS = [
   "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -164,6 +165,28 @@ export default function DestinationPage({ params }) {
                   <p>{h.text}</p>
                 </div>
               ))}
+            </div>
+
+            <div className="dest-excursions">
+              <div>
+                <p className="eyebrow eyebrow--light">Plan your day ashore</p>
+                <h3>Book your own {short} excursion</h3>
+                <p>
+                  Browse tours and shore excursions for {short} and book them
+                  yourself, from your computer or your phone. Not sure which one
+                  fits your sailing? Call or text{" "}
+                  <a href={`tel:${CONTACT.phone}`}>{CONTACT.phoneDisplay}</a>.
+                </p>
+                <a
+                  href={portExcursionUrl(d.port)}
+                  target="_blank"
+                  rel="noopener"
+                  className="btn btn-gold btn-lg"
+                >
+                  See {short} excursions
+                </a>
+                <p className="dest-excursions-note">{EXCURSION_DISCLOSURE}</p>
+              </div>
             </div>
           </div>
         </section>
