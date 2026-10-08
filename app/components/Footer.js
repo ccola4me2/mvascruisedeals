@@ -26,7 +26,7 @@ export default function Footer() {
           <Link href="/plan">Free Cruise Guide</Link>
           <Link href="/group-rates">Group Rates</Link>
           <Link href="/blog">The MVAS Insider</Link>
-          <Link href="/about">About</Link>
+          <Link href="/about">About Me</Link>
           <Link href="/contact">Contact</Link>
         </nav>
       </div>
