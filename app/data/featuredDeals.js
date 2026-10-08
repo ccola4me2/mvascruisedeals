@@ -182,11 +182,11 @@ export const featuredDeals = [
     compare: {
       basis: "Same sailing, same cabin, total for two. Every fare adds a $75 onboard credit.",
       rows: [
-        { cabin: "Interior", direct: "$1,850", ours: "$1,617.90" },
-        { cabin: "Balcony", direct: "$4,750", ours: "$2,381.70" },
+        { cabin: "Interior", direct: "$1,950.00", ours: "$1,617.90" },
+        { cabin: "Balcony", direct: "$6,350.00", ours: "$2,381.70" },
       ],
     },
-    savings: "Up to $2,368",
+    savings: "Up to $3,968.30",
     savingsNote: "on a balcony cabin",
     onboardCredit: "$75",
     includes: ["Taxes", "Fees", "Gratuities"],
