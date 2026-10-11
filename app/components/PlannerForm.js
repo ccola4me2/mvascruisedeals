@@ -251,7 +251,7 @@ export default function PlannerForm() {
           </div>
           <label className="pl-check">
             <input type="checkbox" checked={alerts} onChange={(e) => setAlerts(e.target.checked)} />
-            <span>Also email me deals on this sailing if the price drops</span>
+            <span>Email me if my guide for this cruise is updated or its price drops</span>
           </label>
           <input
             type="text"

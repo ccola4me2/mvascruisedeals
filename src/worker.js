@@ -306,10 +306,18 @@ async function handlePlan(request, env) {
 
   // 1. File the lead in CTT (needs PLAN_FORM_SLUG).
   let filed = false;
-  // The CTT form "Free Guide" (first_name, last_name, email, notes). The slug is
-  // not a secret; the PLAN_FORM_SLUG variable overrides it if the form moves.
-  const formSlug = env.PLAN_FORM_SLUG || "httpsmvascruisedealscomplan";
-  if (formSlug) {
+  // Two CTT forms with the same fields (first_name, last_name, email, cruise,
+  // sailing_date, guide_link, notes). A guest who ticked the update box goes to
+  // "Free Guide Updates", which has an automation that emails them and is the
+  // list Brent broadcasts to; everyone else goes to "Free Guide". The slugs are
+  // not secrets; the variables override them if a form moves. If the updates
+  // form cannot be reached the lead is filed on the plain form instead, so a
+  // request is never lost.
+  const guideSlug = env.PLAN_FORM_SLUG || "httpsmvascruisedealscomplan";
+  const updatesSlug = env.PLAN_UPDATES_FORM_SLUG || "free-guide-updates";
+  const slugs = alerts ? [updatesSlug, guideSlug] : [guideSlug];
+  for (const formSlug of slugs) {
+    if (filed) break;
     try {
       const parts = name.split(/\s+/);
       const firstName = parts[0];
@@ -317,7 +325,7 @@ async function handlePlan(request, env) {
       const notes = [
         "Cruise guide request: " + g.fullTitle + " aboard Margaritaville at Sea " + g.ship + " from " + g.hp.city,
         "Sailing date: " + g.depLong,
-        "Deal alerts for this sailing: " + (alerts ? "yes" : "no"),
+        "Wants email updates for this cruise: " + (alerts ? "yes" : "no"),
         "Guide: " + url,
         "Sent from the mvascruisedeals.com guide builder.",
       ].join("\n");
@@ -330,6 +338,9 @@ async function handlePlan(request, env) {
             first_name: firstName,
             last_name: lastName,
             email,
+            cruise: g.fullTitle + " aboard Margaritaville at Sea " + g.ship + " from " + g.hp.city,
+            sailing_date: g.depLong,
+            guide_link: url,
             notes,
             company_website: "",
           }),

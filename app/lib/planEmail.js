@@ -60,7 +60,7 @@ export function buildPlanEmail({ name, g, url, alerts, quoteUrl }) {
     BRENT.site,
     "",
     "You asked for this guide at " + BRENT.site + ". This is a one-time message." +
-      (alerts ? " You also asked for deal alerts on this sailing. Reply stop any time." : ""),
+      (alerts ? " You also asked to be kept posted on this cruise, so you will get a few emails from me about it. Each one has an unsubscribe link." : ""),
   ].join("\n");
 
   const html = `<!doctype html>
@@ -106,7 +106,7 @@ ${quoteUrl ? `<table role="presentation" cellpadding="0" cellspacing="0" style="
 <p style="margin:0;"><b>${esc(BRENT.name)}</b><br><span style="font-size:13px;color:#4a5a66;">Independent travel advisor &middot; ${esc(BRENT.cred)}</span></p>
 </td></tr>
 <tr><td style="border-top:1px solid #e5ded1;padding:16px 32px;font-size:12px;line-height:1.5;color:#5a6a76;">
-You asked for this guide at ${esc(BRENT.site)}. This is a one-time message.${alerts ? " You also asked for deal alerts on this sailing. Reply stop any time." : ""}
+You asked for this guide at ${esc(BRENT.site)}. This is a one-time message.${alerts ? " You also asked to be kept posted on this cruise, so you will get a few emails from me about it. Each one has an unsubscribe link." : ""}
 </td></tr>
 </table>
 </td></tr>
@@ -125,7 +125,7 @@ export function buildPlanNotice({ name, email, g, url, alerts, filed }) {
     "Email: " + email,
     "Cruise: " + g.fullTitle + " aboard Margaritaville at Sea " + g.ship + " from " + g.hp.city,
     "Sailing date: " + g.depLong,
-    "Wants deal alerts: " + (alerts ? "yes" : "no"),
+    "Wants email updates for this cruise: " + (alerts ? "yes" : "no"),
     "Guide: " + url,
     "",
     filed
