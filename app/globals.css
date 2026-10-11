@@ -5358,3 +5358,20 @@ img {
     padding: 18px 18px;
   }
 }
+
+/* Home: weekly deals rotation note and details link */
+.wdeal-details {
+  font-weight: 700;
+  color: var(--ocean);
+  font-size: 0.9rem;
+}
+.wdeal-rotate {
+  margin: 22px 0 0;
+  text-align: center;
+  font-size: 0.92rem;
+  color: var(--slate);
+}
+.wdeal-rotate a {
+  color: var(--ocean);
+  font-weight: 700;
+}

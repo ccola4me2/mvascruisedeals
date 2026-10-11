@@ -62,6 +62,11 @@ export default function WeeklyDealCard({ deal }) {
           <a href="tel:+15617779911" className="wdeal-call">
             Call or text Brent
           </a>
+          {deal.detailsHref && (
+            <Link href={deal.detailsHref} className="wdeal-details">
+              See details
+            </Link>
+          )}
         </div>
       </div>
     </article>

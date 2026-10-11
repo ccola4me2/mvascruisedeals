@@ -2,8 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ships } from "./data/deals";
 import { groups } from "./data/groups";
-import { weeklyDeals } from "./data/weeklyDeals";
-import WeeklyDealCard from "./components/WeeklyDealCard";
+import WeeklyRotation from "./components/WeeklyRotation";
+import { rotationPool, todayET } from "./lib/weeklyRotation";
 import Testimonials from "./components/Testimonials";
 import CommunityGroups from "./components/CommunityGroups";
 import TrustStrip from "./components/TrustStrip";
@@ -104,11 +104,11 @@ export default function HomePage() {
               View all deals &rarr;
             </Link>
           </div>
-          <div className="wdeal-grid">
-            {weeklyDeals.map((deal) => (
-              <WeeklyDealCard key={deal.id} deal={deal} />
-            ))}
-          </div>
+          <WeeklyRotation pool={rotationPool()} builtOn={todayET()} />
+          <p className="wdeal-rotate">
+            New picks every Monday. See every offer on the{" "}
+            <Link href="/deals">Cruise Deals page</Link>.
+          </p>
         </div>
       </section>
 
