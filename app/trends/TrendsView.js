@@ -371,7 +371,9 @@ export default function TrendsView({ data }) {
             <h2>Watching a cruise? Get a free guide to it.</h2>
             <p>
               Pick any Margaritaville at Sea sailing and I will email you a six-page guide: ports and what to do ashore,
-              what your fare covers, and a countdown with your real dates. Every fare below links to its own guide.
+              what your fare covers, and a countdown with your real dates. Tick the box on the next page and I will also
+              send you updates for that cruise, like guide improvements and price changes. Every fare below links to its
+              own guide.
             </p>
           </div>
           <a className="btn btn-gold btn-lg" href="/plan/">Build my free guide</a>
