@@ -5612,3 +5612,19 @@ img {
   .tr-guideband-in { padding: 22px 20px; }
   .tr-links { justify-content: space-between; width: 100%; }
 }
+
+/* Trends page on phones: tap targets of at least 40px */
+@media (max-width: 640px) {
+  .tr-row-side { flex-direction: column; align-items: stretch; gap: 10px; }
+  .tr-row-side .tr-spark { align-self: flex-end; }
+  .tr-links { width: 100%; gap: 8px; }
+  .tr-ask, .tr-guide {
+    flex: 1; min-height: 42px; display: inline-flex; align-items: center; justify-content: center;
+    padding: 8px 10px; border-radius: 10px; text-align: center;
+  }
+  .tr-ask { background: #eaf3fb; }
+  .tr-guide { background: #e3f3f1; }
+  .tr-fchip { min-height: 40px; }
+  .tr-seg button { min-height: 40px; }
+  .tr-soon .tr-links { margin-top: auto; padding-top: 8px; }
+}
