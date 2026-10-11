@@ -18,7 +18,16 @@ const NAV = [
   },
   { href: "/cruises", label: "Destinations" },
   { href: "/group-rates", label: "Group Rates" },
-  { href: "/trends", label: "Price Trends" },
+  {
+    href: "/trends",
+    label: "Price Trends",
+    children: [
+      { href: "/trends/#week", label: "Past 7 days" },
+      { href: "/trends/#sailing-soon", label: "Sailing soon" },
+      { href: "/trends/#price-watch", label: "Price watch" },
+      { href: "/trends/#lowest-per-night", label: "Lowest price per night" },
+    ],
+  },
   { href: "/plan", label: "Free Guide" },
   {
     label: "About",
@@ -58,16 +67,30 @@ export default function Navbar() {
           {NAV.map((item) =>
             item.children ? (
               <div className="nav-item" key={item.label}>
-                <button
-                  type="button"
-                  className="nav-trigger"
-                  aria-haspopup="true"
-                >
-                  {item.label}
-                  <span className="nav-caret" aria-hidden="true">
-                    ▾
-                  </span>
-                </button>
+                {item.href ? (
+                  <Link
+                    href={item.href}
+                    className="nav-trigger"
+                    aria-haspopup="true"
+                    onClick={close}
+                  >
+                    {item.label}
+                    <span className="nav-caret" aria-hidden="true">
+                      ▾
+                    </span>
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    className="nav-trigger"
+                    aria-haspopup="true"
+                  >
+                    {item.label}
+                    <span className="nav-caret" aria-hidden="true">
+                      ▾
+                    </span>
+                  </button>
+                )}
                 <div className="nav-menu">
                   {item.children.map((c) => (
                     <Link key={c.href} href={c.href}>
@@ -122,6 +145,15 @@ export default function Navbar() {
             item.children ? (
               <div className="mobile-group" key={item.label}>
                 <p className="mobile-group-label">{item.label}</p>
+                {item.href && (
+                  <Link
+                    href={item.href}
+                    className="mobile-sub"
+                    onClick={close}
+                  >
+                    All {item.label.toLowerCase()}
+                  </Link>
+                )}
                 {item.children.map((c) => (
                   <Link
                     key={c.href}

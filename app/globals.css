@@ -5628,3 +5628,6 @@ img {
   .tr-seg button { min-height: 40px; }
   .tr-soon .tr-links { margin-top: auto; padding-top: 8px; }
 }
+
+/* Menu links jump to these sections: leave room for the sticky header. */
+#moves, #sailing-soon, #price-watch, #lowest-per-night { scroll-margin-top: 90px; }

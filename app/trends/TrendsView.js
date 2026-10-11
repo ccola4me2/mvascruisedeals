@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { quoteHref } from "../lib/quote";
 import { featuredDeals } from "../data/featuredDeals";
 
@@ -223,6 +223,30 @@ export default function TrendsView({ data }) {
   const [sort, setSort] = useState("dollars");
   const [all, setAll] = useState(false);
 
+  // Menu links like /trends/#week and /trends/#price-watch: switch the list to
+  // the 7 day view when asked, then scroll to the section.
+  useEffect(() => {
+    const apply = () => {
+      const h = window.location.hash.replace("#", "");
+      if (!h) return;
+      if (h === "week") {
+        setWin("week");
+        setDir("drops");
+        setShip("All");
+        setRoom("All");
+        setAll(false);
+      }
+      const id = h === "week" ? "moves" : h;
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 80);
+    };
+    apply();
+    window.addEventListener("hashchange", apply);
+    return () => window.removeEventListener("hashchange", apply);
+  }, []);
+
   const snap = meta.snapshotDate;
   const list = useMemo(() => {
     let rows = moves.filter((m) => (dir === "drops" ? m.diff < 0 : m.diff > 0));
@@ -382,7 +406,7 @@ export default function TrendsView({ data }) {
       </section>
 
       {/* Moves */}
-      <section className="section">
+      <section className="section" id="moves">
         <div className="container">
           <div className="section-head">
             <div>
@@ -448,7 +472,7 @@ export default function TrendsView({ data }) {
 
       {/* Sailing soon */}
       {soon.length > 0 && (
-        <section className="section section--muted">
+        <section className="section section--muted" id="sailing-soon">
           <div className="container">
             <div className="section-head section-head--center">
               <p className="eyebrow">Leaving in the next 30 days</p>
@@ -481,7 +505,7 @@ export default function TrendsView({ data }) {
       {/* Price watch + lowest */}
       <section className="section">
         <div className="container tr-two">
-          <div>
+          <div id="price-watch">
             <div className="section-head">
               <div>
                 <p className="eyebrow">Most active, past {meta.windowDays} days</p>
@@ -507,7 +531,7 @@ export default function TrendsView({ data }) {
               ))}
             </ol>
           </div>
-          <div>
+          <div id="lowest-per-night">
             <div className="section-head">
               <div>
                 <p className="eyebrow">Interior cabins</p>
