@@ -73,6 +73,13 @@ function DealTag({ ship, sail, room, fares }) {
   );
 }
 
+// The free guide for a sailing: /plan/ opens with that cruise and date already
+// picked when we know it, otherwise it opens the plain builder.
+const guideLink = (guides, ship, itin, sail) => {
+  const id = guides && guides[ship + "|" + itin + "|" + sail];
+  return id ? "/plan/?s=" + encodeURIComponent(id) + "&d=" + sail : "/plan/";
+};
+
 const parts = (iso) => iso.split("-").map(Number);
 const shortDate = (iso) => {
   const [, m, d] = parts(iso);
@@ -119,7 +126,7 @@ function Spark({ hist, up }) {
   );
 }
 
-function MoveRow({ m, fares }) {
+function MoveRow({ m, fares, guides }) {
   const up = m.diff > 0;
   const cruise = m.nights + "-Night " + m.itin.replace(/^\d+-Night\s*/, "");
   return (
@@ -146,12 +153,17 @@ function MoveRow({ m, fares }) {
       </div>
       <div className="tr-row-side">
         <Spark hist={m.hist} up={up} />
-        <a
-          className="tr-ask"
-          href={quoteHref({ ship: m.ship, cruise: cruise + " (" + m.room + ")", when: longDate(m.sail) })}
-        >
-          Ask Brent
-        </a>
+        <span className="tr-links">
+          <a
+            className="tr-ask"
+            href={quoteHref({ ship: m.ship, cruise: cruise + " (" + m.room + ")", when: longDate(m.sail) })}
+          >
+            Ask Brent
+          </a>
+          <a className="tr-guide" href={guideLink(guides, m.ship, m.itin, m.sail)}>
+            Free guide
+          </a>
+        </span>
       </div>
     </li>
   );
@@ -196,7 +208,7 @@ function ActivityChart({ timeline }) {
 }
 
 export default function TrendsView({ data }) {
-  const { meta, last, listing, byShip, moves, lowest, soon, watch, timeline, totals, fares } = data;
+  const { meta, last, listing, byShip, moves, lowest, soon, watch, timeline, totals, fares, guides } = data;
   // Open on the narrowest window that has at least three drops, so a quiet day
   // does not greet people with an almost empty list.
   const [win, setWin] = useState(() => {
@@ -350,6 +362,23 @@ export default function TrendsView({ data }) {
         </section>
       )}
 
+      {/* Free guide band */}
+      <section className="tr-guideband">
+        <div className="container">
+          <div className="tr-guideband-in">
+          <div>
+            <p className="tr-guideband-label">Free for every sailing</p>
+            <h2>Watching a cruise? Get a free guide to it.</h2>
+            <p>
+              Pick any Margaritaville at Sea sailing and I will email you a six-page guide: ports and what to do ashore,
+              what your fare covers, and a countdown with your real dates. Every fare below links to its own guide.
+            </p>
+          </div>
+          <a className="btn btn-gold btn-lg" href="/plan/">Build my free guide</a>
+          </div>
+        </div>
+      </section>
+
       {/* Moves */}
       <section className="section">
         <div className="container">
@@ -400,7 +429,7 @@ export default function TrendsView({ data }) {
               <p className="tr-count">{plural(list.length, "fare")}</p>
               <ul className="tr-list">
                 {shown.map((m, i) => (
-                  <MoveRow key={m.date + m.ship + m.itin + m.sail + m.room + i} m={m} fares={fares} />
+                  <MoveRow key={m.date + m.ship + m.itin + m.sail + m.room + i} m={m} fares={fares} guides={guides} />
                 ))}
               </ul>
               {list.length > 10 && (
@@ -436,7 +465,10 @@ export default function TrendsView({ data }) {
                   <p className="tr-soon-price">
                     from <b>{money(s.price)}</b> <span>{s.room}</span>
                   </p>
-                  <a className="tr-ask" href={quoteHref({ ship: s.ship, cruise: s.nights + "-Night " + s.itin.replace(/^\d+-Night\s*/, ""), when: longDate(s.sail) })}>Ask Brent</a>
+                  <span className="tr-links">
+                    <a className="tr-ask" href={quoteHref({ ship: s.ship, cruise: s.nights + "-Night " + s.itin.replace(/^\d+-Night\s*/, ""), when: longDate(s.sail) })}>Ask Brent</a>
+                    <a className="tr-guide" href={guideLink(guides, s.ship, s.itin, s.sail)}>Free guide</a>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -572,7 +604,10 @@ export default function TrendsView({ data }) {
         <div className="container cta-inner">
           <h2>See a fare you like?</h2>
           <p>Tell me the sailing and cabin and I will check availability and send your quote, with no booking fees.</p>
-          <a href="/contact/" className="btn btn-primary btn-lg">Get my free quote</a>
+          <p className="tr-cta-btns">
+            <a href="/contact/" className="btn btn-primary btn-lg">Get my free quote</a>
+            <a href="/plan/" className="btn btn-gold btn-lg">Or build a free guide</a>
+          </p>
         </div>
       </section>
     </>

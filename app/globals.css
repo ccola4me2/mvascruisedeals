@@ -5592,3 +5592,23 @@ img {
 .tr-deals-cabins li { display: block; padding: 0; background: none; border: 0; border-radius: 0; font-size: 0.9rem; color: var(--ink); }
 .tr-deals-save { display: inline-block; margin-left: 8px; padding: 1px 9px; border-radius: 999px; background: #dff5f2; color: #0a7a71; font-weight: 800; font-size: 0.78rem; }
 .tr-deals-note { margin: 10px 0 0; font-size: 0.8rem; color: var(--slate); }
+
+/* Free guide prompts on the trends page */
+.tr-links { display: flex; gap: 14px; align-items: center; }
+.tr-guide { font-size: 0.85rem; font-weight: 800; color: var(--teal); text-decoration: none; }
+.tr-guide:hover { text-decoration: underline; }
+.tr-guideband { padding: 8px 0 0; }
+.tr-guideband-in {
+  margin-top: 18px; padding: 26px 30px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 28px;
+  color: #fff; background: linear-gradient(135deg, var(--navy) 0%, #124b6e 100%); border-radius: var(--radius-lg);
+}
+.tr-guideband-in > div { flex: 1 1 420px; }
+.tr-guideband-label { margin: 0 0 6px; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sun); }
+.tr-guideband h2 { margin: 0 0 8px; color: #fff; font-size: clamp(1.4rem, 3vw, 1.9rem); }
+.tr-guideband p:not(.tr-guideband-label) { margin: 0; color: rgba(255, 255, 255, 0.9); line-height: 1.6; max-width: 62ch; }
+.tr-guideband .btn { color: var(--navy); }
+.tr-cta-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+@media (max-width: 640px) {
+  .tr-guideband-in { padding: 22px 20px; }
+  .tr-links { justify-content: space-between; width: 100%; }
+}

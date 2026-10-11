@@ -110,6 +110,30 @@ def load_log():
     return out, os.path.basename(f)
 
 
+def guide_ids(latest):
+    """Free-guide link targets: (ship, itinerary, sail date) -> itinerary id used by
+    /plan/?s=<id>&d=<date>. Read from app/data/itineraries.js (one JSON object per
+    line). If that file changes shape this just returns nothing and the page links
+    to the plain /plan/ page instead."""
+    path = os.path.join(ROOT, "app", "data", "itineraries.js")
+    index = {}
+    try:
+        for line in open(path, encoding="utf-8"):
+            line = line.strip().rstrip(",")
+            if line.startswith('{"ship"'):
+                it = json.loads(line)
+                for dt in it["dates"]:
+                    index[(it["ship"], it["nights"], it["name"], dt)] = it["id"]
+    except Exception:
+        return {}
+    out = {}
+    for ship, itin, sail, _room in latest:
+        m = re.match(r"(\d+)-Night\s+(.*)", itin)
+        if m and (ship, int(m.group(1)), m.group(2), sail) in index:
+            out["|".join((ship, itin, sail))] = index[(ship, int(m.group(1)), m.group(2), sail)]
+    return out
+
+
 def pct(old, new):
     return round((new - old) / old * 100, 1)
 
@@ -271,6 +295,7 @@ def main():
         },
         # Every fare on sale at the latest check, compact: [ship, itinerary, sail, room, price]
         "fares": [[k[0], k[1], k[2], k[3], v] for k, v in sorted(latest.items())],
+        "guides": guide_ids(latest),
         "byShip": by_ship,
         "moves": moves,
         "lowest": lowest,
