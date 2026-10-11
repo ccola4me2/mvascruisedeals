@@ -98,5 +98,5 @@ snapshot against the change log and the previous snapshot. It exits 1 on any mis
 mismatch is either a copying error or a gap in the change log; fetching the file a second
 time and getting identical contents tells you it is the log.
 
-A scheduled Claude task ("trends-daily-snapshots") does these steps twice a day, at 9:30 AM
-and 7:30 PM Eastern, while the Claude desktop app is open.
+A scheduled Claude task ("trends-daily-snapshots") does these steps every day at noon
+Eastern, while the Claude desktop app is open.
