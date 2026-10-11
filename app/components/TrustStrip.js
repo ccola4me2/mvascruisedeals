@@ -3,7 +3,6 @@ const items = [
   { big: "Best", small: "Available fares & group rates" },
   { big: "1 day", small: "Typical reply time" },
   { big: "1-on-1", small: "A real agent, quote to gangway" },
-  { big: "FL", small: "Seller of Travel #TI128169" },
 ];
 
 export default function TrustStrip() {
