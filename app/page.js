@@ -27,8 +27,8 @@ export default function HomePage() {
               hand-made sizes and let phones pull the small file. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/deals/islander.jpg"
-            srcSet="/deals/islander-mobile.jpg 800w, /deals/islander-1200.jpg 1200w, /deals/islander.jpg 1600w"
+            src="/deals/hero-beachcomber.jpg"
+            srcSet="/deals/hero-beachcomber-mobile.jpg 800w, /deals/hero-beachcomber.jpg 1182w"
             sizes="100vw"
             alt=""
             fetchPriority="high"
