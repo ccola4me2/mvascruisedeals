@@ -239,7 +239,7 @@ export default function TrendsView({ data }) {
       const id = h === "week" ? "moves" : h;
       setTimeout(() => {
         const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (el) el.scrollIntoView({ block: "start" });
       }, 80);
     };
     apply();
