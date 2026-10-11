@@ -92,3 +92,11 @@ Daily routine:
 
 The script strips the internal `note` and `run` fields from archived snapshots. Do not
 commit unstripped copies: this repository is public.
+
+`python3 scripts/verify-snapshot.py "data/raw/<snapshot file>"` cross-checks a hand-copied
+snapshot against the change log and the previous snapshot. It exits 1 on any mismatch. A
+mismatch is either a copying error or a gap in the change log; fetching the file a second
+time and getting identical contents tells you it is the log.
+
+A scheduled Claude task ("trends-daily-snapshots") does these steps twice a day, at 9:30 AM
+and 7:30 PM Eastern, while the Claude desktop app is open.
