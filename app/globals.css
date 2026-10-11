@@ -5567,3 +5567,28 @@ img {
 @media (min-width: 1240px) and (max-width: 1399px) {
   .nav-phone { display: none !important; }
 }
+
+/* Brent's deal tag on the trends page */
+.tr-deal {
+  display: inline-block; padding: 2px 10px; border-radius: 999px; background: var(--sun); color: var(--navy);
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none;
+  box-shadow: 0 1px 0 rgba(10, 36, 64, 0.15);
+}
+.tr-deal:hover { filter: brightness(1.05); }
+.tr-deals { padding: 0 0 8px; }
+.tr-deals .container { padding-top: 22px; }
+.tr-deals-label { margin: 0 0 10px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ocean); }
+.tr-deals ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.tr-deals li {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+  padding: 14px 18px; background: #fff7df; border: 1.5px solid var(--sun); border-radius: 14px;
+}
+.tr-deals-title { margin: 0; font-family: var(--font-display-stack); font-size: 1.1rem; font-weight: 700; color: var(--navy); }
+.tr-deals-meta { margin: 2px 0 0; font-size: 0.84rem; color: var(--slate); }
+.tr-deals .btn { color: var(--navy); }
+
+.tr-deals-info { flex: 1 1 320px; }
+.tr-deals-cabins { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 4px; }
+.tr-deals-cabins li { display: block; padding: 0; background: none; border: 0; border-radius: 0; font-size: 0.9rem; color: var(--ink); }
+.tr-deals-save { display: inline-block; margin-left: 8px; padding: 1px 9px; border-radius: 999px; background: #dff5f2; color: #0a7a71; font-weight: 800; font-size: 0.78rem; }
+.tr-deals-note { margin: 10px 0 0; font-size: 0.8rem; color: var(--slate); }

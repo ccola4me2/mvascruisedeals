@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { quoteHref } from "../lib/quote";
+import { featuredDeals } from "../data/featuredDeals";
 
 // The daily Cruise Price Trends page. Everything it shows comes from
 // data/trends.json, built by scripts/build-trends.py from the daily snapshots
@@ -11,6 +12,66 @@ const SHIPS = ["Paradise", "Islander", "Beachcomber"];
 const ROOMS = ["Interior", "Ocean View", "Balcony", "Suite"];
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const DOWS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+// Brent's own deals (app/data/featuredDeals.js). A fare gets the "Brent's deal"
+// tag ONLY when Brent's price for that cabin is lower than today's public fare
+// from the tracker. Both are per person, double occupancy. A deal quoted as a
+// total for two is halved; a deal that is not cheaper in a cabin is not tagged
+// for that cabin, so the tag always means a saving you can point to.
+const num = (str) => Number(String(str).replace(/[$,]/g, ""));
+const roomName = (t) => (/^ocean/i.test(t) ? "Ocean View" : t);
+const DEALS = featuredDeals
+  .filter((d) => d.landing)
+  .map((d) => {
+    const rates = {};
+    (d.cabins || []).forEach((c) => {
+      rates[roomName(c.type)] = num(c.price);
+    });
+    if (!d.cabins && d.compare && /total for two/i.test(d.compare.basis || "")) {
+      d.compare.rows.forEach((r) => {
+        rates[roomName(r.cabin)] = Math.round((num(r.ours) / 2) * 100) / 100;
+      });
+    }
+    return {
+      ship: SHIPS.find((s) => d.ship.endsWith(s)),
+      sail: d.landing.departs,
+      slug: d.landing.slug,
+      title: d.title,
+      when: d.when,
+      rates,
+    };
+  });
+
+// The cabins where Brent beats the public fare, with the saving per person.
+function betterRooms(deal, fares) {
+  const out = [];
+  Object.keys(deal.rates).forEach((room) => {
+    const pub = fares.find((f) => f[0] === deal.ship && f[2] === deal.sail && f[3] === room);
+    if (pub && deal.rates[room] < pub[4]) {
+      out.push({ room, brent: deal.rates[room], pub: pub[4], save: Math.round((pub[4] - deal.rates[room]) * 100) / 100 });
+    }
+  });
+  return out;
+}
+
+// room given: tag only if that cabin is cheaper with Brent. No room (a whole
+// sailing): tag if any cabin is.
+function DealTag({ ship, sail, room, fares }) {
+  const d = DEALS.find((x) => x.ship === ship && x.sail === sail);
+  if (!d) return null;
+  const better = betterRooms(d, fares);
+  const hit = room ? better.find((b) => b.room === room) : better[0];
+  if (!hit) return null;
+  return (
+    <a
+      className="tr-deal"
+      href={"/deals/" + d.slug + "/"}
+      title={"My rate is " + money(hit.save) + " per person below today's public " + hit.room + " fare"}
+    >
+      Brent&apos;s deal
+    </a>
+  );
+}
 
 const parts = (iso) => iso.split("-").map(Number);
 const shortDate = (iso) => {
@@ -58,7 +119,7 @@ function Spark({ hist, up }) {
   );
 }
 
-function MoveRow({ m }) {
+function MoveRow({ m, fares }) {
   const up = m.diff > 0;
   const cruise = m.nights + "-Night " + m.itin.replace(/^\d+-Night\s*/, "");
   return (
@@ -67,6 +128,7 @@ function MoveRow({ m }) {
         <p className="tr-row-top">
           <span className={"tr-ship tr-ship--" + m.ship.toLowerCase()}>{m.ship}</span>
           <span className="tr-row-room">{m.room}</span>
+          <DealTag ship={m.ship} sail={m.sail} room={m.room} fares={fares} />
         </p>
         <h3>{m.itin}</h3>
         <p className="tr-row-meta">
@@ -134,7 +196,7 @@ function ActivityChart({ timeline }) {
 }
 
 export default function TrendsView({ data }) {
-  const { meta, last, listing, byShip, moves, lowest, soon, watch, timeline, totals } = data;
+  const { meta, last, listing, byShip, moves, lowest, soon, watch, timeline, totals, fares } = data;
   // Open on the narrowest window that has at least three drops, so a quiet day
   // does not greet people with an almost empty list.
   const [win, setWin] = useState(() => {
@@ -167,6 +229,10 @@ export default function TrendsView({ data }) {
   const shown = all ? list : list.slice(0, 10);
   const winLabel = win === "latest" ? "Latest moves, " + shortDate(meta.lastChangeDate) : win === "week" ? "Past 7 days" : "Past " + meta.windowDays + " days";
   const quiet = meta.quiet;
+  // Only deals where Brent's price beats the public fare, cabin by cabin.
+  const dealStrip = DEALS.filter((d) => d.ship && d.sail >= snap)
+    .map((d) => ({ ...d, better: betterRooms(d, fares) }))
+    .filter((d) => d.better.length > 0);
   const best = last.biggestDrop;
   const newN = listing.newFares.length;
   const goneN = listing.soldOut.length;
@@ -252,6 +318,38 @@ export default function TrendsView({ data }) {
         </div>
       </section>
 
+      {/* Brent's deals that beat the public fare today */}
+      {dealStrip.length > 0 && (
+        <section className="tr-deals">
+          <div className="container">
+            <p className="tr-deals-label">My rate beats today&apos;s public fare</p>
+            <ul>
+              {dealStrip.map((d) => (
+                <li key={d.slug}>
+                  <div className="tr-deals-info">
+                    <p className="tr-deals-title">{d.title}</p>
+                    <p className="tr-deals-meta">{d.ship} &middot; {d.when}</p>
+                    <ul className="tr-deals-cabins">
+                      {d.better.map((b) => (
+                        <li key={b.room}>
+                          <b>{b.room}</b> my rate {money(b.brent)} vs public {money(b.pub)}
+                          <span className="tr-deals-save">save {money(b.save)} per person</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <a className="btn btn-gold" href={"/deals/" + d.slug + "/"}>See my deal</a>
+                </li>
+              ))}
+            </ul>
+            <p className="tr-deals-note">
+              Per person, double occupancy. Public fares are today&apos;s sale price on the cruise line&apos;s booking
+              site. Rates and availability can change, so ask me to confirm before you book.
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* Moves */}
       <section className="section">
         <div className="container">
@@ -302,7 +400,7 @@ export default function TrendsView({ data }) {
               <p className="tr-count">{plural(list.length, "fare")}</p>
               <ul className="tr-list">
                 {shown.map((m, i) => (
-                  <MoveRow key={m.date + m.ship + m.itin + m.sail + m.room + i} m={m} />
+                  <MoveRow key={m.date + m.ship + m.itin + m.sail + m.room + i} m={m} fares={fares} />
                 ))}
               </ul>
               {list.length > 10 && (
@@ -332,7 +430,8 @@ export default function TrendsView({ data }) {
                   <p className="tr-soon-date">{withDow(s.sail)}</p>
                   <p className="tr-soon-title">{s.itin}</p>
                   <p className="tr-soon-meta">
-                    <span className={"tr-ship tr-ship--" + s.ship.toLowerCase()}>{s.ship}</span> {plural(s.nights, "night")}
+                    <span className={"tr-ship tr-ship--" + s.ship.toLowerCase()}>{s.ship}</span> {plural(s.nights, "night")}{" "}
+                    <DealTag ship={s.ship} sail={s.sail} room={s.room} fares={fares} />
                   </p>
                   <p className="tr-soon-price">
                     from <b>{money(s.price)}</b> <span>{s.room}</span>
@@ -362,7 +461,8 @@ export default function TrendsView({ data }) {
                   <div>
                     <p className="tr-watch-title">{w.itin}</p>
                     <p className="tr-watch-meta">
-                      <span className={"tr-ship tr-ship--" + w.ship.toLowerCase()}>{w.ship}</span> sails {longDate(w.sail)}
+                      <span className={"tr-ship tr-ship--" + w.ship.toLowerCase()}>{w.ship}</span> sails {longDate(w.sail)}{" "}
+                      <DealTag ship={w.ship} sail={w.sail} fares={fares} />
                     </p>
                   </div>
                   <div className="tr-watch-n">
@@ -387,7 +487,8 @@ export default function TrendsView({ data }) {
                   <div>
                     <p className="tr-watch-title">{r.itin}</p>
                     <p className="tr-watch-meta">
-                      <span className={"tr-ship tr-ship--" + r.ship.toLowerCase()}>{r.ship}</span> sails {longDate(r.sail)}
+                      <span className={"tr-ship tr-ship--" + r.ship.toLowerCase()}>{r.ship}</span> sails {longDate(r.sail)}{" "}
+                      <DealTag ship={r.ship} sail={r.sail} room={r.room} fares={fares} />
                     </p>
                   </div>
                   <div className="tr-watch-n">

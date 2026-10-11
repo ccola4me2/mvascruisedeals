@@ -269,6 +269,8 @@ def main():
             "soldOut": [fare_row(k, prev[k]) for k in gone],
             "comparedWith": prev_day,
         },
+        # Every fare on sale at the latest check, compact: [ship, itinerary, sail, room, price]
+        "fares": [[k[0], k[1], k[2], k[3], v] for k, v in sorted(latest.items())],
         "byShip": by_ship,
         "moves": moves,
         "lowest": lowest,
