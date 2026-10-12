@@ -1355,3 +1355,49 @@ Date Detected,Ship,Itinerary,Sailing Date,Room Type,Change Type,Old Price,New Pr
 2026-10-10,Beachcomber,7-Night Eastern Caribbean,04/03/27,Interior,INCREASE,549,579,30,5
 2026-10-10,Beachcomber,7-Night Eastern Caribbean,04/03/27,Ocean View,INCREASE,649,729,80,12
 2026-10-10,Beachcomber,7-Night Eastern Caribbean,04/03/27,Balcony,INCREASE,1149,1199,50,4
+2026-10-12,Paradise,4-Night Key West & Grand Bahama,10/23/26,Interior,DROP,259,249,-10,-4
+2026-10-12,Islander,4-Night Cozumel Express,10/24/26,Interior,DROP,349,339,-10,-3
+2026-10-12,Islander,4-Night Cozumel Express,10/24/26,Ocean View,DROP,399,379,-20,-5
+2026-10-12,Islander,4-Night Cozumel Express,10/24/26,Balcony,DROP,469,449,-20,-4
+2026-10-12,Islander,4-Night Cozumel Express,10/28/26,Interior,DROP,349,339,-10,-3
+2026-10-12,Islander,4-Night Cozumel Express,10/28/26,Ocean View,DROP,449,429,-20,-4
+2026-10-12,Islander,4-Night Cozumel Express,10/28/26,Balcony,DROP,569,549,-20,-4
+2026-10-12,Islander,4-Night Cozumel Express,10/28/26,Suite,DROP,2399,2299,-100,-4
+2026-10-12,Islander,4-Night Cozumel Express,03/09/27,Balcony,DROP,479,449,-30,-6
+2026-10-12,Islander,4-Night Cozumel Express,03/09/27,Suite,DROP,849,829,-20,-2
+2026-10-12,Islander,5-Night Mexico Duo,01/16/27,Balcony,DROP,799,779,-20,-3
+2026-10-12,Islander,5-Night Mexico Duo,03/13/27,Suite,DROP,1299,1279,-20,-2
+2026-10-12,Islander,5-Night Mexico Duo,03/18/27,Ocean View,DROP,429,419,-10,-2
+2026-10-12,Islander,5-Night Mexico Duo,03/18/27,Suite,DROP,999,949,-50,-5
+2026-10-12,Islander,4-Night Cozumel Express,12/10/26,Interior,INCREASE,449,499,50,11
+2026-10-12,Islander,4-Night Cozumel Express,12/10/26,Ocean View,INCREASE,569,599,30,5
+2026-10-12,Islander,4-Night Cozumel Express,12/10/26,Balcony,INCREASE,579,599,20,3
+2026-10-12,Islander,4-Night Cozumel Express,12/19/26,Suite,INCREASE,1049,1079,30,3
+2026-10-12,Islander,5-Night Mexico Duo,11/20/26,Interior,INCREASE,469,479,10,2
+2026-10-12,Islander,5-Night Key West and Cozumel,11/25/26,Suite,INCREASE,1699,1729,30,2
+2026-10-12,Islander,5-Night Key West and Cozumel,12/23/26,Ocean View,INCREASE,799,829,30,4
+2026-10-12,Islander,5-Night Key West and Progreso,12/05/26,Ocean View,INCREASE,379,399,20,5
+2026-10-12,Islander,5-Night Bahamas Duo,12/14/26,Interior,INCREASE,399,419,20,5
+2026-10-12,Islander,5-Night Bahamas Duo,12/14/26,Ocean View,INCREASE,399,449,50,13
+2026-10-12,Islander,5-Night Bahamas Duo,12/14/26,Suite,INCREASE,1329,1399,70,5
+2026-10-12,Islander,6-Night Belize & Progreso,11/14/26,Interior,INCREASE,419,429,10,2
+2026-10-12,Islander,6-Night Belize & Progreso,11/14/26,Ocean View,INCREASE,489,499,10,2
+2026-10-12,Islander,6-Night Belize & Progreso,11/14/26,Balcony,INCREASE,639,649,10,2
+2026-10-12,Islander,6-Night Belize & Progreso,11/14/26,Suite,INCREASE,1049,1099,50,5
+2026-10-12,Islander,7-Night New Orleans & Mexico,11/07/26,Interior,INCREASE,419,459,40,10
+2026-10-12,Islander,7-Night New Orleans & Mexico,11/07/26,Ocean View,INCREASE,629,649,20,3
+2026-10-12,Islander,7-Night New Orleans & Mexico,11/07/26,Balcony,INCREASE,899,999,100,11
+2026-10-12,Islander,6-Night Mexico & Western Caribbean,11/01/26,Ocean View,INCREASE,799,879,80,10
+2026-10-12,Islander,6-Night Mexico & Western Caribbean,11/01/26,Balcony,INCREASE,1029,1649,620,60
+2026-10-12,Islander,4-Night Cozumel Express,01/21/27,Interior,INCREASE,649,679,30,5
+2026-10-12,Islander,4-Night Cozumel Express,01/21/27,Ocean View,INCREASE,649,679,30,5
+2026-10-12,Islander,4-Night Cozumel Express,01/21/27,Balcony,INCREASE,799,829,30,4
+2026-10-12,Islander,5-Night Mexico Duo,01/16/27,Interior,INCREASE,379,399,20,5
+2026-10-12,Islander,5-Night Mexico Duo,03/18/27,Interior,INCREASE,379,389,10,3
+2026-10-12,Islander,5-Night Key West and Progreso,02/27/27,Interior,INCREASE,479,489,10,2
+2026-10-12,Islander,5-Night Key West and Progreso,02/27/27,Ocean View,INCREASE,499,519,20,4
+2026-10-12,Islander,7-Night Key West & Mexico,02/20/27,Suite,INCREASE,1699,1799,100,6
+2026-10-12,Islander,5-Night Key West & Grand Bahama,02/15/27,Interior,INCREASE,799,829,30,4
+2026-10-12,Islander,5-Night Key West & Grand Bahama,02/15/27,Ocean View,INCREASE,829,849,20,2
+2026-10-12,Islander,5-Night Key West & Grand Bahama,02/15/27,Suite,INCREASE,1529,1699,170,11
+2026-10-12,Islander,5-Night Bahamas Duo 3-Ship Meet-Up ft. Zac Brown Band,01/25/27,Balcony,INCREASE,1799,1899,100,6
