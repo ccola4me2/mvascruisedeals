@@ -1401,3 +1401,27 @@ Date Detected,Ship,Itinerary,Sailing Date,Room Type,Change Type,Old Price,New Pr
 2026-10-12,Islander,5-Night Key West & Grand Bahama,02/15/27,Ocean View,INCREASE,829,849,20,2
 2026-10-12,Islander,5-Night Key West & Grand Bahama,02/15/27,Suite,INCREASE,1529,1699,170,11
 2026-10-12,Islander,5-Night Bahamas Duo 3-Ship Meet-Up ft. Zac Brown Band,01/25/27,Balcony,INCREASE,1799,1899,100,6
+2026-10-13,Islander,4-Night Cozumel Express,12/10/26,Interior,DROP,499,479,-20,-4
+2026-10-13,Islander,7-Night Jamaica & Western Caribbean,01/09/27,Suite,DROP,3299,1429,-1870,-57
+2026-10-13,Islander,5-Night Bahamas Duo 3-Ship Meet-Up ft. Zac Brown Band,01/25/27,Balcony,DROP,1899,1799,-100,-5
+2026-10-13,Islander,4-Night Cozumel Express,10/24/26,Interior,INCREASE,339,349,10,3
+2026-10-13,Islander,4-Night Cozumel Express,10/24/26,Ocean View,INCREASE,379,399,20,5
+2026-10-13,Islander,4-Night Cozumel Express,10/24/26,Balcony,INCREASE,449,469,20,4
+2026-10-13,Islander,4-Night Cozumel Express,10/28/26,Interior,INCREASE,339,349,10,3
+2026-10-13,Islander,4-Night Cozumel Express,10/28/26,Ocean View,INCREASE,429,449,20,5
+2026-10-13,Islander,4-Night Cozumel Express,10/28/26,Balcony,INCREASE,549,569,20,4
+2026-10-13,Islander,4-Night Cozumel Express,03/09/27,Balcony,INCREASE,449,479,30,7
+2026-10-13,Islander,4-Night Cozumel Express,03/09/27,Suite,INCREASE,829,849,20,2
+2026-10-13,Islander,5-Night Mexico Duo,01/16/27,Balcony,INCREASE,779,799,20,3
+2026-10-13,Islander,5-Night Mexico Duo,03/13/27,Suite,INCREASE,1279,1299,20,2
+2026-10-13,Islander,5-Night Mexico Duo,03/18/27,Suite,INCREASE,949,999,50,5
+2026-10-13,Beachcomber,4-Night Dominican Republic Express,02/05/27,Ocean View,INCREASE,389,399,10,3
+2026-10-13,Beachcomber,4-Night Bahamas Duo,03/11/27,Interior,INCREASE,349,379,30,9
+2026-10-13,Beachcomber,4-Night Bahamas Duo,03/11/27,Suite,INCREASE,1229,1249,20,2
+2026-10-13,Beachcomber,4-Night Key West & Bahamas,02/09/27,Interior,INCREASE,399,429,30,8
+2026-10-13,Beachcomber,4-Night Key West & Bahamas,02/09/27,Suite,INCREASE,1699,1729,30,2
+2026-10-13,Beachcomber,5-Night Bahamas & Eastern Caribbean,03/06/27,Suite,INCREASE,1629,1649,20,1
+2026-10-13,Beachcomber,7-Night Eastern Caribbean,02/27/27,Interior,INCREASE,599,649,50,8
+2026-10-13,Beachcomber,7-Night Eastern Caribbean,02/27/27,Ocean View,INCREASE,679,699,20,3
+2026-10-13,Beachcomber,7-Night Eastern Caribbean,02/27/27,Suite,INCREASE,2499,2549,50,2
+2026-10-13,Beachcomber,"7-Night Key West, Bahamas & Western Caribbean",03/27/27,Suite,INCREASE,1999,2199,200,10
