@@ -5631,3 +5631,17 @@ img {
 
 /* Menu links jump to these sections: leave room for the sticky header. */
 #moves, #sailing-soon, #price-watch, #lowest-per-night { scroll-margin-top: 90px; }
+
+/* The open mobile menu lives inside the fixed header. Taller than the screen, its
+   lower half (the quote button and phone number) could not be reached, so it is
+   capped at the screen height under the header and scrolls inside itself. */
+@media (max-width: 960px) {
+  .mobile-menu.is-open {
+    max-height: calc(100vh - 69px);
+    max-height: calc(100dvh - 69px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mobile-menu-inner { padding-bottom: 90px; }
+}
