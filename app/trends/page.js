@@ -10,6 +10,13 @@ export const metadata = {
     title: "Margaritaville at Sea Price Trends",
     description: "What changed on Margaritaville at Sea fares today, checked daily.",
     url: "/trends/",
+    images: [{ url: "/og/trends.jpg", width: 1200, height: 630, alt: "Margaritaville at Sea price trends" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Margaritaville at Sea Price Trends",
+    description: "What changed on Margaritaville at Sea fares today, checked daily.",
+    images: ["/og/trends.jpg"],
   },
 };
 

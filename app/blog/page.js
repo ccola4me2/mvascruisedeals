@@ -11,6 +11,13 @@ export const metadata = {
     title: "The MVAS Insider",
     description: BLOG_TAGLINE,
     url: "/blog/",
+    images: [{ url: "/og/blog.jpg", width: 1200, height: 630, alt: "The MVAS Insider" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The MVAS Insider",
+    description: BLOG_TAGLINE,
+    images: ["/og/blog.jpg"],
   },
 };
 
