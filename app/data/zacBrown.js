@@ -48,25 +48,29 @@ export const ZBB = {
 
   // Concert upgrades, cheapest first.
   tiers: [
-    ["Homegrown Lawn, Early Access", "$49.99 per person", "Guaranteed entry and first access to the General Admission lawn at 8:30am."],
-    ["Knee Deep VIP Standing Room", "$299.99 per person", "Grounds access at 8:00am, the VIP Standing Room Only section, VIP bathrooms and a merch bundle."],
-    ["Knee Deep VIP Floor Seat (Side)", "$349.99 per person", "Grounds access at 8:00am, a reserved floor seat in the second and third rows, VIP bathrooms, a merch bundle and two bottles of water delivered to your stateroom."],
-    ["Knee Deep VIP Floor Seat (Center)", "$399.99 per person", "Same as Floor Seat (Side), in the center section."],
-    ["Jump Right In VIP Front Row (Side)", "$449.99 per person", "Grounds access at 8:00am, a reserved front row seat, VIP bathrooms, a merch bundle, access to Wine Bar Hospitality and two bottles of water delivered to your stateroom."],
-    ["Jump Right In VIP Front Row (Center)", "$499.99 per person", "Same as Front Row (Side), in the center section."],
-    ["Table Reservation at The Grill Hut", "$599.99 for up to four", "A reserved table for up to four with a dedicated server and two rounds of drinks."],
+    ["Homegrown Lawn, Early Access", "$49.99 per person", "Guaranteed entry and first access to the General Admission lawn at 8:30am.", "Guaranteed entry, first on the lawn at 8:30am"],
+    ["Knee Deep VIP Standing Room", "$299.99 per person", "Grounds access at 8:00am, the VIP Standing Room Only section, VIP bathrooms and a merch bundle.", "Grounds at 8:00am, VIP standing section and bathrooms, merch"],
+    ["Knee Deep VIP Floor Seat (Side)", "$349.99 per person", "Grounds access at 8:00am, a reserved floor seat in the second and third rows, VIP bathrooms, a merch bundle and two bottles of water delivered to your stateroom.", "Reserved floor seat in rows 2 and 3, VIP bathrooms, merch"],
+    ["Knee Deep VIP Floor Seat (Center)", "$399.99 per person", "Same as Floor Seat (Side), in the center section.", "Center section, same perks as Floor Seat (Side)"],
+    ["Jump Right In VIP Front Row (Side)", "$449.99 per person", "Grounds access at 8:00am, a reserved front row seat, VIP bathrooms, a merch bundle, access to Wine Bar Hospitality and two bottles of water delivered to your stateroom.", "Reserved front row seat, VIP perks, merch, Wine Bar access"],
+    ["Jump Right In VIP Front Row (Center)", "$499.99 per person", "Same as Front Row (Side), in the center section.", "Center section, same perks as Front Row (Side)"],
+    ["Table Reservation at The Grill Hut", "$599.99 for up to four", "A reserved table for up to four with a dedicated server and two rounds of drinks.", "Reserved table for four, a server and two rounds of drinks"],
   ],
+  tiersNoteShort:
+    "VIP seats are chosen by section now and your exact seat is assigned on board. ADA seating has dedicated entry: call 1-800-814-7100.",
   tiersNote:
     "With a VIP ticket you choose your section now and your exact seat is assigned once you are on board. ADA seating has dedicated entry, with wood flooring over the grass for wheelchair access. Guests in ADA staterooms, or who made a request through the Access Desk, are placed there automatically. Questions: 1-800-814-7100.",
 
   bahamaBay: {
     intro:
       "Prefer a pool day? Bahama Bay Pool Club is a short guided walk from the pier (about 10 minutes) and shows the concert on TVs. The Pool Club does not have a clear view of the stage. Every ticket includes entertainment before the concert, lunch and five drinks per person (well cocktails, beer, frozen drinks or non-alcoholic).",
+    short:
+      "About a 10 minute guided walk from the pier. There is no clear view of the stage, so the concert plays on TVs. Minimum age 18 to drink alcohol.",
     options: [
-      ["All-Inclusive Pool Viewing Party, General Admission", "$149.99 per person", "A first-come, first-served seat, with one main course and five drinks per person."],
-      ["Daybed for Two", "$499.99 for two", "A reserved poolside daybed with an umbrella, with one main course and five drinks per person."],
-      ["Poolbed for Two", "$499.99 for two", "A reserved round pool bed closest to the pool, with one main course and five drinks per person."],
-      ["Cabana for Eight", "$1,499.99 for up to eight", "A private cabana with a jacuzzi and a private TV, light snacks, lunch, five drinks per person and a merch bundle for everyone."],
+      ["All-Inclusive Pool Viewing Party, General Admission", "$149.99 per person", "A first-come, first-served seat, with one main course and five drinks per person.", "First-come, first-served seat, lunch and five drinks each"],
+      ["Daybed for Two", "$499.99 for two", "A reserved poolside daybed with an umbrella, with one main course and five drinks per person.", "Reserved daybed with umbrella, lunch and five drinks each"],
+      ["Poolbed for Two", "$499.99 for two", "A reserved round pool bed closest to the pool, with one main course and five drinks per person.", "Reserved pool bed by the water, lunch and five drinks each"],
+      ["Cabana for Eight", "$1,499.99 for up to eight", "A private cabana with a jacuzzi and a private TV, light snacks, lunch, five drinks per person and a merch bundle for everyone.", "Private cabana, jacuzzi and TV, lunch, five drinks, merch each"],
     ],
     know: [
       "Minimum age is 18 to drink alcohol.",
@@ -78,6 +82,7 @@ export const ZBB = {
 
   watch: {
     intro: "Skip the shore and watch the concert streamed live on the pool deck of your own ship. Included with your fare.",
+    short: "Beachcomber and Paradise: License to Chill Pool. Islander: LandShark Pool. Included with your fare.",
     parties: [
       ["Beachcomber Deck Party", "License to Chill Pool", "Beachcomber's first fleet meet-up, poolside aboard the newest ship."],
       ["Islander Deck Party", "LandShark Pool", "Join fellow fans for the big show, streamed live from Nassau."],

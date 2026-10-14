@@ -1,5 +1,5 @@
 import { BRENT } from "../../data/guideContent.js";
-import { ZBB_URL } from "../../data/zacBrown";
+import { ZBB_UPDATED_LONG } from "../../data/zacBrown";
 import { quoteHref } from "../../lib/quote";
 import { excursionUrl, portExcursionUrl, EXCURSION_DISCLOSURE } from "../../lib/excursions";
 
@@ -430,43 +430,47 @@ export function PageZbb({ g }) {
               <p>{z.included.text}</p>
             </div>
             <h2 className="gd-zbb-h2">Watch from your ship</h2>
-            <p className="gd-small">{z.watch.intro}</p>
-            <ul className="gd-zbb-sched gd-zbb-sched--tight">
-              {z.watch.parties.map(([n, pool]) => (
-                <li key={n}>
-                  <b>{n}</b> at the {pool}
-                </li>
-              ))}
-            </ul>
+            <p className="gd-small">
+              The concert streams live on every ship&apos;s pool deck. {z.watch.short}
+            </p>
           </div>
         </div>
         <h2>Concert upgrades</h2>
-        <ul className="gd-zbb-list">
-          {z.tiers.map(([n, price, t]) => (
-            <li key={n}>
-              <span className="gd-zbb-price">{price}</span>
-              <b>{n}</b> {t}
-            </li>
-          ))}
-        </ul>
-        <p className="gd-small">{z.tiersNote}</p>
+        <table className="gd-zbb-table">
+          <tbody>
+            {z.tiers.map(([n, price, , short]) => (
+              <tr key={n}>
+                <td>
+                  <b>{n}</b>
+                </td>
+                <td className="gd-zbb-price">{price}</td>
+                <td>{short}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p className="gd-small">{z.tiersNoteShort}</p>
         <h2>Or make it a pool day: Bahama Bay Pool Club</h2>
-        <p className="gd-small">{z.bahamaBay.intro}</p>
-        <ul className="gd-zbb-list">
-          {z.bahamaBay.options.map(([n, price, t]) => (
-            <li key={n}>
-              <span className="gd-zbb-price">{price}</span>
-              <b>{n}</b> {t}
-            </li>
-          ))}
-        </ul>
+        <table className="gd-zbb-table">
+          <tbody>
+            {z.bahamaBay.options.map(([n, price, , short]) => (
+              <tr key={n}>
+                <td>
+                  <b>{n.replace("All-Inclusive Pool Viewing Party, ", "Pool Viewing Party, ")}</b>
+                </td>
+                <td className="gd-zbb-price">{price}</td>
+                <td>{short}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p className="gd-small">{z.bahamaBay.short}</p>
         <div className="gd-callout gd-callout--gold">
           <b>Booking the upgrades</b>
           <p>
-            You add concert upgrades and Bahama Bay packages yourself in Cruise Control
-            after you book, and the cruise line may change prices. Call or text me at{" "}
-            {BRENT.phone} and I will help you choose. Details:{" "}
-            <a href={ZBB_URL}>margaritavilleatsea.com</a>.
+            Add upgrades yourself in Cruise Control after you book. Prices are the cruise
+            line&apos;s as of {ZBB_UPDATED_LONG} and can change. Call or text {BRENT.phone} and
+            I will help you choose. Full details: mvascruisedeals.com/zac-brown-nassau
           </p>
         </div>
       </div>

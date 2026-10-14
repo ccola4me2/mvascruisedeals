@@ -1030,31 +1030,31 @@
 .gd-zbb-sched--tight b {
   min-width: 0;
 }
-.gd-zbb-list {
-  list-style: none;
-  margin: 0 0 6px;
-  padding: 0;
-  display: grid;
-  gap: 4px;
-  font-size: 11.5px;
-  line-height: 1.32;
+.gd-zbb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  line-height: 1.25;
 }
-.gd-zbb-list li {
-  display: grid;
-  grid-template-columns: 138px 1fr;
-  column-gap: 12px;
-  padding: 5px 0;
+.gd-zbb-table td {
+  padding: 4px 6px 4px 0;
   border-bottom: 1px solid rgba(14, 59, 83, 0.14);
+  vertical-align: top;
 }
-.gd-zbb-list li b {
-  grid-column: 2;
+.gd-zbb-table td:first-child {
+  width: 205px;
   color: var(--g-navy);
 }
-.gd-zbb-price {
-  grid-column: 1;
-  grid-row: 1 / span 2;
+.gd-zbb-table td.gd-zbb-price {
+  width: 118px;
   font-weight: 800;
   color: var(--g-warm);
+  white-space: nowrap;
+}
+.gd-zbb .gd-small {
+  margin-top: 4px;
+  font-size: 11px;
+  line-height: 1.35;
 }
 .gd-zbb .gd-callout {
   margin-top: 10px;
