@@ -5645,3 +5645,140 @@ img {
   }
   .mobile-menu-inner { padding-bottom: 90px; }
 }
+
+/* Zac Brown Band Live in Nassau page */
+.sailing-note a {
+  margin-left: 4px;
+  color: var(--ocean);
+  text-decoration: underline;
+}
+.zbb-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.zbb-card {
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.zbb-ship {
+  margin: 0 0 4px;
+  color: var(--teal);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.zbb-card h3 {
+  margin: 0 0 8px;
+  color: var(--navy);
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+.zbb-when {
+  margin: 0 0 6px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.zbb-meta {
+  margin: 0 0 16px;
+  color: var(--slate);
+  line-height: 1.5;
+}
+.zbb-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+}
+.zbb-note {
+  margin: 14px 0 0;
+  color: var(--slate);
+  line-height: 1.6;
+}
+.zbb-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.zbb-gap {
+  margin-top: 28px;
+}
+.zbb-sched {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  line-height: 1.5;
+}
+.zbb-sched b {
+  display: inline-block;
+  min-width: 72px;
+  color: var(--navy);
+}
+.zbb-incl {
+  padding: 16px 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  line-height: 1.55;
+}
+.zbb-incl b {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--navy);
+}
+.zbb-incl p {
+  margin: 0;
+  color: var(--slate);
+}
+.zbb-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+.zbb-list li {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 18px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.zbb-price {
+  color: var(--coral);
+  font-weight: 800;
+}
+.zbb-list b {
+  color: var(--navy);
+}
+.zbb-list p {
+  margin: 3px 0 0;
+  color: var(--slate);
+  line-height: 1.55;
+}
+.zbb-know {
+  margin: 16px 0 0;
+  padding-left: 20px;
+  color: var(--slate);
+  line-height: 1.6;
+}
+@media (max-width: 900px) {
+  .zbb-cards,
+  .zbb-two {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .zbb-list li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

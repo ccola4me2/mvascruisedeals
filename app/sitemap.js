@@ -21,6 +21,7 @@ export default function sitemap() {
     { path: "/plan/", priority: 0.8 },
     { path: "/blog/", priority: 0.7 },
     { path: "/trends/", priority: 0.8 },
+    { path: "/zac-brown-nassau/", priority: 0.7 },
     { path: "/privacy/", priority: 0.3 },
     { path: "/cookies/", priority: 0.3 },
   ];

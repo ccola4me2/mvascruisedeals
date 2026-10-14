@@ -202,7 +202,17 @@ export default function SailingsExplorer() {
                       <li key={p}>{p}</li>
                     ))}
                   </ul>
-                  {s.note && <p className="sailing-note">{s.note}</p>}
+                  {s.note && (
+                    <p className="sailing-note">
+                      {s.note}
+                      {s.note.indexOf("3-Ship Meet-Up") === 0 && (
+                        <>
+                          {" "}
+                          <Link href="/zac-brown-nassau/">Concert details</Link>
+                        </>
+                      )}
+                    </p>
+                  )}
                   <div className="sailing-dates">
                     <p className="sailing-dates-head">
                       {shown.length} departure{shown.length === 1 ? "" : "s"}

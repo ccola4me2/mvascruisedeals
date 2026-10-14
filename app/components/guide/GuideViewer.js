@@ -19,7 +19,7 @@ import { track } from "../../lib/track";
 const PAGE_W = 816;
 const PAGE_H = 1056;
 const GAP = 28;
-const TOTAL_H = PAGE_H * 6 + GAP * 5;
+const stackHeight = (pages) => PAGE_H * pages + GAP * (pages - 1);
 
 export default function GuideViewer() {
   const [query, setQuery] = useState(null);
@@ -230,7 +230,7 @@ export default function GuideViewer() {
         <div className="gd-outer" ref={wrapRef}>
           <div
             className="gd-frame"
-            style={{ width: PAGE_W * scale, height: TOTAL_H * scale }}
+            style={{ width: PAGE_W * scale, height: stackHeight(g.pages) * scale }}
           >
             <div className="gd-sheet" style={{ transform: "scale(" + scale + ")" }}>
               <GuidePages g={g} />

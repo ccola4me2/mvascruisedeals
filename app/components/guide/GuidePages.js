@@ -1,16 +1,17 @@
 import { BRENT } from "../../data/guideContent.js";
+import { ZBB_URL } from "../../data/zacBrown";
 import { quoteHref } from "../../lib/quote";
 import { excursionUrl, portExcursionUrl, EXCURSION_DISCLOSURE } from "../../lib/excursions";
 
-// The six Letter-size pages of a guide. Pure presentation: every string comes
+// The six Letter-size pages of a guide (seven for the Zac Brown meet-up sailings). Pure presentation: every string comes
 // from buildGuide() in app/lib/guide.js.
 
-const Foot = ({ n }) => (
+const Foot = ({ n, total = 6 }) => (
   <footer className="gd-foot">
     <span>
       {BRENT.name} &middot; Call or text {BRENT.phone} &middot; {BRENT.site}
     </span>
-    <b>{n} of 6</b>
+    <b>{n} of {total}</b>
   </footer>
 );
 
@@ -89,7 +90,7 @@ export function Page1({ g }) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={"/deals/" + g.ship.toLowerCase() + ".jpg"} alt="" />
       </div>
-      <Foot n={1} />
+      <Foot n={1} total={g.pages} />
     </section>
   );
 }
@@ -155,7 +156,7 @@ export function Page2({ g }) {
           <img src={"/deals/" + g.ship.toLowerCase() + ".jpg"} alt="" />
         </div>
       )}
-      <Foot n={2} />
+      <Foot n={2} total={g.pages} />
     </section>
   );
 }
@@ -195,7 +196,7 @@ export function Page3({ g }) {
         </div>
         <p className="gd-small">{o.nightsNote}</p>
       </div>
-      <Foot n={3} />
+      <Foot n={3} total={g.pages} />
     </section>
   );
 }
@@ -260,7 +261,7 @@ export function Page4({ g }) {
           </div>
         </div>
       </div>
-      <Foot n={4} />
+      <Foot n={4} total={g.pages} />
     </section>
   );
 }
@@ -316,7 +317,7 @@ export function Page5({ g }) {
           ))}
         </div>
       </div>
-      <Foot n={5} />
+      <Foot n={5} total={g.pages} />
     </section>
   );
 }
@@ -329,7 +330,7 @@ export function Page6({ g }) {
     "sms:" + BRENT.phoneHref.replace("tel:", "") + "?&body=" +
     encodeURIComponent("Hi Brent, I'd like to book the " + g.fullTitle + " on " + when + ".");
   return (
-    <section className="gd-page gd-book" data-page="6">
+    <section className="gd-page gd-book" data-page={g.pages}>
       <PageHead eyebrow="READY TO BOOK?" title="Let's get you on board." />
       <div className="gd-body">
         <div className="gd-bookhero">
@@ -394,7 +395,82 @@ export function Page6({ g }) {
           for advertised deals or onboard credit.
         </p>
       </div>
-      <Foot n={6} />
+      <Foot n={g.pages} total={g.pages} />
+    </section>
+  );
+}
+
+// Only the three Nassau meet-up sailings: the concert, in the cruise line's own
+// words and prices (see app/data/zacBrown.js). Sits before the booking page.
+export function PageZbb({ g }) {
+  const z = g.zbb;
+  return (
+    <section className="gd-page gd-zbb" data-page="6">
+      <PageHead eyebrow="YOUR SAILING HAS A CONCERT" title={z.title + "."} size="40px" />
+      <div className="gd-body">
+        <p className="gd-zbb-intro">
+          <b>{z.dateLong}, {z.where}.</b> {z.intro}
+        </p>
+        <div className="gd-zbb-top">
+          <div>
+            <h2>Concert day</h2>
+            <ul className="gd-zbb-sched">
+              {z.schedule.map(([t, w]) => (
+                <li key={t}>
+                  <b>{t}</b> {w}
+                </li>
+              ))}
+            </ul>
+            <p className="gd-small">{z.scheduleNote}</p>
+          </div>
+          <div>
+            <h2>Included with your fare</h2>
+            <div className="gd-callout gd-callout--teal">
+              <b>{z.included.name}</b>
+              <p>{z.included.text}</p>
+            </div>
+            <h2 className="gd-zbb-h2">Watch from your ship</h2>
+            <p className="gd-small">{z.watch.intro}</p>
+            <ul className="gd-zbb-sched gd-zbb-sched--tight">
+              {z.watch.parties.map(([n, pool]) => (
+                <li key={n}>
+                  <b>{n}</b> at the {pool}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <h2>Concert upgrades</h2>
+        <ul className="gd-zbb-list">
+          {z.tiers.map(([n, price, t]) => (
+            <li key={n}>
+              <span className="gd-zbb-price">{price}</span>
+              <b>{n}</b> {t}
+            </li>
+          ))}
+        </ul>
+        <p className="gd-small">{z.tiersNote}</p>
+        <h2>Or make it a pool day: Bahama Bay Pool Club</h2>
+        <p className="gd-small">{z.bahamaBay.intro}</p>
+        <ul className="gd-zbb-list">
+          {z.bahamaBay.options.map(([n, price, t]) => (
+            <li key={n}>
+              <span className="gd-zbb-price">{price}</span>
+              <b>{n}</b> {t}
+            </li>
+          ))}
+        </ul>
+        <div className="gd-callout gd-callout--gold">
+          <b>Booking the upgrades</b>
+          <p>
+            You add concert upgrades and Bahama Bay packages yourself in Cruise Control
+            after you book, and the cruise line may change prices. Call or text me at{" "}
+            {BRENT.phone} and I will help you choose. Details:{" "}
+            <a href={ZBB_URL}>margaritavilleatsea.com</a>.
+          </p>
+        </div>
+      </div>
+      <Foot n={6} total={g.pages} />
     </section>
   );
 }
@@ -407,6 +483,7 @@ export default function GuidePages({ g }) {
       <Page3 g={g} />
       <Page4 g={g} />
       <Page5 g={g} />
+      {g.zbb && <PageZbb g={g} />}
       <Page6 g={g} />
     </>
   );

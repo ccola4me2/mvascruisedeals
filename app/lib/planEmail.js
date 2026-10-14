@@ -34,8 +34,10 @@ export function buildPlanEmail({ name, g, url, alerts, quoteUrl }) {
     "Life onboard: dining, bars, pools and shows",
     "What your fare covers, and what costs extra",
     "A dated countdown to sailing day",
+    ...(g.zbb ? ["Zac Brown Band in Nassau: concert day, upgrade prices and Bahama Bay Pool Club"] : []),
     "How to book with me",
   ];
+  const pageWord = g.pages === 7 ? "seven-page" : "six-page";
 
   const text = [
     "Hi " + first + ",",
@@ -44,7 +46,7 @@ export function buildPlanEmail({ name, g, url, alerts, quoteUrl }) {
     "",
     "Open your guide: " + url,
     "",
-    "On a computer, choose Save as PDF at the top of the guide to keep a six-page copy.",
+    "On a computer, choose Save as PDF at the top of the guide to keep a " + pageWord + " copy.",
     "",
     "Your ports, with a link to book excursions for each:",
     ...g.ports.map((p) => "- " + p.name + ": " + portExcursionUrl(p.key)),
@@ -81,7 +83,7 @@ export function buildPlanEmail({ name, g, url, alerts, quoteUrl }) {
 <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 6px;"><tr><td style="background:${NAVY};border-radius:999px;">
 <a href="${esc(url)}" style="display:inline-block;padding:14px 30px;color:#ffffff;font-weight:700;font-size:15px;text-decoration:none;">Open my guide</a>
 </td></tr></table>
-<p style="margin:10px 0 0;font-size:13px;color:#4a5a66;">On a computer, choose <b>Save as PDF</b> at the top of the guide to keep a six-page copy.</p>
+<p style="margin:10px 0 0;font-size:13px;color:#4a5a66;">On a computer, choose <b>Save as PDF</b> at the top of the guide to keep a ${pageWord} copy.</p>
 </td></tr>
 <tr><td style="padding:18px 32px 4px;">
 <div style="background:${CREAM};border-radius:12px;padding:16px 18px;">

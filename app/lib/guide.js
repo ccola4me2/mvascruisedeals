@@ -14,6 +14,7 @@ import {
   SHIPS,
   PACKAGES,
 } from "../data/guideContent.js";
+import { ZBB, isZbbSailing } from "../data/zacBrown.js";
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -380,5 +381,8 @@ export function buildGuide(it, dateISO, today) {
     foreign,
     places,
     brent: BRENT,
+    // the three Nassau meet-up sailings get an extra concert page before the booking page
+    zbb: isZbbSailing(it) ? ZBB : null,
+    pages: isZbbSailing(it) ? 7 : 6,
   };
 }

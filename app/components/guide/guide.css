@@ -1,6 +1,7 @@
 /* The personalized cruise guide: six US Letter pages (816 x 1056 px = 8.5 x 11
-   in at 96 dpi). On screen the stack scales to fit the window; printing or
-   "Save as PDF" gives exactly six Letter pages. */
+   in at 96 dpi), seven for the Zac Brown meet-up sailings. On screen the stack
+   scales to fit the window; printing or "Save as PDF" gives exactly that many
+   Letter pages. */
 
 .gd-root {
   --g-navy: #0e3b53;
@@ -987,4 +988,75 @@
   padding-top: 12px;
   font-size: 12px;
   font-weight: 600;
+}
+
+/* Page 6 of the Zac Brown meet-up sailings: the concert, with prices. */
+.gd-zbb .gd-body {
+  padding-top: 16px;
+}
+.gd-zbb .gd-body h2 {
+  margin: 12px 0 7px;
+  font-size: 18px;
+}
+.gd-zbb-intro {
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+.gd-zbb-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+.gd-zbb-top .gd-callout {
+  margin-top: 0;
+}
+.gd-zbb .gd-zbb-top h2.gd-zbb-h2 {
+  margin-top: 12px;
+}
+.gd-zbb-sched {
+  list-style: none;
+  margin: 0 0 6px;
+  padding: 0;
+  display: grid;
+  gap: 3px;
+  font-size: 12.5px;
+  line-height: 1.35;
+}
+.gd-zbb-sched b {
+  display: inline-block;
+  min-width: 56px;
+  color: var(--g-navy);
+}
+.gd-zbb-sched--tight b {
+  min-width: 0;
+}
+.gd-zbb-list {
+  list-style: none;
+  margin: 0 0 6px;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+  font-size: 11.5px;
+  line-height: 1.32;
+}
+.gd-zbb-list li {
+  display: grid;
+  grid-template-columns: 138px 1fr;
+  column-gap: 12px;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(14, 59, 83, 0.14);
+}
+.gd-zbb-list li b {
+  grid-column: 2;
+  color: var(--g-navy);
+}
+.gd-zbb-price {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  font-weight: 800;
+  color: var(--g-warm);
+}
+.gd-zbb .gd-callout {
+  margin-top: 10px;
+  padding: 10px 14px;
 }
