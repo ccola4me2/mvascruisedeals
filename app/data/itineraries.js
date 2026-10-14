@@ -2,7 +2,7 @@
 // departure date. This is the data behind the cruise guide builder (/plan/ and
 // /guide/).
 //
-// Pulled from the cruise line's reservations site on 2026-10-07 (Paradise = 61,
+// Pulled from the cruise line's reservations site on 2026-10-13 (Paradise = 61,
 // Islander = 77, Beachcomber = 102 at reservations.margaritavilleatsea.com/v3/
 // select-date?cruise_ids=<id>). Each card states its departing port and its own
 // port list, so ports are per variant, never a union across variants. Ports are
@@ -25,7 +25,7 @@
 // three ship pages, regenerate this file, and spot-check counts against each
 // card's "N AVAILABLE DATES" label.
 
-export const ITINERARIES_UPDATED = "2026-10-07";
+export const ITINERARIES_UPDATED = "2026-10-13";
 
 export const itineraries = [
   {"ship": "Beachcomber", "frm": "Galveston, TX", "nights": 4, "name": "Cozumel Express", "note": "", "arrive": null, "ports": ["Cozumel"], "dates": ["2027-10-04"], "id": "beachcomber-galveston-4-cozumel-express--coz"},
@@ -82,7 +82,7 @@ export const itineraries = [
   {"ship": "Islander", "frm": "Tampa, FL", "nights": 6, "name": "Key West & Bahamas", "note": "", "arrive": null, "ports": ["Key West", "Nassau", "Bimini"], "dates": ["2028-08-20"], "id": "islander-tampa-6-key-west-and-bahamas--kw-nas-bim"},
   {"ship": "Islander", "frm": "Tampa, FL", "nights": 6, "name": "Key West & Mexico", "note": "", "arrive": null, "ports": ["Key West", "Cozumel", "Progreso"], "dates": ["2028-09-03", "2028-09-17", "2028-10-01", "2028-10-15"], "id": "islander-tampa-6-key-west-and-mexico--kw-coz-pro"},
   {"ship": "Islander", "frm": "Tampa, FL", "nights": 7, "name": "New Orleans & Mexico", "note": "", "arrive": null, "ports": ["New Orleans", "Progreso", "Cozumel"], "dates": ["2026-10-10", "2026-11-07"], "id": "islander-tampa-7-new-orleans-and-mexico--no-pro-coz"},
-  {"ship": "Islander", "frm": "Tampa, FL", "nights": 7, "name": "Key West & Western Caribbean", "note": "", "arrive": null, "ports": ["Key West", "Roatan", "Belize", "Cozumel"], "dates": ["2026-10-17", "2027-10-02"], "id": "islander-tampa-7-key-west-and-western-caribbean--kw-roa-bel-coz"},
+  {"ship": "Islander", "frm": "Tampa, FL", "nights": 7, "name": "Key West & Western Caribbean", "note": "", "arrive": null, "ports": ["Key West", "Roatan", "Belize", "Cozumel"], "dates": ["2027-10-02"], "id": "islander-tampa-7-key-west-and-western-caribbean--kw-roa-bel-coz"},
   {"ship": "Islander", "frm": "Tampa, FL", "nights": 7, "name": "Belize & Mexico", "note": "", "arrive": null, "ports": ["Cozumel", "Belize", "Progreso"], "dates": ["2027-01-02"], "id": "islander-tampa-7-belize-and-mexico--coz-bel-pro"},
   {"ship": "Islander", "frm": "Tampa, FL", "nights": 7, "name": "Jamaica & Western Caribbean", "note": "", "arrive": null, "ports": ["Cozumel", "Ocho Rios", "Grand Cayman"], "dates": ["2027-01-09"], "id": "islander-tampa-7-jamaica-and-western-caribbean--coz-or-gc"},
   {"ship": "Islander", "frm": "Tampa, FL", "nights": 7, "name": "Key West & Mexico", "note": "", "arrive": null, "ports": ["Cozumel", "Progreso", "Key West"], "dates": ["2027-02-20"], "id": "islander-tampa-7-key-west-and-mexico--coz-pro-kw"},
@@ -96,7 +96,7 @@ export const itineraries = [
   {"ship": "Islander", "frm": "Tampa, FL", "nights": 7, "name": "Jamaica & Western Caribbean", "note": "", "arrive": null, "ports": ["Cozumel", "Grand Cayman", "Ocho Rios"], "dates": ["2028-01-29"], "id": "islander-tampa-7-jamaica-and-western-caribbean--coz-gc-or"},
   {"ship": "Islander", "frm": "Tampa, FL", "nights": 7, "name": "Mardi Gras Overnight & Mexico", "note": "", "arrive": null, "ports": ["New Orleans", "New Orleans", "Cozumel"], "dates": ["2028-02-27"], "id": "islander-tampa-7-mardi-gras-overnight-and-mexico--no-no-coz"},
   {"ship": "Islander", "frm": "Tampa, FL", "nights": 7, "name": "Key West & Western Caribbean", "note": "", "arrive": null, "ports": ["Key West", "Grand Cayman", "Ocho Rios"], "dates": ["2028-03-25"], "id": "islander-tampa-7-key-west-and-western-caribbean--kw-gc-or"},
-  {"ship": "Islander", "frm": "Tampa, FL", "nights": 7, "name": "New Orleans & Mexico", "note": "", "arrive": null, "ports": ["New Orleans", "New Orleans", "Progreso"], "dates": ["2028-10-29"], "id": "islander-tampa-7-new-orleans-and-mexico--no-no-pro"},
+  {"ship": "Islander", "frm": "Tampa, FL", "nights": 7, "name": "New Orleans Overnight & Mexico", "note": "", "arrive": null, "ports": ["New Orleans", "New Orleans", "Progreso"], "dates": ["2028-10-29"], "id": "islander-tampa-7-new-orleans-and-mexico--no-no-pro"},
   {"ship": "Islander", "frm": "Tampa, FL", "nights": 8, "name": "Jamaica & Western Caribbean", "note": "", "arrive": null, "ports": ["Cozumel", "Belize", "Montego Bay", "Grand Cayman"], "dates": ["2027-01-30"], "id": "islander-tampa-8-jamaica-and-western-caribbean--coz-bel-mb-gc"},
   {"ship": "Islander", "frm": "Tampa, FL", "nights": 8, "name": "Mardi Gras Overnight & Mexico", "note": "", "arrive": null, "ports": ["New Orleans", "New Orleans", "Progreso", "Cozumel"], "dates": ["2027-02-07"], "id": "islander-tampa-8-mardi-gras-overnight-and-mexico--no-no-pro-coz"},
   {"ship": "Islander", "frm": "Tampa, FL", "nights": 8, "name": "Mexico & Western Caribbean", "note": "", "arrive": null, "ports": ["Grand Cayman", "Roatan", "Belize", "Cozumel"], "dates": ["2027-10-09"], "id": "islander-tampa-8-mexico-and-western-caribbean--gc-roa-bel-coz"},
