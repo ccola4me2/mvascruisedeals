@@ -26,7 +26,7 @@ export const BRENT = {
     {
       id: "beachcomber-miami-8-southern-caribbean--aru-bon-pp",
       date: "2027-02-19",
-      text: "If you book this sailing directly with me, I may be able to arrange onboard credit and, possibly, a reduction in price. Please call or text me so we can talk it through.",
+      text: "If you have already booked this sailing directly with the cruise line, I may still be able to arrange onboard credit and, possibly, a reduction in price. Please call or text me so we can talk it through.",
     },
   ],
   // Set to something like "60+ cruises" to show "Tips from 60+ cruises".
