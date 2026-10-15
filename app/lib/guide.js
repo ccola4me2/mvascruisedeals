@@ -227,6 +227,8 @@ export function buildGuide(it, dateISO, today) {
   if (it.ship === "Beachcomber" && BRENT.beachcomberNote && today <= BRENT.beachcomberNote.until) {
     note = "This guide is everything I know so far. " + BRENT.beachcomberNote.text;
   }
+  const extra = (BRENT.sailingNotes || []).find((n) => n.id === it.id && n.date === dateISO);
+  if (extra) note += " " + extra.text;
 
   // ports page
   const n = groups.length;

@@ -20,6 +20,15 @@ export const BRENT = {
     until: "2027-01-09",
     text: "I'm sailing Beachcomber's inaugural cruise from Miami on January 9, 2027, and I'll update this guide with firsthand tips when I'm back.",
   },
+  // Extra sentence added to the "A note from Brent" box for one specific sailing.
+  // Keep it conditional ("may", "possibly"): nothing here is a promised price.
+  sailingNotes: [
+    {
+      id: "beachcomber-miami-8-southern-caribbean--aru-bon-pp",
+      date: "2027-02-19",
+      text: "If you book this sailing directly with me, I may be able to arrange onboard credit and, possibly, a reduction in price. Please call or text me so we can talk it through.",
+    },
+  ],
   // Set to something like "60+ cruises" to show "Tips from 60+ cruises".
   experience: null,
 };
