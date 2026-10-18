@@ -6,6 +6,7 @@ import { destinations } from "../../data/destinations";
 import QuoteSection from "../../components/QuoteSection";
 import DealClosedNotice from "../../components/DealClosedNotice";
 import ShareRow from "../../components/ShareRow";
+import { youSave } from "../../lib/dealMoney";
 
 const SITE = "https://mvascruisedeals.com";
 
@@ -325,11 +326,12 @@ export default function DealLandingPage({ params }) {
               </>
             )}
             {deal.compare && (
-              <div className="compare dl-compare">
+              <div className="compare compare--save dl-compare">
                 <div className="compare-row compare-head">
                   <span />
                   <span>Book Direct</span>
                   <span>With Brent</span>
+                  <span>You Save</span>
                 </div>
                 {deal.compare.rows.map((r) => (
                   <div className="compare-row" key={r.cabin}>
@@ -338,6 +340,7 @@ export default function DealLandingPage({ params }) {
                       <s>{r.direct}</s>
                     </span>
                     <span className="compare-ours">{r.ours}</span>
+                    <span className="compare-save">{youSave(r.direct, r.ours)}</span>
                   </div>
                 ))}
                 {deal.compare.basis && <p className="compare-basis">{deal.compare.basis}</p>}

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { quoteHref } from "../lib/quote";
+import { youSave } from "../lib/dealMoney";
 
 export default function FeaturedDeal({ deal, flip }) {
   const external = deal.cta && deal.cta.external;
@@ -56,11 +57,12 @@ export default function FeaturedDeal({ deal, flip }) {
         </dl>
 
         {deal.compare && (
-          <div className="compare">
+          <div className="compare compare--save">
             <div className="compare-row compare-head">
               <span />
               <span>Book Direct</span>
               <span>With Brent</span>
+              <span>You Save</span>
             </div>
             {deal.compare.rows.map((r) => (
               <div className="compare-row" key={r.cabin}>
@@ -69,6 +71,7 @@ export default function FeaturedDeal({ deal, flip }) {
                   <s>{r.direct}</s>
                 </span>
                 <span className="compare-ours">{r.ours}</span>
+                <span className="compare-save">{youSave(r.direct, r.ours)}</span>
               </div>
             ))}
             {deal.compare.basis && (

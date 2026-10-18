@@ -5782,3 +5782,35 @@ img {
     gap: 4px;
   }
 }
+
+/* Price comparison with a "You Save" column (cards and deal landing pages) */
+.compare--save .compare-row {
+  grid-template-columns: 0.9fr 1fr 1fr 1fr;
+  gap: 8px;
+  padding: 12px 14px;
+}
+.compare--save .compare-head span:last-child {
+  color: var(--coral);
+}
+.compare-save {
+  font-weight: 700;
+  color: var(--coral);
+  font-size: 0.95rem;
+}
+@media (max-width: 520px) {
+  .compare--save .compare-row {
+    gap: 6px;
+    padding: 10px 10px;
+  }
+  .compare--save .compare-ours {
+    font-size: 0.98rem;
+  }
+  .compare--save .compare-direct,
+  .compare--save .compare-save {
+    font-size: 0.82rem;
+  }
+  .compare--save .compare-head span {
+    font-size: 0.56rem;
+    letter-spacing: 0.4px;
+  }
+}
