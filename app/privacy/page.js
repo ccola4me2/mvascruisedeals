@@ -46,9 +46,10 @@ export default function PrivacyPage() {
               and date you chose, and whether you want deal alerts.
             </li>
             <li>
-              <strong>Deal alerts:</strong> your email address. The signup box on
-              this site opens a message in your own email app addressed to me, so
-              nothing is stored until you send it.
+              <strong>Deal alerts:</strong> your first and last name and your email
+              address. The signup box on this site sends them to my travel
+              advisor portal, where I keep them to send you deals until you ask me
+              to stop.
             </li>
             <li>
               <strong>Calls, texts, and emails:</strong> your contact details and

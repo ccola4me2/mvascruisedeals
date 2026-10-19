@@ -116,6 +116,18 @@ export default function QuoteForm({ prefill }) {
           />
         </label>
         <label className="qf-field">
+          <span>Cabin type</span>
+          <select name="cabin" defaultValue="Not sure yet">
+            {["Interior", "Ocean View", "Balcony", "Suite", "Not sure yet"].map(
+              (c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              )
+            )}
+          </select>
+        </label>
+        <label className="qf-field">
           <span>Party size</span>
           <select name="party" defaultValue="2">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
@@ -133,7 +145,7 @@ export default function QuoteForm({ prefill }) {
         <textarea
           name="notes"
           rows={3}
-          placeholder="Cabin type, budget, occasion, questions..."
+          placeholder="Budget, occasion, questions..."
         />
       </label>
 

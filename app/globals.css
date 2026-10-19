@@ -5814,3 +5814,21 @@ img {
     letter-spacing: 0.4px;
   }
 }
+
+/* Deal alerts signup: first name, last name, email, then the button */
+.alerts-form {
+  flex-wrap: wrap;
+  max-width: 520px;
+}
+.alerts-form #alert-first,
+.alerts-form #alert-last {
+  flex: 1 1 calc(50% - 5px);
+}
+.alerts-form #alert-email,
+.alerts-form .btn {
+  flex: 1 1 100%;
+}
+.alerts .qf-error {
+  flex: 1 1 100%;
+  color: #ffd2c4;
+}

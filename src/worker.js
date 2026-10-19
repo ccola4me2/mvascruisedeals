@@ -1,7 +1,8 @@
 // Cloudflare Worker for mvascruisedeals.
 //
 // The site is a static Next.js export served from ./out via the ASSETS binding.
-// This Worker adds two dynamic endpoints. POST /api/plan builds a cruise guide
+// This Worker adds three dynamic endpoints. POST /api/alerts files a deal-alerts
+// signup in CTT (see handleAlerts). POST /api/plan builds a cruise guide
 // request (see handlePlan below). POST /api/quote takes an inline quote-form
 // submission and:
 //   1. Files it into the CTT portal by posting to the same public form endpoint
@@ -19,7 +20,7 @@ const CTT_ENDPOINT =
 const SITE = "https://mvascruisedeals.com";
 
 // Bumped on deploys so a poll of the endpoint can confirm the new Worker is live.
-const VERSION = "5";
+const VERSION = "6";
 
 export default {
   async fetch(request, env) {
@@ -29,6 +30,9 @@ export default {
     }
     if (url.pathname === "/api/plan") {
       return handlePlan(request, env);
+    }
+    if (url.pathname === "/api/alerts") {
+      return handleAlerts(request, env);
     }
     // Google Search Console ownership file. The static asset layer redirects a
     // ".html" path to its extensionless twin, and Google wants this exact URL
@@ -89,6 +93,10 @@ async function handleQuote(request, env) {
   const cruise = clean(body.cruise, 200);
   const ship = clean(body.ship, 60);
   const when = clean(body.when, 80);
+  // The CTT quote form asks "What type of cabin are you looking for?" and
+  // REQUIRES an answer, so a submission without one is refused and the lead
+  // never lands in CTT. Always send something.
+  const cabin = clean(body.cabin, 60) || "Not sure yet";
   const party = Math.min(Math.max(parseInt(body.party, 10) || 1, 1), 8);
   const extra = clean(body.notes, 2000);
 
@@ -111,6 +119,7 @@ async function handleQuote(request, env) {
     );
   }
   if (when) noteLines.push(`Preferred timing: ${when}`);
+  noteLines.push(`Cabin type: ${cabin}`);
   noteLines.push(`Party size: ${party}`);
   if (extra) noteLines.push(extra);
   noteLines.push("Sent from the mvascruisedeals.com quote form.");
@@ -127,12 +136,14 @@ async function handleQuote(request, env) {
     // The CTT "who is travelling" block is required and needs at least one
     // named person, not just a count. The lead is traveller 1.
     travellers__1__name: name,
+    custom_what_type_of_cabin_are_you_looking_for: cabin,
     notes,
     company_website: "",
   };
   if (/^\d{4}-\d{2}-\d{2}$/.test(when)) cttPayload.travel_date = when;
 
   let cttOk = false;
+  let cttWhy = "";
   try {
     const r = await fetch(CTT_ENDPOINT, {
       method: "POST",
@@ -141,8 +152,10 @@ async function handleQuote(request, env) {
     });
     const data = await r.json().catch(() => ({}));
     cttOk = r.ok && data && data.ok !== false && !data.error;
+    if (!cttOk) cttWhy = "CTT answered " + r.status + (data && data.error ? ": " + data.error : "");
   } catch {
     cttOk = false;
+    cttWhy = "CTT could not be reached";
   }
 
   // Backstop email via Resend, only when the CTT filing did not confirm. On a
@@ -169,12 +182,13 @@ async function handleQuote(request, env) {
             `Where they live: ${address}`,
             cruise ? `Cruise: ${cruise}${ship ? ` aboard ${ship}` : ""}` : null,
             when ? `When: ${when}` : null,
+            `Cabin type: ${cabin}`,
             `Party size: ${party}`,
             extra ? `Notes: ${extra}` : null,
             "",
             cttOk
               ? "This lead was also filed in the CTT portal."
-              : "NOTE: the CTT portal filing did not confirm; this email is the record.",
+              : "NOTE: the CTT portal filing did not confirm (" + (cttWhy || "no reason given") + "); this email is the record. Add this lead to CTT by hand.",
           ]
             .filter((l) => l !== null)
             .join("\n"),
@@ -395,6 +409,96 @@ async function handlePlan(request, env) {
       error: "Something went wrong sending your guide, but you can still open it now.",
       url,
     },
+    502
+  );
+}
+
+
+// ---------------------------------------------------------------------------
+// POST /api/alerts: the "Get new deals" signup on the home page.
+//
+// Files the signup in CTT on the "MVAS Deal Alerts" form (first_name, last_name,
+// email, notes), which is what puts the person on the advisor's Clients list
+// and lead board (CTT only makes a client record when it has a name, so the
+// form asks for first and last). If CTT cannot be reached, Brent gets an email
+// with the details so a signup is never lost.
+// ---------------------------------------------------------------------------
+async function handleAlerts(request, env) {
+  if (request.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers: corsHeaders() });
+  }
+  if (request.method !== "POST") {
+    return json({ error: "Method not allowed" }, 405);
+  }
+
+  let body = {};
+  try {
+    body = await request.json();
+  } catch {
+    body = {};
+  }
+  if (clean(body.company_website, 200)) return json({ ok: true });
+
+  const first = clean(body.first_name, 60);
+  const last = clean(body.last_name, 60);
+  const email = clean(body.email, 160).toLowerCase();
+  const missing = [];
+  if (!first) missing.push("your first name");
+  if (!last) missing.push("your last name");
+  if (!email || !isEmail(email)) missing.push("a valid email");
+  if (missing.length) {
+    return json({ error: "Please add " + missing.join(", ") + "." }, 400);
+  }
+
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  if (await throttled("alerts-ip-" + ip, 20)) {
+    return json({ error: "Please wait a moment and try again." }, 429);
+  }
+
+  const slug = env.ALERTS_FORM_SLUG || "mvas-deal-alerts";
+  let filed = false;
+  let why = "";
+  try {
+    const r = await fetch(
+      "https://cttagents.com/api/public/forms/" + encodeURIComponent(slug),
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          first_name: first,
+          last_name: last,
+          email,
+          notes: "Signed up for deal alerts on the mvascruisedeals.com home page.",
+          company_website: "",
+        }),
+      }
+    );
+    const data = await r.json().catch(() => ({}));
+    filed = r.ok && data && data.ok !== false && !data.error;
+    if (!filed) why = "CTT answered " + r.status + (data && data.error ? ": " + data.error : "");
+  } catch {
+    why = "CTT could not be reached";
+  }
+
+  let emailed = false;
+  if (!filed) {
+    emailed = await sendResend(env, {
+      from: env.QUOTE_FROM || "MVAS Cruise Deals <noreply@cttagents.com>",
+      to: [env.QUOTE_NOTIFY_TO || "brentb@cruisestoursandtravel.com"],
+      reply_to: email,
+      subject: "Deal alerts signup: " + first + " " + last,
+      text: [
+        "Name: " + first + " " + last,
+        "Email: " + email,
+        "",
+        "NOTE: the CTT portal filing did not confirm (" + (why || "no reason given") + "). Add this person to CTT by hand.",
+      ].join("\n"),
+    });
+  }
+
+  if (filed || emailed) return json({ ok: true, filed, emailed });
+  return json(
+    { error: "Something went wrong. Please call or text (561) 777-9911." },
     502
   );
 }

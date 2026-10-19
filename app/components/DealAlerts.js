@@ -1,38 +1,52 @@
 "use client";
 
 import { useState } from "react";
-import { CONTACT } from "../lib/quote";
+import { track } from "../lib/track";
 
-// TO CONNECT A REAL EMAIL LIST: paste your form-handler URL here (Mailchimp,
-// Web3Forms, Formspree, etc.). While empty, the form opens a prefilled email to
-// Brent so no signup is lost.
-const NEWSLETTER_ENDPOINT = "";
-
+// Deal alerts signup. Posts to the site's own /api/alerts Worker endpoint, which
+// files the person in CTT (the "MVAS Deal Alerts" form) so they land on the
+// advisor's Clients list and lead board. CTT needs a first and last name to
+// make a client record, so the form asks for both.
 export default function DealAlerts() {
+  const [first, setFirst] = useState("");
+  const [last, setLast] = useState("");
   const [email, setEmail] = useState("");
-  const [done, setDone] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | sending | done | error
+  const [errMsg, setErrMsg] = useState("");
 
   async function onSubmit(e) {
     e.preventDefault();
-    if (!email) return;
-    if (NEWSLETTER_ENDPOINT) {
-      try {
-        await fetch(NEWSLETTER_ENDPOINT, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, source: "mvascruisedeals" }),
+    if (status === "sending") return;
+    setStatus("sending");
+    setErrMsg("");
+    try {
+      const res = await fetch("/api/alerts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          first_name: first,
+          last_name: last,
+          email,
+          company_website: e.currentTarget.company_website.value,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        track("generate_lead", {
+          method: "deal_alerts",
+          form_location:
+            typeof window !== "undefined" ? window.location.pathname : undefined,
+          filed: Boolean(data.filed),
         });
-        setDone(true);
-        return;
-      } catch (err) {
-        // fall through to mailto
+        setStatus("done");
+      } else {
+        setErrMsg(data.error || "Something went wrong. Please call or text (561) 777-9911.");
+        setStatus("error");
       }
+    } catch {
+      setErrMsg("Network error. Please call or text (561) 777-9911.");
+      setStatus("error");
     }
-    const body = `Please add me to MVAS deal alerts. My email: ${email}`;
-    window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(
-      "Deal alerts signup"
-    )}&body=${encodeURIComponent(body)}`;
-    setDone(true);
   }
 
   return (
@@ -45,12 +59,37 @@ export default function DealAlerts() {
             your inbox. No spam, unsubscribe anytime.
           </p>
         </div>
-        {done ? (
+        {status === "done" ? (
           <p className="alerts-done">
-            Thanks! You&apos;re on the list. Watch your inbox for the next deal.
+            Thanks{first ? `, ${first}` : ""}! You&apos;re on the list. Watch
+            your inbox for the next deal.
           </p>
         ) : (
           <form className="alerts-form" onSubmit={onSubmit}>
+            <label htmlFor="alert-first" className="sr-only">
+              First name
+            </label>
+            <input
+              id="alert-first"
+              type="text"
+              required
+              autoComplete="given-name"
+              placeholder="First name"
+              value={first}
+              onChange={(e) => setFirst(e.target.value)}
+            />
+            <label htmlFor="alert-last" className="sr-only">
+              Last name
+            </label>
+            <input
+              id="alert-last"
+              type="text"
+              required
+              autoComplete="family-name"
+              placeholder="Last name"
+              value={last}
+              onChange={(e) => setLast(e.target.value)}
+            />
             <label htmlFor="alert-email" className="sr-only">
               Email address
             </label>
@@ -58,18 +97,33 @@ export default function DealAlerts() {
               id="alert-email"
               type="email"
               required
+              autoComplete="email"
               placeholder="you@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button type="submit" className="btn btn-primary">
-              Notify me
+            {/* Honeypot: hidden from people, catches bots. */}
+            <input
+              type="text"
+              name="company_website"
+              tabIndex={-1}
+              autoComplete="off"
+              className="qf-hp"
+              aria-hidden="true"
+            />
+            <button type="submit" className="btn btn-primary" disabled={status === "sending"}>
+              {status === "sending" ? "Sending..." : "Notify me"}
             </button>
           </form>
         )}
-        {!done && (
+        {status === "error" && (
+          <p className="qf-error" role="alert">
+            {errMsg}
+          </p>
+        )}
+        {status !== "done" && (
           <p className="form-privacy alerts-privacy">
-            Opens an email to me with your address. See my{" "}
+            I use your name and email only to send you deals. See my{" "}
             <a href="/privacy/">Privacy Policy</a>.
           </p>
         )}
