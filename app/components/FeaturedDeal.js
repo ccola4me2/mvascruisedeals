@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { quoteHref } from "../lib/quote";
 import { youSave } from "../lib/dealMoney";
+import OfferEnds from "./OfferEnds";
 
 export default function FeaturedDeal({ deal, flip }) {
   const external = deal.cta && deal.cta.external;
@@ -55,6 +56,8 @@ export default function FeaturedDeal({ deal, flip }) {
             <dd>{deal.itinerary}</dd>
           </div>
         </dl>
+
+        {deal.offerEnds && <OfferEnds ends={deal.offerEnds} />}
 
         {deal.compare && (
           <div className="compare compare--save">

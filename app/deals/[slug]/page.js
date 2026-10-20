@@ -6,6 +6,7 @@ import { destinations } from "../../data/destinations";
 import QuoteSection from "../../components/QuoteSection";
 import DealClosedNotice from "../../components/DealClosedNotice";
 import ShareRow from "../../components/ShareRow";
+import OfferEnds from "../../components/OfferEnds";
 import { youSave } from "../../lib/dealMoney";
 
 const SITE = "https://mvascruisedeals.com";
@@ -262,6 +263,7 @@ export default function DealLandingPage({ params }) {
 
       <div className="container">
         <DealClosedNotice departs={L.departs} />
+        {deal.offerEnds && <OfferEnds ends={deal.offerEnds} />}
       </div>
 
       {/* In-page navigation (desktop) */}

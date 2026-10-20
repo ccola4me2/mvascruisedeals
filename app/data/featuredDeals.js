@@ -186,6 +186,9 @@ export const featuredDeals = [
         { cabin: "Balcony", direct: "$6,350.00", ours: "$2,381.70" },
       ],
     },
+    // Last day of this offer (ISO date). Shows an "Offer ends" line on the card and the
+    // deal page, and an "ended" line after the date. Delete this field when it is over.
+    offerEnds: "2026-10-22",
     savings: "Up to $3,968.30",
     savingsNote: "on a balcony cabin",
     onboardCredit: "$75",

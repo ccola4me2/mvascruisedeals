@@ -5832,3 +5832,29 @@ img {
   flex: 1 1 100%;
   color: #ffd2c4;
 }
+
+/* Limited-time offer notice on a deal card and its page */
+.offer-ends {
+  margin: 0 0 16px;
+  padding: 11px 16px;
+  border-radius: 12px;
+  background: var(--sun);
+  color: var(--navy);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+.offer-ends strong {
+  font-weight: 800;
+}
+.offer-ends--over {
+  background: #fdecea;
+  color: #8f2a1d;
+}
+.offer-ends a {
+  color: inherit;
+  font-weight: 700;
+}
+.dl-closed + .offer-ends,
+.container > .offer-ends {
+  margin-top: 20px;
+}
