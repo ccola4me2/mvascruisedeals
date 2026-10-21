@@ -1614,3 +1614,28 @@ Date Detected,Ship,Itinerary,Sailing Date,Room Type,Change Type,Old Price,New Pr
 2026-10-20,Islander,7-Night Key West & Mexico,02/20/27,Ocean View,INCREASE,629,649,20,3
 2026-10-20,Islander,7-Night Jamaica & Western Caribbean,01/09/27,Balcony,DROP,1299,1279,-20,-2
 2026-10-20,Islander,8-Night Jamaica & Western Caribbean,01/30/27,Ocean View,INCREASE,649,679,30,5
+2026-10-21,Paradise,3-Night Nassau Escape,11/13/26,Interior,INCREASE,189,199,10,5
+2026-10-21,Paradise,4-Night Bahamas Duo,11/09/26,Interior,DROP,169,159,-10,-6
+2026-10-21,Paradise,4-Night Bahamas Duo,12/14/26,Ocean View,DROP,179,169,-10,-6
+2026-10-21,Islander,4-Night Cozumel Express,10/24/26,Suite,INCREASE,899,1599,700,78
+2026-10-21,Islander,4-Night Cozumel Express,10/28/26,Ocean View,DROP,369,359,-10,-3
+2026-10-21,Paradise,4-Night Key West & Grand Bahama,03/01/27,Interior,INCREASE,249,269,20,8
+2026-10-21,Paradise,4-Night Key West & Grand Bahama,03/01/27,Ocean View,INCREASE,299,329,30,10
+2026-10-21,Paradise,4-Night Key West & Grand Bahama,03/29/27,Interior,INCREASE,249,259,10,4
+2026-10-21,Paradise,4-Night Key West & Grand Bahama,03/29/27,Ocean View,INCREASE,289,299,10,3
+2026-10-21,Paradise,3-Night Grand Bahama Escape,02/05/27,Interior,INCREASE,179,189,10,6
+2026-10-21,Paradise,3-Night Grand Bahama Escape,02/26/27,Interior,INCREASE,199,229,30,15
+2026-10-21,Paradise,3-Night Grand Bahama Escape,03/19/27,Ocean View,DROP,239,229,-10,-4
+2026-10-21,Paradise,3-Night Grand Bahama Escape,03/26/27,Suite,INCREASE,1099,1199,100,9
+2026-10-21,Paradise,4-Night Bahamas Duo,02/01/27,Interior,DROP,179,169,-10,-6
+2026-10-21,Paradise,4-Night Bahamas Duo,02/01/27,Ocean View,DROP,209,179,-30,-14
+2026-10-21,Paradise,4-Night Bahamas Duo,02/08/27,Ocean View,INCREASE,219,229,10,5
+2026-10-21,Paradise,4-Night Bahamas Duo,03/22/27,Interior,INCREASE,239,249,10,4
+2026-10-21,Paradise,2-Night Grand Bahama Getaway,02/12/27,Interior,DROP,219,199,-20,-9
+2026-10-21,Paradise,2-Night Grand Bahama Getaway,02/12/27,Ocean View,DROP,249,229,-20,-8
+2026-10-21,Paradise,2-Night Grand Bahama Getaway,03/05/27,Ocean View,DROP,239,229,-10,-4
+2026-10-21,Beachcomber,4-Night Bahamas Duo,03/11/27,Interior,INCREASE,299,329,30,10
+2026-10-21,Beachcomber,6-Night Bahamas & Western Caribbean,04/10/27,Suite,DROP,1899,1799,-100,-5
+2026-10-21,Islander,5-Night Key West & Grand Bahama,04/05/27,Suite,DROP,1729,1599,-130,-8
+2026-10-21,Beachcomber,8-Night ABC Islands Southern Caribbean,04/16/27,Interior,INCREASE,849,879,30,4
+2026-10-21,Beachcomber,8-Night ABC Islands Southern Caribbean,04/16/27,Balcony,INCREASE,3399,3499,100,3
