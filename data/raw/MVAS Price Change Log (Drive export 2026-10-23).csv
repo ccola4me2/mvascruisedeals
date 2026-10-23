@@ -1665,3 +1665,37 @@ Date Detected,Ship,Itinerary,Sailing Date,Room Type,Change Type,Old Price,New Pr
 2026-10-22,Islander,4-Night Cozumel Express,04/01/27,Suite,DROP,1099,1049,-50,-5
 2026-10-22,Islander,5-Night Mexico Duo,04/10/27,Ocean View,DROP,399,379,-20,-5
 2026-10-22,Islander,5-Night Mexico Duo,04/10/27,Balcony,DROP,529,499,-30,-6
+2026-10-23,Paradise,4-Night Key West & Grand Bahama,03/01/27,Interior,INCREASE,269,299,30,11
+2026-10-23,Paradise,4-Night Key West & Grand Bahama,03/01/27,Ocean View,INCREASE,329,339,10,3
+2026-10-23,Paradise,4-Night Key West & Grand Bahama,03/29/27,Interior,INCREASE,259,269,10,4
+2026-10-23,Beachcomber,"7-Night Grand Cayman, Jamaica & Bahamas 3-Ship Meet-Up ft. Zac Brown Band",01/23/27,Ocean View,DROP,1829,1779,-50,-3
+2026-10-23,Paradise,3-Night Grand Bahama Escape,01/22/27,Interior,INCREASE,189,199,10,5
+2026-10-23,Paradise,3-Night Grand Bahama Escape,02/05/27,Interior,INCREASE,189,199,10,5
+2026-10-23,Paradise,3-Night Grand Bahama Escape,02/05/27,Ocean View,INCREASE,209,219,10,5
+2026-10-23,Paradise,3-Night Grand Bahama Escape,03/12/27,Interior,INCREASE,209,219,10,5
+2026-10-23,Paradise,4-Night Bahamas Duo,03/15/27,Interior,INCREASE,249,269,20,8
+2026-10-23,Paradise,4-Night Bahamas Duo,03/15/27,Ocean View,INCREASE,279,289,10,4
+2026-10-23,Paradise,4-Night Bahamas Duo,02/08/27,Interior,INCREASE,189,199,10,5
+2026-10-23,Paradise,4-Night Bahamas Duo,02/08/27,Ocean View,INCREASE,229,239,10,4
+2026-10-23,Paradise,4-Night Bahamas Duo,03/22/27,Interior,INCREASE,249,269,20,8
+2026-10-23,Paradise,4-Night Bahamas Duo,03/22/27,Ocean View,INCREASE,279,289,10,4
+2026-10-23,Paradise,5-Night Dominican Republic & Bahamas,03/07/27,Interior,DROP,359,349,-10,-3
+2026-10-23,Beachcomber,6-Night Key West & Western Caribbean,01/30/27,Interior,DROP,499,479,-20,-4
+2026-10-23,Beachcomber,7-Night Eastern Caribbean,01/16/27,Ocean View,DROP,679,649,-30,-4
+2026-10-23,Paradise,3-Night Nassau Escape,04/02/27,Interior,INCREASE,209,219,10,5
+2026-10-23,Paradise,3-Night Nassau Escape,04/02/27,Ocean View,INCREASE,239,249,10,4
+2026-10-23,Paradise,4-Night Key West & Grand Bahama,04/19/27,Interior,INCREASE,259,269,10,4
+2026-10-23,Paradise,4-Night Bahamas Duo,04/26/27,Ocean View,INCREASE,259,269,10,4
+2026-10-23,Paradise,4-Night Key West & Bimini,04/12/27,Interior,INCREASE,309,319,10,3
+2026-10-23,Paradise,4-Night Key West & Bimini,04/12/27,Ocean View,INCREASE,339,349,10,3
+2026-10-23,Paradise,3-Night Nassau Escape,11/13/26,Interior,INCREASE,189,209,20,11
+2026-10-23,Paradise,3-Night Nassau Escape,11/13/26,Ocean View,INCREASE,199,209,10,5
+2026-10-23,Paradise,3-Night Nassau Escape,12/04/26,Ocean View,INCREASE,219,229,10,5
+2026-10-23,Paradise,3-Night Grand Bahama Escape,12/11/26,Interior,DROP,159,149,-10,-6
+2026-10-23,Paradise,3-Night Grand Bahama Escape,12/11/26,Ocean View,DROP,169,159,-10,-6
+2026-10-23,Islander,4-Night Cozumel Express,10/24/26,Interior,DROP,279,199,-80,-29
+2026-10-23,Islander,4-Night Cozumel Express,10/24/26,Ocean View,DROP,279,229,-50,-18
+2026-10-23,Islander,4-Night Cozumel Express,10/28/26,Interior,DROP,299,249,-50,-17
+2026-10-23,Islander,4-Night Cozumel Express,10/28/26,Ocean View,DROP,329,279,-50,-15
+2026-10-23,Islander,4-Night Cozumel Express,10/28/26,Balcony,DROP,379,329,-50,-13
+2026-10-23,Islander,6-Night Belize & Progreso,11/14/26,Suite,INCREASE,1199,2499,1300,108
