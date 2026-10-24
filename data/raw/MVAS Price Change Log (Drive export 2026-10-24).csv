@@ -1699,3 +1699,23 @@ Date Detected,Ship,Itinerary,Sailing Date,Room Type,Change Type,Old Price,New Pr
 2026-10-23,Islander,4-Night Cozumel Express,10/28/26,Ocean View,DROP,329,279,-50,-15
 2026-10-23,Islander,4-Night Cozumel Express,10/28/26,Balcony,DROP,379,329,-50,-13
 2026-10-23,Islander,6-Night Belize & Progreso,11/14/26,Suite,INCREASE,1199,2499,1300,108
+2026-10-24,Paradise,3-Night Nassau Escape,10/27/26,Suite,INCREASE,499,599,100,20
+2026-10-24,Paradise,3-Night Nassau Escape,11/13/26,Ocean View,INCREASE,209,219,10,5
+2026-10-24,Paradise,4-Night Key West & Grand Bahama,11/23/26,Ocean View,INCREASE,369,379,10,3
+2026-10-24,Islander,4-Night Cozumel Express,10/28/26,Ocean View,INCREASE,279,299,20,7
+2026-10-24,Islander,5-Night Key West and Progreso,12/05/26,Ocean View,INCREASE,419,429,10,2
+2026-10-24,Islander,6-Night Belize & Progreso,11/14/26,Interior,INCREASE,419,429,10,2
+2026-10-24,Islander,6-Night Belize & Progreso,11/14/26,Balcony,INCREASE,599,629,30,5
+2026-10-24,Islander,7-Night New Orleans & Mexico,11/07/26,Suite,DROP,1499,1399,-100,-7
+2026-10-24,Islander,5-Night Mexico Duo,03/13/27,Interior,INCREASE,449,499,50,11
+2026-10-24,Islander,5-Night Mexico Duo,03/13/27,Ocean View,INCREASE,529,549,20,4
+2026-10-24,Islander,5-Night Mexico Duo,03/13/27,Balcony,INCREASE,679,699,20,3
+2026-10-24,Islander,5-Night Mexico Duo,03/27/27,Interior,INCREASE,489,529,40,8
+2026-10-24,Islander,5-Night Mexico Duo,03/27/27,Ocean View,INCREASE,519,549,30,6
+2026-10-24,Islander,5-Night Mexico Duo,03/27/27,Suite,DROP,1449,999,-450,-31
+2026-10-24,Islander,7-Night Key West & Mexico,02/20/27,Interior,INCREASE,579,599,20,3
+2026-10-24,Beachcomber,8-Night Southern Caribbean,02/19/27,Balcony,INCREASE,2999,3099,100,3
+2026-10-24,Islander,4-Night Cozumel Express,04/01/27,Ocean View,INCREASE,329,349,20,6
+2026-10-24,Islander,4-Night Cozumel Express,04/15/27,Interior,INCREASE,379,399,20,5
+2026-10-24,Islander,4-Night Cozumel Express,04/15/27,Ocean View,INCREASE,399,429,30,8
+2026-10-24,Islander,5-Night Key West & Grand Bahama,04/05/27,Suite,INCREASE,1599,1699,100,6
