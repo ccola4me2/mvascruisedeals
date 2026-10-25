@@ -261,3 +261,21 @@ export const featuredDeals = [
 export function getLandingDeal(slug) {
   return featuredDeals.find((d) => d.landing && d.landing.slug === slug);
 }
+
+// Deals that have been taken down. Their /deals/<slug>/ address keeps working and
+// shows a friendly "this offer has ended" page with current options instead of a
+// 404, so old shares and links do not look dead. Add an entry here when you remove
+// a deal that had a landing page; the page is not indexed or listed in the sitemap.
+export const retiredDeals = [
+  {
+    slug: "galveston-mexico-trio-jan-2028",
+    title: "7-Night Mexico Trio",
+    ship: "Beachcomber",
+    when: "January 14 to 21, 2028",
+    homeport: "Galveston, TX",
+  },
+];
+
+export function getRetiredDeal(slug) {
+  return retiredDeals.find((d) => d.slug === slug);
+}

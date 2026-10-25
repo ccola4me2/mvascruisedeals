@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { featuredDeals, getLandingDeal } from "../../data/featuredDeals";
+import { featuredDeals, getLandingDeal, retiredDeals, getRetiredDeal } from "../../data/featuredDeals";
+import RetiredDeal from "../../components/RetiredDeal";
 import { destinations } from "../../data/destinations";
 import QuoteSection from "../../components/QuoteSection";
 import DealClosedNotice from "../../components/DealClosedNotice";
@@ -14,9 +15,10 @@ const SITE = "https://mvascruisedeals.com";
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return featuredDeals
-    .filter((d) => d.landing)
-    .map((d) => ({ slug: d.landing.slug }));
+  return [
+    ...featuredDeals.filter((d) => d.landing).map((d) => ({ slug: d.landing.slug })),
+    ...retiredDeals.map((d) => ({ slug: d.slug })),
+  ];
 }
 
 const shortShip = (s) => s.replace(/^Margaritaville at Sea\s+/i, "");
@@ -44,6 +46,14 @@ const SHIPS = {
 };
 
 export function generateMetadata({ params }) {
+  const gone = getRetiredDeal(params.slug);
+  if (gone) {
+    return {
+      title: "This offer has ended",
+      description: "This cruise offer is no longer available. See the current Margaritaville at Sea deals.",
+      robots: { index: false, follow: true },
+    };
+  }
   const deal = getLandingDeal(params.slug);
   if (!deal) return {};
   const L = deal.landing;
@@ -133,6 +143,8 @@ function buildFaqs(deal) {
 }
 
 export default function DealLandingPage({ params }) {
+  const gone = getRetiredDeal(params.slug);
+  if (gone) return <RetiredDeal deal={gone} />;
   const deal = getLandingDeal(params.slug);
   if (!deal) notFound();
   const L = deal.landing;
