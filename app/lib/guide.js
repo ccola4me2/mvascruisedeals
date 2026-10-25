@@ -406,9 +406,9 @@ export function buildGuide(it, dateISO, today) {
     brent: BRENT,
     // the three Nassau meet-up sailings get an extra concert page before the booking page
     zbb: isZbbSailing(it) ? ZBB : null,
-    // other Beachcomber sailings: point to the sailings that do include the Nassau concert
+    // other Beachcomber sailings from Miami (the first season): point to the sailings that do include the Nassau concert
     zbbHint:
-      it.ship === "Beachcomber" && !isZbbSailing(it) && today <= ZBB_CONCERT_DATE
+      it.ship === "Beachcomber" && hp.city === "Miami" && !isZbbSailing(it) && today <= ZBB_CONCERT_DATE
         ? {
             text: "Looking for the Zac Brown Band concert in Nassau on January 28, 2027? It is included only on the three 3-Ship Meet-Up sailings: Beachcomber on January 23, and Paradise and Islander on January 25.",
             href: ZBB_PAGE,
