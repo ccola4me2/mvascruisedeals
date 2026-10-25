@@ -70,56 +70,6 @@ export const featuredDeals = [
     },
   },
   {
-    id: "beachcomber-7night-mexico-trio-galveston-2028",
-    tag: "New from Galveston",
-    title: "7-Night Mexico Trio",
-    ship: "Margaritaville at Sea Beachcomber",
-    when: "January 14 to 21, 2028",
-    nights: "7 nights",
-    itinerary: "Round-trip Galveston: Cozumel, Progreso, Veracruz",
-    image: "/deals/beachcomber.jpg",
-    limited: "Limited cabins available at this group rate",
-    cabins: [
-      { type: "Interior", name: "Cozy Interior", price: "$742.41" },
-      { type: "Oceanview", name: "Picturesque Oceanview", price: "$854.01" },
-      { type: "Balcony", name: "Breezy Balcony", price: "$1,188.81" },
-    ],
-    priceBasis: "Per guest, double occupancy. Taxes, fees, and gratuities included.",
-    onboardCredit: "$75",
-    includes: ["Taxes", "Fees", "Gratuities"],
-    cta: { label: "Get This Deal", href: "/contact" },
-    landing: {
-      slug: "galveston-mexico-trio-jan-2028",
-      departs: "2028-01-14",
-      homeport: "Galveston, TX",
-      ports: ["Cozumel", "Progreso", "Veracruz"],
-      from: "$742.41",
-      fromUnit: "per guest, double occupancy",
-      group: true,
-      lede: "Cozumel, Progreso, and historic Veracruz in one week, round-trip from Galveston on Beachcomber, at a group rate with taxes, fees, and gratuities included.",
-      why: [
-        {
-          title: "Taxes, fees, and gratuities included",
-          text: "The price per guest already covers the basics, so there are no add-ons to chase before you book.",
-        },
-        {
-          title: "Historic Veracruz",
-          text: "Marimba plazas, a centuries-old harbor fortress, and one of Latin America's top aquariums make Veracruz the standout stop on this itinerary.",
-        },
-        {
-          title: "Early in Galveston's first season",
-          text: "Galveston is a brand-new homeport, and this winter sailing is early in its first season, so group-rate cabins go quickly.",
-        },
-      ],
-      faqs: [
-        {
-          q: "Which ship is this, and where does it leave from?",
-          a: "Margaritaville at Sea Beachcomber, the largest ship in the fleet, sailing round-trip from the Port of Galveston, Texas, on January 14, 2028.",
-        },
-      ],
-    },
-  },
-  {
     id: "islander-8night-grand-cayman-central-america-2028",
     tag: "Central America",
     title: "8-Night Grand Cayman & Central America",
