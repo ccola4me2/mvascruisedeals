@@ -193,12 +193,21 @@ export function buildGuide(it, dateISO, today) {
     }
   }
 
-  if (it.ship === "Beachcomber" && !sentences.some((x) => x.indexOf("first weeks") !== -1)) {
-    sentences.push(
-      today < BEACHCOMBER_GALVESTON_MOVE
-        ? "Beachcomber sails from Miami in its first season, then moves to Galveston in October 2027."
-        : "Beachcomber sailed from Miami in its first season, then moved to Galveston in October 2027."
-    );
+  // Beachcomber: say where it sails now and that it moves to Galveston in October 2027.
+  if (it.ship === "Beachcomber") {
+    const moved = today >= BEACHCOMBER_GALVESTON_MOVE;
+    const fw = sentences.findIndex((x) => x.indexOf("first weeks") !== -1);
+    if (fw !== -1 && hp.city === "Miami") {
+      sentences[fw] =
+        "Sailing in Beachcomber's first weeks from Miami, before it " +
+        (moved ? "moved" : "moves") + " to Galveston in October 2027.";
+    } else if (fw === -1) {
+      sentences.push(
+        moved
+          ? "Beachcomber sailed from Miami in its first season, then moved to Galveston in October 2027."
+          : "Beachcomber sails from Miami in its first season, then moves to Galveston in October 2027."
+      );
+    }
   }
 
   const stats = [
