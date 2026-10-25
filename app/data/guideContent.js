@@ -430,7 +430,13 @@ export const SHIPS = {
     shortStat: { big: "102,000+", small: "gross tons, biggest in the fleet" },
     glance: [
       ["The newest and largest in the fleet", "Beachcomber has 10 stateroom types, from cozy interiors to corner suites."],
-      ["Zac Brown's Same Boat", "The first artist-curated live music venue at sea, co-created with Zac Brown."],
+      // Optional 3rd and 4th items: text to use once the date in the 4th has passed.
+      [
+        "Zac Brown is the Godfather",
+        "He christens Beachcomber in Miami on January 9, 2027, and created Same Boat with the cruise line, the first artist-curated live music venue at sea.",
+        "He christened Beachcomber in Miami on January 9, 2027, and created Same Boat with the cruise line, the first artist-curated live music venue at sea.",
+        "2027-01-09",
+      ],
       ["Three all-new original shows", "Friday Night Country, Red, White & Margaritaville and Club Fuego."],
       ["The World's Largest 5 o'Clock Somewhere", "An open-air bar with Boat Drinks and island-inspired bites."],
     ],

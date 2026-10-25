@@ -383,6 +383,11 @@ export function Page6({ g }) {
             </p>
           </div>
         </div>
+        {g.zbbHint && (
+          <div className="gd-tip gd-tip--wide">
+            {g.zbbHint.text} Details: <b>{BRENT.site}{g.zbbHint.href}</b>
+          </div>
+        )}
         <p className="gd-small gd-small--center">
           After you book, you also get the cruise line's Cruise Control portal to review
           your itinerary and add packages. I handle anything that needs a phone call.

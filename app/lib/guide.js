@@ -14,7 +14,11 @@ import {
   SHIPS,
   PACKAGES,
 } from "../data/guideContent.js";
-import { ZBB, isZbbSailing } from "../data/zacBrown.js";
+import { ZBB, ZBB_PAGE, isZbbSailing } from "../data/zacBrown.js";
+
+// Beachcomber moves from Miami to Galveston in October 2027 (published by the cruise line).
+const BEACHCOMBER_GALVESTON_MOVE = "2027-10-01";
+const ZBB_CONCERT_DATE = "2027-01-28";
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -187,6 +191,14 @@ export function buildGuide(it, dateISO, today) {
         "Sailing in " + it.ship + "'s first weeks from " + hp.city + "."
       );
     }
+  }
+
+  if (it.ship === "Beachcomber" && !sentences.some((x) => x.indexOf("first weeks") !== -1)) {
+    sentences.push(
+      today < BEACHCOMBER_GALVESTON_MOVE
+        ? "Beachcomber sails from Miami in its first season, then moves to Galveston in October 2027."
+        : "Beachcomber sailed from Miami in its first season, then moved to Galveston in October 2027."
+    );
   }
 
   const stats = [
@@ -366,7 +378,7 @@ export function buildGuide(it, dateISO, today) {
     lede: sentences.join(" "),
     stats,
     route,
-    glance: ship.glance,
+    glance: ship.glance.map((e) => (e.length === 4 ? [e[0], today <= e[3] ? e[1] : e[2]] : e)),
     note,
     seaNote: "Plenty of time to enjoy the ship between ports. Day-by-day port times come with your booking. See page 2 for what to do ashore.",
     ports,
@@ -385,6 +397,14 @@ export function buildGuide(it, dateISO, today) {
     brent: BRENT,
     // the three Nassau meet-up sailings get an extra concert page before the booking page
     zbb: isZbbSailing(it) ? ZBB : null,
+    // other Beachcomber sailings: point to the sailings that do include the Nassau concert
+    zbbHint:
+      it.ship === "Beachcomber" && !isZbbSailing(it) && today <= ZBB_CONCERT_DATE
+        ? {
+            text: "Looking for the Zac Brown Band concert in Nassau on January 28, 2027? It is included only on the three 3-Ship Meet-Up sailings: Beachcomber on January 23, and Paradise and Islander on January 25.",
+            href: ZBB_PAGE,
+          }
+        : null,
     pages: isZbbSailing(it) ? 7 : 6,
   };
 }
