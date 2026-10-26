@@ -20,7 +20,7 @@ const CTT_ENDPOINT =
 const SITE = "https://mvascruisedeals.com";
 
 // Bumped on deploys so a poll of the endpoint can confirm the new Worker is live.
-const VERSION = "6";
+const VERSION = "7";
 
 export default {
   async fetch(request, env) {
@@ -107,6 +107,18 @@ async function handleQuote(request, env) {
   if (!address) missing.push("where you live");
   if (missing.length) {
     return json({ error: `Please add ${missing.join(", ")}.` }, 400);
+  }
+
+  // Abuse guard (after validation, so a typo does not use up the slot). A repeat
+  // from the same address within a minute is a double click: answer "ok" without
+  // filing it twice. One request per IP every 20 seconds stops a script from
+  // flooding the lead board and the notification inbox.
+  if (await throttled("quote-email-" + (await shortHash(email)), 60)) {
+    return json({ ok: true, repeat: true });
+  }
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  if (await throttled("quote-ip-" + ip, 20)) {
+    return json({ error: "Please wait a moment and try again." }, 429);
   }
 
   // Notes carry the trip context CTT does not have a dedicated field for.
