@@ -121,61 +121,6 @@ export const featuredDeals = [
     },
   },
   {
-    id: "beachcomber-southern-8night-2027",
-    tag: "Best value",
-    title: "8-Night Southern Caribbean",
-    ship: "Margaritaville at Sea Beachcomber",
-    when: "February 19 to 27, 2027",
-    nights: "8 nights",
-    itinerary: "Aruba, Bonaire, Puerto Plata",
-    image: "/deals/beachcomber.jpg",
-    compare: {
-      basis: "Same sailing, same cabin, total for two. Every fare adds a $75 onboard credit.",
-      rows: [
-        { cabin: "Interior", direct: "$1,950.00", ours: "$1,617.90" },
-        { cabin: "Balcony", direct: "$6,350.00", ours: "$2,381.70" },
-      ],
-    },
-    // Last day of this offer (ISO date). Shows an "Offer ends" line on the card and the
-    // deal page, and an "ended" line after the date. Delete this field when it is over.
-    offerEnds: "2026-10-22",
-    savings: "Up to $3,968.30",
-    savingsNote: "on a balcony cabin",
-    onboardCredit: "$75",
-    includes: ["Taxes", "Fees", "Gratuities"],
-    cta: { label: "Get This Deal", href: "/contact" },
-    landing: {
-      slug: "miami-southern-caribbean-feb-2027",
-      departs: "2027-02-19",
-      homeport: "Miami, FL",
-      ports: ["Aruba", "Bonaire", "Puerto Plata"],
-      from: "$1,617.90",
-      fromUnit: "interior, total for two",
-      group: false,
-      lede: "Eight nights in the Southern Caribbean on Beachcomber: Aruba, Bonaire, and Puerto Plata, with taxes, fees, and gratuities included and a $75 onboard credit on every fare.",
-      why: [
-        {
-          title: "The comparison, side by side",
-          text: "The pricing below puts the direct price next to my rate for the same sailing and the same cabin, so you can see the difference for yourself.",
-        },
-        {
-          title: "Three distinct islands",
-          text: "Aruba's trade-wind beaches, Bonaire's protected reef, and the amber coast of Puerto Plata in the Dominican Republic.",
-        },
-        {
-          title: "Early in Beachcomber's first season",
-          text: "February 2027 is among the earliest sailings of the fleet's largest ship, sailing round-trip from Miami.",
-        },
-      ],
-      faqs: [
-        {
-          q: "Which ship is this, and where does it leave from?",
-          a: "Margaritaville at Sea Beachcomber, the largest ship in the fleet, sailing round-trip from PortMiami on February 19, 2027.",
-        },
-      ],
-    },
-  },
-  {
     id: "beachcomber-5night-bahamas-eastern-2027",
     tag: "New deal alert",
     // Optional seasonal promo banner. Set a string to show a green banner on the
@@ -188,7 +133,8 @@ export const featuredDeals = [
     image: "/deals/beachcomber.jpg",
     cabins: [
       { type: "Interior", name: "Cozy Interior", price: "$411.22" },
-      { type: "Oceanview", name: "Picturesque Oceanview", price: "$522.82" },
+      // Oceanview hidden for now ($522.82 was above the cruise line's own fare).
+      // To show it again, add: { type: "Oceanview", name: "Picturesque Oceanview", price: "$522.82" },
       {
         type: "Balcony",
         name: "Breezy Balcony",
@@ -267,6 +213,13 @@ export function getLandingDeal(slug) {
 // 404, so old shares and links do not look dead. Add an entry here when you remove
 // a deal that had a landing page; the page is not indexed or listed in the sitemap.
 export const retiredDeals = [
+  {
+    slug: "miami-southern-caribbean-feb-2027",
+    title: "8-Night Southern Caribbean",
+    ship: "Beachcomber",
+    when: "February 19 to 27, 2027",
+    homeport: "Miami, FL",
+  },
   {
     slug: "galveston-mexico-trio-jan-2028",
     title: "7-Night Mexico Trio",

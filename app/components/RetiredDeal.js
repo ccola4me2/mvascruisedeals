@@ -28,7 +28,7 @@ export default function RetiredDeal({ deal }) {
           <p className="eyebrow">This offer has ended</p>
           <h1>The {deal.title} is no longer available</h1>
           <p className="page-lede">
-            The group rate on the {deal.ship} sailing from {city} ({deal.when}) has
+            The offer on the {deal.ship} sailing from {city} ({deal.when}) has
             closed. Fares and cabins change every day, so there is a good chance a
             similar sailing is open right now. Take a look at what is available, or
             tell me what you have in mind and I will find it for you.

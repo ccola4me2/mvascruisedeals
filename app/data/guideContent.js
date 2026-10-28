@@ -23,11 +23,8 @@ export const BRENT = {
   // Extra sentence added to the "A note from Brent" box for one specific sailing.
   // Keep it conditional ("may", "possibly"): nothing here is a promised price.
   sailingNotes: [
-    {
-      id: "beachcomber-miami-8-southern-caribbean--aru-bon-pp",
-      date: "2027-02-19",
-      text: "If you have already booked this sailing directly with the cruise line, I may still be able to arrange onboard credit and, possibly, a reduction in price. Please call or text me so we can talk it through.",
-    },
+    // Example: { id: "<itinerary id>", date: "2027-02-19", text: "..." },
+    // (The Feb 19 Beachcomber note was removed when that sailing stopped being offered.)
   ],
   // Set to something like "60+ cruises" to show "Tips from 60+ cruises".
   experience: null,
