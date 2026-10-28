@@ -24,6 +24,105 @@ export const BLOG_TAGLINE =
 
 export const posts = [
   {
+    slug: "zac-brown-and-beachcomber-godfather-same-boat-nassau-concert",
+    title: "Zac Brown and Beachcomber: the Godfather, Same Boat, and the Nassau concert",
+    short: "Zac Brown and Beachcomber",
+    category: "Ships",
+    date: "2026-10-28",
+    image: "/deals/beachcomber-1200.jpg",
+    imageAlt: "Margaritaville at Sea Beachcomber at sea",
+    excerpt:
+      "Zac Brown is the Godfather of Beachcomber, co-created its Same Boat music venue, and headlines a Nassau concert on January 28, 2027. Here is what is published, and which sailings include the concert.",
+    body: [
+      {
+        t: "p",
+        x: "Beachcomber is the newest and largest ship in the Margaritaville at Sea fleet, and Zac Brown is tied to it in three ways: as its Godfather, through its Same Boat music venue, and with a concert in Nassau. Here is what has been published so far, and what has not.",
+      },
+      {
+        t: "h2",
+        x: "Zac Brown is Beachcomber's Godfather",
+      },
+      {
+        t: "p",
+        x: "Margaritaville at Sea has named Zac Brown the Godfather of Beachcomber. As reported in September 2026, he will christen the ship in Miami on January 9, 2027, and perform for guests before the ship leaves on its inaugural sailing. The cruise line has not published a full schedule for christening day yet, so I will update this post when it does.",
+      },
+      {
+        t: "h2",
+        x: "Same Boat, the first artist-curated music venue at sea",
+      },
+      {
+        t: "p",
+        x: "Same Boat is a live music venue on Beachcomber that Zac Brown helped create, with live performances and craft cocktails. The cruise line calls it the first artist-curated live music venue at sea. It was also reported that Same Boat will feature a rotating roster of artists during the ship's first season. The lineup has not been published.",
+      },
+      {
+        t: "h2",
+        x: "The Nassau concert on January 28, 2027",
+      },
+      {
+        t: "p",
+        x: "On January 28, 2027, Zac Brown Band plays an exclusive concert at the Nassau Cruise Port Amphitheatre, open only to Margaritaville at Sea guests. It is the first time Beachcomber, Islander, and Paradise are together, and it is the reason for the fleet's three-ship meet-up sailings.",
+      },
+      {
+        t: "ul",
+        items: [
+          "**General admission is included.** Every guest on a meet-up sailing gets a lawn ticket with no purchase or registration. Show your stateroom card at the main gate. Space is first-come, first-served.",
+          "**Upgrades are optional.** The cruise line offers early lawn access, VIP standing, reserved seats, and a table reservation, plus a Bahama Bay Pool Club package where the concert plays on TVs. You add them in Cruise Control after you book.",
+          "**The schedule, as published.** Ships arrive in Nassau at 7:00 am, the concert grounds open at 8:00 am, Jessica Rose opens at 10:30 am, Zac Brown Band plays at 11:45 am, and the concert ends at 1:00 pm. All aboard is 2:00 pm for Islander and 2:30 pm for Paradise and Beachcomber. The cruise line says all times are subject to change.",
+          "**You can watch from the ship.** The concert is streamed live on the pool deck of each ship, included with your fare.",
+        ],
+      },
+      {
+        t: "p",
+        x: "Upgrade options and the prices the cruise line published are on the [Zac Brown Nassau concert page](/zac-brown-nassau/), with the date they were checked.",
+      },
+      {
+        t: "h2",
+        x: "Which sailings include the concert",
+      },
+      {
+        t: "ul",
+        items: [
+          "**Beachcomber** from Miami, 7 nights, January 23 to 30, 2027, to Grand Cayman, Jamaica, and the Bahamas.",
+          "**Paradise** from the Port of Palm Beach, 4 nights, January 25 to 29, 2027, the Bahamas Duo.",
+          "**Islander** from Tampa, 5 nights, January 25 to 30, 2027, the Bahamas Duo.",
+        ],
+      },
+      {
+        t: "callout",
+        h: "Check the date before you book",
+        x: "The Nassau concert is on those three sailings only. Other Beachcomber dates, including the January 9 inaugural sailing, are not in Nassau on January 28. If the concert is the reason you are cruising, tell me and I will confirm the sailing and cabin availability before you book.",
+      },
+      {
+        t: "h2",
+        x: "Beachcomber after Miami",
+      },
+      {
+        t: "p",
+        x: "Beachcomber's first season is out of Miami. It was reported that the ship moves to Galveston, Texas in October 2027, with trips to Mexico and the Western Caribbean. See [cruising from Galveston](/blog/cruising-from-galveston-on-margaritaville-at-sea/) for the dates we know.",
+      },
+      {
+        t: "h2",
+        x: "A few things that are unique to Beachcomber",
+      },
+      {
+        t: "ul",
+        items: [
+          "**Two exclusive restaurants:** F&L Trattoria for Italian and Floridays for Florida tapas and seafood.",
+          "**Three original shows:** Friday Night Country, Red, White & Margaritaville, and Club Fuego.",
+          "**The World's Largest 5 o'Clock Somewhere,** an open-air bar with Boat Drinks and island-inspired bites.",
+          "**Ten stateroom types,** from interiors to corner suites.",
+        ],
+      },
+      {
+        t: "p",
+        x: "I am an independent travel advisor and I am not affiliated with Margaritaville at Sea or Zac Brown. Everything above comes from the cruise line's own pages and published news coverage, and plans can change.",
+      },
+      {
+        t: "cta",
+      },
+    ],
+  },
+  {
     slug: "which-margaritaville-at-sea-ship-is-right-for-you",
     title: "Paradise, Islander, or Beachcomber: which Margaritaville at Sea ship is right for you?",
     short: "Which ship is right for you?",
