@@ -1729,3 +1729,66 @@ Date Detected,Ship,Itinerary,Sailing Date,Room Type,Change Type,Old Price,New Pr
 2026-10-26,Islander,6-Night Belize & Progreso,11/14/26,Interior,DROP,429,419,-10,-2
 2026-10-26,Islander,7-Night New Orleans & Mexico,11/07/26,Interior,DROP,559,519,-40,-7
 2026-10-26,Islander,7-Night Key West & Mexico,02/20/27,Interior,DROP,599,579,-20,-3
+2026-10-27,Paradise,3-Night Nassau Escape,10/30/26,Interior,DROP,199,179,-20,-10
+2026-10-27,Paradise,3-Night Nassau Escape,10/30/26,Ocean View,DROP,229,199,-30,-13
+2026-10-27,Paradise,4-Night Key West & Grand Bahama,11/23/26,Interior,INCREASE,339,349,10,3
+2026-10-27,Paradise,4-Night Bahamas Duo,11/09/26,Interior,DROP,159,149,-10,-6
+2026-10-27,Paradise,4-Night Bahamas Duo,11/09/26,Ocean View,DROP,169,159,-10,-6
+2026-10-27,Paradise,3-Night Grand Bahama Escape,11/06/26,Interior,DROP,179,159,-20,-11
+2026-10-27,Paradise,3-Night Grand Bahama Escape,11/06/26,Ocean View,DROP,179,159,-20,-11
+2026-10-27,Paradise,3-Night Grand Bahama Escape,11/27/26,Interior,INCREASE,219,224,5,2
+2026-10-27,Paradise,4-Night Bahamas Duo,11/02/26,Interior,DROP,159,149,-10,-6
+2026-10-27,Paradise,4-Night Bahamas Duo,11/02/26,Ocean View,DROP,159,149,-10,-6
+2026-10-27,Islander,5-Night Mexico Duo,11/20/26,Interior,DROP,529,499,-30,-6
+2026-10-27,Islander,5-Night Mexico Duo,11/20/26,Ocean View,DROP,579,529,-50,-9
+2026-10-27,Islander,5-Night Mexico Duo,11/20/26,Suite,DROP,1099,1049,-50,-5
+2026-10-27,Islander,5-Night Key West and Progreso,12/05/26,Interior,DROP,399,379,-20,-5
+2026-10-27,Islander,5-Night Key West and Progreso,12/05/26,Ocean View,INCREASE,429,449,20,5
+2026-10-27,Islander,5-Night Key West and Progreso,12/05/26,Balcony,DROP,669,649,-20,-3
+2026-10-27,Islander,5-Night Key West and Progreso,12/05/26,Suite,INCREASE,1449,1469,20,1
+2026-10-27,Islander,6-Night Belize & Progreso,11/14/26,Interior,DROP,419,389,-30,-7
+2026-10-27,Islander,6-Night Belize & Progreso,11/14/26,Ocean View,DROP,499,449,-50,-10
+2026-10-27,Islander,6-Night Belize & Progreso,11/14/26,Balcony,DROP,629,619,-10,-2
+2026-10-27,Islander,6-Night Belize & Progreso,11/14/26,Suite,DROP,2499,2479,-20,-1
+2026-10-27,Islander,5-Night Bahamas Duo,12/14/26,Interior,DROP,419,409,-10,-2
+2026-10-27,Islander,5-Night Bahamas Duo,12/14/26,Ocean View,DROP,449,429,-20,-4
+2026-10-27,Islander,6-Night Mexico & Western Caribbean,11/01/26,Suite,DROP,2199,1899,-300,-14
+2026-10-27,Islander,4-Night Cozumel Express,03/09/27,Ocean View,INCREASE,399,429,30,8
+2026-10-27,Islander,5-Night Mexico Duo,01/16/27,Balcony,DROP,749,699,-50,-7
+2026-10-27,Beachcomber,4-Night Dominican Republic Express,02/05/27,Interior,INCREASE,369,399,30,8
+2026-10-27,Beachcomber,4-Night Dominican Republic Express,02/05/27,Ocean View,INCREASE,399,449,50,13
+2026-10-27,Beachcomber,4-Night Dominican Republic Express,02/05/27,Suite,DROP,1299,1199,-100,-8
+2026-10-27,Beachcomber,5-Night Bahamas & Eastern Caribbean,03/06/27,Interior,INCREASE,399,429,30,8
+2026-10-27,Beachcomber,5-Night Bahamas & Eastern Caribbean,03/06/27,Balcony,INCREASE,749,759,10,1
+2026-10-27,Beachcomber,6-Night Key West & Western Caribbean,01/30/27,Interior,DROP,479,469,-10,-2
+2026-10-27,Beachcomber,6-Night Key West & Western Caribbean,01/30/27,Ocean View,DROP,879,869,-10,-1
+2026-10-27,Beachcomber,4-Night Key West & Bahamas,02/09/27,Interior,INCREASE,449,479,30,7
+2026-10-27,Beachcomber,4-Night Key West & Bahamas,02/09/27,Ocean View,DROP,549,539,-10,-2
+2026-10-27,Islander,7-Night Belize & Mexico,01/02/27,Interior,DROP,599,549,-50,-8
+2026-10-27,Islander,7-Night Belize & Mexico,01/02/27,Ocean View,DROP,629,599,-30,-5
+2026-10-27,Islander,7-Night Belize & Mexico,01/02/27,Balcony,DROP,979,929,-50,-5
+2026-10-27,Beachcomber,7-Night Eastern Caribbean,01/16/27,Interior,INCREASE,549,559,10,2
+2026-10-27,Beachcomber,7-Night Eastern Caribbean,01/16/27,Ocean View,DROP,649,629,-20,-3
+2026-10-27,Beachcomber,7-Night Eastern Caribbean,01/16/27,Balcony,DROP,1479,1449,-30,-2
+2026-10-27,Beachcomber,7-Night Eastern Caribbean,02/27/27,Interior,INCREASE,679,699,20,3
+2026-10-27,Beachcomber,7-Night Eastern Caribbean,02/27/27,Ocean View,INCREASE,729,749,20,3
+2026-10-27,Islander,7-Night Key West & Mexico,02/20/27,Interior,INCREASE,579,599,20,3
+2026-10-27,Islander,8-Night Jamaica & Western Caribbean,01/30/27,Ocean View,DROP,679,649,-30,-4
+2026-10-27,Islander,8-Night Jamaica & Western Caribbean,01/30/27,Suite,DROP,1799,1699,-100,-6
+2026-10-27,Islander,7-Night Jamaica & Western Caribbean,01/09/27,Balcony,DROP,1279,1249,-30,-2
+2026-10-27,Beachcomber,8-Night Southern Caribbean,02/19/27,Interior,DROP,799,779,-20,-3
+2026-10-27,Islander,8-Night Mardi Gras Overnight & Mexico,02/07/27,Ocean View,INCREASE,1799,1829,30,2
+2026-10-27,Islander,5-Night Bahamas Duo,04/19/27,Interior,INCREASE,549,579,30,5
+2026-10-27,Islander,5-Night Bahamas Duo,04/19/27,Ocean View,INCREASE,579,599,20,3
+2026-10-28,Islander,4-Night Cozumel Express,12/10/26,Interior,INCREASE,529,539,10,2
+2026-10-28,Islander,7-Night New Orleans & Mexico,11/07/26,Suite,DROP,1399,1299,-100,-7
+2026-10-28,Islander,6-Night Mexico & Western Caribbean,11/01/26,Suite,INCREASE,1899,2199,300,16
+2026-10-28,Beachcomber,4-Night Bahamas Duo,03/11/27,Suite,INCREASE,1199,1299,100,8
+2026-10-28,Islander,5-Night Mexico Duo,01/16/27,Interior,DROP,419,379,-40,-10
+2026-10-28,Islander,5-Night Mexico Duo,01/16/27,Ocean View,DROP,549,529,-20,-4
+2026-10-28,Islander,5-Night Mexico Duo,01/16/27,Balcony,DROP,699,629,-70,-10
+2026-10-28,Islander,5-Night Mexico Duo,01/16/27,Suite,DROP,1229,1199,-30,-2
+2026-10-28,Beachcomber,4-Night Key West & Bahamas,02/09/27,Interior,INCREASE,479,489,10,2
+2026-10-28,Beachcomber,7-Night Eastern Caribbean,01/16/27,Interior,INCREASE,559,569,10,2
+2026-10-28,Beachcomber,7-Night Eastern Caribbean,01/16/27,Suite,INCREASE,2799,2829,30,1
+2026-10-28,Beachcomber,7-Night Eastern Caribbean,04/03/27,Suite,INCREASE,2299,2399,100,4
