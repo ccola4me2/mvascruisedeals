@@ -1792,3 +1792,45 @@ Date Detected,Ship,Itinerary,Sailing Date,Room Type,Change Type,Old Price,New Pr
 2026-10-28,Beachcomber,7-Night Eastern Caribbean,01/16/27,Interior,INCREASE,559,569,10,2
 2026-10-28,Beachcomber,7-Night Eastern Caribbean,01/16/27,Suite,INCREASE,2799,2829,30,1
 2026-10-28,Beachcomber,7-Night Eastern Caribbean,04/03/27,Suite,INCREASE,2299,2399,100,4
+2026-10-29,Paradise,3-Night Nassau Escape,12/21/26,Suite,INCREASE,999,1099,100,10
+2026-10-29,Paradise,3-Night Grand Bahama Escape,11/20/26,Suite,INCREASE,1199,1399,200,17
+2026-10-29,Paradise,4-Night Bahamas Duo,12/24/26,Interior,INCREASE,449,459,10,2
+2026-10-29,Paradise,4-Night Bahamas Duo,12/24/26,Ocean View,INCREASE,499,509,10,2
+2026-10-29,Islander,5-Night Key West and Progreso,12/05/26,Interior,DROP,379,349,-30,-8
+2026-10-29,Islander,5-Night Mexico Duo,11/20/26,Interior,DROP,499,479,-20,-4
+2026-10-29,Islander,5-Night Mexico Duo,11/20/26,Ocean View,DROP,529,499,-30,-6
+2026-10-29,Islander,5-Night Bahamas Duo,12/14/26,Interior,DROP,409,379,-30,-7
+2026-10-29,Islander,5-Night Bahamas Duo,12/14/26,Ocean View,DROP,429,399,-30,-7
+2026-10-29,Islander,5-Night Bahamas Duo,12/14/26,Balcony,DROP,449,429,-20,-4
+2026-10-29,Islander,5-Night Bahamas Duo,12/14/26,Suite,DROP,1499,1449,-50,-3
+2026-10-29,Islander,5-Night Mexico Duo,11/30/26,Interior,DROP,399,379,-20,-5
+2026-10-29,Islander,5-Night Mexico Duo,11/30/26,Ocean View,DROP,449,419,-30,-7
+2026-10-29,Islander,5-Night Mexico Duo,11/30/26,Balcony,DROP,479,449,-30,-6
+2026-10-29,Islander,5-Night Mexico Duo,11/30/26,Suite,DROP,1049,1029,-20,-2
+2026-10-29,Islander,6-Night Mexico & Western Caribbean,11/01/26,Suite,DROP,2199,1899,-300,-14
+2026-10-29,Paradise,5-Night Dominican Republic & Bahamas,02/14/27,Interior,INCREASE,329,339,10,3
+2026-10-29,Paradise,5-Night Dominican Republic & Bahamas,02/14/27,Ocean View,INCREASE,379,389,10,3
+2026-10-29,Beachcomber,4-Night Bahamas Duo,03/11/27,Interior,INCREASE,329,369,40,12
+2026-10-29,Beachcomber,4-Night Dominican Republic Express,02/05/27,Interior,INCREASE,399,429,30,8
+2026-10-29,Beachcomber,4-Night Dominican Republic Express,02/05/27,Balcony,DROP,739,729,-10,-1
+2026-10-29,Beachcomber,4-Night Dominican Republic Express,02/05/27,Suite,DROP,1199,1149,-50,-4
+2026-10-29,Beachcomber,6-Night Key West & Western Caribbean,01/30/27,Interior,DROP,469,449,-20,-4
+2026-10-29,Beachcomber,6-Night Key West & Western Caribbean,01/30/27,Ocean View,DROP,869,839,-30,-3
+2026-10-29,Beachcomber,5-Night Bahamas & Eastern Caribbean,03/15/27,Interior,INCREASE,449,479,30,7
+2026-10-29,Beachcomber,5-Night Bahamas & Eastern Caribbean,03/15/27,Ocean View,INCREASE,499,529,30,6
+2026-10-29,Beachcomber,4-Night Key West & Bahamas,02/09/27,Interior,INCREASE,489,529,40,8
+2026-10-29,Beachcomber,4-Night Key West & Bahamas,02/09/27,Suite,INCREASE,1729,1799,70,4
+2026-10-29,Islander,7-Night Belize & Mexico,01/02/27,Interior,DROP,549,529,-20,-4
+2026-10-29,Islander,7-Night Belize & Mexico,01/02/27,Ocean View,DROP,599,579,-20,-3
+2026-10-29,Islander,7-Night Belize & Mexico,01/02/27,Balcony,DROP,929,899,-30,-3
+2026-10-29,Beachcomber,7-Night Eastern Caribbean,01/16/27,Ocean View,DROP,629,599,-30,-5
+2026-10-29,Beachcomber,7-Night Eastern Caribbean,02/27/27,Interior,INCREASE,699,729,30,4
+2026-10-29,Beachcomber,7-Night Eastern Caribbean,02/27/27,Ocean View,INCREASE,749,799,50,7
+2026-10-29,Beachcomber,7-Night Eastern Caribbean,02/27/27,Balcony,DROP,1599,1549,-50,-3
+2026-10-29,Beachcomber,7-Night Eastern Caribbean,03/20/27,Ocean View,DROP,879,849,-30,-3
+2026-10-29,Beachcomber,7-Night Eastern Caribbean,03/20/27,Balcony,DROP,1399,1379,-20,-1
+2026-10-29,Beachcomber,7-Night Eastern Caribbean,03/20/27,Suite,DROP,2499,2479,-20,-1
+2026-10-29,Beachcomber,"7-Night Key West, Bahamas & Western Caribbean",03/27/27,Interior,INCREASE,599,629,30,5
+2026-10-29,Beachcomber,8-Night Southern Caribbean,02/19/27,Ocean View,INCREASE,849,859,10,1
+2026-10-29,Beachcomber,7-Night Eastern Caribbean,04/03/27,Ocean View,DROP,729,699,-30,-4
+2026-10-29,Beachcomber,7-Night Eastern Caribbean,04/03/27,Suite,DROP,2399,2299,-100,-4
