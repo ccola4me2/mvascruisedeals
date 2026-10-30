@@ -1834,3 +1834,26 @@ Date Detected,Ship,Itinerary,Sailing Date,Room Type,Change Type,Old Price,New Pr
 2026-10-29,Beachcomber,8-Night Southern Caribbean,02/19/27,Ocean View,INCREASE,849,859,10,1
 2026-10-29,Beachcomber,7-Night Eastern Caribbean,04/03/27,Ocean View,DROP,729,699,-30,-4
 2026-10-29,Beachcomber,7-Night Eastern Caribbean,04/03/27,Suite,DROP,2399,2299,-100,-4
+2026-10-30,Paradise,3-Night Nassau Escape,11/13/26,Suite,INCREASE,799,899,100,13
+2026-10-30,Paradise,3-Night Nassau Escape,12/04/26,Suite,DROP,1199,999,-200,-17
+2026-10-30,Paradise,3-Night Nassau Escape,12/21/26,Suite,INCREASE,1099,1199,100,9
+2026-10-30,Paradise,3-Night Grand Bahama Escape,11/06/26,Interior,INCREASE,159,179,20,13
+2026-10-30,Paradise,3-Night Grand Bahama Escape,11/06/26,Ocean View,INCREASE,159,179,20,13
+2026-10-30,Paradise,3-Night Grand Bahama Escape,11/06/26,Suite,DROP,899,799,-100,-11
+2026-10-30,Paradise,3-Night Grand Bahama Escape,11/20/26,Suite,DROP,1399,1199,-200,-14
+2026-10-30,Paradise,3-Night Grand Bahama Escape,12/11/26,Ocean View,INCREASE,159,169,10,6
+2026-10-30,Paradise,4-Night Bahamas Duo,12/07/26,Suite,INCREASE,999,1199,200,20
+2026-10-30,Islander,4-Night Cozumel Express,12/10/26,Interior,DROP,539,529,-10,-2
+2026-10-30,Islander,4-Night Cozumel Express,12/10/26,Balcony,INCREASE,599,619,20,3
+2026-10-30,Islander,4-Night Cozumel Express,12/19/26,Interior,INCREASE,529,539,10,2
+2026-10-30,Islander,5-Night Mexico Duo,11/20/26,Ocean View,DROP,499,479,-20,-4
+2026-10-30,Islander,5-Night Mexico Duo,11/20/26,Suite,INCREASE,1049,1099,50,5
+2026-10-30,Islander,7-Night New Orleans & Mexico,11/07/26,Suite,INCREASE,1299,1499,200,15
+2026-10-30,Paradise,4-Night Key West & Grand Bahama,03/29/27,Ocean View,INCREASE,299,309,10,3
+2026-10-30,Paradise,3-Night Grand Bahama Escape,01/08/27,Suite,DROP,999,800,-199,-20
+2026-10-30,Paradise,3-Night Grand Bahama Escape,03/12/27,Suite,DROP,1099,999,-100,-9
+2026-10-30,Paradise,4-Night Bahamas Duo,01/04/27,Ocean View,DROP,269,259,-10,-4
+2026-10-30,Beachcomber,5-Night Bahamas & Eastern Caribbean,03/06/27,Ocean View,DROP,449,429,-20,-4
+2026-10-30,Islander,5-Night Bahamas Duo 3-Ship Meet-Up ft. Zac Brown Band,01/25/27,Suite,DROP,3099,2449,-650,-21
+2026-10-30,Paradise,4-Night Key West & Bimini,04/12/27,Interior,INCREASE,319,329,10,3
+2026-10-30,Paradise,4-Night Key West & Bimini,04/12/27,Ocean View,INCREASE,349,359,10,3
