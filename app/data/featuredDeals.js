@@ -133,8 +133,7 @@ export const featuredDeals = [
     image: "/deals/beachcomber.jpg",
     cabins: [
       { type: "Interior", name: "Cozy Interior", price: "$411.22" },
-      // Oceanview hidden for now ($522.82 was above the cruise line's own fare).
-      // To show it again, add: { type: "Oceanview", name: "Picturesque Oceanview", price: "$522.82" },
+      { type: "Oceanview", name: "Picturesque Oceanview", price: "$522.82" },
       {
         type: "Balcony",
         name: "Breezy Balcony",
