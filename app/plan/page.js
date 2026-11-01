@@ -14,7 +14,14 @@ export const metadata = {
     title: "Free Margaritaville at Sea Cruise Guide Builder",
     description:
       "Pick your cruise and get a personalized six-page guide with ports, onboard life, costs, and a countdown to sailing day.",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "MVAS Cruise Deals" }],
+    images: [{ url: "/og/guide.jpg", width: 1200, height: 630, alt: "Free cruise guide builder, with the Margaritaville at Sea Beachcomber" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Margaritaville at Sea Cruise Guide Builder",
+    description:
+      "Pick your cruise and get a personalized six-page guide with ports, onboard life, costs, and a countdown to sailing day.",
+    images: ["/og/guide.jpg"],
   },
 };
 
