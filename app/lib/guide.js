@@ -355,7 +355,7 @@ export function buildGuide(it, dateISO, today) {
     h: "Protect your trip",
     t: "Most of your fare is non-refundable once final payment is due. Travel insurance can reimburse it if a covered reason, like illness or a family emergency, makes you cancel. Many plans also cover medical care away from home. Buy it soon after your first payment, and read the exclusions.",
     storm: hurricane
-      ? "Hurricane season runs June through November. Plans usually exclude a storm that already has a name, so buy before one forms."
+      ? "Hurricane season runs June through November. Plans usually exclude storms already named, so buy early."
       : null,
   };
 
