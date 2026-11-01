@@ -258,6 +258,11 @@ export function Page4({ g }) {
               the VIP check-in lane. Not sure which category? Tell me how you like
               to cruise and I'll match you.
             </div>
+            <div className="gd-tip gd-tip--wide">
+              <b>Quiet cabin tip:</b> pick a cabin with other cabins above and
+              below it. Avoid a room under the buffet or over a lounge, where noise
+              and music can carry.
+            </div>
           </div>
         </div>
       </div>
