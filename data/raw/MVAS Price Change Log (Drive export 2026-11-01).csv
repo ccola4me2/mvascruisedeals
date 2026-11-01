@@ -1857,3 +1857,14 @@ Date Detected,Ship,Itinerary,Sailing Date,Room Type,Change Type,Old Price,New Pr
 2026-10-30,Islander,5-Night Bahamas Duo 3-Ship Meet-Up ft. Zac Brown Band,01/25/27,Suite,DROP,3099,2449,-650,-21
 2026-10-30,Paradise,4-Night Key West & Bimini,04/12/27,Interior,INCREASE,319,329,10,3
 2026-10-30,Paradise,4-Night Key West & Bimini,04/12/27,Ocean View,INCREASE,349,359,10,3
+2026-10-31,Paradise,4-Night Bahamas Duo,12/07/26,Suite,DROP,1199,999,-200,-17
+2026-10-31,Islander,7-Night New Orleans & Mexico,11/07/26,Suite,INCREASE,1499,2199,700,47
+2026-10-31,Islander,6-Night Mexico & Western Caribbean,11/01/26,Balcony,DROP,1099,699,-400,-36
+2026-10-31,Beachcomber,7-Night Eastern Caribbean,01/09/27,Interior,DROP,899,829,-70,-8
+2026-10-31,Beachcomber,4-Night Dominican Republic Express,02/05/27,Ocean View,DROP,449,429,-20,-4
+2026-10-31,Beachcomber,5-Night Bahamas & Eastern Caribbean,03/06/27,Interior,DROP,429,399,-30,-7
+2026-10-31,Beachcomber,5-Night Bahamas & Eastern Caribbean,03/06/27,Ocean View,DROP,429,399,-30,-7
+2026-10-31,Beachcomber,5-Night Bahamas & Eastern Caribbean,03/15/27,Interior,DROP,479,449,-30,-6
+2026-10-31,Islander,5-Night Bahamas Duo 3-Ship Meet-Up ft. Zac Brown Band,01/25/27,Suite,INCREASE,2449,3099,650,27
+2026-11-01,Islander,6-Night Belize & Progreso,11/14/26,Ocean View,INCREASE,449,489,40,9
+2026-11-01,Beachcomber,7-Night Eastern Caribbean,01/16/27,Interior,INCREASE,569,599,30,5
