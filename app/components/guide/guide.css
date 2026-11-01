@@ -266,6 +266,9 @@
   background: var(--g-gold);
   color: var(--g-navy);
 }
+.gd-callout .gd-storm {
+  margin-top: 6px;
+}
 .gd-callout.gd-two {
   gap: 26px;
 }

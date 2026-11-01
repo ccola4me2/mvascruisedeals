@@ -142,13 +142,13 @@ function headlineSize(name) {
 
 function seasonBox(dep) {
   const m = parts(dep).m;
-  if (m >= 5 && m <= 10) {
+  if (m >= 6 && m <= 11) {
     return {
       h: "Sailing in " + MONTHS[m],
-      t: "Expect warm, humid days. It's also hurricane season, so routes can shift for weather. Travel protection is worth a look.",
+      t: "Expect warm, humid days. It's also hurricane season, so routes can shift for weather. Travel insurance is worth a look.",
     };
   }
-  if (m === 11 || m <= 2) {
+  if (m === 12 || m <= 2) {
     return {
       h: "Sailing in " + MONTHS[m],
       t: "Dry, breezy weather is typical this time of year, which also makes it a popular time to sail. Book your excursions early.",
@@ -276,7 +276,7 @@ export function buildGuide(it, dateISO, today) {
 
   // getting ready
   const m = parts(dep).m;
-  const hurricane = m >= 5 && m <= 10;
+  const hurricane = m >= 6 && m <= 11;
   const reef = groups.some((g) => REEF_PORTS.indexOf(g.key) !== -1);
   const bigPort = groups.find((g) => BIG_EXCURSION[g.key]);
   const countdown = [
@@ -339,12 +339,7 @@ export function buildGuide(it, dateISO, today) {
     { h: "Bring your passport", t: "It is the cruise line's top recommendation. The name must match your reservation." },
     { h: "Pack a day-one carry-on", t: "Swimsuit, medications, documents and a change of clothes. Checked bags can take a while to reach your room." },
     { h: "Watch the all-aboard time", t: "Be back on the ship with room to spare in every port. The ship sails on schedule." },
-    {
-      h: "Protect the trip",
-      t: hurricane
-        ? "Hurricane season runs June through November. Ask about travel protection before final payment."
-        : "Ask about travel protection before final payment. It can help if plans change.",
-    },
+    { h: "Protect the trip", t: "Read the travel insurance box above, and ask me about options before final payment." },
     {
       h: "Pre-book your excursions",
       t: bigPort
@@ -353,6 +348,17 @@ export function buildGuide(it, dateISO, today) {
     },
     { h: "Ask me anything", t: "Call or text " + BRENT.phone + " any time. I'm happy to help with excursions, cabins and packages." },
   ];
+
+  // Travel insurance box on page 5. General facts only: plans differ, so it
+  // points to the policy and to Brent rather than promising any coverage.
+  const protect = {
+    h: "Protect your trip with travel insurance",
+    t:
+      "Your fare is mostly non-refundable once final payment is due. Travel insurance can reimburse it if a covered reason, such as illness or a family emergency, makes you cancel, and many plans also cover medical care away from home, delays and lost bags. Your regular health plan may not cover care at sea or abroad. Buy it soon after your first payment, because some benefits depend on how early you buy. Every plan has exclusions, so read the policy.",
+    storm: hurricane
+      ? "Hurricane season runs June through November. Itineraries can change for weather, and plans usually will not cover a storm that already has a name, so buy before one forms."
+      : null,
+  };
 
   const covers = {
     included: [
@@ -400,7 +406,7 @@ export function buildGuide(it, dateISO, today) {
     covers,
     staterooms: ship.staterooms,
     packages: PACKAGES,
-    ready: { airport: hp.airportLine, parking: hp.parking, countdown, bring, tips },
+    ready: { airport: hp.airportLine, parking: hp.parking, countdown, bring, tips, protect },
     foreign,
     places,
     brent: BRENT,

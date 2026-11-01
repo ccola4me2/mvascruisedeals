@@ -303,6 +303,11 @@ export function Page5({ g }) {
             <b>Parking</b>
             <p>{r.parking}</p>
           </div>
+          <div className="gd-callout gd-callout--gold">
+            <b>{r.protect.h}</b>
+            <p>{r.protect.t}</p>
+            {r.protect.storm && <p className="gd-storm">{r.protect.storm}</p>}
+          </div>
         </div>
       </div>
       <div className="gd-tips">
