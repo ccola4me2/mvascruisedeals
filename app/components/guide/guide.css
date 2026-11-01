@@ -266,8 +266,13 @@
   background: var(--g-gold);
   color: var(--g-navy);
 }
-.gd-callout .gd-storm {
-  margin-top: 6px;
+.gd-ready .gd-callout--gold p {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+.gd-ready .gd-callout--gold .gd-storm {
+  margin-top: 5px;
 }
 .gd-callout.gd-two {
   gap: 26px;

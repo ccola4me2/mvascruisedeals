@@ -352,11 +352,10 @@ export function buildGuide(it, dateISO, today) {
   // Travel insurance box on page 5. General facts only: plans differ, so it
   // points to the policy and to Brent rather than promising any coverage.
   const protect = {
-    h: "Protect your trip with travel insurance",
-    t:
-      "Your fare is mostly non-refundable once final payment is due. Travel insurance can reimburse it if a covered reason, such as illness or a family emergency, makes you cancel, and many plans also cover medical care away from home, delays and lost bags. Your regular health plan may not cover care at sea or abroad. Buy it soon after your first payment, because some benefits depend on how early you buy. Every plan has exclusions, so read the policy.",
+    h: "Protect your trip",
+    t: "Most of your fare is non-refundable once final payment is due. Travel insurance can reimburse it if a covered reason, like illness or a family emergency, makes you cancel. Many plans also cover medical care away from home. Buy it soon after your first payment, and read the exclusions.",
     storm: hurricane
-      ? "Hurricane season runs June through November. Itineraries can change for weather, and plans usually will not cover a storm that already has a name, so buy before one forms."
+      ? "Hurricane season runs June through November. Plans usually exclude a storm that already has a name, so buy before one forms."
       : null,
   };
 
