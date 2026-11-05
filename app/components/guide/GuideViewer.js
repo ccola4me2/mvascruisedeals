@@ -26,6 +26,11 @@ export default function GuideViewer() {
   const [view, setView] = useState(null); // { it, date, today } | { missing } | { past }
   const [fit, setFit] = useState(1);
   const [zoomed, setZoomed] = useState(false);
+  // "auto" reads on phones and shows the printable pages elsewhere; the toolbar
+  // button switches by hand. Text size only applies to the reading view.
+  const [layout, setLayout] = useState("auto"); // "auto" | "read" | "page"
+  const [narrow, setNarrow] = useState(false);
+  const [textSize, setTextSize] = useState(0); // 0 standard, 1 large, 2 largest
   const [copied, setCopied] = useState(false);
   const [debug, setDebug] = useState(null);
   const wrapRef = useRef(null);
@@ -45,6 +50,31 @@ export default function GuideViewer() {
     if (!dates.length) return setView({ past: true, it });
     setView({ it, date: dates.indexOf(query.d) !== -1 ? query.d : dates[0], today });
   }, [query]);
+
+  // Phones get the reading view; remember the text size someone chose.
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 700px)");
+    const sync = () => setNarrow(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    try {
+      const n = Number(window.localStorage.getItem("gd-text-size"));
+      if (n === 1 || n === 2) setTextSize(n);
+    } catch {
+      /* the default size is fine without it */
+    }
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
+  const chooseSize = useCallback((n) => {
+    setTextSize(n);
+    track("guide_text_size", { size: n });
+    try {
+      window.localStorage.setItem("gd-text-size", String(n));
+    } catch {
+      /* the size still changes on screen */
+    }
+  }, []);
 
   // Hidden self-check (?debug=all): render every itinerary and report any page
   // whose content is taller than a Letter page.
@@ -171,12 +201,14 @@ export default function GuideViewer() {
   }
 
   const g = guide;
+  // The self-check measures the printable pages, so it never uses the reading view.
+  const reading = !query.debug && (layout === "read" || (layout === "auto" && narrow));
   const small = fit < 0.8;
   // On phones the page stack fits the width by default; "Zoom" switches to a
   // readable size you scroll sideways.
   const scale = zoomed && small ? Math.max(fit, 0.9) : fit;
   return (
-    <div className="gd-root">
+    <div className={"gd-root" + (reading ? " gd-read gd-text-" + textSize : "")}>
       <div className="gd-toolbar gd-noprint">
         <div className="gd-toolbar-inner">
           <div className="gd-toolbar-title">
@@ -197,6 +229,36 @@ export default function GuideViewer() {
           </select>
           <button
             type="button"
+            className="gd-tb-btn"
+            onClick={() => {
+              track("guide_view", { view: reading ? "page" : "read" });
+              setLayout(reading ? "page" : "read");
+            }}
+          >
+            {reading ? "Page view" : "Reading view"}
+          </button>
+          {reading && (
+            <div className="gd-size" role="group" aria-label="Text size">
+              {[
+                ["A", "Standard text"],
+                ["A+", "Large text"],
+                ["A++", "Largest text"],
+              ].map(([label, name], n) => (
+                <button
+                  key={label}
+                  type="button"
+                  className={"gd-size-btn gd-size-btn--" + n}
+                  aria-label={name}
+                  aria-pressed={textSize === n}
+                  onClick={() => chooseSize(n)}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          )}
+          <button
+            type="button"
             className="gd-tb-btn gd-tb-btn--primary"
             onClick={() => {
               track("guide_print", { sailing: view.it.id });
@@ -205,7 +267,7 @@ export default function GuideViewer() {
           >
             Save as PDF
           </button>
-          {small && (
+          {small && !reading && (
             <button type="button" className="gd-tb-btn" onClick={() => setZoomed((z) => !z)}>
               {zoomed ? "Fit to screen" : "Zoom in"}
             </button>
@@ -230,9 +292,9 @@ export default function GuideViewer() {
         <div className="gd-outer" ref={wrapRef}>
           <div
             className="gd-frame"
-            style={{ width: PAGE_W * scale, height: stackHeight(g.pages) * scale }}
+            style={reading ? undefined : { width: PAGE_W * scale, height: stackHeight(g.pages) * scale }}
           >
-            <div className="gd-sheet" style={{ transform: "scale(" + scale + ")" }}>
+            <div className="gd-sheet" style={reading ? undefined : { transform: "scale(" + scale + ")" }}>
               <GuidePages g={g} />
             </div>
           </div>

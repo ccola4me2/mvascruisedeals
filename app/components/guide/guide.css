@@ -1068,3 +1068,230 @@
   margin-top: 10px;
   padding: 10px 14px;
 }
+
+/* ---------- reading view (screen only) ----------
+   The same pages, reflowed into one column so a phone shows readable type
+   instead of a shrunken Letter sheet. Text size uses CSS zoom, which scales type
+   and spacing together and lets the column reflow to the narrower width. Nothing
+   here applies to print, so "Save as PDF" is always the six Letter pages. */
+@media screen {
+  .gd-size {
+    display: inline-flex;
+    border: 1px solid var(--navy);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .gd-size-btn {
+    font: inherit;
+    font-weight: 700;
+    min-width: 42px;
+    min-height: 38px;
+    padding: 0 12px;
+    border: 0;
+    background: #fff;
+    color: var(--navy);
+    cursor: pointer;
+  }
+  .gd-size-btn + .gd-size-btn {
+    border-left: 1px solid var(--line);
+  }
+  .gd-size-btn--0 { font-size: 0.8rem; }
+  .gd-size-btn--1 { font-size: 0.95rem; }
+  .gd-size-btn--2 { font-size: 1.1rem; }
+  .gd-size-btn[aria-pressed="true"] {
+    background: var(--navy);
+    color: #fff;
+  }
+
+  .gd-read .gd-viewport {
+    max-width: 760px;
+    margin-top: 14px;
+    padding: 0 10px;
+  }
+  .gd-read .gd-outer {
+    overflow: visible;
+  }
+  .gd-read .gd-frame {
+    width: auto;
+    height: auto;
+  }
+  .gd-read .gd-frame .gd-sheet {
+    position: static;
+  }
+  .gd-read .gd-sheet {
+    width: auto;
+    transform: none;
+    gap: 14px;
+  }
+  .gd-read .gd-page {
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    border-radius: 14px;
+    overflow-wrap: break-word;
+  }
+  .gd-read.gd-text-0 .gd-page { zoom: 1.2; }
+  .gd-read.gd-text-1 .gd-page { zoom: 1.45; }
+  .gd-read.gd-text-2 .gd-page { zoom: 1.75; }
+  .gd-read .gd-page::after {
+    content: "";
+    display: block;
+    flex: none;
+    height: 18px;
+  }
+  .gd-read .gd-page .gd-foot {
+    display: none;
+  }
+
+  /* headings and bands */
+  .gd-read .gd-page .gd-hero {
+    padding: 22px 18px 18px;
+  }
+  .gd-read .gd-page .gd-hero h1 {
+    font-size: 30px !important;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .gd-read.gd-text-2 .gd-page .gd-hero h1 {
+    font-size: 26px !important;
+  }
+  .gd-read .gd-page .gd-lede {
+    max-width: none;
+    font-size: 15px;
+  }
+  .gd-read .gd-page .gd-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    padding: 16px 18px;
+  }
+  .gd-read.gd-text-2 .gd-page .gd-stats {
+    grid-template-columns: 1fr;
+  }
+  .gd-read .gd-page .gd-stats strong {
+    font-size: 22px;
+  }
+  .gd-read .gd-page .gd-body {
+    padding: 18px 18px 4px;
+  }
+  .gd-read .gd-page .gd-nights,
+  .gd-read .gd-page .gd-tips {
+    padding: 16px 18px 4px;
+  }
+  .gd-read .gd-page .gd-body h2,
+  .gd-read .gd-page .gd-nights h2,
+  .gd-read .gd-page .gd-tips h2 {
+    font-size: 21px;
+  }
+
+  /* every grid becomes a single column */
+  .gd-read .gd-page :is(.gd-cols, .gd-two, .gd-zbb-top, .gd-port-grid, .gd-bookhero, .gd-tips-grid, .gd-nights-grid) {
+    grid-template-columns: 1fr;
+  }
+  .gd-read .gd-page .gd-cols {
+    gap: 22px;
+  }
+  .gd-read .gd-page .gd-two,
+  .gd-read .gd-page .gd-callout.gd-two,
+  .gd-read .gd-page .gd-port-grid {
+    gap: 12px;
+  }
+  .gd-read .gd-page .gd-zbb-top {
+    gap: 0;
+  }
+
+  /* photos keep their shape instead of filling the leftover page height */
+  .gd-read .gd-page .gd-photo {
+    flex: none;
+    aspect-ratio: 16 / 9;
+    margin: 14px 18px 4px;
+  }
+
+  /* ports */
+  .gd-read .gd-page .gd-port {
+    padding: 14px;
+  }
+  .gd-read .gd-page .gd-port-top {
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+  .gd-read .gd-page .gd-port-top h3 {
+    font-size: 20px;
+  }
+  .gd-read .gd-page .gd-seg-btn {
+    margin-left: 0;
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+
+  /* cards and booking page */
+  .gd-read .gd-page .gd-card {
+    padding: 14px;
+  }
+  .gd-read .gd-page .gd-card h3 {
+    font-size: 20px;
+  }
+  .gd-read .gd-page .gd-bookhero-main,
+  .gd-read .gd-page .gd-bookhero-next {
+    padding: 18px;
+  }
+  .gd-read .gd-page .gd-bookhero-main h3 {
+    font-size: 22px;
+  }
+  .gd-read .gd-page .gd-bigphone {
+    font-size: 30px;
+  }
+  .gd-read .gd-page .gd-bignum strong {
+    font-size: 30px;
+  }
+  .gd-read .gd-page .gd-next-link {
+    padding: 10px 18px;
+    font-size: 13.5px;
+  }
+
+  /* body copy: nothing smaller than the standard sizes */
+  .gd-read .gd-page :is(.gd-list, .gd-ticks, .gd-ticks--light, .gd-tip, .gd-callout, .gd-zbb-intro, .gd-zbb-sched, .gd-next-ask) {
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .gd-read .gd-page :is(.gd-glance p, .gd-route p, .gd-card p, .gd-port-grid ul, .gd-callout p, .gd-count li div p, .gd-tips-grid p, .gd-nights-grid p) {
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .gd-read .gd-page :is(.gd-small, .gd-seg-note, .gd-fine) {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .gd-read .gd-page .gd-label {
+    font-size: 12px;
+  }
+  .gd-read .gd-page .gd-count-date {
+    width: 58px;
+  }
+  .gd-read .gd-page .gd-count-date i {
+    font-size: 11.5px;
+  }
+  .gd-read .gd-page .gd-zbb-table {
+    font-size: 12.5px;
+  }
+  .gd-read .gd-page .gd-zbb-table td:first-child,
+  .gd-read .gd-page .gd-zbb-table td.gd-zbb-price {
+    width: auto;
+  }
+}
+
+/* Phones: let the toolbar scroll away so the guide gets the whole screen. */
+@media screen and (max-width: 700px) {
+  .gd-toolbar {
+    position: static;
+  }
+  .gd-toolbar select {
+    max-width: none;
+    flex: 1 1 100%;
+  }
+  .gd-toolbar-title {
+    flex: 1 1 100%;
+  }
+  .gd-tb-btn {
+    min-height: 40px;
+  }
+}

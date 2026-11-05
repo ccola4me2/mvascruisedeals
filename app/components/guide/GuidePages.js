@@ -405,7 +405,8 @@ export function Page6({ g }) {
         <p className="gd-fine">
           Ship and port details as published by Margaritaville at Sea; itineraries,
           pricing and policies are subject to change. Prepared for the {g.depLong}{" "}
-          sailing. Independent travel advisor, not affiliated with or endorsed by
+          sailing and built on {g.built}. Ports and sailing dates last confirmed with
+          the cruise line on {g.datesChecked}. Independent travel advisor, not affiliated with or endorsed by
           Margaritaville at Sea. {BRENT.cred}. GOVX program or Casino rates do not qualify
           for advertised deals or onboard credit.
         </p>

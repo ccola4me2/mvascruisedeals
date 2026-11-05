@@ -4,7 +4,7 @@
 // (/guide/), the planner search (/plan/), and the confirmation email, so a date
 // or port can never differ between them.
 
-import { itineraries } from "../data/itineraries.js";
+import { itineraries, ITINERARIES_UPDATED } from "../data/itineraries.js";
 import {
   BRENT,
   HOMEPORTS,
@@ -387,6 +387,9 @@ export function buildGuide(it, dateISO, today) {
     dep,
     ret,
     depLong: longDate(dep, { dow: true, year: true }),
+    // when this copy was built, and when ports and dates were last confirmed with the cruise line
+    built: longDate(today, { year: true }),
+    datesChecked: longDate(ITINERARIES_UPDATED, { year: true }),
     retLong: longDate(ret, { dow: true, year: true }),
     headSize: headlineSize(it.name),
     lede: sentences.join(" "),
