@@ -1413,7 +1413,10 @@
   cursor: pointer;
 }
 .gd-ready .gd-checks {
-  gap: 6px;
+  gap: 5px;
+}
+.gd-ready .gd-checks-head {
+  margin-bottom: 8px;
 }
 .gd-checks input {
   flex: none;
