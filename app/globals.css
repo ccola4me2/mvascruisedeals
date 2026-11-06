@@ -3965,6 +3965,9 @@ img {
 .dl-port-link:hover {
   text-decoration: underline;
 }
+.dl-port-link + .dl-port-link {
+  margin-top: 8px;
+}
 
 /* Ship */
 .dl-ship {

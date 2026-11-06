@@ -6,7 +6,7 @@
 .gd-root {
   --g-navy: #0e3b53;
   --g-gold: #f4c542;
-  --g-teal: #1c7c8c;
+  --g-teal: #19737f;
   --g-cream: #fbf6ec;
   --g-ink: #1d2a33;
   --g-mint: #e3f0ef;
@@ -165,7 +165,7 @@
   letter-spacing: 2px;
   color: var(--g-gold);
 }
-.gd-hero h1 {
+.gd-hero :is(h1, h2) {
   color: #fff;
   font-size: 52px;
   font-weight: 700;
@@ -512,7 +512,7 @@
 .gd-ports .gd-callout {
   margin-top: 2px;
 }
-.gd-ports--snug .gd-hero--page h1 {
+.gd-ports--snug .gd-hero--page h2 {
   font-size: 46px;
 }
 .gd-ports--snug .gd-body {
@@ -531,7 +531,7 @@
 .gd-ports--tight .gd-hero--page {
   padding: 28px 56px 20px;
 }
-.gd-ports--tight .gd-hero--page h1 {
+.gd-ports--tight .gd-hero--page h2 {
   font-size: 40px;
 }
 .gd-ports--tight .gd-body {
@@ -828,7 +828,7 @@
 .gd-ready .gd-hero--page {
   padding: 28px 56px 20px;
 }
-.gd-ready .gd-hero--page h1 {
+.gd-ready .gd-hero--page h2 {
   font-size: 46px;
 }
 .gd-ready .gd-body {
@@ -1147,12 +1147,12 @@
   .gd-read .gd-page .gd-hero {
     padding: 22px 18px 18px;
   }
-  .gd-read .gd-page .gd-hero h1 {
+  .gd-read .gd-page .gd-hero :is(h1, h2) {
     font-size: 30px !important;
     line-height: 1.1;
     letter-spacing: -0.5px;
   }
-  .gd-read.gd-text-2 .gd-page .gd-hero h1 {
+  .gd-read.gd-text-2 .gd-page .gd-hero :is(h1, h2) {
     font-size: 26px !important;
   }
   .gd-read .gd-page .gd-lede {
@@ -1299,5 +1299,249 @@
   }
   .gd-tb-btn {
     min-height: 40px;
+  }
+}
+
+/* ---------- fares for the sailing (page 4) ---------- */
+.gd-fares {
+  padding: 12px 16px 11px;
+  background: #fff;
+  border: 1.5px solid var(--g-navy);
+  border-radius: 12px;
+}
+.gd-fares-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.gd-fares-head h2 {
+  margin: 0;
+  font-size: 18px;
+}
+.gd-fares-head span {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--g-teal);
+}
+.gd-fares-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+.gd-fares-grid li {
+  padding: 7px 10px 8px;
+  border-radius: 10px;
+  background: var(--g-mint);
+}
+.gd-fares-grid span {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--g-navy);
+}
+.gd-fares-grid strong {
+  display: block;
+  font-family: var(--font-display-stack), Georgia, serif;
+  font-size: 22px;
+  line-height: 1.1;
+  color: var(--g-navy);
+}
+.gd-fares-grid i {
+  display: block;
+  font-style: normal;
+  font-size: 10.5px;
+  line-height: 1.3;
+  color: #2d4a58;
+}
+.gd-fares .gd-small {
+  margin-top: 7px;
+}
+.gd-fares-watch {
+  margin-top: 5px;
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+
+/* ---------- the terminal list as check boxes (page 5) ---------- */
+.gd-checks li {
+  padding-left: 0;
+}
+.gd-checks li::before {
+  content: none;
+}
+.gd-checks label {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  cursor: pointer;
+}
+.gd-checks input {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  margin: 2px 0 0;
+  accent-color: var(--g-teal);
+}
+.gd-checks-count {
+  margin-top: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #3c4c58;
+}
+
+/* ---------- focus, for keyboard and switch users ---------- */
+.gd-toolbar :is(button, a, select):focus-visible,
+.gd-today :is(button, a):focus-visible,
+.gd-a2hs button:focus-visible,
+.gd-page a:focus-visible,
+.gd-checks input:focus-visible {
+  outline: 3px solid #0b57d0;
+  outline-offset: 2px;
+}
+
+/* ---------- on screen only: today card, home screen tip, high contrast ---------- */
+@media screen {
+  .gd-today,
+  .gd-a2hs {
+    max-width: 880px;
+    margin: 16px auto 0;
+    padding: 0 16px;
+  }
+  .gd-today-card {
+    display: grid;
+    gap: 12px;
+    padding: 18px 20px;
+    border-radius: 14px;
+    background: var(--g-navy);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(14, 59, 83, 0.18);
+  }
+  .gd-today-count {
+    font-family: var(--font-display-stack), Georgia, serif;
+    font-size: 32px;
+    line-height: 1.05;
+    color: var(--g-gold);
+  }
+  .gd-today-card p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+  .gd-today-sub {
+    color: #dbe8ee;
+  }
+  .gd-today-arrival {
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .gd-today-arrival b {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--g-gold);
+  }
+  .gd-today-arrival ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 14.5px;
+    line-height: 1.45;
+  }
+  .gd-a2hs-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1.5px solid var(--g-navy);
+    color: var(--g-ink);
+    font-size: 14.5px;
+    line-height: 1.45;
+  }
+  .gd-a2hs-card p {
+    flex: 1 1 240px;
+    margin: 0;
+  }
+  .gd-a2hs-card button {
+    min-height: 40px;
+    padding: 0 16px;
+    border-radius: 999px;
+    border: 1px solid var(--navy);
+    background: var(--navy);
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .gd-tb-btn[aria-pressed="true"] {
+    background: var(--navy);
+    color: #fff;
+  }
+
+  .gd-read .gd-page .gd-fares-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .gd-read .gd-page .gd-fares-head h2 {
+    font-size: 20px;
+  }
+  .gd-read .gd-page .gd-fares-grid strong {
+    font-size: 26px;
+  }
+  .gd-read .gd-page .gd-fares-grid span,
+  .gd-read .gd-page .gd-fares-grid i,
+  .gd-read .gd-page .gd-fares-watch,
+  .gd-read .gd-page .gd-fares-head span {
+    font-size: 13.5px;
+  }
+  .gd-read .gd-page .gd-checks label {
+    min-height: 32px;
+    gap: 12px;
+  }
+  .gd-read .gd-page .gd-checks input {
+    width: 22px;
+    height: 22px;
+    margin-top: 0;
+  }
+  .gd-read .gd-page .gd-checks-count {
+    font-size: 13.5px;
+  }
+
+  /* High contrast: plain white pages, black text, darker accents. */
+  .gd-hc {
+    --g-cream: #ffffff;
+    --g-ink: #000000;
+    --g-teal: #0b4a57;
+    --g-warm: #8a2a12;
+    --g-mint: #ffffff;
+    background: #ffffff;
+  }
+  .gd-hc .gd-page {
+    box-shadow: 0 0 0 2px #000;
+  }
+  .gd-hc .gd-page :is(.gd-body, .gd-tips, .gd-nights) :is(p, li, span, i, em, small):not(.gd-callout--navy *, .gd-bookhero-main *) {
+    color: #000000;
+  }
+  .gd-hc .gd-page :is(.gd-card, .gd-tip, .gd-callout--teal, .gd-fares, .gd-fares-grid li, .gd-tips-grid > div) {
+    border: 2px solid #000;
+  }
+  .gd-hc .gd-page a {
+    color: #000;
+    text-decoration: underline;
+  }
+  .gd-hc .gd-page .gd-bookhero a,
+  .gd-hc .gd-page .gd-next-link {
+    text-decoration: none;
+  }
+}
+@media print {
+  .gd-today,
+  .gd-a2hs {
+    display: none !important;
   }
 }

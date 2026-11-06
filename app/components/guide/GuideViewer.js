@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import "./guide.css";
 import GuidePages from "./GuidePages";
+import { HomeScreenTip, TodayCard } from "./GuideExtras";
 import {
   buildGuide,
   findItinerary,
@@ -31,6 +32,7 @@ export default function GuideViewer() {
   const [layout, setLayout] = useState("auto"); // "auto" | "read" | "page"
   const [narrow, setNarrow] = useState(false);
   const [textSize, setTextSize] = useState(0); // 0 standard, 1 large, 2 largest
+  const [contrast, setContrast] = useState(false);
   const [copied, setCopied] = useState(false);
   const [debug, setDebug] = useState(null);
   const wrapRef = useRef(null);
@@ -60,6 +62,7 @@ export default function GuideViewer() {
     try {
       const n = Number(window.localStorage.getItem("gd-text-size"));
       if (n === 1 || n === 2) setTextSize(n);
+      if (window.localStorage.getItem("gd-contrast") === "1") setContrast(true);
     } catch {
       /* the default size is fine without it */
     }
@@ -76,6 +79,18 @@ export default function GuideViewer() {
     }
   }, []);
 
+  const chooseContrast = useCallback(() => {
+    setContrast((c) => {
+      try {
+        window.localStorage.setItem("gd-contrast", c ? "0" : "1");
+      } catch {
+        /* it still changes on screen */
+      }
+      return !c;
+    });
+    track("guide_contrast");
+  }, []);
+
   // Hidden self-check (?debug=all): render every itinerary and report any page
   // whose content is taller than a Letter page.
   useEffect(() => {
@@ -84,6 +99,7 @@ export default function GuideViewer() {
     (async () => {
       const today = todayISO();
       const issues = [];
+      const slack = []; // smallest gap above each page's footer, in page pixels
       let checked = 0;
       if (document.fonts && document.fonts.ready) await document.fonts.ready;
       for (const it of itineraries) {
@@ -96,12 +112,19 @@ export default function GuideViewer() {
           document.querySelectorAll(".gd-page").forEach((p, i) => {
             const over = p.scrollHeight - p.clientHeight;
             if (over > 1) issues.push(it.id + " " + date + " page " + (i + 1) + " over by " + over + "px");
+            const foot = p.querySelector(".gd-foot");
+            const above = foot && foot.previousElementSibling;
+            if (above) {
+              const k = p.getBoundingClientRect().height / p.offsetHeight || 1;
+              const gap = Math.round((foot.getBoundingClientRect().top - above.getBoundingClientRect().bottom) / k);
+              slack[i] = slack[i] === undefined ? gap : Math.min(slack[i], gap);
+            }
           });
           checked += 1;
-          setDebug({ checked, issues, done: false });
+          setDebug({ checked, issues, slack, done: false });
         }
       }
-      setDebug({ checked, issues, done: true });
+      setDebug({ checked, issues, slack, done: true });
     })();
     return () => {
       stop = true;
@@ -116,6 +139,11 @@ export default function GuideViewer() {
     () => (view && view.it && view.today ? futureDates(view.it, view.today) : []),
     [view]
   );
+
+  // A short title for the browser tab and for "Add to Home Screen".
+  useEffect(() => {
+    if (guide) document.title = "My cruise guide";
+  }, [guide]);
 
   // Scale the page stack to the window; printing resets it in CSS.
   useEffect(() => {
@@ -208,8 +236,10 @@ export default function GuideViewer() {
   // readable size you scroll sideways.
   const scale = zoomed && small ? Math.max(fit, 0.9) : fit;
   return (
-    <div className={"gd-root" + (reading ? " gd-read gd-text-" + textSize : "")}>
-      <div className="gd-toolbar gd-noprint">
+    <div
+      className={"gd-root" + (reading ? " gd-read gd-text-" + textSize : "") + (contrast ? " gd-hc" : "")}
+    >
+      <div className="gd-toolbar gd-noprint" role="region" aria-label="Guide controls">
         <div className="gd-toolbar-inner">
           <div className="gd-toolbar-title">
             <b>{g.fullTitle}</b>
@@ -257,6 +287,9 @@ export default function GuideViewer() {
               ))}
             </div>
           )}
+          <button type="button" className="gd-tb-btn" aria-pressed={contrast} onClick={chooseContrast}>
+            High contrast
+          </button>
           <button
             type="button"
             className="gd-tb-btn gd-tb-btn--primary"
@@ -275,6 +308,9 @@ export default function GuideViewer() {
           <button type="button" className="gd-tb-btn" onClick={copyLink}>
             {copied ? "Link copied" : "Copy link"}
           </button>
+          <span className="sr-only" role="status" aria-live="polite">
+            {copied ? "Link copied to the clipboard" : ""}
+          </span>
           <Link
             className="gd-tb-btn gd-tb-btn--gold"
             href={quoteHref({
@@ -287,6 +323,9 @@ export default function GuideViewer() {
           </Link>
         </div>
       </div>
+
+      {!query.debug && <TodayCard g={g} today={view.today} />}
+      {!query.debug && <HomeScreenTip />}
 
       <div className="gd-viewport">
         <div className="gd-outer" ref={wrapRef}>

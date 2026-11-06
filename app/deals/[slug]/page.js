@@ -9,6 +9,7 @@ import DealClosedNotice from "../../components/DealClosedNotice";
 import ShareRow from "../../components/ShareRow";
 import OfferEnds from "../../components/OfferEnds";
 import { youSave } from "../../lib/dealMoney";
+import { portExcursionUrl, EXCURSION_DISCLOSURE } from "../../lib/excursions";
 
 const SITE = "https://mvascruisedeals.com";
 
@@ -417,9 +418,18 @@ export default function DealLandingPage({ params }) {
                   <Link href={`/cruises/${p.slug}/`} className="dl-port-link">
                     Explore {p.name.split(",")[0]} &rarr;
                   </Link>
+                  <a
+                    href={portExcursionUrl(p.port)}
+                    className="dl-port-link"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Book {p.name.split(",")[0]} excursions &rarr;
+                  </a>
                 </article>
               ))}
             </div>
+            <p className="dl-note">{EXCURSION_DISCLOSURE}</p>
           </section>
 
           {/* Ship */}

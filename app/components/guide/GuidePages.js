@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { BRENT } from "../../data/guideContent.js";
 import { ZBB_UPDATED_LONG } from "../../data/zacBrown";
 import { quoteHref } from "../../lib/quote";
@@ -18,7 +21,7 @@ const Foot = ({ n, total = 6 }) => (
 const PageHead = ({ eyebrow, title, size }) => (
   <header className="gd-hero gd-hero--page">
     <div className="gd-eyebrow">{eyebrow}</div>
-    <h1 style={size ? { fontSize: size } : undefined}>{title}</h1>
+    <h2 style={size ? { fontSize: size } : undefined}>{title}</h2>
   </header>
 );
 
@@ -37,7 +40,7 @@ export function Page1({ g }) {
     ? "FROM " + g.hp.city.toUpperCase() + " TO " + g.arriveHp.city.toUpperCase()
     : "FROM " + g.hp.city.toUpperCase() + ", " + g.hp.state.toUpperCase();
   return (
-    <section className="gd-page" data-page="1">
+    <section className="gd-page" data-page="1" aria-label={"Page 1 of " + g.pages}>
       <header className="gd-hero">
         <div className="gd-eyebrow">
           MARGARITAVILLE AT SEA {g.ship.toUpperCase()} &middot; {where}
@@ -59,7 +62,7 @@ export function Page1({ g }) {
           <ol className="gd-route">
             {g.route.map((r, i) => (
               <li key={i}>
-                <span className={"gd-dot gd-dot--" + r.kind}>{r.tag}</span>
+                <span className={"gd-dot gd-dot--" + r.kind} aria-hidden="true">{r.tag}</span>
                 <div>
                   <b>{r.title}</b>
                   <p>{r.text}</p>
@@ -97,7 +100,7 @@ export function Page1({ g }) {
 
 export function Page2({ g }) {
   return (
-    <section className={"gd-page gd-ports gd-ports--" + g.density} data-page="2">
+    <section className={"gd-page gd-ports gd-ports--" + g.density} data-page="2" aria-label={"Page 2 of " + g.pages}>
       <PageHead eyebrow="YOUR PORTS OF CALL" title={g.portsHead} />
       <div className="gd-body">
         {g.ports.map((p) => (
@@ -116,7 +119,8 @@ export function Page2({ g }) {
                 target="_blank"
                 rel="noopener"
               >
-                Book excursions &rarr;
+                Book excursions<span className="sr-only"> in {p.name}, opens in a new tab</span>{" "}
+                <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
             <div className="gd-port-grid">
@@ -145,7 +149,7 @@ export function Page2({ g }) {
         </div>
         <p className="gd-seg-note">
           <a href={excursionUrl("/")} target="_blank" rel="noopener">
-            Browse every shore excursion
+            Browse every shore excursion<span className="sr-only"> (opens in a new tab)</span>
           </a>{" "}
           for your ports. {EXCURSION_DISCLOSURE}
         </p>
@@ -164,7 +168,7 @@ export function Page2({ g }) {
 export function Page3({ g }) {
   const o = g.onboard;
   return (
-    <section className="gd-page gd-onboard" data-page="3">
+    <section className="gd-page gd-onboard" data-page="3" aria-label={"Page 3 of " + g.pages}>
       <PageHead eyebrow={o.eyebrow.toUpperCase()} title={o.title} />
       <div className="gd-body gd-cols">
         <div>
@@ -201,10 +205,39 @@ export function Page3({ g }) {
   );
 }
 
+// What this sailing costs in each cabin category, from the daily fare check.
+function Fares({ f }) {
+  return (
+    <div className="gd-fares">
+      <div className="gd-fares-head">
+        <h2>What your sailing costs</h2>
+        <span>As of {f.asOf}</span>
+      </div>
+      <ul className="gd-fares-grid">
+        {f.rows.map((r, i) => (
+          <li key={r.room}>
+            <span>{r.room}</span>
+            <strong>{r.price}</strong>
+            <i>{r.step ? r.step + " over " + f.rows[i - 1].room : "Lowest fare"}</i>
+          </li>
+        ))}
+      </ul>
+      <p className="gd-small">
+        {f.note} Fares change daily, so call or text me for today&apos;s price and any offer that applies.
+      </p>
+      {(f.move || f.low) && (
+        <p className="gd-fares-watch">
+          <b>Price watch:</b> {f.move} {f.low} Full fare history: {BRENT.site}/trends
+        </p>
+      )}
+    </div>
+  );
+}
+
 export function Page4({ g }) {
   const c = g.covers;
   return (
-    <section className="gd-page gd-covers" data-page="4">
+    <section className="gd-page gd-covers" data-page="4" aria-label={"Page 4 of " + g.pages}>
       <PageHead eyebrow="BEFORE YOU BOOK" title="What your fare covers." />
       <div className="gd-body">
         <div className="gd-two gd-two--cards">
@@ -245,6 +278,7 @@ export function Page4({ g }) {
           Some of my rates already include gratuities. I spell out exactly what is
           included in your quote.
         </p>
+        {g.fares && <Fares f={g.fares} />}
         <div className="gd-two">
           <div>
             <h2>Packages worth a look</h2>
@@ -271,10 +305,51 @@ export function Page4({ g }) {
   );
 }
 
+// The terminal list as real check boxes. Ticks are remembered on this device
+// for this sailing; on paper they print as empty boxes to tick by hand.
+function Checklist({ id, items }) {
+  const key = "gd-packed-" + id;
+  const [done, setDone] = useState([]);
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(window.localStorage.getItem(key) || "[]");
+      if (Array.isArray(saved)) setDone(saved.filter((n) => Number.isInteger(n)));
+    } catch {
+      /* start with an empty list */
+    }
+  }, [key]);
+  function toggle(n) {
+    const next = done.indexOf(n) === -1 ? done.concat(n) : done.filter((x) => x !== n);
+    setDone(next);
+    try {
+      window.localStorage.setItem(key, JSON.stringify(next));
+    } catch {
+      /* the box still ticks on screen */
+    }
+  }
+  return (
+    <>
+      <ul className="gd-ticks gd-checks">
+        {items.map((t, n) => (
+          <li key={t}>
+            <label>
+              <input type="checkbox" checked={done.indexOf(n) !== -1} onChange={() => toggle(n)} />
+              <span>{t}</span>
+            </label>
+          </li>
+        ))}
+      </ul>
+      <p className="gd-checks-count gd-noprint" aria-live="polite">
+        {done.length} of {items.length} packed
+      </p>
+    </>
+  );
+}
+
 export function Page5({ g }) {
   const r = g.ready;
   return (
-    <section className="gd-page gd-ready" data-page="5">
+    <section className="gd-page gd-ready" data-page="5" aria-label={"Page 5 of " + g.pages}>
       <PageHead
         eyebrow={"SAILING FROM " + g.hp.city.toUpperCase()}
         title="Getting ready to sail."
@@ -299,11 +374,7 @@ export function Page5({ g }) {
         </div>
         <div>
           <h2>Bring to the terminal</h2>
-          <ul className="gd-ticks">
-            {r.bring.map((t) => (
-              <li key={t}>{t}</li>
-            ))}
-          </ul>
+          <Checklist id={g.id + "-" + g.dep} items={r.bring} />
           <div className="gd-callout gd-callout--teal">
             <b>Parking</b>
             <p>{r.parking}</p>
@@ -320,7 +391,7 @@ export function Page5({ g }) {
         <div className="gd-tips-grid">
           {r.tips.map((t, i) => (
             <div key={t.h}>
-              <span className="gd-dot gd-dot--port">{i + 1}</span>
+              <span className="gd-dot gd-dot--port" aria-hidden="true">{i + 1}</span>
               <b>{t.h}</b>
               <p>{t.t}</p>
             </div>
@@ -340,7 +411,7 @@ export function Page6({ g }) {
     "sms:" + BRENT.phoneHref.replace("tel:", "") + "?&body=" +
     encodeURIComponent("Hi Brent, I'd like to book the " + g.fullTitle + " on " + when + ".");
   return (
-    <section className="gd-page gd-book" data-page={g.pages}>
+    <section className="gd-page gd-book" data-page={g.pages} aria-label={"Page " + g.pages + " of " + g.pages}>
       <PageHead eyebrow="READY TO BOOK?" title="Let's get you on board." />
       <div className="gd-body">
         <div className="gd-bookhero">
@@ -421,7 +492,7 @@ export function Page6({ g }) {
 export function PageZbb({ g }) {
   const z = g.zbb;
   return (
-    <section className="gd-page gd-zbb" data-page="6">
+    <section className="gd-page gd-zbb" data-page="6" aria-label={"Page 6 of " + g.pages}>
       <PageHead eyebrow="YOUR SAILING HAS A CONCERT" title={z.title + "."} size="40px" />
       <div className="gd-body">
         <p className="gd-zbb-intro">

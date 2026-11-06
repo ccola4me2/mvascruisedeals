@@ -15,6 +15,7 @@ import {
   PACKAGES,
 } from "../data/guideContent.js";
 import { ZBB, ZBB_PAGE, isZbbSailing } from "../data/zacBrown.js";
+import { FARES, FARES_AS_OF } from "../data/fares.js";
 
 // Beachcomber moves from Miami to Galveston in October 2027 (published by the cruise line).
 const BEACHCOMBER_GALVESTON_MOVE = "2027-10-01";
@@ -34,6 +35,10 @@ const NUM = [
 const US_PLACES = [
   "the Florida Keys", "Louisiana", "Puerto Rico", "the U.S. Virgin Islands",
 ];
+const ROOM_ORDER = ["Interior", "Ocean View", "Balcony", "Suite"];
+// Fares are shown only while the daily fare check is this recent, so the guide
+// never quotes a price that has gone stale.
+const FARES_FRESH_DAYS = 4;
 const CODES = { Galveston: "GAL", Tampa: "TPA", Miami: "MIA", "Palm Beach": "PBI" };
 
 // ---- dates (all UTC, so a date never shifts with the viewer's time zone) ----
@@ -59,6 +64,16 @@ export function shortDate(iso, { year = false } = {}) {
   const p = parts(iso);
   return MONTHS[p.m].slice(0, 3) + " " + p.d + (year ? ", " + p.y : "");
 }
+// The same day-of-month some months on, held to the last day of a short month.
+export function addMonths(iso, n) {
+  const p = parts(iso);
+  const first = new Date(Date.UTC(p.y, p.m + n, 1));
+  const last = new Date(Date.UTC(first.getUTCFullYear(), first.getUTCMonth() + 1, 0)).getUTCDate();
+  return new Date(Date.UTC(first.getUTCFullYear(), first.getUTCMonth(), Math.min(p.d, last)))
+    .toISOString()
+    .slice(0, 10);
+}
+const usd = (n) => "$" + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 export function monthYear(iso) {
   const p = parts(iso);
   return MONTHS[p.m] + " " + p.y;
@@ -157,6 +172,46 @@ function seasonBox(dep) {
   return {
     h: "Sailing in " + MONTHS[m],
     t: "Warm, sunny days are typical. Hurricane season starts June 1, so spring is a comfortable time to be on the water.",
+  };
+}
+
+// Fares for one sailing, one row per cabin category, with how they have moved.
+// Only real fare checks go in: a category that is sold out is simply left out,
+// and a move or a low is reported only when the fare log shows it.
+function fareLadder(it, dep, today) {
+  const row = FARES[it.id + "|" + dep];
+  if (!row || diffDays(today, FARES_AS_OF) > FARES_FRESH_DAYS) return null;
+  const rooms = ROOM_ORDER.filter((r) => row[r]);
+  if (!rooms.length) return null;
+  const rows = rooms.map((room, i) => ({
+    room,
+    price: usd(row[room][0]),
+    step: i ? "+" + usd(row[room][0] - row[rooms[i - 1]][0]) : "",
+  }));
+  let move = null;
+  let best = 0;
+  rooms.forEach((room) => {
+    const [now, base, since] = row[room];
+    if (base == null) return;
+    const d = now - base;
+    if (Math.abs(d) >= 20 && Math.abs(d) > Math.abs(best)) {
+      best = d;
+      move = room + " is " + (d < 0 ? "down " : "up ") + usd(Math.abs(d)) + " since " + shortDate(since) + ".";
+    }
+  });
+  let low = null;
+  const [now, , , lo, loDate] = row[rooms[0]];
+  if (lo != null && lo < now) {
+    low = "The lowest " + rooms[0] + " fare I have tracked was " + usd(lo) + ", first seen " + shortDate(loDate) + ".";
+  } else if (lo != null && loDate && lo === now) {
+    low = "The " + rooms[0] + " fare is at its lowest tracked price right now.";
+  }
+  return {
+    asOf: longDate(FARES_AS_OF),
+    rows,
+    move,
+    low,
+    note: "Per person, double occupancy, taxes and fees included. Cabin categories that are sold out are left out.",
   };
 }
 
@@ -283,41 +338,48 @@ export function buildGuide(it, dateISO, today) {
     {
       date: "Now",
       sub: "",
+      iso: null,
       h: "Reserve",
       t: "Hold your cabin and send me each guest's name as it appears on their documents.",
     },
     {
       date: shortDate(addDays(dep, -90)),
+      iso: addDays(dep, -90),
       sub: "90 days out",
       h: "Check passports",
       t: "Passports must be valid 6 months after your cruise ends. Renew early if needed.",
     },
     {
       date: shortDate(addDays(dep, -21)),
+      iso: addDays(dep, -21),
       sub: "21 days out",
       h: "Arrival window and boarding pass",
       t: "The cruise line emails them to the primary guest. Print the boarding pass.",
     },
     {
       date: shortDate(addDays(dep, -7)),
+      iso: addDays(dep, -7),
       sub: "7 days out",
       h: "Luggage tags",
       t: "Available in Cruise Control. Print them and tag every bag, carry-ons too.",
     },
     {
       date: shortDate(addDays(dep, -1)),
+      iso: addDays(dep, -1),
       sub: "The night before",
       h: "Arrive the night before",
       t: hp.airportLine.replace(/^Come in the night before\. /, ""),
     },
     {
       date: shortDate(dep),
+      iso: dep,
       sub: dowName(dep),
       h: "Sailing day",
       t: "Board at " + hp.terminalLine + ". " + (hp.hoursLine ? hp.hoursLine + " " : "") + "Arrive in your assigned window.",
     },
     {
       date: shortDate(ret),
+      iso: ret,
       sub: dowName(ret),
       h: oneWay ? "Arrive in " + arriveHp.city : "Back in " + hp.city,
       t: "Plan flights home for the afternoon or later.",
@@ -325,14 +387,16 @@ export function buildGuide(it, dateISO, today) {
   ];
 
   const bring = [
-    "Original travel documents for everyone. No photocopies or phone photos.",
+    "Passports or original travel documents for everyone, valid past " + longDate(addMonths(ret, 6), { year: true }) + ". No photocopies or phone photos.",
     "Your boarding pass, printed or digital. One per stateroom.",
     "A credit card for your onboard account.",
     "Luggage tags on every bag.",
+    "A day-one carry-on: swimsuit, medications, documents and a change of clothes.",
     "A lanyard. Your stateroom key opens your door, pays for everything and gets you on and off the ship.",
     reef
       ? "Reef-safe sunscreen and water shoes for your snorkel ports."
       : "Sunscreen, sunglasses and comfortable walking shoes for port days.",
+    "Your excursion confirmations, with the all-aboard time written down.",
   ];
 
   const tips = [
@@ -408,6 +472,7 @@ export function buildGuide(it, dateISO, today) {
     covers,
     staterooms: ship.staterooms,
     packages: PACKAGES,
+    fares: fareLadder(it, dep, today),
     ready: { airport: hp.airportLine, parking: hp.parking, countdown, bring, tips, protect },
     foreign,
     places,
