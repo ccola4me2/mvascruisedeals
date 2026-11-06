@@ -1334,25 +1334,27 @@
   gap: 8px;
 }
 .gd-fares-grid li {
-  padding: 7px 10px 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 8px;
+  padding: 6px 10px 7px;
   border-radius: 10px;
   background: var(--g-mint);
 }
 .gd-fares-grid span {
-  display: block;
+  flex: 1 0 100%;
   font-size: 11px;
   font-weight: 700;
   color: var(--g-navy);
 }
 .gd-fares-grid strong {
-  display: block;
   font-family: var(--font-display-stack), Georgia, serif;
   font-size: 22px;
   line-height: 1.1;
   color: var(--g-navy);
 }
 .gd-fares-grid i {
-  display: block;
   font-style: normal;
   font-size: 10.5px;
   line-height: 1.3;
@@ -1365,6 +1367,36 @@
   margin-top: 5px;
   font-size: 11.5px;
   line-height: 1.4;
+}
+
+/* Page 4 with the fare box has about 100px more to carry, so it runs tighter. */
+.gd-covers--fares .gd-hero--page {
+  padding: 26px 56px 18px;
+}
+.gd-covers--fares .gd-hero--page h2 {
+  font-size: 44px;
+}
+.gd-covers--fares .gd-body {
+  gap: 10px;
+  padding-top: 16px;
+}
+.gd-covers--fares .gd-card {
+  padding: 12px 16px;
+}
+.gd-covers--fares .gd-ticks {
+  gap: 5px;
+}
+.gd-covers--fares .gd-two--stats .gd-bignum {
+  padding: 9px 16px;
+}
+.gd-covers--fares .gd-bignum strong {
+  font-size: 28px;
+}
+.gd-covers--fares .gd-body h2 {
+  margin-bottom: 8px;
+}
+.gd-covers--fares .gd-list {
+  margin-bottom: 8px;
 }
 
 /* ---------- the terminal list as check boxes (page 5) ---------- */
@@ -1387,8 +1419,17 @@
   margin: 2px 0 0;
   accent-color: var(--g-teal);
 }
+.gd-checks-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.gd-body .gd-checks-head h2 {
+  margin: 0;
+}
 .gd-checks-count {
-  margin-top: 5px;
   font-size: 11px;
   font-weight: 600;
   color: #3c4c58;
@@ -1510,6 +1551,9 @@
   }
   .gd-read .gd-page .gd-checks-count {
     font-size: 13.5px;
+  }
+  .gd-read .gd-page .gd-fares-grid li {
+    padding: 8px 12px 9px;
   }
 
   /* High contrast: plain white pages, black text, darker accents. */

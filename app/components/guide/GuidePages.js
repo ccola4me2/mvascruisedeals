@@ -214,17 +214,15 @@ function Fares({ f }) {
         <span>As of {f.asOf}</span>
       </div>
       <ul className="gd-fares-grid">
-        {f.rows.map((r, i) => (
+        {f.rows.map((r) => (
           <li key={r.room}>
             <span>{r.room}</span>
             <strong>{r.price}</strong>
-            <i>{r.step ? r.step + " over " + f.rows[i - 1].room : "Lowest fare"}</i>
+            <i>{r.step}</i>
           </li>
         ))}
       </ul>
-      <p className="gd-small">
-        {f.note} Fares change daily, so call or text me for today&apos;s price and any offer that applies.
-      </p>
+      <p className="gd-small">{f.note}</p>
       {(f.move || f.low) && (
         <p className="gd-fares-watch">
           <b>Price watch:</b> {f.move} {f.low} Full fare history: {BRENT.site}/trends
@@ -237,7 +235,7 @@ function Fares({ f }) {
 export function Page4({ g }) {
   const c = g.covers;
   return (
-    <section className="gd-page gd-covers" data-page="4" aria-label={"Page 4 of " + g.pages}>
+    <section className={"gd-page gd-covers" + (g.fares ? " gd-covers--fares" : "")} data-page="4" aria-label={"Page 4 of " + g.pages}>
       <PageHead eyebrow="BEFORE YOU BOOK" title="What your fare covers." />
       <div className="gd-body">
         <div className="gd-two gd-two--cards">
@@ -273,10 +271,9 @@ export function Page4({ g }) {
             </span>
           </div>
         </div>
-        {c.fuelNote && <p className="gd-small gd-small--center">{c.fuelNote}</p>}
         <p className="gd-small gd-small--center">
-          Some of my rates already include gratuities. I spell out exactly what is
-          included in your quote.
+          {c.fuelNote ? c.fuelNote + " " : ""}Some of my rates already include
+          gratuities. I spell out exactly what is included in your quote.
         </p>
         {g.fares && <Fares f={g.fares} />}
         <div className="gd-two">
@@ -329,6 +326,12 @@ function Checklist({ id, items }) {
   }
   return (
     <>
+      <div className="gd-checks-head">
+        <h2>Bring to the terminal</h2>
+        <span className="gd-checks-count gd-noprint" aria-live="polite">
+          {done.length} of {items.length} packed
+        </span>
+      </div>
       <ul className="gd-ticks gd-checks">
         {items.map((t, n) => (
           <li key={t}>
@@ -339,9 +342,6 @@ function Checklist({ id, items }) {
           </li>
         ))}
       </ul>
-      <p className="gd-checks-count gd-noprint" aria-live="polite">
-        {done.length} of {items.length} packed
-      </p>
     </>
   );
 }
@@ -373,7 +373,6 @@ export function Page5({ g }) {
           </ol>
         </div>
         <div>
-          <h2>Bring to the terminal</h2>
           <Checklist id={g.id + "-" + g.dep} items={r.bring} />
           <div className="gd-callout gd-callout--teal">
             <b>Parking</b>

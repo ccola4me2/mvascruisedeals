@@ -186,7 +186,7 @@ function fareLadder(it, dep, today) {
   const rows = rooms.map((room, i) => ({
     room,
     price: usd(row[room][0]),
-    step: i ? "+" + usd(row[room][0] - row[rooms[i - 1]][0]) : "",
+    step: i ? "+" + usd(row[room][0] - row[rooms[i - 1]][0]) + " vs " + rooms[i - 1] : "Lowest fare",
   }));
   let move = null;
   let best = 0;
@@ -211,7 +211,7 @@ function fareLadder(it, dep, today) {
     rows,
     move,
     low,
-    note: "Per person, double occupancy, taxes and fees included. Cabin categories that are sold out are left out.",
+    note: "Per person, taxes and fees included. Sold-out categories are left out. Fares change daily, so call or text me for today's price.",
   };
 }
 
@@ -391,12 +391,10 @@ export function buildGuide(it, dateISO, today) {
     "Your boarding pass, printed or digital. One per stateroom.",
     "A credit card for your onboard account.",
     "Luggage tags on every bag.",
-    "A day-one carry-on: swimsuit, medications, documents and a change of clothes.",
     "A lanyard. Your stateroom key opens your door, pays for everything and gets you on and off the ship.",
     reef
       ? "Reef-safe sunscreen and water shoes for your snorkel ports."
       : "Sunscreen, sunglasses and comfortable walking shoes for port days.",
-    "Your excursion confirmations, with the all-aboard time written down.",
   ];
 
   const tips = [

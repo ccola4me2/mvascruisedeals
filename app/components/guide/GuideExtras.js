@@ -31,7 +31,9 @@ export function TodayCard({ g, today }) {
                 Board at {g.hp.terminalLine}. {g.hp.hoursLine ? g.hp.hoursLine + " " : ""}Arrive in your assigned window.
               </li>
               <li>{g.ready.parking}</li>
-              <li>{g.ready.bring.slice(0, 3).join(" ")}</li>
+              {g.ready.bring.slice(0, 3).map((t) => (
+                <li key={t}>{t}</li>
+              ))}
             </ul>
           </div>
         )}
