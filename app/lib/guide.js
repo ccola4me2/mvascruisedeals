@@ -387,7 +387,7 @@ export function buildGuide(it, dateISO, today) {
   ];
 
   const bring = [
-    "Passports or original travel documents for everyone, valid past " + longDate(addMonths(ret, 6), { year: true }) + ". No photocopies or phone photos.",
+    "Passports or original documents for everyone, valid past " + longDate(addMonths(ret, 6), { year: true }) + ". No photocopies or phone photos.",
     "Your boarding pass, printed or digital. One per stateroom.",
     "A credit card for your onboard account.",
     "Luggage tags on every bag.",

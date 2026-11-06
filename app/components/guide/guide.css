@@ -1408,14 +1408,17 @@
 }
 .gd-checks label {
   display: flex;
-  gap: 9px;
+  gap: 7px;
   align-items: flex-start;
   cursor: pointer;
 }
+.gd-ready .gd-checks {
+  gap: 6px;
+}
 .gd-checks input {
   flex: none;
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   margin: 2px 0 0;
   accent-color: var(--g-teal);
 }
