@@ -36,7 +36,9 @@ export default function PlannerForm() {
       if (rec) {
         setSel(rec.id);
         const d = params.get("d");
-        setDate(rec.dates.indexOf(d) !== -1 ? d : rec.dates[0]);
+        // Only a date that really belongs to this cruise is kept. Otherwise guests choose,
+        // unless the cruise has just one date.
+        setDate(rec.dates.indexOf(d) !== -1 ? d : rec.dates.length === 1 ? rec.dates[0] : "");
       }
     } catch {
       /* nothing preselected */
@@ -52,11 +54,12 @@ export default function PlannerForm() {
   }, [records, q, hp]);
 
   const rec = records && sel ? records.find((r) => r.id === sel) : null;
-  const guideHref = rec ? "/guide/?s=" + encodeURIComponent(rec.id) + "&d=" + date : "#";
+  const guideHref = rec ? "/guide/?s=" + encodeURIComponent(rec.id) + (date ? "&d=" + date : "") : "#";
 
   function pick(r) {
     setSel(r.id);
-    setDate(r.dates[0]);
+    // No silent default: a date nobody chose ends up on their lead as their sailing.
+    setDate(r.dates.length === 1 ? r.dates[0] : "");
     setStatus("idle");
     setErr("");
     setResult(null);
@@ -69,6 +72,13 @@ export default function PlannerForm() {
   async function onSubmit(e) {
     e.preventDefault();
     if (status === "sending" || !rec) return;
+    if (!date) {
+      setErr("Please choose your sailing date.");
+      setStatus("error");
+      const el = document.getElementById("pl-date");
+      if (el) el.focus();
+      return;
+    }
     if (name.trim().split(/\s+/).length < 2) {
       setErr("Please add your first and last name.");
       setStatus("error");
@@ -211,6 +221,7 @@ export default function PlannerForm() {
             Sailing date
           </label>
           <select id="pl-date" className="pl-select" value={date} onChange={(e) => setDate(e.target.value)}>
+            {rec.dates.length > 1 && <option value="">Choose your sailing date</option>}
             {rec.dates.map((d) => (
               <option key={d} value={d}>
                 {longDate(d, { dow: true, year: true })}
