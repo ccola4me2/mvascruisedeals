@@ -10,23 +10,19 @@ import { portExcursionUrl, EXCURSION_DISCLOSURE } from "../../lib/excursions";
 
 // Where a guest on board finds what is happening today. The cruise line posts
 // each ship's daily schedule on its own Gateway page (the PDF behind it changes
-// name every day, so we link the page). The Chill Compass is an independent
-// Margaritaville at Sea blog that lists the same schedule day by day.
+// name every day, so we link the page).
 const ONBOARD = {
   Paradise: {
     gateway: "https://www.margaritavilleatsea.com/paradise-gateway",
     deck: "https://www.margaritavilleatsea.com/explore-our-ships/paradise/deck-plan",
-    chill: "https://thechillcompass.com/onboard/paradise",
   },
   Islander: {
     gateway: "https://www.margaritavilleatsea.com/islander-gateway",
     deck: "https://www.margaritavilleatsea.com/explore-our-ships/islander/deck-plan",
-    chill: "https://thechillcompass.com/onboard/islander",
   },
   Beachcomber: {
     gateway: "https://www.margaritavilleatsea.com/beachcomber-gateway",
     deck: "https://www.margaritavilleatsea.com/explore-our-ships/beachcomber/deck-plan",
-    chill: "https://thechillcompass.com/onboard/beachcomber",
   },
 };
 
@@ -57,11 +53,6 @@ function OnBoardCard({ g, today }) {
             <li>
               <a href={links.gateway} target="_blank" rel="noopener">
                 Today&apos;s schedule, from the cruise line<span className="sr-only"> (opens in a new tab)</span>
-              </a>
-            </li>
-            <li>
-              <a href={links.chill} target="_blank" rel="noopener">
-                Today on Board, from The Chill Compass blog<span className="sr-only"> (opens in a new tab)</span>
               </a>
             </li>
             <li>
