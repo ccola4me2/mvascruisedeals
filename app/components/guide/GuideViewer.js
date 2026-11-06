@@ -7,8 +7,8 @@ import GuidePages from "./GuidePages";
 import { HomeScreenTip, TodayCard } from "./GuideExtras";
 import {
   buildGuide,
+  activeDates,
   findItinerary,
-  futureDates,
   longDate,
   todayISO,
   tripTitle,
@@ -40,15 +40,17 @@ export default function GuideViewer() {
   // Read ?s= (itinerary) and ?d= (sailing date) once, in the browser.
   useEffect(() => {
     const q = new URLSearchParams(window.location.search);
-    setQuery({ s: q.get("s"), d: q.get("d"), debug: q.get("debug"), pick: q.get("pick") });
+    setQuery({ s: q.get("s"), d: q.get("d"), debug: q.get("debug"), pick: q.get("pick"), today: q.get("today") });
   }, []);
 
   useEffect(() => {
     if (!query || query.debug === "all") return;
-    const today = todayISO();
+    // ?debug=today&today=YYYY-MM-DD previews the guide as of another day (on board, say)
+    const today =
+      query.debug === "today" && /^\d{4}-\d{2}-\d{2}$/.test(query.today || "") ? query.today : todayISO();
     const it = findItinerary(query.s);
     if (!it) return setView({ missing: true });
-    const dates = futureDates(it, today);
+    const dates = activeDates(it, today);
     if (!dates.length) return setView({ past: true, it });
     setView({ it, date: dates.indexOf(query.d) !== -1 ? query.d : dates[0], today });
   }, [query]);
@@ -103,7 +105,7 @@ export default function GuideViewer() {
       let checked = 0;
       if (document.fonts && document.fonts.ready) await document.fonts.ready;
       for (const it of itineraries) {
-        const ds = futureDates(it, today);
+        const ds = activeDates(it, today);
         const picks = query.pick === "both" ? ds.filter((d, i) => i === 0 || i === ds.length - 1) : ds.slice(0, 1);
         for (const date of picks) {
           if (stop) return;
@@ -136,7 +138,7 @@ export default function GuideViewer() {
     [view]
   );
   const dates = useMemo(
-    () => (view && view.it && view.today ? futureDates(view.it, view.today) : []),
+    () => (view && view.it && view.today ? activeDates(view.it, view.today) : []),
     [view]
   );
 
@@ -230,7 +232,8 @@ export default function GuideViewer() {
 
   const g = guide;
   // The self-check measures the printable pages, so it never uses the reading view.
-  const reading = !query.debug && (layout === "read" || (layout === "auto" && narrow));
+  const plain = !query.debug || query.debug === "today";
+  const reading = plain && (layout === "read" || (layout === "auto" && narrow));
   const small = fit < 0.8;
   // On phones the page stack fits the width by default; "Zoom" switches to a
   // readable size you scroll sideways.
@@ -324,8 +327,8 @@ export default function GuideViewer() {
         </div>
       </div>
 
-      {!query.debug && <TodayCard g={g} today={view.today} />}
-      {!query.debug && <HomeScreenTip />}
+      {plain && <TodayCard g={g} today={view.today} />}
+      {plain && <HomeScreenTip />}
 
       <div className="gd-viewport">
         <div className="gd-outer" ref={wrapRef}>

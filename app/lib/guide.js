@@ -98,6 +98,9 @@ export function findItinerary(id) {
   return itineraries.find((i) => i.id === id) || null;
 }
 export const futureDates = (it, today) => it.dates.filter((d) => d >= today);
+// Sailings that have not finished yet: still to come, or under way today. The
+// guide uses this so a guest on board can open it; the planner keeps futureDates.
+export const activeDates = (it, today) => it.dates.filter((d) => addDays(d, it.nights) >= today);
 export function nextDate(it, today) {
   return futureDates(it, today)[0] || null;
 }
