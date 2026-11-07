@@ -112,6 +112,38 @@ export function itineraryLabel(it) {
   );
 }
 
+// The ways a guest is likely to type a sailing date, so a search for 2/27/27 or Feb 27 finds it.
+// The numeric spellings come first: matchQueryDate uses those, and the month names only widen the search.
+const numericSpellings = (iso) => {
+  const p = parts(iso);
+  const m = p.m + 1;
+  const d = p.d;
+  const y = String(p.y);
+  const yy = y.slice(2);
+  const z = (n) => String(n).padStart(2, "0");
+  return [
+    m + "/" + d + "/" + yy, m + "/" + d + "/" + y, z(m) + "/" + z(d) + "/" + yy, z(m) + "/" + z(d) + "/" + y,
+    m + "-" + d + "-" + yy, m + "-" + d + "-" + y, z(m) + "-" + z(d) + "-" + y, iso,
+  ];
+};
+const dateWords = (iso) => {
+  const p = parts(iso);
+  const mon = MONTHS[p.m].slice(0, 3);
+  return numericSpellings(iso).concat([mon + " " + p.d, mon + " " + p.d + " " + p.y]).join(" ");
+};
+
+// The one sailing date a search typed by a guest points at, or "" when it names none or several.
+export function matchQueryDate(q, dates) {
+  const text = " " + String(q).toLowerCase() + " ";
+  const hits = dates.filter((d) => {
+    if (numericSpellings(d).some((w) => text.indexOf(" " + w + " ") !== -1)) return true;
+    const p = parts(d);
+    const mon = MONTHS[p.m].slice(0, 3).toLowerCase();
+    return text.indexOf(" " + mon + " " + p.d + " ") !== -1 || text.indexOf(" " + mon + " " + p.d + " " + p.y + " ") !== -1;
+  });
+  return hits.length === 1 ? hits[0] : "";
+}
+
 // Records for the planner's search box: only itineraries that still sail.
 export function plannerRecords(today) {
   return itineraries
@@ -132,6 +164,7 @@ export function plannerRecords(today) {
         it.ship, homeportKey(it.frm), it.frm, it.nights + "-night", it.nights + " night",
         it.name, it.note, it.ports.join(" "),
         unique(dates.map((d) => longDate(d) + " " + parts(d).y)).join(" "),
+        dates.map(dateWords).join(" "),
       ]
         .join(" ")
         .toLowerCase(),

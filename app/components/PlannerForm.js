@@ -2,12 +2,16 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { plannerRecords, todayISO, longDate, shortDate } from "../lib/guide.js";
+import { matchQueryDate, plannerRecords, todayISO, longDate, shortDate } from "../lib/guide.js";
 import { quoteHref } from "../lib/quote";
 import { track } from "../lib/track";
 
 const HOMEPORTS = ["All", "Palm Beach", "Tampa", "Miami", "Galveston"];
 const PAGE = 8;
+// Words people add to a search that no cruise has ("Guide 2/27/27 Beachcomber"), left out so they cannot hide a match.
+// A typed date such as 2/27/27 must match a whole date, not the tail of 12/27/27.
+const DATEISH = /\d[\/-]|[\/-]\d/;
+const FILLER = ["guide", "cruise", "sailing", "the", "a", "on", "for", "my", "me", "free", "please", "date"];
 
 // Pick a cruise, pick a date, drop in an email: the guide is built from the
 // same data as the sailings pages and emailed through /api/plan.
@@ -47,9 +51,9 @@ export default function PlannerForm() {
 
   const matches = useMemo(() => {
     if (!records) return [];
-    const toks = q.toLowerCase().split(/\s+/).filter(Boolean);
+    const toks = q.toLowerCase().split(/\s+/).filter((t) => t && FILLER.indexOf(t) === -1);
     return records.filter(
-      (r) => (hp === "All" || r.from === hp) && toks.every((t) => r.haystack.indexOf(t) !== -1)
+      (r) => (hp === "All" || r.from === hp) && toks.every((t) => (DATEISH.test(t) ? (" " + r.haystack + " ").indexOf(" " + t + " ") : r.haystack.indexOf(t)) !== -1)
     );
   }, [records, q, hp]);
 
@@ -58,8 +62,9 @@ export default function PlannerForm() {
 
   function pick(r) {
     setSel(r.id);
-    // No silent default: a date nobody chose ends up on their lead as their sailing.
-    setDate(r.dates.length === 1 ? r.dates[0] : "");
+    // No silent default: a date nobody chose ends up on their lead as their sailing. The one
+    // exception is a date they typed into the search, which they did choose.
+    setDate(r.dates.length === 1 ? r.dates[0] : matchQueryDate(q, r.dates));
     setStatus("idle");
     setErr("");
     setResult(null);
