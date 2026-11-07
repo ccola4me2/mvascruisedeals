@@ -186,10 +186,17 @@ function fareLadder(it, dep, today) {
   if (!row || diffDays(today, FARES_AS_OF) > FARES_FRESH_DAYS) return null;
   const rooms = ROOM_ORDER.filter((r) => row[r]);
   if (!rooms.length) return null;
+  // What each step up costs. Two categories can share a price, and a higher category is
+  // occasionally the cheaper one, so say so plainly rather than print "+$0" or "$-50".
+  const stepText = (i) => {
+    const d = row[rooms[i]][0] - row[rooms[i - 1]][0];
+    if (d === 0) return "Same as " + rooms[i - 1];
+    return d > 0 ? "+" + usd(d) + " vs " + rooms[i - 1] : usd(-d) + " less than " + rooms[i - 1];
+  };
   const rows = rooms.map((room, i) => ({
     room,
     price: usd(row[room][0]),
-    step: i ? "+" + usd(row[room][0] - row[rooms[i - 1]][0]) + " vs " + rooms[i - 1] : "Lowest fare",
+    step: i ? stepText(i) : "Lowest fare",
   }));
   let move = null;
   let best = 0;
