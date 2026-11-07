@@ -8,9 +8,9 @@ import { track } from "../lib/track";
 
 const HOMEPORTS = ["All", "Palm Beach", "Tampa", "Miami", "Galveston"];
 const PAGE = 8;
-// Words people add to a search that no cruise has ("Guide 2/27/27 Beachcomber"), left out so they cannot hide a match.
 // A typed date such as 2/27/27 must match a whole date, not the tail of 12/27/27.
-const DATEISH = /\d[\/-]|[\/-]\d/;
+const DATEISH = /\d[-/]|[-/]\d/;
+// Words people add to a search that no cruise has ("Guide 2/27/27 Beachcomber"), left out so they cannot hide a match.
 const FILLER = ["guide", "cruise", "sailing", "the", "a", "on", "for", "my", "me", "free", "please", "date"];
 
 // Pick a cruise, pick a date, drop in an email: the guide is built from the
