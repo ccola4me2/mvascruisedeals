@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import HomeportFaqs from "../components/HomeportFaqs";
+import GuideCta from "../components/GuideCta";
 import { sailings } from "../data/sailings";
 import { quoteHref } from "../lib/quote";
 
@@ -208,6 +209,8 @@ export default function GalvestonCruisesPage() {
       </section>
 
       <HomeportFaqs port="Galveston" faqs={faqs} />
+
+      <GuideCta q="Galveston" />
 
       <section className="cta">
         <div className="container cta-inner">

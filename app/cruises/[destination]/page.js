@@ -4,6 +4,7 @@ import Image from "next/image";
 import { destinations, getDestination } from "../../data/destinations";
 import { sailings } from "../../data/sailings";
 import { quoteHref, CONTACT } from "../../lib/quote";
+import GuideCta from "../../components/GuideCta";
 import { portExcursionUrl, EXCURSION_DISCLOSURE } from "../../lib/excursions";
 
 const MONTHS = [
@@ -264,6 +265,8 @@ export default function DestinationPage({ params }) {
           )}
         </div>
       </section>
+
+      <GuideCta q={d.port} heading={`Sailing to ${short}? Get a free guide`} />
 
       {/* FAQ */}
       {d.faqs?.length > 0 && (

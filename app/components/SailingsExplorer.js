@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { sailings } from "../data/sailings";
 import { quoteHref } from "../lib/quote";
+import { pageForSailing } from "../lib/sailingPages";
 
 const uniq = (arr) => [...new Set(arr)];
 const MONTHS = [
@@ -236,6 +237,11 @@ export default function SailingsExplorer() {
                     </ul>
                   </div>
                   <div className="deal-footer">
+                    {pageForSailing(s) && (
+                      <Link href={pageForSailing(s)} className="btn btn-primary">
+                        Dates and fares
+                      </Link>
+                    )}
                     <Link
                       href={quoteHref({
                         ship: s.ship,

@@ -7,6 +7,7 @@ import { destinations } from "../../data/destinations";
 import QuoteSection from "../../components/QuoteSection";
 import DealClosedNotice from "../../components/DealClosedNotice";
 import ShareRow from "../../components/ShareRow";
+import GuideCta from "../../components/GuideCta";
 import OfferEnds from "../../components/OfferEnds";
 import { youSave } from "../../lib/dealMoney";
 import { portExcursionUrl, EXCURSION_DISCLOSURE } from "../../lib/excursions";
@@ -582,6 +583,8 @@ export default function DealLandingPage({ params }) {
         lede={`Tell me your party size and the cabin you want and I'll confirm availability for the ${deal.title} sailing, usually within one business day. No fees, no obligation.`}
         prefill={{ cruise: deal.title, ship, when: deal.when }}
       />
+
+      <GuideCta q={`${ship} ${homeportCity(L.homeport)}`} />
 
       {/* More deals */}
       {others.length > 0 && (

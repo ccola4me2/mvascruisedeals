@@ -17,6 +17,15 @@ const NAV = [
     ],
   },
   { href: "/cruises", label: "Destinations" },
+  {
+    href: "/ships",
+    label: "Ships",
+    children: [
+      { href: "/ships/paradise", label: "Paradise" },
+      { href: "/ships/islander", label: "Islander" },
+      { href: "/ships/beachcomber", label: "Beachcomber" },
+    ],
+  },
   { href: "/group-rates", label: "Group Rates" },
   {
     href: "/trends",

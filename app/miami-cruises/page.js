@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import HomeportFaqs from "../components/HomeportFaqs";
+import GuideCta from "../components/GuideCta";
 
 const faqs = [
   {
@@ -97,6 +98,8 @@ export default function MiamiCruisesPage() {
       </section>
 
       <HomeportFaqs port="Miami" faqs={faqs} />
+
+      <GuideCta q="Miami" />
 
       <section className="cta">
         <div className="container cta-inner">

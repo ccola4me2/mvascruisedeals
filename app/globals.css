@@ -5861,3 +5861,236 @@ img {
 .container > .offer-ends {
   margin-top: 20px;
 }
+
+/* ---- Sailing pages (/sailings/<id>/), ship pages (/ships/), guide box ---- */
+.btn-sm {
+  padding: 8px 14px;
+  font-size: 0.9rem;
+}
+.sp-tag {
+  display: inline-block;
+  margin: 0 0 16px;
+  padding: 6px 14px;
+  color: var(--navy);
+  background: var(--sun);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.sp-tag a {
+  color: var(--navy);
+  text-decoration: underline;
+}
+.sp-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+.sp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+.sp-table th,
+.sp-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+.sp-table thead th {
+  color: var(--slate);
+  background: var(--sand);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.sp-table tbody tr:last-child th,
+.sp-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.sp-table tbody th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+.sp-na {
+  color: var(--slate);
+}
+.sp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.sp-note {
+  max-width: 70ch;
+  margin: 14px auto 0;
+  color: var(--slate);
+  font-size: 0.95rem;
+  text-align: center;
+}
+.sp-more {
+  margin: 22px 0 0;
+  text-align: center;
+  font-weight: 600;
+}
+.sp-ports {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: port;
+}
+.sp-ports li {
+  counter-increment: port;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 180px;
+  padding: 16px 18px 16px 52px;
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.sp-ports li::before {
+  content: counter(port);
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: var(--ocean);
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.sp-port-name {
+  font-weight: 700;
+  color: var(--navy);
+}
+.sp-port-tag {
+  color: var(--slate);
+  font-size: 0.9rem;
+}
+.sp-port-link {
+  font-size: 0.9rem;
+}
+.sp-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sp-list a {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
+  padding: 16px 18px;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  text-decoration: none;
+}
+.sp-list a:hover {
+  border-color: var(--ocean);
+  box-shadow: var(--shadow-sm);
+}
+.sp-list b {
+  color: var(--navy);
+}
+.sp-list span {
+  color: var(--slate);
+  font-size: 0.95rem;
+}
+.guide-cta-wrap {
+  padding-top: 0;
+}
+.guide-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px 28px;
+  padding: 28px 32px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--navy) 0%, #124b6e 100%);
+  border-radius: var(--radius-lg);
+}
+.guide-cta h2 {
+  margin: 0 0 6px;
+  color: #fff;
+  font-size: 1.5rem;
+}
+.guide-cta p {
+  max-width: 52ch;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+.pl-done-share {
+  margin: 12px 0 0;
+  color: var(--slate);
+}
+.pl-share-btn {
+  padding: 0;
+  color: var(--ocean);
+  background: none;
+  border: 0;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+@media (max-width: 700px) {
+  .sp-table-wrap {
+    border: 0;
+    background: none;
+  }
+  .sp-table thead {
+    position: absolute;
+    left: -9999px;
+  }
+  .sp-table,
+  .sp-table tbody,
+  .sp-table tr,
+  .sp-table th,
+  .sp-table td {
+    display: block;
+  }
+  .sp-table tr {
+    margin-bottom: 12px;
+    padding: 12px 14px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+  .sp-table th,
+  .sp-table td {
+    padding: 4px 0;
+    border: 0;
+  }
+  .sp-table td[data-label] {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .sp-table td[data-label]::before {
+    content: attr(data-label);
+    color: var(--slate);
+  }
+  .sp-actions {
+    justify-content: flex-start;
+    padding-top: 8px !important;
+  }
+}

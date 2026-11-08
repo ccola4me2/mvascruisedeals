@@ -5,6 +5,7 @@ import Link from "next/link";
 import { matchQueryDate, plannerRecords, todayISO, longDate, shortDate } from "../lib/guide.js";
 import { quoteHref } from "../lib/quote";
 import { track } from "../lib/track";
+import ShareGuide from "./ShareGuide";
 
 const HOMEPORTS = ["All", "Palm Beach", "Tampa", "Miami", "Galveston"];
 const PAGE = 8;
@@ -36,6 +37,9 @@ export default function PlannerForm() {
     // A link like /plan/?s=<id>&d=<date> preselects a sailing.
     try {
       const params = new URLSearchParams(window.location.search);
+      // /plan/?q=Cozumel starts the search for someone coming from a port page.
+      const qp = (params.get("q") || "").trim().slice(0, 60);
+      if (qp) setQ(qp);
       const rec = recs.find((r) => r.id === params.get("s"));
       if (rec) {
         setSel(rec.id);
@@ -57,10 +61,19 @@ export default function PlannerForm() {
     );
   }, [records, q, hp]);
 
+  // What people search for, and when nothing matches, is the clearest list of cruises to add or explain.
+  useEffect(() => {
+    const term = q.trim().toLowerCase();
+    if (!records || term.length < 2) return undefined;
+    const t = setTimeout(() => track("planner_search", { term: term.slice(0, 40), results: matches.length }), 1500);
+    return () => clearTimeout(t);
+  }, [q, matches.length, records]);
+
   const rec = records && sel ? records.find((r) => r.id === sel) : null;
   const guideHref = rec ? "/guide/?s=" + encodeURIComponent(rec.id) + (date ? "&d=" + date : "") : "#";
 
   function pick(r) {
+    track("planner_pick", { sailing: r.id });
     setSel(r.id);
     // No silent default: a date nobody chose ends up on their lead as their sailing. The one
     // exception is a date they typed into the search, which they did choose.
@@ -78,6 +91,7 @@ export default function PlannerForm() {
     e.preventDefault();
     if (status === "sending" || !rec) return;
     if (!date) {
+      track("planner_error", { message: "no date" });
       setErr("Please choose your sailing date.");
       setStatus("error");
       const el = document.getElementById("pl-date");
@@ -85,6 +99,7 @@ export default function PlannerForm() {
       return;
     }
     if (name.trim().split(/\s+/).length < 2) {
+      track("planner_error", { message: "name" });
       setErr("Please add your first and last name.");
       setStatus("error");
       return;
@@ -116,10 +131,12 @@ export default function PlannerForm() {
         });
         setStatus("done");
       } else {
+        track("planner_error", { message: String(data.error || "server").slice(0, 60) });
         setErr(data.error || "Something went wrong. Please call or text (561) 777-9911.");
         setStatus("error");
       }
     } catch {
+      track("planner_error", { message: "network" });
       setErr("Network error. Please call or text (561) 777-9911.");
       setStatus("error");
     }
@@ -225,7 +242,15 @@ export default function PlannerForm() {
           <label className="sr-only" htmlFor="pl-date">
             Sailing date
           </label>
-          <select id="pl-date" className="pl-select" value={date} onChange={(e) => setDate(e.target.value)}>
+          <select
+            id="pl-date"
+            className="pl-select"
+            value={date}
+            onChange={(e) => {
+              setDate(e.target.value);
+              if (e.target.value) track("planner_date", { sailing: rec.id, date: e.target.value });
+            }}
+          >
             {rec.dates.length > 1 && <option value="">Choose your sailing date</option>}
             {rec.dates.map((d) => (
               <option key={d} value={d}>
@@ -319,6 +344,15 @@ export default function PlannerForm() {
             >
               Hold my cabin
             </Link>
+          </p>
+          <p className="pl-done-share">
+            Cruising with family or friends?{" "}
+            <ShareGuide
+              href={guideHref}
+              text="Here is the cruise guide for our Margaritaville at Sea trip."
+              className="pl-share-btn"
+              label="Send them this guide"
+            />
           </p>
           <p className="pl-done-next">
             No booking fees, and I'll check availability for you. Or call or text{" "}

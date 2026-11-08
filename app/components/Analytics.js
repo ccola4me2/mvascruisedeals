@@ -15,6 +15,15 @@ import { analyticsAllowed, clearAnalyticsCookies } from "../lib/consent";
 //   contact_call    a Call (tel:) link was tapped
 //   contact_text    a Text (sms:) link was tapped
 //   contact_email   an email (mailto:) link was tapped
+// Funnel events (not conversions on their own):
+//   cta_click       a link to /plan/, /guide/ or /contact/ was clicked (destination, label, page_path)
+//   outbound_click  a link to another site was clicked (domain, label, page_path)
+//   planner_search  someone searched the guide builder (term, results; results 0 means nothing matched)
+//   planner_pick    a cruise was chosen in the guide builder (sailing)
+//   planner_date    a sailing date was chosen (sailing, date)
+//   planner_error   the guide builder showed an error (message)
+//   guide_open      a guide was opened (sailing, date, days_to_sail)
+//   guide_share     the share button was used (method)
 export default function Analytics() {
   const [ok, setOk] = useState(false);
 

@@ -8,6 +8,7 @@ import { HomeScreenTip, TodayCard } from "./GuideExtras";
 import {
   buildGuide,
   activeDates,
+  diffDays,
   findItinerary,
   longDate,
   todayISO,
@@ -16,6 +17,7 @@ import {
 import { itineraries } from "../../data/itineraries.js";
 import { quoteHref } from "../../lib/quote";
 import { track } from "../../lib/track";
+import ShareGuide from "../ShareGuide";
 
 const PAGE_W = 816;
 const PAGE_H = 1056;
@@ -141,6 +143,16 @@ export default function GuideViewer() {
     () => (view && view.it && view.today ? activeDates(view.it, view.today) : []),
     [view]
   );
+
+  // One event per guide opened (not per view toggle), so opens can be counted against builds.
+  const opened = useRef("");
+  useEffect(() => {
+    if (!guide || !query || query.debug) return;
+    const key = view.it.id + "|" + view.date;
+    if (opened.current === key) return;
+    opened.current = key;
+    track("guide_open", { sailing: view.it.id, date: view.date, days_to_sail: diffDays(view.date, view.today) });
+  }, [guide, query, view]);
 
   // A short title for the browser tab and for "Add to Home Screen".
   useEffect(() => {
@@ -314,6 +326,13 @@ export default function GuideViewer() {
           <span className="sr-only" role="status" aria-live="polite">
             {copied ? "Link copied to the clipboard" : ""}
           </span>
+          <ShareGuide
+            href={"/guide/?s=" + encodeURIComponent(view.it.id) + "&d=" + view.date}
+            text={"Our cruise guide: " + g.fullTitle + ", " + longDate(view.date, { year: true }) + "."}
+            className="gd-tb-btn"
+            label="Share"
+            copyFallback={false}
+          />
           <Link
             className="gd-tb-btn gd-tb-btn--gold"
             href={quoteHref({

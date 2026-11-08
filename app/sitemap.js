@@ -1,6 +1,8 @@
 import { destinations } from "./data/destinations";
 import { featuredDeals } from "./data/featuredDeals";
 import { posts } from "./data/posts";
+import { todayISO } from "./lib/guide.js";
+import { SHIP_ORDER, liveItineraries, sailingPath, shipSlug } from "./lib/sailingPages.js";
 
 const BASE = "https://mvascruisedeals.com";
 
@@ -21,6 +23,7 @@ export default function sitemap() {
     { path: "/plan/", priority: 0.8 },
     { path: "/blog/", priority: 0.7 },
     { path: "/trends/", priority: 0.8 },
+    { path: "/ships/", priority: 0.7 },
     { path: "/zac-brown-nassau/", priority: 0.7 },
     { path: "/privacy/", priority: 0.3 },
     { path: "/cookies/", priority: 0.3 },
@@ -35,9 +38,12 @@ export default function sitemap() {
     .filter((d) => d.landing)
     .map((d) => ({ path: `/deals/${d.landing.slug}/`, priority: 0.8 }));
 
+  const shipPages = SHIP_ORDER.map((s) => ({ path: `/ships/${shipSlug(s)}/`, priority: 0.7 }));
+  const sailingPages = liveItineraries(todayISO()).map((it) => ({ path: sailingPath(it), priority: 0.6 }));
+
   const blogPosts = posts.map((p) => ({ path: `/blog/${p.slug}/`, priority: 0.6 }));
 
-  return [...staticPaths, ...dealPages, ...dest, ...blogPosts].map(({ path, priority }) => ({
+  return [...staticPaths, ...dealPages, ...dest, ...shipPages, ...sailingPages, ...blogPosts].map(({ path, priority }) => ({
     url: `${BASE}${path}`,
     changeFrequency: "weekly",
     priority,
