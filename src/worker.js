@@ -14,6 +14,7 @@
 
 import { findItinerary, buildGuide, futureDates } from "../app/lib/guide.js";
 import { buildPlanEmail, buildPlanNotice } from "../app/lib/planEmail.js";
+import { handleWatch, handleStop, checkWatches } from "./watch.js";
 
 const CTT_ENDPOINT =
   "https://cttagents.com/api/public/forms/wwwmvascruisedealscom";
@@ -34,6 +35,12 @@ export default {
     if (url.pathname === "/api/alerts") {
       return handleAlerts(request, env);
     }
+    if (url.pathname === "/api/watch") {
+      return handleWatch(request, env, helpers);
+    }
+    if (url.pathname === "/api/watch/stop") {
+      return handleStop(request, env, helpers);
+    }
     // Google Search Console ownership file. The static asset layer redirects a
     // ".html" path to its extensionless twin, and Google wants this exact URL
     // with a plain 200, so the Worker answers it directly. Keep it as long as
@@ -44,6 +51,10 @@ export default {
       });
     }
     return env.ASSETS.fetch(request);
+  },
+  // Cron trigger (see wrangler.jsonc): email anyone whose watched fare has dropped.
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(checkWatches(env, helpers).catch((e) => console.log("price watch check failed: " + (e && e.message))));
   },
 };
 
@@ -280,6 +291,8 @@ async function sendResend(env, payload) {
     return false;
   }
 }
+
+const helpers = { clean, isEmail, json, throttled, sendResend, shortHash, corsHeaders };
 
 async function handlePlan(request, env) {
   if (request.method === "OPTIONS") {

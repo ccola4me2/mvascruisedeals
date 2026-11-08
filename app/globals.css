@@ -6094,3 +6094,32 @@ img {
     padding-top: 8px !important;
   }
 }
+
+/* ---- Price watch ---- */
+.sp-watch-lede {
+  max-width: 60ch;
+  margin: 10px auto 0;
+  color: var(--slate);
+}
+.sp-watch {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 26px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+.sp-watch .btn {
+  margin-top: 14px;
+}
+.sp-watch--done h3 {
+  margin: 0 0 8px;
+}
+.sp-stop {
+  max-width: 640px;
+}
+.sp-stop-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}

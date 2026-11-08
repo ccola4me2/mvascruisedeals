@@ -21,6 +21,7 @@ import {
   uniquePorts,
 } from "../../lib/sailingPages.js";
 import SailingDates from "./SailingDates";
+import PriceWatch from "./PriceWatch";
 
 // Only itineraries that still have a sailing ahead get a page; the rest are not built.
 export const dynamicParams = false;
@@ -185,6 +186,8 @@ export default function SailingPage({ params }) {
           <SailingDates it={it} buildToday={buildToday} />
         </div>
       </section>
+
+      <PriceWatch it={it} buildToday={buildToday} />
 
       <section className="section section--muted">
         <div className="container">

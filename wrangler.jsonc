@@ -16,6 +16,11 @@
     // Serve Next's generated 404 page for unmatched paths.
     "not_found_handling": "404-page"
   },
+  // Price-watch check (src/watch.js): every three hours, so a fare drop is emailed soon after
+  // the daily update goes live. It does nothing until the WATCH_DB D1 binding exists.
+  "triggers": {
+    "crons": ["20 */3 * * *"]
+  },
   "vars": {
     "QUOTE_NOTIFY_TO": "brentb@cruisestoursandtravel.com",
     "QUOTE_FROM": "MVAS Cruise Deals <noreply@cttagents.com>"

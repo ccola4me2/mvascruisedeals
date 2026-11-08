@@ -197,6 +197,14 @@ def write_fares(latest, series, snap_day):
     with open(path, "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines) + "\n")
     print("wrote app/data/fares.js: %d sailings, %d KB" % (len(rows), os.path.getsize(path) // 1024))
+    # public/fares.json: just today's price per room, for the price-watch Worker
+    # (src/watch.js), which reads it as a static asset to quote and to check drops.
+    now_only = {k: {room: v[0] for room, v in rooms.items()} for k, rooms in sorted(rows.items())}
+    jpath = os.path.join(ROOT, "public", "fares.json")
+    with open(jpath, "w", encoding="utf-8") as fh:
+        json.dump({"asOf": snap_day, "fares": now_only}, fh, separators=(",", ":"))
+        fh.write("\n")
+    print("wrote public/fares.json: %d KB" % (os.path.getsize(jpath) // 1024 + 1))
 
 
 def pct(old, new):

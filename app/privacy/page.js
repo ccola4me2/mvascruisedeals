@@ -7,7 +7,7 @@ export const metadata = {
   alternates: { canonical: "/privacy/" },
 };
 
-const UPDATED = "October 7, 2026";
+const UPDATED = "November 8, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -52,6 +52,13 @@ export default function PrivacyPage() {
               to stop.
             </li>
             <li>
+              <strong>Price alerts:</strong> your first and last name, your email
+              address, and the sailing, date and stateroom category you chose to
+              watch. They are stored on Cloudflare&apos;s database for this site and
+              used only to email you when that fare drops. A watch ends when you
+              stop it or the ship sails.
+            </li>
+            <li>
               <strong>Calls, texts, and emails:</strong> your contact details and
               whatever you choose to tell me.
             </li>
@@ -81,7 +88,7 @@ export default function PrivacyPage() {
             <li>To answer your questions and prepare quotes and group rates.</li>
             <li>To build your cruise guide and email it to you.</li>
             <li>To reserve and manage a booking if you decide to cruise with me.</li>
-            <li>To send deal alerts, but only if you ask for them.</li>
+            <li>To send deal alerts and price alerts, but only if you ask for them.</li>
             <li>To keep the site secure and prevent spam and abuse.</li>
             <li>To understand, in aggregate, how the site is used and improve it.</li>
             <li>To meet legal, tax, and travel-industry record-keeping duties.</li>
@@ -91,7 +98,8 @@ export default function PrivacyPage() {
           <p>
             A cruise guide email is a one-time message you asked for. Deal alerts are
             sent only if you ask for them, and you can stop them at any time by
-            replying &quot;stop&quot; or emailing me. I only text people who have
+            replying &quot;stop&quot; or emailing me. Every price alert email has a
+            &quot;Stop watching this price&quot; link that ends it in one click. I only text people who have
             contacted me first or asked to be texted.
           </p>
 
