@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { quoteHref } from "../lib/quote";
 import { featuredDeals } from "../data/featuredDeals";
+import { WATCH_ENABLED } from "../lib/watchConfig.js";
 
 // The daily Cruise Price Trends page. Everything it shows comes from
 // data/trends.json, built by scripts/build-trends.py from the daily snapshots
@@ -78,6 +79,12 @@ function DealTag({ ship, sail, room, fares }) {
 const guideLink = (guides, ship, itin, sail) => {
   const id = guides && guides[ship + "|" + itin + "|" + sail];
   return id ? "/plan/?s=" + encodeURIComponent(id) + "&d=" + sail : "/plan/";
+};
+
+// Where to ask for an email when this fare drops (the form on the sailing's own page).
+const watchLink = (guides, ship, itin, sail) => {
+  const id = WATCH_ENABLED && guides && guides[ship + "|" + itin + "|" + sail];
+  return id ? "/sailings/" + id + "/#watch" : null;
 };
 
 const parts = (iso) => iso.split("-").map(Number);
@@ -163,6 +170,11 @@ function MoveRow({ m, fares, guides }) {
           <a className="tr-guide" href={guideLink(guides, m.ship, m.itin, m.sail)}>
             Free guide
           </a>
+          {watchLink(guides, m.ship, m.itin, m.sail) && (
+            <a className="tr-guide" href={watchLink(guides, m.ship, m.itin, m.sail)}>
+              Watch price
+            </a>
+          )}
         </span>
       </div>
     </li>
@@ -494,6 +506,9 @@ export default function TrendsView({ data }) {
                   <span className="tr-links">
                     <a className="tr-ask" href={quoteHref({ ship: s.ship, cruise: s.nights + "-Night " + s.itin.replace(/^\d+-Night\s*/, ""), when: longDate(s.sail) })}>Ask Brent</a>
                     <a className="tr-guide" href={guideLink(guides, s.ship, s.itin, s.sail)}>Free guide</a>
+                    {watchLink(guides, s.ship, s.itin, s.sail) && (
+                      <a className="tr-guide" href={watchLink(guides, s.ship, s.itin, s.sail)}>Watch price</a>
+                    )}
                   </span>
                 </li>
               ))}

@@ -346,7 +346,7 @@ export default function GuideViewer() {
         </div>
       </div>
 
-      {plain && <TodayCard g={g} today={view.today} />}
+      {plain && <TodayCard g={g} today={view.today} sailingId={view.it.id} />}
       {plain && <HomeScreenTip />}
 
       <div className="gd-viewport">

@@ -24,6 +24,144 @@ export const BLOG_TAGLINE =
 
 export const posts = [
   {
+    slug: "what-to-pack-and-wear-on-a-margaritaville-at-sea-cruise",
+    title: "What to pack and wear on a Margaritaville at Sea cruise",
+    short: "What to pack and wear",
+    category: "Planning",
+    date: "2026-11-08",
+    image: "/deals/islander-1200.jpg",
+    imageAlt: "Margaritaville at Sea Islander at sea",
+    excerpt:
+      "The cruise line's dress code is short, the luggage rules are not. Here is what to wear at dinner, which theme nights to pack for, what you cannot bring aboard, and the baggage limits.",
+    body: [
+      {
+        t: "p",
+        x: "The cruise line's own line on clothes is that \"the only dress code is flip-flops and the only deadline is sunset.\" That is true for the daytime. A few rules do apply at dinner, and some of what you pack can be taken away at the gangway, so here is what the cruise line has published.",
+      },
+      { t: "h2", x: "What to wear" },
+      {
+        t: "ul",
+        items: [
+          "**Evenings are casual chic.** Some restaurants ask for collared shirts, blouses, pants, dresses, or skirts.",
+          "**Tank tops and swimsuits are not allowed in dining areas.** Pack a cover-up for the walk from the pool to lunch.",
+          "**Daytime is relaxed.** The cruise line does not publish a daytime dress code, and there is no published formal night.",
+          "**Sunscreen.** The cruise line tells guests to bring plenty for the Caribbean sun.",
+        ],
+      },
+      { t: "h2", x: "Theme nights are optional, and fun to plan for" },
+      {
+        t: "p",
+        x: "The cruise line runs theme nights, and the outfits are suggestions rather than rules. On [Beachcomber](/ships/beachcomber/), the published ones are Red, White & Margaritaville (red, white and blue), Friday Night Country (denim and boots), Polynesian Night (tropical prints) and Club Fuego Night (bright colors). Theme nights vary by sailing length, so a short cruise may not have all of them. White Hot Neon Nights, on the cruise line's list of onboard experiences, asks guests to wear white.",
+      },
+      {
+        t: "callout",
+        h: "Pack light on the costumes",
+        x: "One red, white and blue outfit and one pair of boots cover most of the Beachcomber theme nights. Check your own sailing's schedule for which nights it has.",
+      },
+      { t: "h2", x: "What you cannot bring aboard" },
+      {
+        t: "ul",
+        items: [
+          "**Outside food and drinks on boarding day and port days.** That includes alcohol, and also water, soda and juice, in carry-on or checked bags.",
+          "**Alcohol bought in port.** It is collected at the gangway and stored, and you cannot drink it aboard.",
+          "**Smoking and vaping outside the marked areas.** Both are only allowed in designated outdoor areas, and the cruise line says violations of the alcohol or smoking rules can bring fines of up to $500 per guest.",
+          "**Anything the ship deems hazardous.** Hair dryers, flat irons, curling irons, shavers and small fans (up to 12 inches across) are allowed with proper caution, and unsafe devices are taken and returned when you leave the ship.",
+        ],
+      },
+      { t: "h2", x: "Luggage limits" },
+      {
+        t: "ul",
+        items: [
+          "**Two standard bags per guest, each up to 50 pounds.**",
+          "**Extra or overweight bags cost $55 per item**, and items over 100 pounds cost $80. The cruise line does not explain how the two tiers work together, so ask before you travel with a heavy bag.",
+          "**Loose bags must go inside your two bags.** Plastic, paper and grocery bags, and open shoulder bags, do not count as luggage.",
+          "**Coolers, golf clubs, bicycles, kayaks, scuba gear, musical instruments, boxes and rubber bins** are listed as non-standard luggage that incurs fees.",
+          "**Luggage tags** are emailed before you sail and can be downloaded in the cruise line's Cruise Control about 7 days before departure. Tag every bag, carry-ons too.",
+        ],
+      },
+      { t: "h2", x: "Carry these yourself" },
+      {
+        t: "p",
+        x: "Keep medications, valuables, jewelry and your travel documents with you, not in a checked bag. The cruise line is not responsible for theft or loss. Bring a camera and chargers as well. The ship's outlets are the North American standard, 110 volts AC, so U.S. plugs work without an adapter. If you are unsure about your documents, read [do you need a passport](/blog/do-you-need-a-passport-for-a-margaritaville-at-sea-cruise/).",
+      },
+      {
+        t: "p",
+        x: "These are the cruise line's published rules as of November 8, 2026. Rules can change, so check the cruise line's FAQ and your own booking before you pack.",
+      },
+      { t: "cta" },
+    ],
+  },
+  {
+    slug: "getting-to-the-ship-margaritaville-at-sea-homeports-arrival-times-parking",
+    title: "Getting to the ship: Margaritaville at Sea homeports, arrival times and parking",
+    short: "Getting to the ship",
+    category: "Planning",
+    date: "2026-11-08",
+    image: "/deals/paradise.jpg",
+    imageAlt: "Margaritaville at Sea Paradise",
+    excerpt:
+      "Terminal, address, the time the doors open and close, and how parking works at Tampa, Palm Beach, Miami and Galveston. Miss the closing time and you miss the cruise.",
+    body: [
+      {
+        t: "p",
+        x: "Margaritaville at Sea sails from four U.S. homeports. The most important fact about all of them is the closing time: the cruise line says guests who arrive after the port closes are denied boarding and treated as a no-show, which can carry cancellation penalties. Here is each port, with the times and addresses published for it.",
+      },
+      { t: "h2", x: "Tampa: Port Tampa Bay, Terminal 6" },
+      {
+        t: "ul",
+        items: [
+          "**Ship:** [Islander](/ships/islander/).",
+          "**Terminal:** Terminal 6, 1331 McKay Street.",
+          "**Times:** the terminal opens at 9:30 am and doors close promptly at 2:30 pm.",
+          "**Airport:** Tampa International is the closest.",
+          "**Check-in:** the cruise line's Cruise Control shows your arrival window and lets you download boarding documents.",
+        ],
+      },
+      { t: "h2", x: "Palm Beach: Port of Palm Beach" },
+      {
+        t: "ul",
+        items: [
+          "**Ship:** [Paradise](/ships/paradise/).",
+          "**Terminal:** the main terminal, 1 East 11th Street, Riviera Beach.",
+          "**Times:** the port opens at 9:30 am and doors close promptly at 3:00 pm.",
+          "**Airport:** Palm Beach International is the closest.",
+          "**Parking:** self-parking is available at the port. Cash is not accepted, so bring a card.",
+        ],
+      },
+      { t: "h2", x: "Miami: PortMiami" },
+      {
+        t: "ul",
+        items: [
+          "**Ship:** [Beachcomber](/ships/beachcomber/), starting January 9, 2027.",
+          "**Terminal:** Terminal C, 1751 N Cruise Blvd. Some sailings use Terminal E, so confirm in your pre-arrival email.",
+          "**Times:** the terminal opens at 9:30 am and you cannot enter after 2:30 pm.",
+          "**Airport:** Miami International is the closest.",
+          "**Parking:** check PortMiami's parking page for current options and rates before you go.",
+        ],
+      },
+      { t: "h2", x: "Galveston: Port of Galveston" },
+      {
+        t: "p",
+        x: "Beachcomber moves to Galveston starting October 4, 2027. The cruise line has not yet published terminal details, hours or parking for those sailings, so this page will be updated once it does. Houston's airports are an hour or more from the port, so plan to arrive the night before. See [cruising from Galveston](/blog/cruising-from-galveston-on-margaritaville-at-sea/).",
+      },
+      { t: "h2", x: "Parking is not included" },
+      {
+        t: "p",
+        x: "The cruise fare does not include parking at the departure port. It is paid directly to each port. At Tampa you can choose pre-paid self-parking, pre-paid valet or pay on arrival, and pre-paying gets you the closer spaces.",
+      },
+      {
+        t: "callout",
+        h: "My advice: come in the night before",
+        x: "Embarkation is a few hours with a hard stop. A flight delay on the same morning can cost you the whole cruise, so I tell everyone flying in to arrive the night before. That is advice, not a cruise line rule.",
+      },
+      {
+        t: "p",
+        x: "Times and procedures can change, so confirm them in the cruise line's arrival guide for your port and in your pre-arrival email. Details here are as of November 8, 2026.",
+      },
+      { t: "cta" },
+    ],
+  },
+  {
     slug: "zac-brown-and-beachcomber-godfather-same-boat-nassau-concert",
     title: "Zac Brown and Beachcomber: the Godfather, Same Boat, and the Nassau concert",
     short: "Zac Brown and Beachcomber",

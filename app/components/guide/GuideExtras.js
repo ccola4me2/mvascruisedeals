@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { diffDays } from "../../lib/guide.js";
+import { WATCH_ENABLED } from "../../lib/watchConfig.js";
 import { portExcursionUrl, EXCURSION_DISCLOSURE } from "../../lib/excursions";
 
 // Two screen-only cards above the guide pages: how long until sailing (with the
@@ -83,7 +84,7 @@ function OnBoardCard({ g, today }) {
   );
 }
 
-export function TodayCard({ g, today }) {
+export function TodayCard({ g, today, sailingId }) {
   const n = diffDays(g.dep, today);
   if (n < 0) return <OnBoardCard g={g} today={today} />;
   const next = g.ready.countdown.find((c) => c.iso && c.iso >= today && c.iso < g.dep);
@@ -95,6 +96,11 @@ export function TodayCard({ g, today }) {
           <div className="gd-today-count">{head}</div>
           <p className="gd-today-sub">{g.fullTitle}, {g.depLong}</p>
         </div>
+        {WATCH_ENABLED && sailingId && g.fares && n > 1 && (
+          <p>
+            <a href={"/sailings/" + sailingId + "/#watch"}>Watch this price</a>: I will email you if a fare for this sailing drops by $50 or more.
+          </p>
+        )}
         {next && n > 1 && (
           <p>
             <b>Next up:</b> {next.h}, {next.iso === today ? "today" : "by " + next.date}. {next.t}
