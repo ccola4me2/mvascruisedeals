@@ -269,6 +269,36 @@ def main():
         })
     moves.sort(key=lambda m: (m["date"], abs(m["diff"])), reverse=True)
 
+    # Biggest drops this week: the net change in each fare from the snapshot about
+    # a week ago to the latest one. A fare that fell and then rose again, or that
+    # flip-flopped, only counts for where it ended up. One row per fare.
+    week_ref = None
+    for d_, f_ in snaps:
+        if d_ <= (day(snap_day) - timedelta(days=7)).isoformat():
+            week_ref = (d_, f_)
+    if week_ref is None and len(snaps) > 1:
+        week_ref = snaps[0]
+    week_rows, week_up = [], 0
+    if week_ref:
+        for k, v in latest.items():
+            was = week_ref[1].get(k)
+            if was is None or k[2] < snap_day:
+                continue
+            if v > was:
+                week_up += 1
+            elif v < was:
+                week_rows.append({
+                    "ship": k[0], "itin": k[1], "sail": k[2], "room": k[3], "nights": nights(k[1]),
+                    "old": was, "new": v, "diff": v - was, "pct": pct(was, v),
+                    "now": v, "hist": series.get(k, []),
+                })
+        week_rows.sort(key=lambda m: (m["diff"], m["sail"]))
+    week_drops = {
+        "since": week_ref[0] if week_ref else None,
+        "count": len(week_rows), "increases": week_up,
+        "rows": week_rows[:8],
+    }
+
     last = [m for m in moves if m["date"] == last_change]
     ld = [m for m in last if m["diff"] < 0]
     lu = [m for m in last if m["diff"] > 0]
@@ -371,6 +401,7 @@ def main():
         "guides": guide_ids(latest),
         "byShip": by_ship,
         "moves": moves,
+        "weekDrops": week_drops,
         "lowest": lowest,
         "soon": soon,
         "watch": watch,

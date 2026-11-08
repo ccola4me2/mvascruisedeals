@@ -133,7 +133,7 @@ function Spark({ hist, up }) {
   );
 }
 
-function MoveRow({ m, fares, guides }) {
+function MoveRow({ m, fares, guides, since }) {
   const up = m.diff > 0;
   const cruise = m.nights + "-Night " + m.itin.replace(/^\d+-Night\s*/, "");
   return (
@@ -146,7 +146,8 @@ function MoveRow({ m, fares, guides }) {
         </p>
         <h3>{m.itin}</h3>
         <p className="tr-row-meta">
-          Sails {longDate(m.sail)} &middot; {plural(m.nights, "night")} &middot; detected {shortDate(m.date)}
+          Sails {longDate(m.sail)} &middot; {plural(m.nights, "night")} &middot;{" "}
+          {since ? "down since " + shortDate(since) : "detected " + shortDate(m.date)}
         </p>
       </div>
       <div className="tr-row-price">
@@ -220,7 +221,7 @@ function ActivityChart({ timeline }) {
 }
 
 export default function TrendsView({ data }) {
-  const { meta, last, listing, byShip, moves, lowest, soon, watch, timeline, totals, fares, guides } = data;
+  const { meta, last, listing, byShip, moves, lowest, soon, watch, timeline, totals, fares, guides, weekDrops } = data;
   // Open on the narrowest window that has at least three drops, so a quiet day
   // does not greet people with an almost empty list.
   const [win, setWin] = useState(() => {
@@ -416,6 +417,29 @@ export default function TrendsView({ data }) {
           </div>
         </div>
       </section>
+
+      {/* Biggest drops this week */}
+      {weekDrops && weekDrops.rows.length > 0 && (
+        <section className="section" id="week-drops">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <p className="eyebrow">Net change since {withDow(weekDrops.since)}</p>
+                <h2>Biggest drops this week</h2>
+                <p className="section-lede">
+                  {weekDrops.count} fares are cheaper than they were a week ago and {weekDrops.increases} cost more. These are
+                  the {weekDrops.rows.length} biggest drops. A fare that dropped and then came back up is not counted.
+                </p>
+              </div>
+            </div>
+            <ul className="tr-list">
+              {weekDrops.rows.map((m, i) => (
+                <MoveRow key={m.ship + m.itin + m.sail + m.room + i} m={m} fares={fares} guides={guides} since={weekDrops.since} />
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       {/* Moves */}
       <section className="section" id="moves">
