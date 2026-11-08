@@ -21,6 +21,14 @@
   "triggers": {
     "crons": ["20 */3 * * *"]
   },
+  // Price-watch storage (src/watch.js). The table is created on first use.
+  "d1_databases": [
+    {
+      "binding": "WATCH_DB",
+      "database_name": "mvas-watch",
+      "database_id": "936ff28b-c7f2-4da4-a5ec-36a4a603e5d1"
+    }
+  ],
   "vars": {
     "QUOTE_NOTIFY_TO": "brentb@cruisestoursandtravel.com",
     "QUOTE_FROM": "MVAS Cruise Deals <noreply@cttagents.com>"
