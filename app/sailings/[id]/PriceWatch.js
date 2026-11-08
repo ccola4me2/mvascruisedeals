@@ -10,7 +10,7 @@ import { track } from "../../lib/track";
 
 // "Email me if this fare drops": pick a date and a room category, leave a name and
 // an email. The Worker (src/watch.js) checks the fares after every update and
-// writes only when a fare falls by $20 or more.
+// writes only when a fare falls by DROP_MIN or more.
 export default function PriceWatch({ it, buildToday }) {
   const [today, setToday] = useState(buildToday);
   useEffect(() => setToday(todayISO()), []);
