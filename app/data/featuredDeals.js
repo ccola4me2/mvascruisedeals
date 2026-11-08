@@ -102,7 +102,7 @@ export const featuredDeals = [
       from: "$411.22",
       fromUnit: "per guest, double occupancy",
       group: false,
-      lede: "A five-night Bahamas and Eastern Caribbean getaway on Beachcomber: Nassau and Puerto Plata, round-trip from Miami, with a $75 onboard credit on every fare.",
+      lede: "A five-night Bahamas and Eastern Caribbean getaway on Beachcomber: Nassau and Puerto Plata, round-trip from Miami, sailing right over St. Patrick's Day, with a $75 onboard credit on every fare.",
       why: [
         {
           title: "Five nights, two islands",
@@ -124,7 +124,7 @@ export const featuredDeals = [
         },
         {
           q: "Are gratuities included in this price?",
-          a: "No. Taxes and fees are included, and gratuities are additional on this sailing.",
+          a: "No. Taxes and fees are included, and gratuities are additional on this sailing. The cruise line charges $22 per person, per night in a stateroom, so about $110 per person over these five nights, added to your onboard account. I confirm the current rate in your quote.",
         },
       ],
     },
