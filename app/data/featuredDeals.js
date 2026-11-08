@@ -70,57 +70,6 @@ export const featuredDeals = [
     },
   },
   {
-    id: "islander-8night-grand-cayman-central-america-2028",
-    tag: "Central America",
-    title: "8-Night Grand Cayman & Central America",
-    ship: "Margaritaville at Sea Islander",
-    when: "October 7 to 15, 2028",
-    nights: "8 nights",
-    itinerary: "Round-trip Tampa: Limon, Colon, Grand Cayman",
-    image: "/deals/islander.jpg",
-    limited: "Limited cabins available at this group rate",
-    cabins: [
-      { type: "Interior", name: "Cozy Interior", price: "$881.85" },
-      { type: "Oceanview", name: "Picturesque Oceanview", price: "$967.35" },
-      { type: "Balcony", name: "Breezy Balcony", price: "$1,261.85" },
-      { type: "Suite", name: "Grand Terrace Suite", price: "$2,150.35" },
-    ],
-    priceBasis: "Per guest, double occupancy. Taxes, fees, and gratuities included.",
-    onboardCredit: "$50",
-    includes: ["Taxes", "Fees", "Gratuities"],
-    cta: { label: "Get This Deal", href: "/contact" },
-    landing: {
-      slug: "tampa-central-america-oct-2028",
-      departs: "2028-10-07",
-      homeport: "Tampa, FL",
-      ports: ["Limon", "Colon", "Grand Cayman"],
-      from: "$881.85",
-      fromUnit: "per guest, double occupancy",
-      group: true,
-      lede: "Costa Rica and Panama on one itinerary, plus Grand Cayman, sailing round-trip from Tampa on Islander at a group rate with taxes, fees, and gratuities included.",
-      why: [
-        {
-          title: "Taxes, fees, and gratuities included",
-          text: "The price per guest already covers the basics, so there are no add-ons to chase before you book.",
-        },
-        {
-          title: "Two Central American ports",
-          text: "Limon, Costa Rica for rainforest canals and sloths, and Colon, Panama at the Caribbean doorway to the Panama Canal.",
-        },
-        {
-          title: "Round-trip from Tampa",
-          text: "Sail from Port Tampa Bay aboard Islander, the feature-packed ship with more than a dozen dining venues, bars, and kids' clubs.",
-        },
-      ],
-      faqs: [
-        {
-          q: "Which ship is this, and where does it leave from?",
-          a: "Margaritaville at Sea Islander, sailing round-trip from Port Tampa Bay, Florida, on October 7, 2028.",
-        },
-      ],
-    },
-  },
-  {
     id: "beachcomber-5night-bahamas-eastern-2027",
     tag: "New deal alert",
     // Optional seasonal promo banner. Set a string to show a green banner on the
@@ -212,6 +161,13 @@ export function getLandingDeal(slug) {
 // 404, so old shares and links do not look dead. Add an entry here when you remove
 // a deal that had a landing page; the page is not indexed or listed in the sitemap.
 export const retiredDeals = [
+  {
+    slug: "tampa-central-america-oct-2028",
+    title: "8-Night Grand Cayman & Central America",
+    ship: "Islander",
+    when: "October 7 to 15, 2028",
+    homeport: "Tampa, FL",
+  },
   {
     slug: "miami-southern-caribbean-feb-2027",
     title: "8-Night Southern Caribbean",
