@@ -8,7 +8,7 @@ import { esc } from "./planEmail.js";
 export const WATCH_ROOMS = ["Interior", "Ocean View", "Balcony", "Suite"];
 // A fare has to fall by at least this much below the last price someone was told
 // about, so a $2 wobble never sends an email.
-export const DROP_MIN = 20;
+export const DROP_MIN = 50;
 // Quiet limits: one alert per watch every few days, and one alert email per address a day,
 // whatever the fares do. A drop held back by a limit goes out on a later check.
 export const ALERT_GAP_DAYS = 3;
