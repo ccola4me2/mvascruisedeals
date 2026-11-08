@@ -9,6 +9,10 @@ export const WATCH_ROOMS = ["Interior", "Ocean View", "Balcony", "Suite"];
 // A fare has to fall by at least this much below the last price someone was told
 // about, so a $2 wobble never sends an email.
 export const DROP_MIN = 20;
+// Quiet limits: one alert per watch every few days, and one alert email per address a day,
+// whatever the fares do. A drop held back by a limit goes out on a later check.
+export const ALERT_GAP_DAYS = 3;
+export const ADDRESS_GAP_HOURS = 24;
 // Fares older than this many days are never used to send an alert.
 export const FARES_FRESH_DAYS = 4;
 // Most watches one address can hold, so the form cannot be used to flood an inbox.

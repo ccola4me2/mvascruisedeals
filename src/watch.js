@@ -11,6 +11,8 @@ import { findItinerary, buildGuide, futureDates, diffDays } from "../app/lib/gui
 import {
   WATCH_ROOMS,
   FARES_FRESH_DAYS,
+  ALERT_GAP_DAYS,
+  ADDRESS_GAP_HOURS,
   MAX_WATCHES_PER_EMAIL,
   priceFor,
   judge,
@@ -256,6 +258,14 @@ export async function checkWatches(env, h) {
     if (v.action !== "alert" || alerts >= MAX_SENDS_PER_RUN) continue;
     const label = labelFor(w);
     if (!label) continue;
+    // Quiet limits: this watch was told recently, or this address already got an alert today.
+    const now = Date.now();
+    if (w.last_alert_at && now - Date.parse(w.last_alert_at) < ALERT_GAP_DAYS * 86400000) continue;
+    const today24 = await db
+      .prepare("SELECT COUNT(*) AS n FROM watches WHERE email = ? AND last_alert_at > ?")
+      .bind(w.email, new Date(now - ADDRESS_GAP_HOURS * 3600000).toISOString())
+      .first();
+    if (today24 && today24.n > 0) continue;
     // Claim the drop first, so two overlapping runs cannot email the same one twice.
     const claim = await db
       .prepare("UPDATE watches SET last_price = ?, last_alert_at = ?, alerts_sent = alerts_sent + 1 WHERE id = ? AND last_price = ?")
