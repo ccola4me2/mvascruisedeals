@@ -6,6 +6,7 @@ import Reveal from "./components/Reveal";
 import Analytics from "./components/Analytics";
 import AnalyticsEvents from "./components/AnalyticsEvents";
 import CookieConsent from "./components/CookieConsent";
+import { SaleBar } from "./components/FlashSale";
 import "./globals.css";
 
 const display = Fraunces({
@@ -109,6 +110,7 @@ export default function RootLayout({ children }) {
         <a className="skip-link" href="#main">
           Skip to content
         </a>
+        <SaleBar />
         <Navbar />
         <main id="main">{children}</main>
         <Footer />

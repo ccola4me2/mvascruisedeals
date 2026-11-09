@@ -1,6 +1,7 @@
 import DealCard from "../components/DealCard";
 import FeaturedDeal from "../components/FeaturedDeal";
 import QuoteSection from "../components/QuoteSection";
+import { SaleCard } from "../components/FlashSale";
 import { deals } from "../data/deals";
 import { featuredDeals } from "../data/featuredDeals";
 
@@ -29,6 +30,8 @@ export default function DealsPage() {
           </p>
         </div>
       </section>
+
+      <SaleCard />
 
       <section className="section">
         <div className="container">
