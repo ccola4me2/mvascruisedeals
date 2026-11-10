@@ -303,6 +303,21 @@ def main():
     ld = [m for m in last if m["diff"] < 0]
     lu = [m for m in last if m["diff"] > 0]
 
+    # A "biggest drop" headline has to be a real markdown, not a fare returning to
+    # where it was. A drop only qualifies when the fare was on sale at every check
+    # in the 7 days before it (so it did not just reappear after a gap) and the new
+    # price is lower than any price it showed in those days (a new low, so it is
+    # not a spike that reverted). Everything still counts in the tiles and the log.
+    recent = [f_ for d_, f_ in snaps if (day(snap_day) - timedelta(days=7)).isoformat() <= d_ < snap_day]
+
+    def real_drop(m):
+        k = (m["ship"], m["itin"], m["sail"], m["room"])
+        if not recent or any(k not in f_ for f_ in recent):
+            return False
+        return m["new"] < min(f_[k] for f_ in recent)
+
+    ld_real = [m for m in ld if real_drop(m)]
+
     # What was newly listed or sold out between the last two snapshots.
     new_fares = sorted(k for k in latest if k not in prev and k[2] >= snap_day) if prev else []
     gone = sorted(k for k in prev if k not in latest and k[2] >= snap_day)
@@ -388,7 +403,7 @@ def main():
         "last": {
             "date": last_change, "drops": len(ld), "increases": len(lu),
             "avgDropPct": round(statistics.mean(dp), 1) if dp else 0,
-            "biggestDrop": min(ld, key=lambda m: m["diff"]) if ld else None,
+            "biggestDrop": min(ld_real, key=lambda m: m["diff"]) if ld_real else None,
             "biggestIncrease": max(lu, key=lambda m: m["diff"]) if lu else None,
         },
         "listing": {
