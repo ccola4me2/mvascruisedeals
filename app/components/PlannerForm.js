@@ -45,8 +45,8 @@ export default function PlannerForm() {
         setSel(rec.id);
         const d = params.get("d");
         // Only a date that really belongs to this cruise is kept. Otherwise guests choose,
-        // unless the cruise has just one date.
-        setDate(rec.dates.indexOf(d) !== -1 ? d : rec.dates.length === 1 ? rec.dates[0] : "");
+        // even when the cruise has just one date.
+        setDate(rec.dates.indexOf(d) !== -1 ? d : "");
       }
     } catch {
       /* nothing preselected */
@@ -75,9 +75,11 @@ export default function PlannerForm() {
   function pick(r) {
     track("planner_pick", { sailing: r.id });
     setSel(r.id);
-    // No silent default: a date nobody chose ends up on their lead as their sailing. The one
-    // exception is a date they typed into the search, which they did choose.
-    setDate(r.dates.length === 1 ? r.dates[0] : matchQueryDate(q, r.dates));
+    // No silent default, not even for a cruise with one date: a date nobody chose ends up on
+    // their lead as their sailing (a guest sailing in April was filed on the one February
+    // cruise with a similar name). The one exception is a date they typed into the search,
+    // which they did choose.
+    setDate(matchQueryDate(q, r.dates));
     setStatus("idle");
     setErr("");
     setResult(null);
@@ -251,13 +253,19 @@ export default function PlannerForm() {
               if (e.target.value) track("planner_date", { sailing: rec.id, date: e.target.value });
             }}
           >
-            {rec.dates.length > 1 && <option value="">Choose your sailing date</option>}
+            <option value="">Choose your sailing date</option>
             {rec.dates.map((d) => (
               <option key={d} value={d}>
                 {longDate(d, { dow: true, year: true })}
               </option>
             ))}
           </select>
+          {rec.dates.length === 1 && (
+            <p className="pl-date-hint">
+              This cruise sails once, on {longDate(rec.dates[0], { dow: true, year: true })}. Sailing on a
+              different date? Pick another cruise above.
+            </p>
+          )}
         </div>
       )}
 

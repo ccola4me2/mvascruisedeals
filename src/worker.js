@@ -332,11 +332,13 @@ async function handlePlan(request, env) {
     return json({ error: "That cruise has no upcoming dates. Please pick another." }, 400);
   }
   const wanted = clean(body.date, 12);
-  // A date nobody picked would be filed as the guest's sailing, so it is never guessed.
-  if (dates.indexOf(wanted) === -1 && dates.length > 1) {
+  // A date nobody picked would be filed as the guest's sailing, so it is never guessed,
+  // even when the cruise has only one date (a guest sailing in April was once filed on
+  // the one February cruise with a similar name).
+  if (dates.indexOf(wanted) === -1) {
     return json({ error: "Please choose your sailing date." }, 400);
   }
-  const date = dates.indexOf(wanted) !== -1 ? wanted : dates[0];
+  const date = wanted;
 
   const ip = request.headers.get("CF-Connecting-IP") || "unknown";
   if (await throttled("plan-ip-" + ip, 20)) {

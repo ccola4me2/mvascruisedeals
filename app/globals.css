@@ -6246,3 +6246,9 @@ img {
     gap: 20px;
   }
 }
+
+.pl-date-hint {
+  margin: 10px 0 0;
+  font-size: 0.92rem;
+  color: var(--slate);
+}
