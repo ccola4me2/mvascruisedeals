@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import { quoteHref } from "../lib/quote";
 import { featuredDeals } from "../data/featuredDeals";
 import { WATCH_ENABLED } from "../lib/watchConfig.js";
+import { DIGEST_ENABLED } from "../lib/digestConfig.js";
+import DigestSignup from "../components/DigestSignup";
 
 // The daily Cruise Price Trends page. Everything it shows comes from
 // data/trends.json, built by scripts/build-trends.py from the daily snapshots
@@ -367,6 +369,8 @@ export default function TrendsView({ data }) {
         </div>
       </section>
 
+      {DIGEST_ENABLED && <DigestSignup where="top" />}
+
       {/* Brent's deals that beat the public fare today */}
       {dealStrip.length > 0 && (
         <section className="tr-deals">
@@ -664,6 +668,8 @@ export default function TrendsView({ data }) {
           </ul>
         </div>
       </section>
+
+      {DIGEST_ENABLED && <DigestSignup where="bottom" />}
 
       <section className="cta">
         <div className="container cta-inner">

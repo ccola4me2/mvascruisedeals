@@ -207,6 +207,43 @@ def write_fares(latest, series, snap_day):
     print("wrote public/fares.json: %d KB" % (os.path.getsize(jpath) // 1024 + 1))
 
 
+def write_digest(snap_day, last_change, quiet, ld, lu, ld_real, new_fares, gone, week_drops):
+    """public/digest.json: the few numbers the email digest (src/digest.js) needs,
+    so the Worker never has to read the big trends file. One row per fare, with the
+    itinerary id so an email can link to that sailing's guide."""
+    index = itinerary_index()
+
+    def row(m):
+        return {
+            "ship": m["ship"], "itin": m["itin"], "sail": m["sail"], "room": m["room"],
+            "old": m["old"], "new": m["new"], "diff": m["diff"], "pct": m["pct"],
+            "id": match_id(index, m["ship"], m["itin"], m["sail"]),
+        }
+
+    top = sorted(ld_real, key=lambda m: (m["diff"], m["sail"]))[:5]
+    out = {
+        "asOf": snap_day,
+        "date": last_change,
+        "quiet": quiet,
+        "drops": len(ld),
+        "increases": len(lu),
+        "newFares": len(new_fares),
+        "soldOut": len(gone),
+        "top": [row(m) for m in top],
+        "week": {
+            "since": week_drops["since"],
+            "count": week_drops["count"],
+            "increases": week_drops["increases"],
+            "rows": [row(m) for m in week_drops["rows"][:5]],
+        },
+    }
+    path = os.path.join(ROOT, "public", "digest.json")
+    with open(path, "w", encoding="utf-8") as fh:
+        json.dump(out, fh, separators=(",", ":"))
+        fh.write("\n")
+    print("wrote public/digest.json: %d top drops, %d week rows" % (len(out["top"]), len(out["week"]["rows"])))
+
+
 def pct(old, new):
     return round((new - old) / old * 100, 1)
 
@@ -429,6 +466,7 @@ def main():
         fh.write("\n")
     print("wrote", os.path.relpath(OUT, ROOT), "%d KB" % (os.path.getsize(OUT) // 1024))
     write_fares(latest, series, snap_day)
+    write_digest(snap_day, last_change, last_change < snap_day, ld, lu, ld_real, new_fares, gone, week_drops)
     print("snapshot %s (%d fares) | last change %s | log rows %d (%d with no sailing date) | skipped steps %d" % (
         snap_day, len(latest), last_change, len(log), undated, breaks))
     print("last-change day: %d drops, %d increases | moves in window: %d | new %d, sold out %d (vs %s)" % (

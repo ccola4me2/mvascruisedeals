@@ -15,13 +15,14 @@
 import { findItinerary, buildGuide, futureDates } from "../app/lib/guide.js";
 import { buildPlanEmail, buildPlanNotice } from "../app/lib/planEmail.js";
 import { handleWatch, handleStop, checkWatches } from "./watch.js";
+import { handleDigest, handleDigestStop, sendDigests } from "./digest.js";
 
 const CTT_ENDPOINT =
   "https://cttagents.com/api/public/forms/wwwmvascruisedealscom";
 const SITE = "https://mvascruisedeals.com";
 
 // Bumped on deploys so a poll of the endpoint can confirm the new Worker is live.
-const VERSION = "7";
+const VERSION = "8";
 
 export default {
   async fetch(request, env) {
@@ -41,6 +42,12 @@ export default {
     if (url.pathname === "/api/watch/stop") {
       return handleStop(request, env, helpers);
     }
+    if (url.pathname === "/api/digest") {
+      return handleDigest(request, env, helpers);
+    }
+    if (url.pathname === "/api/digest/stop") {
+      return handleDigestStop(request, env, helpers);
+    }
     // Google Search Console ownership file. The static asset layer redirects a
     // ".html" path to its extensionless twin, and Google wants this exact URL
     // with a plain 200, so the Worker answers it directly. Keep it as long as
@@ -52,9 +59,15 @@ export default {
     }
     return env.ASSETS.fetch(request);
   },
-  // Cron trigger (see wrangler.jsonc): email anyone whose watched fare has dropped.
+  // Cron trigger (see wrangler.jsonc): email anyone whose watched fare has dropped, then send the
+  // price-drop email digest to whoever is due.
   async scheduled(event, env, ctx) {
-    ctx.waitUntil(checkWatches(env, helpers).catch((e) => console.log("price watch check failed: " + (e && e.message))));
+    ctx.waitUntil(
+      (async () => {
+        await checkWatches(env, helpers).catch((e) => console.log("price watch check failed: " + (e && e.message)));
+        await sendDigests(env, helpers).catch((e) => console.log("email digest failed: " + (e && e.message)));
+      })()
+    );
   },
 };
 

@@ -6252,3 +6252,66 @@ img {
   font-size: 0.92rem;
   color: var(--slate);
 }
+
+/* Price-drop email signup on /trends/ */
+.dg {
+  background: var(--navy);
+  color: #fff;
+}
+.dg-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px 40px;
+  padding: 36px 24px;
+}
+.dg-copy { flex: 1 1 320px; }
+.dg-label {
+  margin: 0 0 6px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sun);
+}
+.dg-copy h2 { margin: 0 0 6px; color: #fff; font-size: clamp(1.4rem, 3vw, 1.9rem); }
+.dg-copy p:not(.dg-label) { margin: 0; max-width: 46ch; color: rgba(255, 255, 255, 0.82); line-height: 1.55; }
+.dg-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex: 1 1 320px;
+  max-width: 520px;
+}
+.dg-form input[type="email"] {
+  flex: 1 1 220px;
+  min-width: 0;
+  padding: 13px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font: inherit;
+}
+.dg-form input[type="email"]::placeholder { color: rgba(255, 255, 255, 0.6); }
+.dg-form input[type="email"]:focus { outline: 2px solid var(--sun); outline-offset: 1px; }
+.dg-freq {
+  flex: 1 1 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.dg-freq label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: pointer; }
+.dg-freq input { accent-color: var(--sun); width: 18px; height: 18px; }
+.dg-done { flex: 1 1 320px; max-width: 520px; margin: 0; font-weight: 600; color: var(--sun); line-height: 1.5; }
+.dg .dg-error { flex: 1 1 100%; color: #ffd2c4; margin: 0; }
+.dg-privacy { flex: 1 1 100%; margin: 0; color: rgba(255, 255, 255, 0.7); font-size: 0.82rem; }
+.dg-privacy a { color: #fff; text-decoration: underline; }
+@media (max-width: 560px) {
+  .dg-inner { padding: 28px 16px; }
+  .dg-form .btn { flex: 1 1 100%; }
+}

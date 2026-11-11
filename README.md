@@ -100,3 +100,15 @@ time and getting identical contents tells you it is the log.
 
 A scheduled Claude task ("trends-daily-snapshots") does these steps every day at noon
 Eastern, while the Claude desktop app is open.
+
+### Price-drop email digest
+
+A signup box on `/trends/` (off until `DIGEST_ENABLED` in `app/lib/digestConfig.js` is `true`)
+collects an email and a choice of weekly (the default, Mondays) or daily. The build also
+writes `public/digest.json` (the day's drops, the biggest new lows, the week's net drops),
+which the Worker reads. Subscribers live in the `digest_subs` table in the same D1 database
+as the price watch, created on first use. The existing cron (`src/worker.js`, every three
+hours) calls `sendDigests` in `src/digest.js`, which emails each subscriber once per issue
+and never from data older than four days. Every email has a one-click unsubscribe and a link
+to `/digest/stop/` to switch weekly or daily. The rules and emails are in `app/lib/digest.js`.
+`public/digest.json` is staged with the trends data by the scheduled task.
