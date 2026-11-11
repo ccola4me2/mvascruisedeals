@@ -6315,3 +6315,19 @@ img {
   .dg-inner { padding: 28px 16px; }
   .dg-form .btn { flex: 1 1 100%; }
 }
+
+/* Home hero: reassurance line under the buttons */
+.hero-note {
+  margin: 16px 0 0;
+  max-width: 46ch;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+.hero-note a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}

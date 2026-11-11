@@ -54,27 +54,17 @@ export default function HomePage() {
             every detail from quote to gangway.
           </p>
           <div className="hero-actions">
-            <Link href="/deals" className="btn btn-primary btn-lg">
+            <a href="#quote" className="btn btn-primary btn-lg">
+              Get my free quote
+            </a>
+            <Link href="/deals" className="btn btn-glass btn-lg">
               See Cruise Deals
             </Link>
-            <Link href="/group-rates" className="btn btn-glass btn-lg">
-              Group Rates
-            </Link>
           </div>
-          <dl className="hero-stats">
-            <div>
-              <dt>3</dt>
-              <dd>Ships in the fleet</dd>
-            </div>
-            <div>
-              <dt>4</dt>
-              <dd>U.S. homeports</dd>
-            </div>
-            <div>
-              <dt>$0</dt>
-              <dd>Booking fees</dd>
-            </div>
-          </dl>
+          <p className="hero-note">
+            No booking fees, and I usually reply within one business day. Or call
+            or text <a href="tel:+15617779911">(561) 777-9911</a>.
+          </p>
         </div>
         <svg
           className="hero-wave"
