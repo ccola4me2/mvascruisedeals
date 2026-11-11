@@ -7,6 +7,7 @@ import { track } from "../lib/track";
 // and a button. Posts to /api/digest, which saves the subscriber in D1 and sends a welcome
 // email with the latest numbers. `where` keeps the field ids unique when it appears twice.
 export default function DigestSignup({ where = "top" }) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [frequency, setFrequency] = useState("weekly");
   const [status, setStatus] = useState("idle"); // idle | sending | done | error
@@ -22,6 +23,7 @@ export default function DigestSignup({ where = "top" }) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          name,
           email,
           frequency,
           company_website: e.currentTarget.company_website.value,
@@ -30,6 +32,7 @@ export default function DigestSignup({ where = "top" }) {
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.ok) {
         track("digest_signup", { frequency, form_location: where });
+        track("generate_lead", { method: "trends_digest", form_location: where, filed: Boolean(data.filed) });
         setStatus("done");
       } else {
         setErrMsg(data.error || "Something went wrong. Please call or text (561) 777-9911.");
@@ -60,11 +63,25 @@ export default function DigestSignup({ where = "top" }) {
           </p>
         ) : (
           <form className="dg-form" onSubmit={onSubmit}>
+            <label htmlFor={id + "-name"} className="sr-only">
+              First and last name
+            </label>
+            <input
+              id={id + "-name"}
+              className="dg-field"
+              type="text"
+              required
+              autoComplete="name"
+              placeholder="First and last name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
             <label htmlFor={id + "-email"} className="sr-only">
               Email address
             </label>
             <input
               id={id + "-email"}
+              className="dg-field"
               type="email"
               required
               autoComplete="email"
@@ -116,7 +133,7 @@ export default function DigestSignup({ where = "top" }) {
         )}
         {status !== "done" && (
           <p className="form-privacy dg-privacy">
-            I use your email only to send you these price drops. One click unsubscribes. See my{" "}
+            I use your name and email only to send you these price drops. One click unsubscribes. See my{" "}
             <a href="/privacy/">Privacy Policy</a>.
           </p>
         )}

@@ -6286,8 +6286,8 @@ img {
   flex: 1 1 320px;
   max-width: 520px;
 }
-.dg-form input[type="email"] {
-  flex: 1 1 220px;
+.dg-form .dg-field {
+  flex: 1 1 100%;
   min-width: 0;
   padding: 13px 16px;
   border-radius: 999px;
@@ -6296,8 +6296,9 @@ img {
   color: #fff;
   font: inherit;
 }
-.dg-form input[type="email"]::placeholder { color: rgba(255, 255, 255, 0.6); }
-.dg-form input[type="email"]:focus { outline: 2px solid var(--sun); outline-offset: 1px; }
+.dg-form .dg-field::placeholder { color: rgba(255, 255, 255, 0.6); }
+.dg-form .dg-field:focus { outline: 2px solid var(--sun); outline-offset: 1px; }
+.dg-form .btn { flex: 1 1 100%; }
 .dg-freq {
   flex: 1 1 100%;
   display: flex;

@@ -4,8 +4,9 @@
 // from /digest.json, which scripts/build-trends.py writes with the trends data. The
 // rules and the emails are in app/lib/digest.js so they can be tested without a network.
 //
-// Subscribers live in D1 (the WATCH_DB binding, a table of their own). Everything here
-// stays quiet when WATCH_DB is not bound.
+// Subscribers live in D1 (the WATCH_DB binding, a table of their own). Every new signup is
+// also filed in CTT as a lead (the "MVAS Deal Alerts" form, which needs a first and last name)
+// and Brent gets an email about it. Everything here stays quiet when WATCH_DB is not bound.
 
 import { diffDays } from "../app/lib/guide.js";
 import { FARES_FRESH_DAYS } from "../app/lib/watch.js";
@@ -74,7 +75,33 @@ const unsubscribeHeaders = (oneClickUrl) => ({
   "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
 });
 
-// POST /api/digest  { email, frequency, company_website }
+// Files a new signup in CTT, so it lands on the advisor's Clients list and lead board. Best
+// effort: the subscription is already saved, and Brent's email says when CTT did not confirm.
+async function fileInCtt(env, { first, last, email, frequency }) {
+  try {
+    const r = await fetch(
+      "https://cttagents.com/api/public/forms/" + encodeURIComponent(env.ALERTS_FORM_SLUG || "mvas-deal-alerts"),
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          first_name: first,
+          last_name: last,
+          email,
+          notes: "Signed up for the " + frequency + " price-drop email on mvascruisedeals.com/trends/.",
+          company_website: "",
+        }),
+      }
+    );
+    const data = await r.json().catch(() => ({}));
+    const ok = r.ok && data && data.ok !== false && !data.error;
+    return { ok, why: ok ? "" : "CTT answered " + r.status + (data && data.error ? ": " + data.error : "") };
+  } catch {
+    return { ok: false, why: "CTT could not be reached" };
+  }
+}
+
+// POST /api/digest  { name, email, frequency, company_website }
 export async function handleDigest(request, env, h) {
   const { clean, isEmail, json, throttled, sendResend, shortHash } = h;
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: h.corsHeaders() });
@@ -89,8 +116,13 @@ export async function handleDigest(request, env, h) {
   }
   if (clean(body.company_website, 200)) return json({ ok: true });
 
+  const name = clean(body.name, 120);
   const email = clean(body.email, 160).toLowerCase();
-  if (!email || !isEmail(email)) return json({ error: "Please add a valid email." }, 400);
+  const missing = [];
+  if (!name || name.split(/\s+/).length < 2) missing.push("your first and last name");
+  if (!email || !isEmail(email)) missing.push("a valid email");
+  if (missing.length) return json({ error: "Please add " + missing.join(" and ") + "." }, 400);
+  const parts = name.split(/\s+/);
   const frequency = FREQUENCIES.indexOf(body.frequency) === -1 ? DEFAULT_FREQUENCY : body.frequency;
 
   const ip = request.headers.get("CF-Connecting-IP") || "unknown";
@@ -100,6 +132,10 @@ export async function handleDigest(request, env, h) {
   try {
     await ensureSchema(db);
     const digest = await loadDigest(env);
+    // A brand new signup, or someone coming back after unsubscribing, is a lead. Changing the
+    // frequency while already subscribed is not.
+    const before = await db.prepare("SELECT active FROM digest_subs WHERE email = ?").bind(email).first();
+    const isNew = !before || before.active !== 1;
     // Start the clock at today's data, so the first scheduled email is the next one and not a repeat of
     // the sample in the welcome email.
     const lastAsof = digest ? digest.asOf : null;
@@ -129,7 +165,28 @@ export async function handleDigest(request, env, h) {
         headers: unsubscribeHeaders(oneClickUrl),
       });
     }
-    return json({ ok: true, frequency, emailed });
+    let filed = false;
+    if (isNew) {
+      const ctt = await fileInCtt(env, { first: parts[0], last: parts.slice(1).join(" "), email, frequency });
+      filed = ctt.ok;
+      // Tell Brent, every time, with a plain note when CTT did not confirm.
+      await sendResend(env, {
+        from: FROM(env),
+        to: [REPLY(env)],
+        reply_to: email,
+        subject: "New trends email signup: " + name + " (" + frequency + ")",
+        text: [
+          "Name: " + name,
+          "Email: " + email,
+          "Wants: the " + frequency + " price-drop email from mvascruisedeals.com/trends/",
+          "",
+          filed
+            ? "Filed in CTT as a lead (MVAS Deal Alerts)."
+            : "NOTE: the CTT filing did not confirm (" + (ctt.why || "no reason given") + "). Add this person to CTT by hand.",
+        ].join("\n"),
+      });
+    }
+    return json({ ok: true, frequency, emailed, filed });
   } catch {
     return json({ error: "Something went wrong. Please call or text (561) 777-9911." }, 502);
   }
