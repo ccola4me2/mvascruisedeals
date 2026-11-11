@@ -104,7 +104,7 @@ Eastern, while the Claude desktop app is open.
 ### Price-drop email digest
 
 A signup box on `/trends/` (off until `DIGEST_ENABLED` in `app/lib/digestConfig.js` is `true`)
-collects an email and a choice of weekly (the default, Mondays) or daily. The build also
+collects a name, an email and a choice of weekly (the default, Mondays) or daily. The build also
 writes `public/digest.json` (the day's drops, the biggest new lows, the week's net drops),
 which the Worker reads. Subscribers live in the `digest_subs` table in the same D1 database
 as the price watch, created on first use. The existing cron (`src/worker.js`, every three
