@@ -691,13 +691,15 @@ img {
 
 /* Rotating tagline */
 .hero-rotator {
+  display: grid;
   font-size: clamp(1.1rem, 2.2vw, 1.5rem);
   line-height: 1.5;
   min-height: 1.9em;
   margin: 16px 0 2px;
 }
 .hero-rot {
-  display: inline-block;
+  grid-area: 1 / 1;
+  display: block;
   font-family: var(--font-display-stack);
   font-style: italic;
   font-weight: 500;
@@ -707,13 +709,13 @@ img {
 }
 .hero-rot.out {
   opacity: 0;
-  transform: translateY(-12px);
-  transition: opacity 0.32s ease, transform 0.32s ease;
+  transform: translateY(-8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .hero-rot.in {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.42s ease, transform 0.42s ease;
+  transition: opacity 0.5s ease 0.15s, transform 0.5s ease 0.15s;
 }
 
 /* Wave into the section below */
@@ -6330,4 +6332,27 @@ img {
   text-decoration: underline;
   text-underline-offset: 3px;
   white-space: nowrap;
+}
+
+/* Quote band under the home page's Deals of the week */
+.quote-band {
+  background: var(--sand);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.quote-band-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 28px;
+  padding: 26px 24px;
+}
+.quote-band-copy { flex: 1 1 360px; }
+.quote-band-copy h2 { margin: 0 0 4px; font-size: clamp(1.25rem, 2.6vw, 1.6rem); }
+.quote-band-copy p { margin: 0; color: var(--slate); line-height: 1.55; max-width: 56ch; }
+.quote-band-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+@media (max-width: 560px) {
+  .quote-band-inner { padding: 22px 16px; }
+  .quote-band-actions .btn { flex: 1 1 100%; text-align: center; }
 }

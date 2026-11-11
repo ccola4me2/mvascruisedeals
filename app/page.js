@@ -101,6 +101,28 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Quote prompt: the form is the last thing on the page, so offer it here too */}
+      <section className="quote-band" aria-label="Get a quote">
+        <div className="container quote-band-inner">
+          <div className="quote-band-copy">
+            <h2>Don&apos;t see your dates or cabin?</h2>
+            <p>
+              Tell me the sailing you have in mind and I&apos;ll check the cabin
+              and send your quote. No booking fees, and I usually reply within
+              one business day.
+            </p>
+          </div>
+          <div className="quote-band-actions">
+            <a href="#quote" className="btn btn-primary btn-lg">
+              Get my free quote
+            </a>
+            <a href="tel:+15617779911" className="btn btn-outline btn-lg">
+              Call or text (561) 777-9911
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Find your escape */}
       <section className="section" id="finder">
         <div className="container">
