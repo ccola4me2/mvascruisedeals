@@ -40,9 +40,8 @@ export default function HomePage() {
         <div className="hero-sun" />
         <HeroPalms />
         <div className="container hero-inner">
-          <div className="hero-banner">
-            Up to $100 onboard credit on most sailings
-          </div>
+          {/* The "Up to $100 onboard credit on most sailings" pill came out while the Veterans
+              Day Flash Sale runs (it ends Nov 15, 2026). Put a new offer pill here after that. */}
           <p className="eyebrow eyebrow--light">Margaritaville at Sea specialist</p>
           <h1 className="hero-title">
             Your Margaritaville at Sea <em>cruise deals</em> and group expert.

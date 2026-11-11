@@ -17,9 +17,8 @@ export default function DealsPage() {
     <>
       <section className="page-head">
         <div className="container">
-          <div className="hero-banner hero-banner--center">
-            Up to $100 onboard credit on most sailings
-          </div>
+          {/* The "Up to $100 onboard credit on most sailings" pill came out while the Veterans
+              Day Flash Sale runs (it ends Nov 15, 2026). Put a new offer pill here after that. */}
           <p className="eyebrow">Current sailings</p>
           <h1>Margaritaville at Sea Cruise Deals</h1>
           <p className="page-lede">
