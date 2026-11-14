@@ -39,7 +39,8 @@ export function weekKey(iso) {
 }
 
 // Is there anything worth emailing today / this week?
-export const dailyWorthSending = (digest) => !!digest && digest.drops > 0;
+// A quiet day (nothing changed since the last check) has nothing new to say, so no daily email goes out.
+export const dailyWorthSending = (digest) => !!digest && !digest.quiet && digest.drops > 0;
 export const weeklyWorthSending = (digest) => !!digest && !!digest.week && digest.week.count > 0 && digest.week.rows.length > 0;
 
 // Should this subscriber get the digest for this data? Daily: once per data date.
