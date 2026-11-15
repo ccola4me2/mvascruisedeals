@@ -2222,3 +2222,6 @@ Date Detected,Ship,Itinerary,Sailing Date,Room Type,Change Type,Old Price,New Pr
 2026-11-13,Islander,4-Night Cozumel Express,12/19/26,Suite,INCREASE,999,1049,50,5
 2026-11-13,Islander,4-Night Cozumel Express,12/19/26,Interior,INCREASE,449,479,30,7
 2026-11-14,Beachcomber,7-Night Eastern Caribbean,01/16/27,Suite,DROP,4199,2879,-1320,-31
+2026-11-15,Paradise,4-Night Bahamas Duo,12/28/26,Suite,DROP,2499,1999,-500,-20
+2026-11-15,Islander,5-Night Bahamas Duo,12/14/26,Suite,DROP,1449,1399,-50,-3
+2026-11-15,Paradise,3-Night Nassau Escape,12/04/26,Interior,INCREASE,229,234,5,2
