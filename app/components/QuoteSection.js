@@ -17,7 +17,13 @@ export default function QuoteSection({
   prefill,
 }) {
   return (
-    <section className="section quote-section" id={id}>
+    <section
+      className="section quote-section"
+      id={id}
+      data-cruise={prefill?.cruise}
+      data-ship={prefill?.ship}
+      data-when={prefill?.when}
+    >
       <div className="container">
         <div className="section-head section-head--center">
           <p className="eyebrow">{eyebrow}</p>

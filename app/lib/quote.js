@@ -26,10 +26,23 @@ export function quoteHref({ ship, cruise, when } = {}) {
 }
 
 // Prefilled sms: / mailto: links for a selected cruise.
-export function quoteMessage({ cruise, when, ship } = {}) {
+// The message names the sailing when we know it, then lists the four things a
+// quote needs as blank lines to fill in, and ends with the page it was sent
+// from, so even a text sent without changes tells Brent what they were viewing.
+export function quoteMessage({ cruise, when, ship, page } = {}) {
   const parts = [cruise, when].filter(Boolean).join(", ");
   const shipLine = ship ? ` aboard Margaritaville at Sea ${shortShip(ship)}` : "";
-  return `Hi Brent, I'd like a quote for the ${parts || "cruise"}${shipLine}. My dates and party size are:`;
+  const what = parts ? `the ${parts}${shipLine}` : "a Margaritaville at Sea cruise";
+  const lines = [
+    `Hi Brent, I'd like a free quote for ${what}.`,
+    "",
+    "My name:",
+    "Travel dates:",
+    "Number of guests:",
+    "Cabin type (interior, ocean view, balcony or suite):",
+  ];
+  if (page) lines.push("", `Seen on: ${page}`);
+  return lines.join("\n");
 }
 
 export function smsHref(sel) {

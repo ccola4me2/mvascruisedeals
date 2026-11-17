@@ -14,9 +14,17 @@ import { CONTACT, smsHref } from "../lib/quote";
 export default function StickyCTA() {
   const pathname = usePathname();
   const [hasQuote, setHasQuote] = useState(false);
+  const [textHref, setTextHref] = useState(() => smsHref({}));
 
   useEffect(() => {
-    setHasQuote(Boolean(document.getElementById("quote")));
+    const q = document.getElementById("quote");
+    setHasQuote(Boolean(q));
+    // Deal pages mark their quote section with the sailing (data-cruise,
+    // data-ship, data-when), so the Text button can name it. Every page adds
+    // where the text came from (the address without any query or hash).
+    const d = (q && q.dataset) || {};
+    const page = window.location.origin + window.location.pathname;
+    setTextHref(smsHref({ cruise: d.cruise, ship: d.ship, when: d.when, page }));
   }, [pathname]);
 
   return (
@@ -24,7 +32,7 @@ export default function StickyCTA() {
       <a href={`tel:${CONTACT.phone}`} className="sticky-cta-btn">
         <span aria-hidden="true">📞</span> Call
       </a>
-      <a href={smsHref({})} className="sticky-cta-btn">
+      <a href={textHref} className="sticky-cta-btn">
         <span aria-hidden="true">💬</span> Text
       </a>
       {hasQuote ? (

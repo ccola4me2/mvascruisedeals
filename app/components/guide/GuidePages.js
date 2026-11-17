@@ -408,7 +408,10 @@ export function Page6({ g }) {
     "https://" + BRENT.site + quoteHref({ ship: g.ship, cruise: g.fullTitle, when });
   const textUrl =
     "sms:" + BRENT.phoneHref.replace("tel:", "") + "?&body=" +
-    encodeURIComponent("Hi Brent, I'd like to book the " + g.fullTitle + " on " + when + ".");
+    encodeURIComponent(
+      "Hi Brent, I'd like to book the " + g.fullTitle + " on " + when + ".\n\n" +
+      "My name:\nNumber of guests:\nCabin type (interior, ocean view, balcony or suite):"
+    );
   return (
     <section className="gd-page gd-book" data-page={g.pages} aria-label={"Page " + g.pages + " of " + g.pages}>
       <PageHead eyebrow="READY TO BOOK?" title="Let's get you on board." />
