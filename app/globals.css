@@ -1890,6 +1890,15 @@ img {
   margin: 0 0 4px;
 }
 
+.fdeal-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.fdeal-title a:hover {
+  text-decoration: underline;
+}
+
 .fdeal-ship {
   color: var(--ocean);
   font-weight: 700;

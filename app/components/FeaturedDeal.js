@@ -11,13 +11,25 @@ export default function FeaturedDeal({ deal, flip }) {
   return (
     <article className={`fdeal${flip ? " fdeal--flip" : ""}`}>
       <div className="fdeal-media">
-        <Image
-          src={deal.image}
-          alt={deal.ship}
-          fill
-          sizes="(max-width: 900px) 100vw, 46vw"
-          className="fdeal-img"
-        />
+        {deal.landing ? (
+          <Link href={`/deals/${deal.landing.slug}/`} aria-label={`${deal.title}: view the deal`}>
+            <Image
+              src={deal.image}
+              alt={deal.ship}
+              fill
+              sizes="(max-width: 900px) 100vw, 46vw"
+              className="fdeal-img"
+            />
+          </Link>
+        ) : (
+          <Image
+            src={deal.image}
+            alt={deal.ship}
+            fill
+            sizes="(max-width: 900px) 100vw, 46vw"
+            className="fdeal-img"
+          />
+        )}
         {deal.tag && <span className="fdeal-tag">{deal.tag}</span>}
       </div>
 
@@ -33,7 +45,9 @@ export default function FeaturedDeal({ deal, flip }) {
         {deal.logo && (
           <img src={deal.logo} alt="" className="fdeal-logo" width={112} height={95} />
         )}
-        <h3 className="fdeal-title">{deal.title}</h3>
+        <h3 className="fdeal-title">
+          {deal.landing ? <Link href={`/deals/${deal.landing.slug}/`}>{deal.title}</Link> : deal.title}
+        </h3>
         <p className="fdeal-ship">{deal.ship}</p>
         {deal.limited && (
           <p className="fdeal-limited">
@@ -152,11 +166,13 @@ export default function FeaturedDeal({ deal, flip }) {
             </a>
           ) : (
             <Link
-              href={quoteHref({
-                ship: deal.ship,
-                cruise: deal.title,
-                when: deal.when,
-              })}
+              href={
+                // A deal with its own page goes straight to that page's quote form, already filled in for the
+                // sailing, instead of a blank contact page.
+                deal.landing
+                  ? `/deals/${deal.landing.slug}/#quote`
+                  : quoteHref({ ship: deal.ship, cruise: deal.title, when: deal.when })
+              }
               className="btn btn-primary"
             >
               {deal.cta.label}

@@ -50,11 +50,12 @@ export default function WeeklyDealCard({ deal }) {
 
         <div className="wdeal-actions">
           <Link
-            href={quoteHref({
-              ship: deal.ship,
-              cruise: deal.title,
-              when: deal.when,
-            })}
+            href={
+              // Straight to the deal's own quote form when it has a page.
+              deal.detailsHref
+                ? `${deal.detailsHref}#quote`
+                : quoteHref({ ship: deal.ship, cruise: deal.title, when: deal.when })
+            }
             className="btn btn-primary"
           >
             {deal.cta.label}
