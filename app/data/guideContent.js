@@ -433,7 +433,7 @@ export const SHIPS = {
       // Before launch she is described as coming; after January 9, 2027 the plain description returns.
       [
         "The newest and largest in the fleet",
-        "She launches from PortMiami in January 2027, with 10 stateroom types from cozy interiors to corner suites. Follow her makeover in the daily 5 PM ET 5 o'Clock Drop videos.",
+        "She launches from PortMiami in January 2027, with 10 stateroom types from cozy interiors to corner suites.",
         "Beachcomber has 10 stateroom types, from cozy interiors to corner suites.",
         "2027-01-09",
       ],
