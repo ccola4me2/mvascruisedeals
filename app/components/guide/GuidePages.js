@@ -376,7 +376,15 @@ export function Page5({ g }) {
           <Checklist id={g.id + "-" + g.dep} items={r.bring} />
           <div className="gd-callout gd-callout--teal">
             <b>Parking</b>
-            <p>{r.parking}</p>
+            <p>
+              {r.parking}
+              {r.parkingLink && (
+                <>
+                  {" "}
+                  <a href={r.parkingLink.href} target="_blank" rel="noopener">{r.parkingLink.label}</a>
+                </>
+              )}
+            </p>
           </div>
           <div className="gd-callout gd-callout--gold">
             <b>{r.protect.h}</b>

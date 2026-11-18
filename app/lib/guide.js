@@ -514,7 +514,7 @@ export function buildGuide(it, dateISO, today) {
     staterooms: ship.staterooms,
     packages: PACKAGES,
     fares: fareLadder(it, dep, today),
-    ready: { airport: hp.airportLine, parking: hp.parking, countdown, bring, tips, protect },
+    ready: { airport: hp.airportLine, parking: hp.parking, parkingLink: hp.parkingLink || null, countdown, bring, tips, protect },
     foreign,
     places,
     brent: BRENT,

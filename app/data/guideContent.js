@@ -51,7 +51,11 @@ export const HOMEPORTS = {
     terminalLine: "Terminal 6 at Port Tampa Bay, 1331 McKay Street",
     hoursLine: "The terminal opens at 9:30 am and doors close promptly at 2:30 pm.",
     airportLine: "Come in the night before. Tampa International is the closest airport to the port.",
-    parking: "Choose pre-paid self-parking, pre-paid valet, or pay on arrival. Pre-paying gets you the closer spaces.",
+    parking: "Pre-pay online before you go. Valet is the self-parking price plus a flat $20 for the whole trip, and tips are extra.",
+    parkingLink: {
+      label: "Book parking online",
+      href: "https://tickets.completeticketsolutions.com/PARK2/Online/default.asp?doWork::WScontent::loadArticle=Load&BOparam::WScontent::loadArticle::article_id=F06B62C3-E1C5-4405-95F9-0BD4339C6EF4&menu_id=4AF848F2-C6EF-441E-8844-CB0495E0AA6F",
+    },
   },
   Miami: {
     city: "Miami",
