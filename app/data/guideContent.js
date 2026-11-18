@@ -430,7 +430,13 @@ export const SHIPS = {
   Beachcomber: {
     shortStat: { big: "102,000+", small: "gross tons, biggest in the fleet" },
     glance: [
-      ["The newest and largest in the fleet", "Beachcomber has 10 stateroom types, from cozy interiors to corner suites."],
+      // Before launch she is described as coming; after January 9, 2027 the plain description returns.
+      [
+        "The newest and largest in the fleet",
+        "She launches from PortMiami in January 2027, with 10 stateroom types from cozy interiors to corner suites. Follow her makeover in the daily 5 PM ET 5 o'Clock Drop videos.",
+        "Beachcomber has 10 stateroom types, from cozy interiors to corner suites.",
+        "2027-01-09",
+      ],
       // Optional 3rd and 4th items: text to use once the date in the 4th has passed.
       [
         "Zac Brown is the Godfather",
@@ -457,7 +463,7 @@ export const SHIPS = {
           ["Far Side Sushi.", "Rolls, sashimi, ramen and rice bowls."],
           ["F&L Trattoria.", "Beachcomber exclusive. Classic Italian with velvet booths."],
           ["Floridays.", "Beachcomber exclusive. Florida tapas, seafood and sangria pitchers."],
-          ["Treats and convenience.", "Dreamsicle Ice Cream, Margaritaville Coffee Shop, in-room dining and late-night pizza delivery."],
+          ["Treats and convenience.", "Dreamsicle for coffee and frozen treats, Margaritaville Coffee Shop, in-room dining and late-night pizza delivery."],
         ],
         tip: "dining packages can bundle a JWB Prime dinner with brunch and more, and pre-purchasing usually costs less than onboard.",
       },
@@ -474,7 +480,7 @@ export const SHIPS = {
         ["Original production shows.", "Three all-new shows, each running several times a cruise."],
         ["Heroes Hall.", "A space honoring those who serve."],
         ["The Front Yard.", "A relaxed lawn-style bar for spritzes and slow afternoons."],
-        ["Kids, teens and the spa.", "A Teen Club, plus the spa and the Lah De Dah juice bar."],
+        ["Kids, teens and the spa.", "A Teen Club and the Lah De Dah juice bar, plus St. Somewhere Spa & Salon with ocean-view treatment rooms and relaxation lounges."],
       ],
       nights: [
         ["Red, White & Margaritaville", "Wear red, white and blue. Visit Heroes Hall."],
