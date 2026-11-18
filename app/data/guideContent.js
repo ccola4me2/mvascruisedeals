@@ -48,7 +48,7 @@ export const HOMEPORTS = {
     state: "Florida",
     port: "Port Tampa Bay",
     stat: { big: "Terminal 6", small: "Port Tampa Bay" },
-    terminalLine: "Terminal 6 at Port Tampa Bay, 1331 McKay Street",
+    terminalLine: "Terminal 6 at Port Tampa Bay, 1333 McKay Street",
     hoursLine: "The terminal opens at 9:30 am and doors close promptly at 2:30 pm.",
     airportLine: "Come in the night before. Tampa International is the closest airport to the port.",
     parking: "Pre-pay online before you go. Valet is the self-parking price plus a flat $20 for the whole trip, and tips are extra.",

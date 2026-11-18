@@ -111,7 +111,7 @@ export const posts = [
         t: "ul",
         items: [
           "**Ship:** [Islander](/ships/islander/).",
-          "**Terminal:** Terminal 6, 1331 McKay Street.",
+          "**Terminal:** Terminal 6, 1333 McKay Street.",
           "**Times:** the terminal opens at 9:30 am and doors close promptly at 2:30 pm.",
           "**Airport:** Tampa International is the closest.",
           "**Check-in:** the cruise line's Cruise Control shows your arrival window and lets you download boarding documents.",
