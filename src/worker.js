@@ -146,18 +146,20 @@ async function handleQuote(request, env) {
   }
 
   // Notes carry the trip context CTT does not have a dedicated field for.
+  // The portal shows these lines run together as one paragraph, so every line
+  // is a short labelled sentence ending in a period, and the guest's own words
+  // sit under their own label. Unlabelled, "Outside cabin with balcony" read as
+  // part of the party size and contradicted "Cabin type: Not sure yet".
   const noteLines = [];
   if (cruise) {
     noteLines.push(
-      `Interested in: ${cruise}${
-        ship ? ` aboard Margaritaville at Sea ${ship}` : ""
-      }`
+      `Cruise: ${cruise}${ship ? ` aboard Margaritaville at Sea ${ship}` : ""}.`
     );
   }
-  if (when) noteLines.push(`Preferred timing: ${when}`);
-  noteLines.push(`Cabin type: ${cabin}`);
-  noteLines.push(`Party size: ${party}`);
-  if (extra) noteLines.push(extra);
+  if (when) noteLines.push(`Preferred timing: ${when}.`);
+  noteLines.push(`Cabin picked on the form: ${cabin}.`);
+  noteLines.push(`Party size: ${party}.`);
+  if (extra) noteLines.push(`Guest's own note: "${extra.replace(/\s+/g, " ").replace(/[.!?]+$/, "")}".`);
   noteLines.push("Sent from the mvascruisedeals.com quote form.");
   const notes = noteLines.join("\n");
 
