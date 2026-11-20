@@ -2138,3 +2138,17 @@ Date Detected,Ship,Itinerary,Sailing Date,Room Type,Change Type,Old Price,New Pr
 2026-11-19,Paradise,4-Night Key West & Grand Bahama,11/23/26,Ocean View,INCREASE,249,269,20,8
 2026-11-19,Islander,4-Night Cozumel Express,12/19/26,Ocean View,INCREASE,579,599,20,3
 2026-11-19,Islander,5-Night Mexico Duo,04/24/27,Balcony,INCREASE,429,469,40,9
+2026-11-20,Islander,5-Night Key West and Cozumel,11/25/26,Suite,DROP,2499,1779,-720,-29
+2026-11-20,Islander,5-Night Key West and Progreso,12/05/26,Suite,DROP,1389,1199,-190,-14
+2026-11-20,Islander,4-Night Cozumel Express,12/10/26,Suite,DROP,1499,1399,-100,-7
+2026-11-20,Islander,5-Night Bahamas Duo 3-Ship Meet-Up ft. Zac Brown Band,01/25/27,Balcony,DROP,1499,1399,-100,-7
+2026-11-20,Islander,5-Night Mexico Duo,11/30/26,Suite,DROP,779,699,-80,-10
+2026-11-20,Beachcomber,4-Night Bahamas Duo,03/11/27,Suite,DROP,1299,1229,-70,-5
+2026-11-20,Beachcomber,4-Night Bahamas Duo,03/11/27,Balcony,DROP,749,699,-50,-7
+2026-11-20,Islander,4-Night Cozumel Express,12/10/26,Balcony,DROP,529,499,-30,-6
+2026-11-20,Beachcomber,4-Night Bahamas Duo,03/11/27,Ocean View,DROP,429,399,-30,-7
+2026-11-20,Islander,5-Night Key West and Progreso,12/05/26,Ocean View,DROP,399,379,-20,-5
+2026-11-20,Islander,4-Night Cozumel Express,12/19/26,Ocean View,DROP,599,579,-20,-3
+2026-11-20,Islander,5-Night Mexico Duo,11/30/26,Ocean View,DROP,249,239,-10,-4
+2026-11-20,Beachcomber,7-Night Eastern Caribbean,01/16/27,Suite,INCREASE,2829,4199,1370,48
+2026-11-20,Paradise,4-Night Bahamas Duo,12/07/26,Suite,INCREASE,999,1249,250,25
