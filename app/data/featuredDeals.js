@@ -89,6 +89,9 @@ export const featuredDeals = [
         { cabin: "Balcony", direct: "$6,550.00", ours: "$2,381.70" },
       ],
     },
+    // Retire Monday morning: the card and page switch to "ended" after Sunday night.
+    // Then move this deal into retiredDeals below (see the Monday cleanup task).
+    offerEnds: "2026-11-29",
     savings: "Up to $4,168.30",
     savingsNote: "on a balcony cabin",
     onboardCredit: "$75",
