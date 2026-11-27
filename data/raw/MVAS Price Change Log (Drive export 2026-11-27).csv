@@ -2341,3 +2341,11 @@ Date Detected,Ship,Itinerary,Sailing Date,Room Type,Change Type,Old Price,New Pr
 2026-11-27,Beachcomber,7-Night Eastern Caribbean,02/27/27,Suite,INCREASE,2849,3999,1150,40
 2026-11-27,Islander,5-Night Key West and Cozumel,12/23/26,Suite,INCREASE,1999,2299,300,15
 2026-11-27,Islander,5-Night Key West & Grand Bahama,04/05/27,Suite,INCREASE,1699,1729,30,2
+2026-11-27,Paradise,3-Night Nassau Escape,12/04/26,Suite,DROP,899,699,-200,-22
+2026-11-27,Paradise,3-Night Grand Bahama Escape,12/18/26,Suite,DROP,899,699,-200,-22
+2026-11-27,Paradise,3-Night Nassau Escape,12/04/26,Interior,DROP,169,149,-20,-12
+2026-11-27,Paradise,3-Night Nassau Escape,12/04/26,Ocean View,DROP,179,159,-20,-11
+2026-11-27,Paradise,3-Night Grand Bahama Escape,12/18/26,Ocean View,DROP,209,189,-20,-10
+2026-11-27,Islander,5-Night Mexico Duo,11/30/26,Interior,DROP,199,179,-20,-10
+2026-11-27,Islander,5-Night Mexico Duo,11/30/26,Ocean View,DROP,209,199,-10,-5
+2026-11-27,Paradise,4-Night Bahamas Duo,02/01/27,Suite,INCREASE,799,999,200,25
