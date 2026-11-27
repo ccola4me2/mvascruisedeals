@@ -24,6 +24,273 @@ export const BLOG_TAGLINE =
 
 export const posts = [
   {
+    slug: "how-much-does-a-margaritaville-at-sea-cruise-cost",
+    title: "How much does a Margaritaville at Sea cruise cost? What we have tracked since August",
+    short: "How much a cruise costs",
+    category: "Pricing",
+    date: "2026-11-27",
+    image: "/deals/paradise.jpg",
+    imageAlt: "Margaritaville at Sea Paradise",
+    imagePosition: "center 62%",
+    excerpt:
+      "Fares run from $141 a person for a four-night Bahamas cruise to several thousand dollars for a long-sailing suite. Here is what each ship and cabin actually costs, from fares checked every day since August 11.",
+    body: [
+      {
+        t: "p",
+        x: "The honest answer is that it depends on the ship, the length of the cruise, the cabin and the date. The useful answer is the real numbers, so here they are. Since August 11, 2026, this site has checked 297 Margaritaville at Sea fares on 90 sailings every day, and the figures below come from the check on November 27, 2026.",
+      },
+      {
+        t: "callout",
+        h: "How to read these prices",
+        x: "Every price is per person, based on two guests sharing a cabin, with taxes and fees included. Gratuities are not included. The sailings tracked depart between November 30, 2026 and April 30, 2027. Fares change every day, so the live numbers are on the [price trends page](/trends/).",
+      },
+      { t: "h2", x: "The cheapest sailings right now" },
+      {
+        t: "p",
+        x: "The lowest fares are on short Bahamas and Mexico cruises that leave soon. On November 27 the lowest interior fares per night were:",
+      },
+      {
+        t: "ul",
+        items: [
+          "**Paradise, 4-Night Bahamas Duo, December 7:** $144 a person for an interior cabin, which is $36 a night. The November 30 sailing was $141, or about $35 a night, and it leaves from the Port of Palm Beach.",
+          "**Islander, 5-Night Mexico Duo, November 30:** $179 a person, about $36 a night, leaving from Port Tampa Bay.",
+          "**Beachcomber, 5-Night Bahamas and Eastern Caribbean, March 6:** $299 a person, about $60 a night, leaving from PortMiami.",
+        ],
+      },
+      { t: "h2", x: "What a typical cabin costs on each ship" },
+      {
+        t: "p",
+        x: "The middle fare is more useful than the cheapest one. These are the median fares across the sailings tracked on November 27, per person. Half of the sailings cost less and half cost more.",
+      },
+      {
+        t: "ul",
+        items: [
+          "**Paradise (Port of Palm Beach, 44 sailings tracked):** interior $199, ocean view $234, suite $999. No Paradise balcony fares were in the tracked set.",
+          "**Islander (Port Tampa Bay, 29 sailings tracked):** interior $399, ocean view $469, balcony $549, suite $1,149.",
+          "**Beachcomber (PortMiami, 17 sailings tracked):** interior $499, ocean view $599, balcony $1,199, suite $1,799.",
+        ],
+      },
+      {
+        t: "p",
+        x: "Beachcomber's median is higher because it is the newest and largest ship in the fleet and more of its tracked sailings are 7 and 8 nights long. For help picking a ship, read [which ship is right for you](/blog/which-margaritaville-at-sea-ship-is-right-for-you/).",
+      },
+      { t: "h2", x: "Why the range is so wide" },
+      {
+        t: "ul",
+        items: [
+          "**Length.** A 3 or 4-night cruise costs a fraction of an 8-night one. The Beachcomber 8-Night ABC Islands sailing on April 16 was $849 for an interior and $3,499 for a balcony.",
+          "**Cabin.** On Beachcomber, the median balcony ($1,199) is more than double the median interior ($499).",
+          "**The date.** The same itinerary can differ by hundreds of dollars between two weekends. The Paradise 4-Night Bahamas Duo interior was $144 on December 7 and $499 on December 28.",
+          "**Timing.** Fares move up and down. Read [do Margaritaville at Sea fares go down?](/blog/do-margaritaville-at-sea-fares-go-down/) for what the daily checks show.",
+        ],
+      },
+      { t: "h2", x: "What is not in the number" },
+      {
+        t: "p",
+        x: "Gratuities are additional on a standard fare. The cruise line has published a rate of $22 per person, per night in a stateroom, so confirm the current figure for your sailing. As an example, two guests in an interior cabin on the 4-Night Bahamas Duo on December 7 pay $144 each, which is $288, plus about $176 in gratuities at $22 a person for four nights. That is roughly $464 before flights, parking, drinks, excursions and anything else you add.",
+      },
+      {
+        t: "p",
+        x: "The full list of what a fare covers, and what costs extra, is in [what is included in a Margaritaville at Sea fare](/blog/whats-included-in-a-margaritaville-at-sea-fare/).",
+      },
+      { t: "h2", x: "How to pay less" },
+      {
+        t: "ul",
+        items: [
+          "**Pick the cheapest day, not the cheapest week.** Two sailings of the same cruise a week apart can be priced very differently. The [sailings page](/sailings/) shows every date.",
+          "**Watch the price.** On any sailing page, tap Watch this price and you get an email when the fare drops by $50 or more.",
+          "**Sail with a group.** Groups can lower the price for everyone. See [how group rates work](/blog/how-group-rates-work-on-margaritaville-at-sea/).",
+          "**Ask for a quote.** Some promotions include gratuities or an onboard credit, and I can tell you what applies to your dates.",
+        ],
+      },
+      {
+        t: "callout",
+        h: "Want the price for your exact dates?",
+        x: "Tell me the sailing, the cabin and how many guests, and I will send you the best available fare. There is no fee for the quote.",
+      },
+      { t: "cta" },
+    ],
+  },
+  {
+    slug: "do-margaritaville-at-sea-fares-go-down",
+    title: "Do Margaritaville at Sea fares go down? What 2,350 price changes show",
+    short: "Do fares go down?",
+    category: "Pricing",
+    date: "2026-11-27",
+    image: "/deals/islander-1200.jpg",
+    imageAlt: "Margaritaville at Sea Islander at sea",
+    excerpt:
+      "Yes, and they also go up. Here is what 2,350 real price changes on Margaritaville at Sea cruises tell us, including how big a typical drop is and which cabins fell the most.",
+    body: [
+      {
+        t: "p",
+        x: "Margaritaville at Sea fares do go down, but they go up almost as often. Since August 11, 2026, this site has checked the same fares every day and logged every change. Here is what the log shows through November 27, 2026.",
+      },
+      {
+        t: "callout",
+        h: "What was tracked",
+        x: "297 fares on 90 sailings departing between November 30, 2026 and April 30, 2027, on all three ships. Fares are per person with two guests in a cabin, taxes and fees included, gratuities not included. This is a record of what happened, not a forecast. See the live log on the [price trends page](/trends/).",
+      },
+      { t: "h2", x: "The totals" },
+      {
+        t: "ul",
+        items: [
+          "**2,350 price changes** between August 11 and November 27.",
+          "**1,109 drops** and **1,241 increases.** Fares went up slightly more often than they went down.",
+          "**A typical drop** was $50, or about 7 percent. Two out of three drops were $50 or less.",
+          "**A typical increase** was $30, or about 6 percent.",
+          "**301 drops were $100 or more.** The large drops are rare, but they happen.",
+        ],
+      },
+      { t: "h2", x: "Which cabins moved most" },
+      {
+        t: "ul",
+        items: [
+          "**Interior:** 313 drops and 415 increases.",
+          "**Ocean view:** 338 drops and 402 increases.",
+          "**Balcony:** 191 drops and 219 increases.",
+          "**Suite:** 267 drops and 205 increases. Suites are the one cabin type that dropped more often than it rose.",
+        ],
+      },
+      { t: "h2", x: "Which ship moved most" },
+      {
+        t: "ul",
+        items: [
+          "**Islander:** 578 drops and 565 increases, nearly even.",
+          "**Paradise:** 351 drops and 424 increases.",
+          "**Beachcomber:** 180 drops and 252 increases. Fares on the newest ship rose more often than they fell.",
+        ],
+      },
+      { t: "h2", x: "Some real examples" },
+      {
+        t: "ul",
+        items: [
+          "**A big drop:** the Beachcomber 7-Night Eastern Caribbean suite on January 16 fell from $4,199 to $2,879 on November 27, a drop of $1,320.",
+          "**Another:** the Islander 8-Night Mardi Gras Overnight and Mexico interior on February 7 fell from $1,399 to $999, a drop of $400.",
+          "**A jump the other way:** the Islander 5-Night Mexico Duo suite on November 30 went from $599 to $1,799 on November 27, three days before the sailing, after weeks of falling prices.",
+        ],
+      },
+      { t: "h2", x: "What this means for you" },
+      {
+        t: "ul",
+        items: [
+          "**Do not wait for a drop that may not come.** A fare is about as likely to rise as to fall, and a sailing can sell out.",
+          "**A small change is not a signal.** A typical move is $30 to $50. Plan around a price you are happy with, not a price you hope to see.",
+          "**Watch a specific sailing.** Pick your sailing and cabin on the [sailings page](/sailings/), tap Watch this price, and I will email you when it drops by $50 or more.",
+          "**Ask before you book.** What happens if a fare drops after you have booked is a question for your advisor and the cruise line's current rules, so ask first.",
+        ],
+      },
+      {
+        t: "p",
+        x: "Want these drops in your inbox? The price-drop email below sends the biggest changes weekly or daily, whichever you choose. To see what a cruise costs today, read [how much a Margaritaville at Sea cruise costs](/blog/how-much-does-a-margaritaville-at-sea-cruise-cost/).",
+      },
+      {
+        t: "callout",
+        h: "Looking at a specific sailing?",
+        x: "Send me the ship, the date and the cabin. I will tell you where the fare has been and what I would do.",
+      },
+      { t: "cta" },
+    ],
+  },
+  {
+    slug: "margaritaville-at-sea-beachcomber-from-miami-itineraries-ports-fares",
+    title: "Margaritaville at Sea Beachcomber from Miami: every itinerary, port and starting fare",
+    short: "Beachcomber from Miami",
+    category: "Ships",
+    date: "2026-11-27",
+    image: "/deals/beachcomber-1200.jpg",
+    imageAlt: "Margaritaville at Sea Beachcomber",
+    excerpt:
+      "Beachcomber is the newest and biggest ship in the fleet, and she sails round-trip from PortMiami starting January 9, 2027. Here is every Miami itinerary, the ports on each, and the fares checked on November 27.",
+    body: [
+      {
+        t: "p",
+        x: "Beachcomber is Margaritaville at Sea's newest and largest ship, at more than 102,000 gross tons, with 10 stateroom types from cozy interiors to corner suites. Zac Brown christens her in Miami on January 9, 2027, and she sails round-trip from PortMiami. Here is every Miami cruise listed on the cruise line's reservations site, with starting fares from the daily check on November 27, 2026.",
+      },
+      {
+        t: "callout",
+        h: "How to read this",
+        x: "Itineraries and dates are from the cruise line's reservations site (last pulled October 13, 2026), so confirm your date before you book. Fares are per person, two guests to a cabin, taxes and fees included, gratuities not included. Fares are tracked for sailings through April 30, 2027.",
+      },
+      { t: "h2", x: "4 and 5-night getaways" },
+      {
+        t: "ul",
+        items: [
+          "**Dominican Republic Express, February 5:** Puerto Plata. Interior from $299.",
+          "**Key West and Bahamas, February 9:** Key West and Bimini. Interior from $379.",
+          "**Bahamas Duo, March 11:** Nassau and Grand Bahama. Interior from $299.",
+          "**Bahamas and Eastern Caribbean, March 6:** Grand Bahama and Puerto Plata. Interior from $299.",
+          "**Bahamas and Eastern Caribbean, March 15:** Nassau and Puerto Plata. Interior from $399. This sails over St. Patrick's Day.",
+          "**Key West and Bahamas, September 4:** Key West, Bimini and Grand Bahama.",
+          "**Key West and Western Caribbean, September 13:** Key West and Grand Cayman.",
+        ],
+      },
+      { t: "h2", x: "6-night cruises" },
+      {
+        t: "ul",
+        items: [
+          "**Key West and Western Caribbean, January 30:** Key West, Montego Bay and Grand Cayman. Interior from $399.",
+          "**Bahamas and Western Caribbean, April 10:** Grand Cayman, Ocho Rios and Grand Bahama. Interior from $399, balcony from $949.",
+        ],
+      },
+      { t: "h2", x: "7-night cruises" },
+      {
+        t: "ul",
+        items: [
+          "**Eastern Caribbean, January 9 (inaugural sailing with Zac Brown Band):** St. Thomas, San Juan and Puerto Plata. This is the first cruise of the ship.",
+          "**Eastern Caribbean, January 16 to April 3 (four dates):** St. Thomas, San Juan and Puerto Plata. Interior from $449, which is about $64 a night, and balcony from $1,099.",
+          "**Grand Cayman, Jamaica and Bahamas, January 23:** a three-ship meet-up with Zac Brown Band, stopping in Grand Cayman, Ocho Rios and Nassau.",
+          "**Key West, Bahamas and Western Caribbean, March 27:** Key West, Grand Cayman, Montego Bay and Nassau. Interior from $599.",
+          "**Eastern Caribbean with St. Maarten, April 24 to August 28 (nine dates):** St. Maarten, San Juan and Puerto Plata. Interior from $499 on April 24.",
+          "**Dominican Republic and Western Caribbean, May 1 to August 21:** Puerto Plata, Ocho Rios and Grand Cayman.",
+          "**Key West, Bahamas and Western Caribbean, May 15 to September 18:** Key West, Grand Cayman, Ocho Rios and Nassau.",
+          "**Key West and Western Caribbean, June 26:** Key West, Grand Cayman and Ocho Rios.",
+        ],
+      },
+      { t: "h2", x: "8 and 9-night cruises" },
+      {
+        t: "ul",
+        items: [
+          "**Southern Caribbean, February 19:** Aruba, Bonaire and Puerto Plata. Interior from $649.",
+          "**ABC Islands Southern Caribbean, April 16:** Aruba, Bonaire and Curacao. Interior from $849.",
+          "**Grand Cayman and Southern Caribbean, September 25 (9 nights):** Aruba, Curacao and Grand Cayman.",
+        ],
+      },
+      { t: "h2", x: "Starting fares at a glance" },
+      {
+        t: "p",
+        x: "Across the 17 Beachcomber sailings tracked on November 27, the median interior was $499, the median ocean view was $599, the median balcony was $1,199 and the median suite was $1,799. For the same numbers on all three ships, see [how much a Margaritaville at Sea cruise costs](/blog/how-much-does-a-margaritaville-at-sea-cruise-cost/).",
+      },
+      { t: "h2", x: "A few of the ports" },
+      { t: "ports", keys: ["Nassau", "Grand Bahama", "Key West", "Grand Cayman"] },
+      { t: "h2", x: "Getting to the ship" },
+      {
+        t: "p",
+        x: "Beachcomber sails from Terminal C at PortMiami, 1751 N Cruise Blvd. Some sailings use Terminal E, so confirm yours in your pre-arrival email. The terminal opens at 9:30 am and you cannot enter after 2:30 pm. Plan to arrive the night before. See [getting to the ship](/blog/getting-to-the-ship-margaritaville-at-sea-homeports-arrival-times-parking/) for arrival times and parking.",
+      },
+      { t: "h2", x: "What is onboard" },
+      {
+        t: "ul",
+        items: [
+          "**Same Boat by Zac Brown:** nightly live music and craft cocktails, the first artist-curated live music venue at sea.",
+          "**Three all-new original shows:** Friday Night Country, Red, White and Margaritaville, and Club Fuego.",
+          "**The World's Largest 5 o'Clock Somewhere:** an open-air bar with Boat Drinks and island-inspired bites.",
+          "**New Beachcomber restaurants:** F&L Trattoria for Italian and Floridays for Florida tapas and seafood, plus JWB Prime Steakhouse.",
+        ],
+      },
+      {
+        t: "p",
+        x: "You can see the whole ship on the [Beachcomber page](/ships/beachcomber/), browse every date on the [sailings page](/sailings/), or build a free six-page guide for your sailing with the [cruise planner](/plan/).",
+      },
+      {
+        t: "callout",
+        h: "Which Beachcomber cruise is right for you?",
+        x: "Tell me the month, how many nights, and who is coming. I will tell you which itinerary fits and what the fare looks like today.",
+      },
+      { t: "cta" },
+    ],
+  },
+  {
     slug: "what-to-pack-and-wear-on-a-margaritaville-at-sea-cruise",
     title: "What to pack and wear on a Margaritaville at Sea cruise",
     short: "What to pack and wear",
