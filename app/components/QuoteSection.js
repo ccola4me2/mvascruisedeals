@@ -15,6 +15,7 @@ export default function QuoteSection({
   lede = "Tell me a few details and I'll reply with the best available fare or group rate, usually within one business day.",
   id = "quote",
   prefill,
+  ctt = false,
 }) {
   return (
     <section
@@ -49,9 +50,11 @@ export default function QuoteSection({
         </div>
 
         <p className="quote-byline">
-          Brent Beasley, your independent Margaritaville at Sea specialist.{" "}
+          {ctt
+            ? "Brent Beasley, Cruises Tours and Travel, LLC, your Margaritaville at Sea specialist."
+            : "Brent Beasley, your independent Margaritaville at Sea specialist."}{" "}
           <span className="quote-byline-cred">
-            FL Seller of Travel #TI128169
+            {ctt ? "FL Seller of Travel #ST150140" : "FL Seller of Travel #TI128169"}
           </span>
         </p>
       </div>

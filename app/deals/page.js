@@ -63,6 +63,7 @@ export default function DealsPage() {
       <QuoteSection
         eyebrow="Ready to book your deal?"
         title="Get your free quote"
+        ctt
         lede="Tell me which sailing caught your eye and your party size, and I'll send the best available fare or group rate, usually within one business day. No fees, no obligation."
       />
     </>

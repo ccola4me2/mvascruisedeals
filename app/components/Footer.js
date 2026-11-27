@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CookieSettingsButton from "./CookieSettingsButton";
+import FooterLegal from "./FooterLegal";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -39,12 +40,7 @@ export default function Footer() {
           <Link href="/cookies/">Cookie Policy</Link>
           <CookieSettingsButton className="footer-policy-btn" />
         </p>
-        <p>
-          Brent Beasley, independent travel advisor. FL Seller of Travel
-          #TI128169. Not affiliated with or endorsed by Margaritaville at Sea. Rates and
-          itineraries are subject to change and availability. GOVX program or Casino
-          rates do not qualify for advertised deals or onboard credit.
-        </p>
+        <FooterLegal />
       </div>
     </footer>
   );

@@ -506,7 +506,7 @@ export default function DealLandingPage({ params }) {
                 <p className="eyebrow">Your host</p>
                 <h3>Brent Beasley</h3>
                 <p className="dl-host-cred">
-                  Independent travel advisor &middot; FL Seller of Travel #TI128169
+                  Cruises Tours and Travel, LLC &middot; FL Seller of Travel #ST150140
                 </p>
                 <p>
                   Margaritaville at Sea is my specialty. I sail these ships, I know
@@ -582,6 +582,7 @@ export default function DealLandingPage({ params }) {
         title={`Get your free ${L.group ? "group rate" : "fare"} quote`}
         lede={`Tell me your party size and the cabin you want and I'll confirm availability for the ${deal.title} sailing, usually within one business day. No fees, no obligation.`}
         prefill={{ cruise: deal.title, ship, when: deal.when }}
+        ctt
       />
 
       <GuideCta q={`${ship} ${homeportCity(L.homeport)}`} />

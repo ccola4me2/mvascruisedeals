@@ -91,6 +91,7 @@ export default function RetiredDeal({ deal }) {
       <QuoteSection
         eyebrow="Free quote, no obligation"
         title="Tell me what you are looking for"
+        ctt
         lede="Share your dates, ship, and party size and I will find the best open fares, usually within one business day. No booking fees."
       />
     </>
