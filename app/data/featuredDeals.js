@@ -70,6 +70,62 @@ export const featuredDeals = [
     },
   },
   {
+    id: "beachcomber-southern-8night-2027",
+    tag: "Best value",
+    title: "8-Night Southern Caribbean",
+    ship: "Margaritaville at Sea Beachcomber",
+    when: "February 19 to 27, 2027",
+    nights: "8 nights",
+    itinerary: "Aruba, Bonaire, Puerto Plata",
+    image: "/deals/beachcomber.jpg",
+    // "direct" is the cruise line's public fare on 2026-11-27 (taxes and fees included)
+    // plus gratuities at $22 per person per night, for two guests. Refresh from the
+    // booking engine before changing these, and drop a row if "ours" is not lower.
+    compare: {
+      basis: "Same sailing, same cabin, total for two, gratuities included. Every fare adds a $75 onboard credit.",
+      rows: [
+        { cabin: "Interior", direct: "$1,650.00", ours: "$1,617.90" },
+        { cabin: "Oceanview", direct: "$2,110.00", ours: "$2,073.90" },
+        { cabin: "Balcony", direct: "$6,550.00", ours: "$2,381.70" },
+      ],
+    },
+    savings: "Up to $4,168.30",
+    savingsNote: "on a balcony cabin",
+    onboardCredit: "$75",
+    includes: ["Taxes", "Fees", "Gratuities"],
+    cta: { label: "Get This Deal", href: "/contact" },
+    landing: {
+      slug: "miami-southern-caribbean-feb-2027",
+      departs: "2027-02-19",
+      homeport: "Miami, FL",
+      ports: ["Aruba", "Bonaire", "Puerto Plata"],
+      from: "$1,617.90",
+      fromUnit: "interior, total for two",
+      group: false,
+      lede: "Eight nights in the Southern Caribbean on Beachcomber: Aruba, Bonaire, and Puerto Plata, with taxes, fees, and gratuities included and a $75 onboard credit on every fare.",
+      why: [
+        {
+          title: "The comparison, side by side",
+          text: "The pricing below puts the direct price next to my rate for the same sailing and the same cabin, so you can see the difference for yourself.",
+        },
+        {
+          title: "Three distinct islands",
+          text: "Aruba's trade-wind beaches, Bonaire's protected reef, and the amber coast of Puerto Plata in the Dominican Republic.",
+        },
+        {
+          title: "Early in Beachcomber's first season",
+          text: "February 2027 is among the earliest sailings of the fleet's largest ship, sailing round-trip from Miami.",
+        },
+      ],
+      faqs: [
+        {
+          q: "Which ship is this, and where does it leave from?",
+          a: "Margaritaville at Sea Beachcomber, the largest ship in the fleet, sailing round-trip from PortMiami on February 19, 2027.",
+        },
+      ],
+    },
+  },
+  {
     id: "beachcomber-5night-bahamas-eastern-2027",
     tag: "New deal alert",
     // Optional seasonal promo banner. Set a string to show a green banner on the
@@ -167,13 +223,6 @@ export const retiredDeals = [
     ship: "Islander",
     when: "October 7 to 15, 2028",
     homeport: "Tampa, FL",
-  },
-  {
-    slug: "miami-southern-caribbean-feb-2027",
-    title: "8-Night Southern Caribbean",
-    ship: "Beachcomber",
-    when: "February 19 to 27, 2027",
-    homeport: "Miami, FL",
   },
   {
     slug: "galveston-mexico-trio-jan-2028",
