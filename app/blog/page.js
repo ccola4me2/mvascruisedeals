@@ -1,6 +1,8 @@
 import Link from "next/link";
 import PostCard from "../components/PostCard";
 import { BLOG_NAME, BLOG_TAGLINE, sortedPosts } from "../data/posts";
+import DigestSignup from "../components/DigestSignup";
+import { DIGEST_ENABLED } from "../lib/digestConfig.js";
 
 export const metadata = {
   title: "The MVAS Insider",
@@ -61,6 +63,8 @@ export default function BlogIndex() {
           </p>
         </div>
       </section>
+
+      {DIGEST_ENABLED && <DigestSignup where="blog" />}
 
       <section className="cta">
         <div className="container cta-inner">

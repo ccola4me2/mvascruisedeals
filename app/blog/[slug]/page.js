@@ -4,6 +4,8 @@ import PostBody from "../../components/PostBody";
 import PostCard from "../../components/PostCard";
 import { BLOG_NAME, posts, getPost, sortedPosts, readMinutes } from "../../data/posts";
 import { BRENT } from "../../data/guideContent";
+import DigestSignup from "../../components/DigestSignup";
+import { DIGEST_ENABLED } from "../../lib/digestConfig.js";
 
 const fmt = (iso) =>
   new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", {
@@ -117,6 +119,8 @@ export default function PostPage({ params }) {
           </p>
         </div>
       </article>
+
+      {DIGEST_ENABLED && <DigestSignup where="post" />}
 
       {more.length > 0 && (
         <section className="section section--muted">
