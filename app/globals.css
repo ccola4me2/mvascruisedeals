@@ -6446,3 +6446,29 @@ img {
 .tr-fold-body > h3 { margin: 14px 0 0; }
 .tr-read-list { margin: 0; padding-left: 1.2em; display: grid; gap: 10px; line-height: 1.65; }
 @media (max-width: 640px) { .tr-rl { width: auto; justify-content: flex-start; } .tr-rl-menu { right: auto; left: 0; } }
+
+/* Homeport pages: the dated sailings list */
+.hs-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.hs-row { display: grid; grid-template-columns: 96px minmax(0, 1fr) 130px auto; gap: 16px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; }
+.hs-date b { display: block; font-family: var(--font-display-stack); font-size: 1.15rem; color: var(--navy); line-height: 1.1; }
+.hs-date span { font-size: 0.78rem; color: var(--slate); }
+.hs-trip a { font-weight: 800; color: var(--navy); text-decoration: none; }
+.hs-trip a:hover { text-decoration: underline; }
+.hs-trip p { margin: 2px 0 0; font-size: 0.85rem; color: var(--slate); }
+.hs-note { display: inline-block; margin-left: 8px; font-size: 0.72rem; font-weight: 700; color: #7a5200; background: #fff4d6; border-radius: 999px; padding: 1px 9px; }
+.hs-price { text-align: right; }
+.hs-price b { display: block; font-size: 1.2rem; color: var(--navy); }
+.hs-price span { font-size: 0.8rem; color: var(--slate); }
+.hs-go { font-size: 0.85rem; font-weight: 800; color: var(--ocean); text-decoration: none; border: 1.5px solid var(--ocean); border-radius: 999px; padding: 5px 14px; white-space: nowrap; }
+.hs-go:hover { background: #eaf3fb; }
+.hs-more { margin: 14px 0 0; }
+.hs-more > summary { list-style: none; cursor: pointer; text-align: center; font-weight: 800; color: var(--ocean); padding: 10px; }
+.hs-more > summary::-webkit-details-marker { display: none; }
+.hs-more[open] > summary { margin-bottom: 10px; }
+.hs-fine { font-size: 0.8rem; color: var(--slate); line-height: 1.55; margin: 18px 0 0; }
+@media (max-width: 720px) {
+  .hs-row { grid-template-columns: 74px minmax(0, 1fr); }
+  .hs-price { text-align: left; grid-column: 2; }
+  .hs-price b { display: inline; margin-right: 6px; }
+  .hs-go { grid-column: 2; justify-self: start; }
+}
