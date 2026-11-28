@@ -2349,3 +2349,8 @@ Date Detected,Ship,Itinerary,Sailing Date,Room Type,Change Type,Old Price,New Pr
 2026-11-27,Islander,5-Night Mexico Duo,11/30/26,Interior,DROP,199,179,-20,-10
 2026-11-27,Islander,5-Night Mexico Duo,11/30/26,Ocean View,DROP,209,199,-10,-5
 2026-11-27,Paradise,4-Night Bahamas Duo,02/01/27,Suite,INCREASE,799,999,200,25
+2026-11-28,Paradise,4-Night Bahamas Duo,02/01/27,Suite,DROP,999,799,-200,-20
+2026-11-28,Beachcomber,7-Night Eastern Caribbean,04/03/27,Ocean View,DROP,749,699,-50,-7
+2026-11-28,Islander,5-Night Key West and Progreso,12/05/26,Suite,INCREASE,999,2199,1200,120
+2026-11-28,Beachcomber,7-Night Eastern Caribbean,01/16/27,Suite,INCREASE,2879,4199,1320,46
+2026-11-28,Beachcomber,7-Night Eastern Caribbean,03/20/27,Suite,INCREASE,1799,2699,900,50
