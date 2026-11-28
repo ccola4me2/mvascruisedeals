@@ -6424,3 +6424,25 @@ img {
 @media (max-width: 640px) { .tw-stats { grid-template-columns: 1fr; } }
 
 .tr-deals-credit { background: #fff4d6; color: #7a5200; margin-left: 6px; }
+
+/* Trends page: one main action per row, the rest under "More" */
+.tr-rl { gap: 10px; position: relative; }
+.tr-watchbtn { font-size: 0.85rem; font-weight: 800; color: var(--ocean); text-decoration: none; border: 1.5px solid var(--ocean); border-radius: 999px; padding: 4px 12px; white-space: nowrap; }
+.tr-watchbtn:hover { background: #eaf3fb; }
+.tr-rl-more { position: relative; }
+.tr-rl-more summary { list-style: none; cursor: pointer; font-size: 0.82rem; font-weight: 700; color: var(--slate); padding: 4px 6px; }
+.tr-rl-more summary::-webkit-details-marker { display: none; }
+.tr-rl-more summary::after { content: " \25BE"; }
+.tr-rl-menu { position: absolute; right: 0; top: 100%; z-index: 5; display: flex; flex-direction: column; gap: 8px; min-width: 130px; padding: 10px 14px; background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); }
+.tr-soon .tr-rl { margin-top: auto; padding-top: 8px; }
+/* Trends page: the collapsed reference block */
+.tr-fold { background: #fff; border: 1px solid var(--line); border-radius: 14px; }
+.tr-fold > summary { list-style: none; cursor: pointer; padding: 18px 22px; display: flex; flex-direction: column; gap: 2px; }
+.tr-fold > summary::-webkit-details-marker { display: none; }
+.tr-fold > summary span { font-family: var(--font-display-stack); font-size: 1.2rem; font-weight: 700; color: var(--navy); }
+.tr-fold > summary span::after { content: " \25BE"; font-size: 0.9rem; color: var(--slate); }
+.tr-fold > summary small { font-size: 0.85rem; color: var(--slate); }
+.tr-fold-body { padding: 4px 22px 24px; display: grid; gap: 18px; }
+.tr-fold-body > h3 { margin: 14px 0 0; }
+.tr-read-list { margin: 0; padding-left: 1.2em; display: grid; gap: 10px; line-height: 1.65; }
+@media (max-width: 640px) { .tr-rl { width: auto; justify-content: flex-start; } .tr-rl-menu { right: auto; left: 0; } }

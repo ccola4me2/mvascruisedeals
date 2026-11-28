@@ -149,6 +149,37 @@ function Spark({ hist, up }) {
   );
 }
 
+// One main action per row, the rest tucked under "More": Watch price when the sailing has a
+// watch form (it collects the email), otherwise Ask Brent.
+function RowLinks({ ask, guide, watch }) {
+  return (
+    <span className="tr-links tr-rl">
+      {watch ? (
+        <a className="tr-watchbtn" href={watch}>
+          Watch price
+        </a>
+      ) : (
+        <a className="tr-watchbtn" href={ask}>
+          Ask Brent
+        </a>
+      )}
+      <details className="tr-rl-more">
+        <summary>More</summary>
+        <span className="tr-rl-menu">
+          {watch && (
+            <a className="tr-ask" href={ask}>
+              Ask Brent
+            </a>
+          )}
+          <a className="tr-guide" href={guide}>
+            Free guide
+          </a>
+        </span>
+      </details>
+    </span>
+  );
+}
+
 function MoveRow({ m, fares, guides, since }) {
   const up = m.diff > 0;
   const cruise = m.nights + "-Night " + m.itin.replace(/^\d+-Night\s*/, "");
@@ -177,22 +208,11 @@ function MoveRow({ m, fares, guides, since }) {
       </div>
       <div className="tr-row-side">
         <Spark hist={m.hist} up={up} />
-        <span className="tr-links">
-          <a
-            className="tr-ask"
-            href={quoteHref({ ship: m.ship, cruise: cruise + " (" + m.room + ")", when: longDate(m.sail) })}
-          >
-            Ask Brent
-          </a>
-          <a className="tr-guide" href={guideLink(guides, m.ship, m.itin, m.sail)}>
-            Free guide
-          </a>
-          {watchLink(guides, m.ship, m.itin, m.sail) && (
-            <a className="tr-guide" href={watchLink(guides, m.ship, m.itin, m.sail)}>
-              Watch price
-            </a>
-          )}
-        </span>
+        <RowLinks
+          ask={quoteHref({ ship: m.ship, cruise: cruise + " (" + m.room + ")", when: longDate(m.sail) })}
+          guide={guideLink(guides, m.ship, m.itin, m.sail)}
+          watch={watchLink(guides, m.ship, m.itin, m.sail)}
+        />
       </div>
     </li>
   );
@@ -240,7 +260,9 @@ export default function TrendsView({ data }) {
   const { meta, last, listing, byShip, moves, lowest, soon, watch, timeline, totals, fares, guides, weekDrops } = data;
   // Open on the narrowest window that has at least three drops, so a quiet day
   // does not greet people with an almost empty list.
+  const hasNet = Boolean(weekDrops && weekDrops.rows.length > 0);
   const [win, setWin] = useState(() => {
+    if (hasNet) return "net";
     const drops = moves.filter((m) => m.diff < 0);
     if (drops.filter((m) => m.date === meta.lastChangeDate).length >= 3) return "latest";
     if (drops.filter((m) => dayNum(meta.snapshotDate) - dayNum(m.date) <= 7).length >= 3) return "week";
@@ -291,8 +313,16 @@ export default function TrendsView({ data }) {
     return [...rows].sort(by);
   }, [moves, win, dir, ship, room, sort, snap, meta.lastChangeDate]);
 
-  const shown = all ? list : list.slice(0, 10);
-  const winLabel = win === "latest" ? "Latest moves, " + shortDate(meta.lastChangeDate) : win === "week" ? "Past 7 days" : "Past " + meta.windowDays + " days";
+  const isNet = win === "net" && hasNet;
+  const PAGE = 8;
+  const shown = all ? list : list.slice(0, PAGE);
+  const windows = [
+    ...(hasNet ? [["net", "Biggest this week"]] : []),
+    ["latest", "Latest day"],
+    ["week", "7 days"],
+    ["month", meta.windowDays + " days"],
+  ];
+  const winLabel = isNet ? "Biggest drops this week" : win === "latest" ? "Latest moves, " + shortDate(meta.lastChangeDate) : win === "week" ? "Past 7 days" : "Past " + meta.windowDays + " days";
   const quiet = meta.quiet;
   // Only deals where Brent's price beats the public fare, cabin by cabin.
   const dealStrip = DEALS.filter((d) => d.ship && d.sail >= snap)
@@ -379,7 +409,7 @@ export default function TrendsView({ data }) {
               </div>
             )}
           </div>
-          <p className="tr-basis">{meta.basis}</p>
+          <p className="tr-basis">{meta.basis} This is an independent tracker, not the cruise line, and fares can change at any time.</p>
         </div>
       </section>
 
@@ -427,88 +457,64 @@ export default function TrendsView({ data }) {
         </section>
       )}
 
-      {/* Free guide band */}
-      <section className="tr-guideband">
-        <div className="container">
-          <div className="tr-guideband-in">
-          <div>
-            <p className="tr-guideband-label">Free for every sailing</p>
-            <h2>Watching a cruise? Get a free guide to it.</h2>
-            <p>
-              Pick any Margaritaville at Sea sailing and I will email you a six-page guide: ports and what to do ashore,
-              what your fare covers, and a countdown with your real dates. Tick the box on the next page and I will also
-              send you updates for that cruise, like guide improvements and price changes. Every fare below links to its
-              own guide.
-            </p>
-          </div>
-          <a className="btn btn-gold btn-lg" href="/plan/">Build my free guide</a>
-          </div>
-        </div>
-      </section>
-
-      {/* Biggest drops this week */}
-      {weekDrops && weekDrops.rows.length > 0 && (
-        <section className="section" id="week-drops">
-          <div className="container">
-            <div className="section-head">
-              <div>
-                <p className="eyebrow">Net change since {withDow(weekDrops.since)}</p>
-                <h2>Biggest drops this week</h2>
-                <p className="section-lede">
-                  {weekDrops.count} fares are cheaper than they were a week ago and {weekDrops.increases} cost more. These are
-                  the {weekDrops.rows.length} biggest drops. A fare that dropped and then came back up is not counted.
-                </p>
-              </div>
-            </div>
-            <ul className="tr-list">
-              {weekDrops.rows.map((m, i) => (
-                <MoveRow key={m.ship + m.itin + m.sail + m.room + i} m={m} fares={fares} guides={guides} since={weekDrops.since} />
-              ))}
-            </ul>
-          </div>
-        </section>
-      )}
-
-      {/* Moves */}
+      {/* What moved: the net drops for the week, or the full list by window */}
       <section className="section" id="moves">
         <div className="container">
           <div className="section-head">
             <div>
-              <p className="eyebrow">What moved</p>
+              <p className="eyebrow">{isNet ? "Net change since " + withDow(weekDrops.since) : "What moved"}</p>
               <h2>{winLabel}</h2>
+              {isNet && (
+                <p className="section-lede">
+                  {weekDrops.count} fares are cheaper than they were a week ago and {weekDrops.increases} cost more. These are
+                  the {weekDrops.rows.length} biggest drops. A fare that dropped and then came back up is not counted.
+                </p>
+              )}
             </div>
           </div>
 
           <div className="tr-controls">
             <div className="tr-seg" role="tablist" aria-label="Time window">
-              {[["latest", "Latest day"], ["week", "7 days"], ["month", meta.windowDays + " days"]].map(([k, l]) => (
+              {windows.map(([k, l]) => (
                 <button key={k} type="button" className={win === k ? "is-on" : ""} onClick={() => { setWin(k); setAll(false); }}>{l}</button>
               ))}
             </div>
-            <div className="tr-seg" role="tablist" aria-label="Direction">
-              <button type="button" className={"tr-dn" + (dir === "drops" ? " is-on" : "")} onClick={() => { setDir("drops"); setAll(false); }}>Drops</button>
-              <button type="button" className={"tr-up" + (dir === "increases" ? " is-on" : "")} onClick={() => { setDir("increases"); setAll(false); }}>Increases</button>
+            {!isNet && (
+              <>
+                <div className="tr-seg" role="tablist" aria-label="Direction">
+                  <button type="button" className={"tr-dn" + (dir === "drops" ? " is-on" : "")} onClick={() => { setDir("drops"); setAll(false); }}>Drops</button>
+                  <button type="button" className={"tr-up" + (dir === "increases" ? " is-on" : "")} onClick={() => { setDir("increases"); setAll(false); }}>Increases</button>
+                </div>
+                <label className="tr-sort">
+                  <span>Sort</span>
+                  <select value={sort} onChange={(e) => setSort(e.target.value)}>
+                    <option value="dollars">Biggest dollar change</option>
+                    <option value="percent">Biggest percent change</option>
+                    <option value="soonest">Sailing soonest</option>
+                  </select>
+                </label>
+              </>
+            )}
+          </div>
+          {!isNet && (
+            <div className="tr-chips" aria-label="Filters">
+              {["All", ...SHIPS].map((sh) => (
+                <button key={sh} type="button" className={"tr-fchip" + (ship === sh ? " is-on" : "")} onClick={() => { setShip(sh); setAll(false); }}>{sh === "All" ? "All ships" : sh}</button>
+              ))}
+              <span className="tr-chips-gap" aria-hidden="true" />
+              {["All", ...ROOMS].map((r) => (
+                <button key={r} type="button" className={"tr-fchip" + (room === r ? " is-on" : "")} onClick={() => { setRoom(r); setAll(false); }}>{r === "All" ? "All cabins" : r}</button>
+              ))}
             </div>
-            <label className="tr-sort">
-              <span>Sort</span>
-              <select value={sort} onChange={(e) => setSort(e.target.value)}>
-                <option value="dollars">Biggest dollar change</option>
-                <option value="percent">Biggest percent change</option>
-                <option value="soonest">Sailing soonest</option>
-              </select>
-            </label>
-          </div>
-          <div className="tr-chips" aria-label="Filters">
-            {["All", ...SHIPS].map((s) => (
-              <button key={s} type="button" className={"tr-fchip" + (ship === s ? " is-on" : "")} onClick={() => { setShip(s); setAll(false); }}>{s === "All" ? "All ships" : s}</button>
-            ))}
-            <span className="tr-chips-gap" aria-hidden="true" />
-            {["All", ...ROOMS].map((r) => (
-              <button key={r} type="button" className={"tr-fchip" + (room === r ? " is-on" : "")} onClick={() => { setRoom(r); setAll(false); }}>{r === "All" ? "All cabins" : r}</button>
-            ))}
-          </div>
+          )}
 
-          {list.length === 0 ? (
+          {isNet ? (
+            <ul className="tr-list">
+              {weekDrops.rows.map((m, i) => (
+                <MoveRow key={m.ship + m.itin + m.sail + m.room + i} m={m} fares={fares} guides={guides} since={weekDrops.since} />
+              ))}
+            </ul>
+          ) : list.length === 0 ? (
             <p className="tr-empty">
               No {dir === "drops" ? "price drops" : "price increases"} match these filters
               {win === "latest" ? " on " + shortDate(meta.lastChangeDate) : ""}.{" "}
@@ -522,7 +528,7 @@ export default function TrendsView({ data }) {
                   <MoveRow key={m.date + m.ship + m.itin + m.sail + m.room + i} m={m} fares={fares} guides={guides} />
                 ))}
               </ul>
-              {list.length > 10 && (
+              {list.length > PAGE && (
                 <p className="tr-more">
                   <button type="button" className="btn btn-outline" onClick={() => setAll(!all)}>
                     {all ? "Show fewer" : "Show all " + list.length}
@@ -539,15 +545,14 @@ export default function TrendsView({ data }) {
         <section className="section section--muted" id="sailing-soon">
           <div className="container">
             <div className="section-head section-head--center">
-              <p className="eyebrow">Leaving in the next 30 days</p>
+              <p className="eyebrow">Next departures</p>
               <h2>Sailing soon</h2>
               <p className="section-lede">
-                The lowest fare still on sale for each departure coming up. Want only the next two weeks, sorted by
-                price per night? See <a href="/this-week/">sailing this week</a>.
+                The lowest fare still on sale for the next few departures.
               </p>
             </div>
             <ul className="tr-soon">
-              {soon.map((s) => (
+              {soon.slice(0, 6).map((s) => (
                 <li key={s.ship + s.itin + s.sail}>
                   <p className="tr-soon-date">{withDow(s.sail)}</p>
                   <p className="tr-soon-title">{s.itin}</p>
@@ -558,16 +563,17 @@ export default function TrendsView({ data }) {
                   <p className="tr-soon-price">
                     from <b>{money(s.price)}</b> <span>{s.room}</span>
                   </p>
-                  <span className="tr-links">
-                    <a className="tr-ask" href={quoteHref({ ship: s.ship, cruise: s.nights + "-Night " + s.itin.replace(/^\d+-Night\s*/, ""), when: longDate(s.sail) })}>Ask Brent</a>
-                    <a className="tr-guide" href={guideLink(guides, s.ship, s.itin, s.sail)}>Free guide</a>
-                    {watchLink(guides, s.ship, s.itin, s.sail) && (
-                      <a className="tr-guide" href={watchLink(guides, s.ship, s.itin, s.sail)}>Watch price</a>
-                    )}
-                  </span>
+                  <RowLinks
+                    ask={quoteHref({ ship: s.ship, cruise: s.nights + "-Night " + s.itin.replace(/^\d+-Night\s*/, ""), when: longDate(s.sail) })}
+                    guide={guideLink(guides, s.ship, s.itin, s.sail)}
+                    watch={watchLink(guides, s.ship, s.itin, s.sail)}
+                  />
                 </li>
               ))}
             </ul>
+            <p className="tr-more">
+              <a className="btn btn-outline" href="/this-week/">See every sailing in the next 14 days</a>
+            </p>
           </div>
         </section>
       )}
@@ -630,73 +636,63 @@ export default function TrendsView({ data }) {
         </div>
       </section>
 
-      {/* By ship */}
+      {/* Reference: the ships, the daily chart, and how to read the page */}
       <section className="section section--muted">
         <div className="container">
-          <div className="section-head section-head--center">
-            <p className="eyebrow">Fleet snapshot</p>
-            <h2>The three ships today</h2>
-          </div>
-          <div className="tr-ships">
-            {SHIPS.map((s) => {
-              const b = byShip[s];
-              const c = b.cheapestInteriorPerNight;
-              return (
-                <article className="tr-shipcard" key={s}>
-                  <p className={"tr-ship tr-ship--" + s.toLowerCase()}>{s}</p>
-                  <h3>Sails from {b.port}</h3>
-                  <dl>
-                    <div><dt>Sailings priced</dt><dd>{b.sailings}</dd></div>
-                    <div><dt>Fares tracked</dt><dd>{b.fares}</dd></div>
-                    <div><dt>Median interior</dt><dd>{b.medianInterior ? money(b.medianInterior) : "n/a"}</dd></div>
-                  </dl>
-                  {c && (
-                    <p className="tr-shipcard-low">
-                      Lowest interior per night: <b>{money(c.perNight)}</b>, {c.itin}, {shortDate(c.sail)}
-                    </p>
-                  )}
-                </article>
-              );
-            })}
-          </div>
+          <details className="tr-fold">
+            <summary>
+              <span>More detail</span>
+              <small>The three ships today, daily price activity, and how to read this page</small>
+            </summary>
+            <div className="tr-fold-body">
+              <h3>The three ships today</h3>
+              <div className="tr-ships">
+                {SHIPS.map((sh) => {
+                  const b = byShip[sh];
+                  const c = b.cheapestInteriorPerNight;
+                  return (
+                    <article className="tr-shipcard" key={sh}>
+                      <p className={"tr-ship tr-ship--" + sh.toLowerCase()}>{sh}</p>
+                      <h3>Sails from {b.port}</h3>
+                      <dl>
+                        <div><dt>Sailings priced</dt><dd>{b.sailings}</dd></div>
+                        <div><dt>Fares tracked</dt><dd>{b.fares}</dd></div>
+                        <div><dt>Median interior</dt><dd>{b.medianInterior ? money(b.medianInterior) : "n/a"}</dd></div>
+                      </dl>
+                      {c && (
+                        <p className="tr-shipcard-low">
+                          Lowest interior per night: <b>{money(c.perNight)}</b>, {c.itin}, {shortDate(c.sail)}
+                        </p>
+                      )}
+                    </article>
+                  );
+                })}
+              </div>
+
+              <h3>Daily price activity</h3>
+              <p className="tr-note">
+                Since {longDate(meta.firstTracked)}: {totals.drops} drops and {totals.increases} increases recorded in the change log.
+              </p>
+              <div className="tr-chart-wrap">
+                <ActivityChart timeline={timeline} />
+                <p className="tr-legend">
+                  <span><i className="tr-key tr-key--down" /> Drops</span>
+                  <span><i className="tr-key tr-key--up" /> Increases</span>
+                  <span className="tr-legend-note">Last 30 days with changes. Days with no check show no bar.</span>
+                </p>
+              </div>
+
+              <h3>How to read this page</h3>
+              <ul className="tr-read-list">
+                <li><b>Prices are per person, double occupancy,</b> with taxes and fees included, at the sale price shown on the cruise line&apos;s booking site.</li>
+                <li><b>A drop is not always a bargain.</b> Cabins sell out, and a fare that rose last week may still be below where it will be next month.</li>
+                <li><b>Group rates and special offers are not shown here.</b> They can be lower. Ask for a quote on any sailing.</li>
+                <li><b>This is an independent tracker,</b> not the cruise line, and fares can change at any time. Check the final price before you book.</li>
+              </ul>
+            </div>
+          </details>
         </div>
       </section>
-
-      {/* Activity */}
-      <section className="section">
-        <div className="container">
-          <div className="section-head section-head--center">
-            <p className="eyebrow">Since {longDate(meta.firstTracked)}</p>
-            <h2>Daily price activity</h2>
-            <p className="section-lede">
-              {totals.drops} drops and {totals.increases} increases recorded in the change log.
-            </p>
-          </div>
-          <div className="tr-chart-wrap">
-            <ActivityChart timeline={timeline} />
-            <p className="tr-legend">
-              <span><i className="tr-key tr-key--down" /> Drops</span>
-              <span><i className="tr-key tr-key--up" /> Increases</span>
-              <span className="tr-legend-note">Last 30 days with changes. Days with no check show no bar.</span>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Reading it right */}
-      <section className="section section--muted">
-        <div className="container tr-read">
-          <h2>How to read this page</h2>
-          <ul>
-            <li><b>Prices are per person, double occupancy,</b> with taxes and fees included, at the sale price shown on the cruise line&apos;s booking site.</li>
-            <li><b>A drop is not always a bargain.</b> Cabins sell out, and a fare that rose last week may still be below where it will be next month.</li>
-            <li><b>Group rates and special offers are not shown here.</b> They can be lower. Ask for a quote on any sailing.</li>
-            <li><b>This is an independent tracker,</b> not the cruise line, and fares can change at any time. Check the final price before you book.</li>
-          </ul>
-        </div>
-      </section>
-
-      {DIGEST_ENABLED && <DigestSignup where="bottom" />}
 
       <section className="cta">
         <div className="container cta-inner">
