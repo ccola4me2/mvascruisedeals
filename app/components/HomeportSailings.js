@@ -68,6 +68,7 @@ export default function HomeportSailings({ city, ship, groupRates }) {
   if (rows.length === 0) return null;
 
   const priced = rows.map((r) => lowest.get(r.it.id + "|" + r.date) || (groupRates && groupRates[r.date])).filter(Boolean);
+  const tracked = rows.some((r) => lowest.get(r.it.id + "|" + r.date));
   const cheapest = priced.length ? Math.min(...priced.map((p) => p.price)) : null;
   const first = rows.slice(0, FIRST);
   const rest = rows.slice(FIRST);
@@ -83,8 +84,11 @@ export default function HomeportSailings({ city, ship, groupRates }) {
           <p className="section-lede">
             {rows.length} {rows.length === 1 ? "sailing" : "sailings"}
             {cheapest !== null
-              ? ", with fares as low as " + money(cheapest) + " per person. Tap a sailing for its ports, the price history, and a free price alert."
-              : ". Tap a sailing for its ports, or ask me for the fare."}
+              ? ", with fares as low as " + money(cheapest) + " per person."
+              : "."}{" "}
+            {tracked
+              ? "Tap a sailing for its ports, the price history, and a free price alert."
+              : "Fares for these dates are not in the daily price check yet. Tap a sailing for its ports, or ask me for the fare."}
           </p>
         </div>
         <ul className="hs-list">
