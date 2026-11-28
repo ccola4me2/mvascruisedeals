@@ -6388,3 +6388,37 @@ img {
   .quote-band-inner { padding: 22px 16px; }
   .quote-band-actions .btn { flex: 1 1 100%; text-align: center; }
 }
+
+/* Main menu: small headings inside a dropdown, and their phone-menu twin */
+.nav-menu-label {
+  margin: 8px 12px 2px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ocean);
+}
+.mobile-subhead {
+  margin: 10px 0 0 14px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+/* Sailing this week page */
+.tw-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0 0 24px; }
+.tw-stat { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+.tw-stat b { display: block; font-family: var(--font-display-stack); font-size: 1.6rem; color: var(--navy); line-height: 1.1; }
+.tw-stat span { font-size: 0.82rem; color: var(--slate); }
+.tw-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.tw-list li { padding: 16px 18px; background: #fff; border: 1px solid var(--line); border-radius: 14px; display: flex; flex-direction: column; gap: 4px; }
+.tw-list p { margin: 0; }
+.tw-ports { font-size: 0.82rem; color: var(--slate); }
+.tw-pn { font-size: 0.82rem; color: var(--slate); }
+.tw-soon-tag { display: inline-block; align-self: flex-start; font-size: 0.72rem; font-weight: 700; color: #8a3a1f; background: #fdeee7; border-radius: 999px; padding: 2px 9px; }
+.tw-list .tr-links { margin-top: auto; padding-top: 8px; }
+.tw-fine { font-size: 0.8rem; color: var(--slate); margin: 18px 0 0; line-height: 1.5; }
+.tw-empty { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+@media (max-width: 640px) { .tw-stats { grid-template-columns: 1fr; } }

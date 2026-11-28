@@ -517,7 +517,10 @@ export default function TrendsView({ data }) {
             <div className="section-head section-head--center">
               <p className="eyebrow">Leaving in the next 30 days</p>
               <h2>Sailing soon</h2>
-              <p className="section-lede">The lowest fare still on sale for each departure coming up.</p>
+              <p className="section-lede">
+                The lowest fare still on sale for each departure coming up. Want only the next two weeks, sorted by
+                price per night? See <a href="/this-week/">sailing this week</a>.
+              </p>
             </div>
             <ul className="tr-soon">
               {soon.map((s) => (

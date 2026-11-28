@@ -6,37 +6,35 @@ import { CONTACT } from "../lib/quote";
 
 const NAV = [
   { href: "/deals", label: "Cruise Deals" },
-  { href: "/sailings", label: "All Sailings" },
   {
-    label: "Cruises From",
+    href: "/sailings",
+    label: "Find a Cruise",
+    allLabel: "All sailings",
     children: [
-      { href: "/palm-beach-cruises", label: "Palm Beach" },
-      { href: "/tampa-cruises", label: "Tampa" },
+      { href: "/cruises", label: "Destinations" },
+      { heading: "Departure port" },
       { href: "/miami-cruises", label: "Miami" },
+      { href: "/tampa-cruises", label: "Tampa" },
+      { href: "/palm-beach-cruises", label: "Palm Beach" },
       { href: "/galveston-cruises", label: "Galveston" },
-    ],
-  },
-  { href: "/cruises", label: "Destinations" },
-  {
-    href: "/ships",
-    label: "Ships",
-    children: [
+      { heading: "Ship" },
       { href: "/ships/paradise", label: "Paradise" },
       { href: "/ships/islander", label: "Islander" },
       { href: "/ships/beachcomber", label: "Beachcomber" },
     ],
   },
-  { href: "/group-rates", label: "Group Rates" },
   {
     href: "/trends",
     label: "Price Trends",
     children: [
+      { href: "/this-week", label: "Sailing this week" },
       { href: "/trends/#week", label: "Past 7 days" },
       { href: "/trends/#sailing-soon", label: "Sailing soon" },
       { href: "/trends/#price-watch", label: "Price watch" },
       { href: "/trends/#lowest-per-night", label: "Lowest price per night" },
     ],
   },
+  { href: "/group-rates", label: "Group Rates" },
   { href: "/plan", label: "Free Guide" },
   {
     label: "About",
@@ -101,11 +99,17 @@ export default function Navbar() {
                   </button>
                 )}
                 <div className="nav-menu">
-                  {item.children.map((c) => (
-                    <Link key={c.href} href={c.href}>
-                      {c.label}
-                    </Link>
-                  ))}
+                  {item.children.map((c) =>
+                    c.heading ? (
+                      <span className="nav-menu-label" key={c.heading}>
+                        {c.heading}
+                      </span>
+                    ) : (
+                      <Link key={c.href} href={c.href}>
+                        {c.label}
+                      </Link>
+                    )
+                  )}
                 </div>
               </div>
             ) : (
@@ -160,19 +164,25 @@ export default function Navbar() {
                     className="mobile-sub"
                     onClick={close}
                   >
-                    All {item.label.toLowerCase()}
+                    {item.allLabel || "All " + item.label.toLowerCase()}
                   </Link>
                 )}
-                {item.children.map((c) => (
-                  <Link
-                    key={c.href}
-                    href={c.href}
-                    className="mobile-sub"
-                    onClick={close}
-                  >
-                    {c.label}
-                  </Link>
-                ))}
+                {item.children.map((c) =>
+                  c.heading ? (
+                    <p className="mobile-subhead" key={c.heading}>
+                      {c.heading}
+                    </p>
+                  ) : (
+                    <Link
+                      key={c.href}
+                      href={c.href}
+                      className="mobile-sub"
+                      onClick={close}
+                    >
+                      {c.label}
+                    </Link>
+                  )
+                )}
               </div>
             ) : (
               <Link key={item.href} href={item.href} onClick={close}>
