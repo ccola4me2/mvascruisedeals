@@ -407,7 +407,7 @@ export default function TrendsView({ data }) {
               Per person, double occupancy. Public fares are today&apos;s sale price on the cruise line&apos;s booking
               site.
               {dealStrip.some((d) => d.grat > 0) &&
-                " Where my rate includes gratuities, the public fare shown has them added at an estimated $" +
+                " Where my rate includes gratuities, the public fare shown has them added at $" +
                   GRATUITY_PP_NIGHT +
                   " per person, per night."}{" "}
               Rates and availability can change, so ask me to confirm before you book.
