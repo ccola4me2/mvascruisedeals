@@ -2,15 +2,16 @@ import Link from "next/link";
 import Image from "next/image";
 import HomeportFaqs from "../components/HomeportFaqs";
 import GuideCta from "../components/GuideCta";
+import HomeportSailings from "../components/HomeportSailings";
 
 const faqs = [
   {
     q: "Which ship sails from Tampa?",
-    a: "Margaritaville at Sea Islander, on 4 to 10-night Western and Southern Caribbean and Mexico itineraries from Port Tampa Bay.",
+    a: "Margaritaville at Sea Islander, on 4 to 10-night cruises from Port Tampa Bay to Mexico, Key West, the Bahamas, and the Western and Southern Caribbean.",
   },
   {
     q: "Where does Islander sail from Tampa?",
-    a: "Cozumel, Progreso, Key West, Grand Cayman, Belize, Roatan, and Jamaica (Ocho Rios and Montego Bay), plus Aruba and Curacao on the longer Southern Caribbean sailings.",
+    a: "Cozumel and Progreso in Mexico, Key West, Nassau, Grand Bahama, and Bimini, Grand Cayman, Belize, Roatan, and Jamaica (Ocho Rios and Montego Bay), and New Orleans on some sailings, plus Aruba, Curacao, and Central America on the longest cruises. The exact ports for each date are listed above.",
   },
   {
     q: "What's the shortest cruise from Tampa?",
@@ -21,7 +22,7 @@ const faqs = [
 export const metadata = {
   title: "Caribbean Cruises from Tampa",
   description:
-    "Sail Margaritaville at Sea from Port Tampa Bay. The Islander cruises 4 to 10-night Western and Southern Caribbean itineraries to Cozumel, Grand Cayman, Aruba, and more. Best fares and group rates from MVAS Cruise Deals.",
+    "Every Margaritaville at Sea sailing from Port Tampa Bay aboard the Islander, with dates, ports, and the lowest fare from the daily price check. 4 to 10-night cruises to Mexico, Key West, the Bahamas, and the Western and Southern Caribbean.",
   alternates: { canonical: "/tampa-cruises/" },
 };
 
@@ -34,20 +35,23 @@ export default function TampaCruisesPage() {
           <h1>Caribbean Cruises from Tampa</h1>
           <p className="page-lede">
             Sailing from Florida&apos;s Gulf Coast? Margaritaville at Sea Islander
-            departs Port Tampa Bay for the Western and Southern Caribbean. We
-            find you the best fare and group rate and take care of everything
-            from quote to gangway.
+            departs Port Tampa Bay for Mexico, Key West, the Bahamas, and the
+            Western and Southern Caribbean. Below is every date, with the lowest
+            fare from the daily price check. I find you the best fare and group
+            rate and take care of everything from quote to gangway.
           </p>
           <div className="hero-actions">
             <Link href="/contact" className="btn btn-primary btn-lg">
               Get a Free Quote
             </Link>
-            <Link href="/deals" className="btn btn-outline btn-lg">
-              See Current Deals
+            <Link href="#sailings" className="btn btn-outline btn-lg">
+              See Every Tampa Sailing
             </Link>
           </div>
         </div>
       </section>
+
+      <HomeportSailings city="Tampa" ship="Islander" />
 
       <section className="section">
         <div className="container">
@@ -67,23 +71,29 @@ export default function TampaCruisesPage() {
               <p>
                 The feature-packed Islander sails 4 to 10-night Caribbean
                 itineraries right out of Port Tampa Bay, calling on Cozumel,
-                Grand Cayman, Key West, Roatan, Jamaica, and the Southern
-                Caribbean. More than a dozen dining venues, bars, and kids&apos;
+                Progreso, Key West, the Bahamas, Grand Cayman, Roatan, Jamaica,
+                and the Southern Caribbean. More than a dozen dining venues, bars, and kids&apos;
                 clubs make the ship as much fun as the destinations.
               </p>
               <ul className="citypage-facts">
                 <li>
-                  <span>Homeport</span>Port Tampa Bay, FL
+                  <span>Homeport</span>Terminal 6, Port Tampa Bay (1333 McKay
+                  Street)
                 </li>
                 <li>
-                  <span>Ports</span>Cozumel, Grand Cayman, Aruba, and more
+                  <span>Ports</span>Cozumel, Key West, Nassau, Grand Cayman,
+                  Aruba, and more
+                </li>
+                <li>
+                  <span>Boarding</span>The terminal opens at 9:30 am and doors
+                  close promptly at 2:30 pm
                 </li>
                 <li>
                   <span>Good for</span>Longer Caribbean getaways and groups
                 </li>
               </ul>
               <div className="group-feature-actions">
-                <Link href="/deals" className="btn btn-primary">
+                <Link href="#sailings" className="btn btn-primary">
                   Tampa Sailings
                 </Link>
                 <Link href="/#fleet" className="btn btn-outline">

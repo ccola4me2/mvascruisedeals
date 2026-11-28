@@ -23,8 +23,9 @@ data.fares.forEach(([ship, itin, sail, room, price]) => {
   if (!cur || price < cur.price) lowest.set(k, { room, price });
 });
 
-function Row({ r }) {
-  const p = lowest.get(r.it.id + "|" + r.date);
+function Row({ r, groupRates }) {
+  const gr = groupRates ? groupRates[r.date] : null;
+  const p = lowest.get(r.it.id + "|" + r.date) || gr;
   return (
     <li className="hs-row">
       <div className="hs-date">
@@ -36,6 +37,7 @@ function Row({ r }) {
       <div className="hs-trip">
         <Link href={sailingPath(r.it)}>{tripTitle(r.it)}</Link>
         {r.it.note ? <span className="hs-note">{r.it.note}</span> : null}
+        {gr && !lowest.get(r.it.id + "|" + r.date) ? <span className="hs-note">{gr.note}</span> : null}
         <p>{uniquePorts(r.it).join(", ")}</p>
       </div>
       <div className="hs-price">
@@ -55,7 +57,9 @@ function Row({ r }) {
   );
 }
 
-export default function HomeportSailings({ city, ship }) {
+// groupRates: optional { "YYYY-MM-DD": { price, room, note } } for a sailing the daily check does not
+// cover but that has a published group rate on this site.
+export default function HomeportSailings({ city, ship, groupRates }) {
   const today = todayISO();
   const rows = itineraries
     .filter((it) => cityOf(it.frm) === city)
@@ -63,7 +67,7 @@ export default function HomeportSailings({ city, ship }) {
     .sort((a, b) => a.date.localeCompare(b.date) || a.it.nights - b.it.nights);
   if (rows.length === 0) return null;
 
-  const priced = rows.map((r) => lowest.get(r.it.id + "|" + r.date)).filter(Boolean);
+  const priced = rows.map((r) => lowest.get(r.it.id + "|" + r.date) || (groupRates && groupRates[r.date])).filter(Boolean);
   const cheapest = priced.length ? Math.min(...priced.map((p) => p.price)) : null;
   const first = rows.slice(0, FIRST);
   const rest = rows.slice(FIRST);
@@ -78,13 +82,14 @@ export default function HomeportSailings({ city, ship }) {
           </h2>
           <p className="section-lede">
             {rows.length} {rows.length === 1 ? "sailing" : "sailings"}
-            {cheapest !== null ? ", with fares as low as " + money(cheapest) + " per person" : ""}. Tap a sailing for its
-            ports, the price history, and a free price alert.
+            {cheapest !== null
+              ? ", with fares as low as " + money(cheapest) + " per person. Tap a sailing for its ports, the price history, and a free price alert."
+              : ". Tap a sailing for its ports, or ask me for the fare."}
           </p>
         </div>
         <ul className="hs-list">
           {first.map((r) => (
-            <Row key={r.it.id + r.date} r={r} />
+            <Row key={r.it.id + r.date} r={r} groupRates={groupRates} />
           ))}
         </ul>
         {rest.length > 0 && (
@@ -92,7 +97,7 @@ export default function HomeportSailings({ city, ship }) {
             <summary>Show the other {rest.length} sailings</summary>
             <ul className="hs-list">
               {rest.map((r) => (
-                <Row key={r.it.id + r.date} r={r} />
+                <Row key={r.it.id + r.date} r={r} groupRates={groupRates} />
               ))}
             </ul>
           </details>

@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import HomeportFaqs from "../components/HomeportFaqs";
 import GuideCta from "../components/GuideCta";
+import HomeportSailings from "../components/HomeportSailings";
+import { featuredDeals } from "../data/featuredDeals";
 import { sailings } from "../data/sailings";
 import { quoteHref } from "../lib/quote";
 
@@ -33,6 +35,21 @@ const nightsLabel =
   Math.min(...nights) === Math.max(...nights)
     ? `${nights[0]} nights`
     : `${Math.min(...nights)} to ${Math.max(...nights)} nights`;
+
+// A published group rate on a Galveston sailing (the daily price check does not cover 2027 and
+// later yet), so the dated list below can show it instead of "Ask for the fare".
+const groupRates = {};
+featuredDeals
+  .filter((d) => d.landing && d.landing.homeport === "Galveston, TX" && d.landing.group)
+  .forEach((d) => {
+    const interior = (d.cabins || []).find((c) => c.type === "Interior");
+    if (!interior) return;
+    groupRates[d.landing.departs] = {
+      price: Number(interior.price.replace(/[$,]/g, "")),
+      room: "Interior",
+      note: "Group rate" + ((d.includes || []).includes("Gratuities") ? ", gratuities included" : ""),
+    };
+  });
 
 const faqs = [
   {
@@ -207,6 +224,8 @@ export default function GalvestonCruisesPage() {
           </div>
         </div>
       </section>
+
+      <HomeportSailings city="Galveston" ship="Beachcomber" groupRates={groupRates} />
 
       <HomeportFaqs port="Galveston" faqs={faqs} />
 

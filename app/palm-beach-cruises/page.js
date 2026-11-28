@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import HomeportFaqs from "../components/HomeportFaqs";
 import GuideCta from "../components/GuideCta";
+import HomeportSailings from "../components/HomeportSailings";
 
 const faqs = [
   {
@@ -14,14 +15,14 @@ const faqs = [
   },
   {
     q: "Where does Paradise sail?",
-    a: "Nassau, Grand Bahama, and Bimini on the short sailings, plus Key West, Puerto Plata, Amber Cove, and Grand Turk on the 4 and 5-night itineraries.",
+    a: "Nassau, Grand Bahama, and Bimini on the short sailings, plus Key West, Puerto Plata, Amber Cove, Grand Turk, and Cozumel on the 4 and 5-night itineraries. The exact ports for each date are listed above.",
   },
 ];
 
 export const metadata = {
   title: "Bahamas Cruises from Palm Beach",
   description:
-    "Sail Margaritaville at Sea from the Port of Palm Beach, FL. The Paradise ship cruises to Nassau, Key West, and Cozumel. Get the best fares and group rates from MVAS Cruise Deals.",
+    "Every Margaritaville at Sea sailing from the Port of Palm Beach, FL aboard Paradise, with dates, ports, and the lowest fare from the daily price check. 2 to 5-night getaways to Nassau, Grand Bahama, Key West, and more.",
   alternates: { canonical: "/palm-beach-cruises/" },
 };
 
@@ -34,20 +35,22 @@ export default function PalmBeachCruisesPage() {
           <h1>Bahamas Cruises from Palm Beach</h1>
           <p className="page-lede">
             Live close to South Florida? The easiest island escape leaves right
-            from the Port of Palm Beach aboard Margaritaville at Sea Paradise. We
-            find you the best fare and handle every detail, so you just show up
-            and go your own wave.
+            from the Port of Palm Beach aboard Margaritaville at Sea Paradise. Below is every date, with the
+            lowest fare from the daily price check. I find you the best fare and
+            handle every detail, so you just show up and go your own wave.
           </p>
           <div className="hero-actions">
             <Link href="/contact" className="btn btn-primary btn-lg">
               Get a Free Quote
             </Link>
-            <Link href="/deals" className="btn btn-outline btn-lg">
-              See Current Deals
+            <Link href="#sailings" className="btn btn-outline btn-lg">
+              See Every Palm Beach Sailing
             </Link>
           </div>
         </div>
       </section>
+
+      <HomeportSailings city="Palm Beach" ship="Paradise" />
 
       <section className="section">
         <div className="container">
@@ -66,23 +69,30 @@ export default function PalmBeachCruisesPage() {
               <h2>Margaritaville at Sea Paradise</h2>
               <p>
                 Paradise is the easy-breezy resort at sea, sailing right out of
-                the Port of Palm Beach to Nassau in The Bahamas and Key West,
-                and starting summer 2026, to Cozumel, Mexico. Short, affordable
-                getaways with island-time vibes the moment you step aboard.
+                the Port of Palm Beach on 2 to 5-night getaways to Nassau and
+                Grand Bahama in The Bahamas, Key West, the Dominican Republic,
+                Grand Turk, and Cozumel, Mexico. Short, affordable getaways with
+                island-time vibes the moment you step aboard.
               </p>
               <ul className="citypage-facts">
                 <li>
-                  <span>Homeport</span>Port of Palm Beach, FL
+                  <span>Homeport</span>Port of Palm Beach (1 East 11th Street,
+                  Riviera Beach)
                 </li>
                 <li>
-                  <span>Ports</span>Nassau, Key West, Cozumel
+                  <span>Ports</span>Nassau, Grand Bahama, Key West, Cozumel, and
+                  more
+                </li>
+                <li>
+                  <span>Boarding</span>The port opens at 9:30 am and doors close
+                  promptly at 3:00 pm
                 </li>
                 <li>
                   <span>Good for</span>Quick weekend escapes and first-timers
                 </li>
               </ul>
               <div className="group-feature-actions">
-                <Link href="/deals" className="btn btn-primary">
+                <Link href="#sailings" className="btn btn-primary">
                   Palm Beach Sailings
                 </Link>
                 <Link href="/#fleet" className="btn btn-outline">
