@@ -41,9 +41,15 @@ const DEALS = featuredDeals
     }
     const nights = parseInt(d.nights, 10) || 0;
     const grat = (d.includes || []).includes("Gratuities") ? GRATUITY_PP_NIGHT * nights : 0;
+    // The onboard credit is per cabin on group and compare deals (the same rule the deal
+    // card uses), so it is shown per person for two sharing, next to the saving, not added to it.
+    const perCabin = Boolean(d.landing.group || (d.compare && d.compare.rows.length > 1));
+    const creditAmt = d.onboardCredit ? num(d.onboardCredit) : 0;
+    const credit = creditAmt ? { amount: creditAmt, perCabin, pp: perCabin ? creditAmt / 2 : creditAmt } : null;
     return {
       ship: SHIPS.find((s) => d.ship.endsWith(s)),
       grat,
+      credit,
       sail: d.landing.departs,
       slug: d.landing.slug,
       title: d.title,
@@ -395,6 +401,11 @@ export default function TrendsView({ data }) {
                         <li key={b.room}>
                           <b>{b.room}</b> my rate {money(b.brent)} vs public {money(b.pub)}
                           <span className="tr-deals-save">save {money(b.save)} per person</span>
+                          {d.credit && (
+                            <span className="tr-deals-save tr-deals-credit">
+                              + {money(d.credit.pp)} onboard credit{d.credit.perCabin ? " (" + money(d.credit.amount) + " per cabin)" : ""}
+                            </span>
+                          )}
                         </li>
                       ))}
                     </ul>

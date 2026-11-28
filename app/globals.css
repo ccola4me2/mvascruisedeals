@@ -6422,3 +6422,5 @@ img {
 .tw-fine { font-size: 0.8rem; color: var(--slate); margin: 18px 0 0; line-height: 1.5; }
 .tw-empty { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
 @media (max-width: 640px) { .tw-stats { grid-template-columns: 1fr; } }
+
+.tr-deals-credit { background: #fff4d6; color: #7a5200; margin-left: 6px; }
