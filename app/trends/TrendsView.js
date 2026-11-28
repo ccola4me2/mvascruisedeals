@@ -22,6 +22,10 @@ const DOWS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 // total for two is halved; a deal that is not cheaper in a cabin is not tagged
 // for that cabin, so the tag always means a saving you can point to.
 const num = (str) => Number(String(str).replace(/[$,]/g, ""));
+// The tracker's public fare has taxes and fees but not gratuities. When a deal's rate
+// includes gratuities, the public fare it is compared with gets them added first, at the
+// cruise line's per person, per night rate, so both sides cover the same things.
+const GRATUITY_PP_NIGHT = 22;
 const roomName = (t) => (/^ocean/i.test(t) ? "Ocean View" : t);
 const DEALS = featuredDeals
   .filter((d) => d.landing)
@@ -35,8 +39,11 @@ const DEALS = featuredDeals
         rates[roomName(r.cabin)] = Math.round((num(r.ours) / 2) * 100) / 100;
       });
     }
+    const nights = parseInt(d.nights, 10) || 0;
+    const grat = (d.includes || []).includes("Gratuities") ? GRATUITY_PP_NIGHT * nights : 0;
     return {
       ship: SHIPS.find((s) => d.ship.endsWith(s)),
+      grat,
       sail: d.landing.departs,
       slug: d.landing.slug,
       title: d.title,
@@ -50,8 +57,9 @@ function betterRooms(deal, fares) {
   const out = [];
   Object.keys(deal.rates).forEach((room) => {
     const pub = fares.find((f) => f[0] === deal.ship && f[2] === deal.sail && f[3] === room);
-    if (pub && deal.rates[room] < pub[4]) {
-      out.push({ room, brent: deal.rates[room], pub: pub[4], save: Math.round((pub[4] - deal.rates[room]) * 100) / 100 });
+    const pubAll = pub ? pub[4] + deal.grat : 0;
+    if (pub && deal.rates[room] < pubAll) {
+      out.push({ room, brent: deal.rates[room], pub: pubAll, save: Math.round((pubAll - deal.rates[room]) * 100) / 100 });
     }
   });
   return out;
@@ -397,7 +405,12 @@ export default function TrendsView({ data }) {
             </ul>
             <p className="tr-deals-note">
               Per person, double occupancy. Public fares are today&apos;s sale price on the cruise line&apos;s booking
-              site. Rates and availability can change, so ask me to confirm before you book.
+              site.
+              {dealStrip.some((d) => d.grat > 0) &&
+                " Where my rate includes gratuities, the public fare shown has them added at an estimated $" +
+                  GRATUITY_PP_NIGHT +
+                  " per person, per night."}{" "}
+              Rates and availability can change, so ask me to confirm before you book.
             </p>
           </div>
         </section>
