@@ -552,7 +552,7 @@ export default function TrendsView({ data }) {
               </p>
             </div>
             <ul className="tr-soon">
-              {soon.slice(0, 6).map((s) => (
+              {soon.slice(0, 5).map((s) => (
                 <li key={s.ship + s.itin + s.sail}>
                   <p className="tr-soon-date">{withDow(s.sail)}</p>
                   <p className="tr-soon-title">{s.itin}</p>
